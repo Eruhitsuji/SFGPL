@@ -1,0 +1,37 @@
+# Interrogative Sentence
+
+[TOP](../../readme.md)
+/
+[JP](../jp/interrogativeSentence.md)
+
+Use ```{phrase_interrogative}``` to create interrogative sentences.
+When this word is added to a sentence, it becomes a interrogative sentence.
+"You have a table." is ```{you_have_a_table}``` under the SFGPL.
+To make it mean "Do you have a table?", it can be expressed as follows in the SFGPL.
+
+```SFGPL
+{do_you_have_a_table}
+```
+
+In the case of interrogative sentences containing interrogatives, the indefinite is expressed by replacing the indefinite with an interrogative.
+
+"Who has a table?" is expressed as follows.
+
+```SFGPL
+{who_has_a_table}
+```
+
+"What do you have?" is expressed as follows.
+
+```SFGPL
+{what_do_you_have}
+```
+
+## Wordbook
+
+|English|SFGPL|
+|:-:|:-:|
+|you|{you}|
+|table|{table}|
+|who|{who}|
+|what|{what}|
