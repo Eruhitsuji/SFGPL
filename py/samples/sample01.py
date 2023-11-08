@@ -1345,9 +1345,34 @@ sc.setCorpus(
     "I have this table is colored like the sea."
 )
 
+sub_sentence_08=lambda x=(lambda x:x):Noun.give(Pronoun.I(),x(Verb("lend")),DeterminerN.male(Pronoun.he()),sub_sentence_07)
+
 sc.setCorpus(
-    Noun.give(Pronoun.I(),Verb("lend"),DeterminerN.male(Pronoun.he()),sub_sentence_07),
+    sub_sentence_08(),
     "I lend this my table is colored like the sea to him."
+)
+
+sc.setCorpus(
+    sub_sentence_08(lambda x:Verb.add(x,Modifier("will"))),
+    "I will lend this my table is colored like the sea to him."
+)
+
+sc.setCorpus(
+    Phrase.past(sub_sentence_08()),
+    "I lent this my table is colored like the sea to him."
+)
+
+sub_sentence_09=Noun.give(DeterminerN.male(Pronoun.he()),Verb("say"),Pronoun.I(),Noun.doT(Pronoun.I(),Verb("want"),Noun.eq(Pronoun.proximal(),Verb.none(),DeterminerN.stressed(Noun("table")))))
+
+sc.setCorpus(
+    sub_sentence_09,
+    "He say me I want this table."
+)
+
+sc.setCorpus(
+    Noun.IF(sub_sentence_09,sub_sentence_08(lambda x:Verb.add(x,Modifier("will")))),
+    "If he say me I want this table, I will lend this my table is colored like the sea to him.",
+    md_out_path=OUT_DIR+"sample01_01.md"
 )
 
 tmp_str=sc.toStringSFGPL(opt_str="\n")
