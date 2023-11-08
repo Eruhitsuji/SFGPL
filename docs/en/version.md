@@ -12,3 +12,12 @@ SFGPL.__version__.__version__
 ```
 
 In addition, the version of the corpus at the time it was executed is listed in the JSON file of the corpus output by ```SFGPL.SFGPLCorpus.saveJson```.
+
+## Version update details
+
+|Version|Update contents|
+|:-:|:-:|
+|1.0.0|Official Release|
+|1.0.1|Add or modify example sentences|
+|1.0.2|Add or modify example sentences|
+|1.0.3|Addition of details of updates per version|
