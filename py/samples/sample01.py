@@ -1362,16 +1362,28 @@ sc.setCorpus(
     "I lent this my table is colored like the sea to him."
 )
 
-sub_sentence_09=Noun.give(DeterminerN.male(Pronoun.he()),Verb("say"),Pronoun.I(),Noun.doT(Pronoun.I(),Verb("want"),Noun.eq(Pronoun.proximal(),Verb.none(),DeterminerN.stressed(Noun("table")))))
+sub_sentence_08_will=sub_sentence_08(lambda x:Verb.add(x,Modifier("will")))
+
+sc.setCorpus(
+    Phrase.past(sub_sentence_08_will),
+    "I will lent this my table is colored like the sea to him."
+)
+
+sub_sentence_09=Noun.give(Noun.do(DeterminerN.male(Pronoun.he()),Verb.add(Verb("live"),Modifier.N2M(DeterminerN.place(Noun("Tokyo"))))),Verb("say"),Pronoun.I(),Noun.doT(Pronoun.I(),Verb("want"),Noun.eq(Pronoun.proximal(),Verb.none(),DeterminerN.stressed(Noun("table")))))
 
 sc.setCorpus(
     sub_sentence_09,
-    "He say me I want this table."
+    "He who live in Tokyo say me I want this table."
 )
 
 sc.setCorpus(
-    Noun.IF(sub_sentence_09,sub_sentence_08(lambda x:Verb.add(x,Modifier("will")))),
-    "If he say me I want this table, I will lend this my table is colored like the sea to him.",
+    Noun.IF(sub_sentence_09,sub_sentence_08_will),
+    "If he who live in Tokyo say me I want this table, I will lend this my table is colored like the sea to him.",
+)
+
+sc.setCorpus(
+    Noun.IF(Phrase.past(sub_sentence_09),Phrase.past(sub_sentence_08_will)),
+    "If he who live in Tokyo said me I want this table, I would lend this my table is colored like the sea to him.",
     md_out_path=OUT_DIR+"sample01_01.md"
 )
 
