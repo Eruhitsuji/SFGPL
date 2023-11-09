@@ -21,3 +21,4 @@ In addition, the version of the corpus at the time it was executed is listed in 
 |1.0.1|Add or modify example sentences|
 |1.0.2|Add or modify example sentences|
 |1.0.3|Addition of details of updates per version|
+|1.1.0|Added details on how to use SFGPL in Python|

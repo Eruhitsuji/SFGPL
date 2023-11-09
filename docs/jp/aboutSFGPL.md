@@ -124,4 +124,4 @@ SFGPLの文は，Pythonオブジェクトに書き換えることができる．
 このプロジェクトは，SFGPLが定義されているファイルが含まれている．
 PythonでSFGPLを使用するためには，[SFGPL.py](../../SFGPL/SFGPL.py)をインポートすることで使用することができる．
 使用例は[samples](../../py/samples)のPythonファイルに記載されている．
-また，pipによるSFGPLライブラリのインストール，アンインストール方法は，[How2InstallAndUninstall.ipynb](../../How2InstallAndUninstall.ipynb)に記載されている．
+また，PythonでのSFGPLライブラリの詳細な実行方法は，[How_to_Use_SFGPL_in_Python.ipynb](../../How_to_Use_SFGPL_in_Python.ipynb)に記載されている．

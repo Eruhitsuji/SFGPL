@@ -125,4 +125,4 @@ SFGPL sentences can be rewritten into Python objects.
 This project contains a file in which the SFGPL is defined.
 To use the SFGPL in Python, use [SFGPL.py](../../SFGPL/SFGPL.py) can be used by importing it.
 Examples of use are [samples](../../py/samples) in the Python files.
-Also, to install and uninstall the SFGPL library by pip, use [How2InstallAndUninstall.ipynb](../../How2InstallAndUninstall.ipynb).
+Also, for detailed instructions on how to run the SFGPL library in Python, see [How_to_Use_SFGPL_in_Python.ipynb](../../How_to_Use_SFGPL_in_Python.ipynb).
