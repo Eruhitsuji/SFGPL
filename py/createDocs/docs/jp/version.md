@@ -23,3 +23,4 @@ SFGPL.__version__.__version__
 |1.0.3|バージョンごとの更新内容詳細の追加|
 |1.1.0|PythonでのSFGPLの使い方詳細を追加|
 |1.1.1|[How_to_Use_SFGPL_in_Python.ipynb](../../How_to_Use_SFGPL_in_Python.ipynb)の修正|
+|2.0.0|論理値に関するクラスを追加|

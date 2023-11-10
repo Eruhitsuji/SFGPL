@@ -17,6 +17,7 @@ However, I may be wrong because Japanese is my native language and English is tr
 - [Part of Speech Conversion](docs/en/partOfSpeechConversion.md)
 - [Conjunction](docs/en/Conjunction.md)
 - [DeterminerN](docs/en/DeterminerN.md)
+- [Bool related classes](docs/en/Bool.md)
 - [About version](docs/en/version.md)
 
 ## 目次
@@ -33,4 +34,5 @@ However, I may be wrong because Japanese is my native language and English is tr
 - [品詞変換](docs/jp/partOfSpeechConversion.md)
 - [接続詞](docs/jp/Conjunction.md)
 - [名詞限定詞](docs/jp/DeterminerN.md)
+- [Bool関連クラス](docs/jp/Bool.md)
 - [バージョンについて](docs/jp/version.md)

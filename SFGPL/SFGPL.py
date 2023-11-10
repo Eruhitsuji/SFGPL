@@ -16,6 +16,15 @@ SFGPL_VERSION=SFGPL.__version__.__version__
 RECURSION_LIMIT=5000
 sys.setrecursionlimit(RECURSION_LIMIT)
 
+#Class for error statements
+
+class SFGPLError():
+    ARG_STRING=lambda arg : "\n\t=> "+str(arg)
+
+    TYPE_ERROR_SYNTAX=lambda arg : "[Error 101] : "+"There are type error in SFGPL syntax"+SFGPLError.ARG_STRING(arg)
+    ARG_IS_WRONG=lambda arg : "[Error 102] : "+"Arg is wrong"+SFGPLError.ARG_STRING(arg)
+    BOOLLIST_FLOAT_ERROR=lambda arg : "[Error 103] : "+"The argument \"a\" of BoolList.Folat function must be of type BoolList and must have a length of 32"+SFGPLError.ARG_STRING(arg)
+
 
 #Class for generic SFGPL word
 class LangObj():
@@ -35,10 +44,11 @@ class LangObj():
 
     #Print type error in SFGPL syntax
     def printTypeError(arg):
-        print("Error : There are type error in SFGPL syntax => "+str(arg))
+        print(SFGPLError.TYPE_ERROR_SYNTAX(arg))
 
-    def __init__(self,arg):
+    def __init__(self,arg,bool_value=None):
         self._setWords([],arg)
+        self._bool_value=bool_value
 
     #Set and Objectification words
     def _setWords(self,new_obj_str,arg):
@@ -51,8 +61,7 @@ class LangObj():
             self.words=[new_obj_str,arg]
         else:
             self.words=None
-            print("Error : Arg is wrong")
-            print("\t",arg)
+            print(SFGPLError.ARG_IS_WRONG(arg))
 
     #Get the original word
     def getWords(self):
@@ -69,6 +78,9 @@ class LangObj():
             if(LangObj.KEY_LIST[key]["func"]==func_str):
                 return key
 
+    def getBool(self):
+        return self._bool_value
+
     #To Strings of SFGPL
     def __str__(self):
         strwords=[str(d) for d in self.words]
@@ -78,7 +90,8 @@ class LangObj():
         func_str="LangObj.NOT"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        return (type(a))(arg)
+        bool_value=Bool.defNOT(a.getBool())
+        return (type(a))(arg,bool_value=bool_value)
 
     def Because(a,b):
         func_str="LangObj.Because"
@@ -121,7 +134,8 @@ class LangObj():
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
         if(LangObj._checkTypeOf2obj(a,b)):
-            return (type(a))(arg)
+            bool_value=Bool.defAND(a.getBool(),b.getBool())
+            return (type(a))(arg,bool_value=bool_value)
         else:
             LangObj.printTypeError(arg)
 
@@ -130,7 +144,8 @@ class LangObj():
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
         if(LangObj._checkTypeOf2obj(a,b)):
-            return (type(a))(arg)
+            bool_value=Bool.defOR(a.getBool(),b.getBool())
+            return (type(a))(arg,bool_value=bool_value)
         else:
             LangObj.printTypeError(arg)
 
@@ -148,7 +163,8 @@ class LangObj():
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
         if(LangObj._checkTypeOf2obj(a,b)):
-            return (type(a))(arg)
+            bool_value=Bool.defNAND(a.getBool(),b.getBool())
+            return (type(a))(arg,bool_value=bool_value)
         else:
             LangObj.printTypeError(arg)
 
@@ -157,7 +173,8 @@ class LangObj():
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
         if(LangObj._checkTypeOf2obj(a,b)):
-            return (type(a))(arg)
+            bool_value=Bool.defNOR(a.getBool(),b.getBool())
+            return (type(a))(arg,bool_value=bool_value)
         else:
             LangObj.printTypeError(arg)
 
@@ -168,10 +185,11 @@ class Noun(LangObj):
     def _getSelfClass():
         return {"self":Noun,"self_name":"Noun","base":Noun}
     
-    def __init__(self,arg):
+    def __init__(self,arg,bool_value=None):
         func_str="Noun"
         key=LangObj._getKeyOfDict(func_str)
         self._setWords(key,arg)
+        self._bool_value=bool_value
         
     def V2N(a):
         func_str="Noun.V2N"
@@ -302,6 +320,10 @@ class Phrase(Noun):
     
     def _getSelfClass():
         return {"self":Phrase,"self_name":"Phrase","base":Noun}
+    
+    def __init__(self,arg,bool_value=None):
+        super().__init__(arg)
+        self._bool_value=bool_value
 
     def interrogative(a):
         func_str="Phrase.interrogative"
@@ -346,10 +368,11 @@ class Verb(LangObj):
     def _getSelfClass():
         return {"self":Verb,"self_name":"Verb","base":Verb}
     
-    def __init__(self,arg):
+    def __init__(self,arg,bool_value=None):
         func_str="Verb"
         key=LangObj._getKeyOfDict(func_str)
         self._setWords(key,arg)
+        self._bool_value=bool_value
         
     def M2V(a):
         func_str="Verb.M2V"
@@ -418,10 +441,11 @@ class Modifier(LangObj):
     def _getSelfClass():
         return {"self":Modifier,"self_name":"Modifier","base":Modifier}
     
-    def __init__(self,arg):
+    def __init__(self,arg,bool_value=None):
         func_str="Modifier"
         key=LangObj._getKeyOfDict(func_str)
         self._setWords(key,arg)
+        self._bool_value=bool_value
         
     def N2M(a):
         func_str="Modifier.N2M"
@@ -857,8 +881,9 @@ class Pronoun(Noun):
     def _getSelfClass():
         return {"self":Pronoun,"self_name":"Pronoun","base":Noun}
     
-    def __init__(self,arg):
+    def __init__(self,arg,bool_value=None):
         super().__init__(arg)
+        self._bool_value=bool_value
 
     def I():
         func_str="Pronoun.I"
@@ -988,6 +1013,254 @@ class WordM():
         arg=[key]
         return Modifier(arg)
     
+
+#Class for Bool in SFGPL
+class Bool(LangObj):
+    
+    def _getSelfClass():
+        return {"self":Bool,"self_name":"Bool","base":Bool}
+    
+    def __init__(self,arg,bool_value=None):
+        super().__init__(arg)
+        self._bool_value=bool_value
+
+    def defNAND(bool_a:bool,bool_b:bool):
+        if((not isinstance(bool_a,bool)) or (not isinstance(bool_b,bool))):
+            return None
+        elif(bool_a and bool_b):
+            return False
+        else:
+            return True
+
+    def defNOT(a:bool):
+        return Bool.defNAND(a,a)
+
+    def defAND(a:bool,b:bool):
+        return Bool.defNOT(Bool.defNAND(a,b))
+
+    def defOR(a:bool,b:bool):
+        return Bool.defNAND(Bool.defNOT(a),Bool.defNOT(b))
+
+    def defNOR(a:bool,b:bool):
+        return Bool.defNOT(Bool.defOR(a,b))
+
+
+    def false():
+        func_str="Bool.false"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key]
+        return Bool(arg,False)
+
+    def true():
+        func_str="Bool.true"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key]
+        return Bool(arg,True)
+
+    def B2N(a,b):
+        func_str="Bool.B2N"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+        if(isinstance(a,Noun) and isinstance(b,Bool)):
+            return Noun(arg,bool_value=b.getBool())
+        else:
+            LangObj.printTypeError(arg)
+        
+
+#Class for BoolList in SFGPL
+class BoolList(Noun):
+    CLASS_TYPE_NATURAL_NUM="NaturalNum"
+    CLASS_TYPE_INT="Int"
+    CLASS_TYPE_FLOAT="Float"
+    CLASS_TYPE_ASCII="ASCII"
+
+
+    def _getSelfClass():
+        return {"self":BoolList,"self_name":"BoolList","base":Noun}
+    
+    def __init__(self,arg=None,bool_list=[],bool_value=None,class_type=None):
+        func_str="BoolList"
+        key=LangObj._getKeyOfDict(func_str)
+
+        if(arg==None):
+            arg_tmp=[key]
+        else:
+            arg_tmp=arg            
+        self._setWords([],arg_tmp)
+        self._bool_value=bool_value
+        self.__class_type=class_type
+        self.__bool_list=bool_list
+
+    def boolLen(self):
+        return len(self.__bool_list)
+
+    def __boolList2NaturalInt(bl):
+        sum=0
+        for i in range(len(bl)):
+            sum+=(2**(len(bl)-1-i))*(1 if bl[i] else 0)
+        return sum
+
+    def getBoolList(self):
+        return self.__bool_list
+    
+    def getBinStr(self):
+        tmp_list=["1" if b else "0" for b in self.getBoolList()]
+        return "".join(tmp_list)
+    
+    def __getNaturalInt(self):
+        return BoolList.__boolList2NaturalInt(self.getBoolList())
+    
+    def __getInt(self):
+        tmp_bl=self.__bool_list[1:]
+        if(self.__bool_list[0]==False):
+            return BoolList.__boolList2NaturalInt(tmp_bl)
+        else:
+            new_tmp_bl=[not(b) for b in tmp_bl]
+            return -1*(BoolList.__boolList2NaturalInt(new_tmp_bl)+1)
+    
+    def __getFloat32(self):
+        bl=self.__bool_list
+        sign=bl[0]
+        exponent=bl[1:9]
+        fraction=bl[9:]
+
+        e_num=BoolList.__boolList2NaturalInt(exponent)
+        
+        len_fraction=len(fraction)
+        bn_sum=0
+        for i in range(len_fraction):
+            bn_sum+=(2**(-1*(i+1)))*fraction[i]
+
+        return (-1 if sign else 1)*(1+bn_sum)*(2**(e_num-127))
+
+    def binstr32ToBoolList(bin_str:str):
+        if(len(bin_str)==32):
+            counter=1
+            bl_list=[]
+            bl_tmp_list=[]
+            for bi in bin_str:
+                bl_tmp_list.append(Bool.true() if bi=="1" else Bool.false())
+                if(counter%8==0):
+                    bl_list.append(bl_tmp_list)
+                    bl_tmp_list=[]
+                counter+=1
+
+            bl_byte_i=[BoolList.byte(*bli) for bli in bl_list]
+
+            return BoolList.add(BoolList.add(bl_byte_i[0],bl_byte_i[1]),BoolList.add(bl_byte_i[2],bl_byte_i[3]))
+        else:
+            return None
+    
+    def get(self):
+        if(self.__class_type==None):
+            return self.getBoolList()
+        elif(self.__class_type==BoolList.CLASS_TYPE_NATURAL_NUM):
+            return self.__getNaturalInt()
+        elif(self.__class_type==BoolList.CLASS_TYPE_INT):
+            return self.__getInt()
+        elif(self.__class_type==BoolList.CLASS_TYPE_FLOAT):
+            return self.__getFloat32()
+        elif(self.__class_type==BoolList.CLASS_TYPE_ASCII):
+            return chr(self.__getNaturalInt())
+
+    def append(a,b):
+        func_str="BoolList.append"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+        if(isinstance(a,BoolList) and isinstance(b,Bool)):
+            bool_list=a.getBoolList()+[b.getBool()]
+            return BoolList(arg=arg,bool_list=bool_list)
+        else:
+            LangObj.printTypeError(arg)
+
+    def add(a,b):
+        func_str="BoolList.add"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+        if(isinstance(a,BoolList) and isinstance(b,BoolList)):
+            bool_list=a.getBoolList()+b.getBoolList()
+            return BoolList(arg=arg,bool_list=bool_list)
+        else:
+            LangObj.printTypeError(arg)
+
+    def twoBit(a,b):
+        func_str="BoolList.twoBit"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+        if(isinstance(a,Bool) and isinstance(b,Bool)):
+            bool_list=[a.getBool(),b.getBool()]
+            return BoolList(arg=arg,bool_list=bool_list)
+        else:
+            LangObj.printTypeError(arg)
+
+    def fourBit(a,b,c,d):
+        func_str="BoolList.fourBit"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b,c,d]
+        if(isinstance(a,Bool) and isinstance(b,Bool) and isinstance(c,Bool) and isinstance(d,Bool)):
+            bool_list=[a.getBool(),b.getBool(),c.getBool(),d.getBool()]
+            return BoolList(arg=arg,bool_list=bool_list)
+        else:
+            LangObj.printTypeError(arg)
+
+    def byte(x1,x2,x3,x4,x5,x6,x7,x8):
+        func_str="BoolList.byte"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,x1,x2,x3,x4,x5,x6,x7,x8]
+        if(isinstance(x1,Bool) and isinstance(x2,Bool) and isinstance(x3,Bool) and isinstance(x4,Bool) and isinstance(x5,Bool) and isinstance(x6,Bool) and isinstance(x7,Bool) and isinstance(x8,Bool)):
+            bool_list=[x1.getBool(),x2.getBool(),x3.getBool(),x4.getBool(),x5.getBool(),x6.getBool(),x7.getBool(),x8.getBool()]
+            return BoolList(arg=arg,bool_list=bool_list)
+        else:
+            LangObj.printTypeError(arg)
+
+    def NaturalNum(a):
+        func_str="BoolList.NaturalNum"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        if(isinstance(a,BoolList)):
+            bool_list=a.getBoolList()
+            class_type=BoolList.CLASS_TYPE_NATURAL_NUM
+            return BoolList(arg=arg,bool_list=bool_list,class_type=class_type)
+        else:
+            LangObj.printTypeError(arg)
+
+    def Int(a):
+        func_str="BoolList.Int"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        if(isinstance(a,BoolList)):
+            bool_list=a.getBoolList()
+            class_type=BoolList.CLASS_TYPE_INT
+            return BoolList(arg=arg,bool_list=bool_list,class_type=class_type)
+        else:
+            LangObj.printTypeError(arg)
+
+    def Float(a):
+        func_str="BoolList.Float"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        if(isinstance(a,BoolList)):
+            if(a.boolLen()==32):
+                bool_list=a.getBoolList()
+                class_type=BoolList.CLASS_TYPE_FLOAT
+                return BoolList(arg=arg,bool_list=bool_list,class_type=class_type)
+            else:
+                print(SFGPLError.BOOLLIST_FLOAT_ERROR(arg))
+        else:
+            LangObj.printTypeError(arg)
+
+    def ASCII(a):
+        func_str="BoolList.ASCII"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        if(isinstance(a,BoolList)):
+            bool_list=a.getBoolList()
+            class_type=BoolList.CLASS_TYPE_ASCII
+            return BoolList(arg=arg,bool_list=bool_list,class_type=class_type)
+        else:
+            LangObj.printTypeError(arg)
+
+
 
 #A class with a collection of functions to support generation, display, etc.
 class SFGPLLib():

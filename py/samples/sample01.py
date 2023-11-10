@@ -1387,6 +1387,126 @@ sc.setCorpus(
     md_out_path=OUT_DIR+"sample01_01.md"
 )
 
+sc.setCorpus(
+    Bool.B2N(Noun.have(Pronoun.I(),Verb.none(),Noun("pen")),Bool.false()),
+    "'I have a pen' is False."
+)
+
+sc.setCorpus(
+    Bool.B2N(Noun.have(Pronoun.I(),Verb.none(),Noun("pen")),Bool.true()),
+    "'I have a pen' is True."
+)
+
+sc.setCorpus(
+    Noun.eq(BoolList.NaturalNum(BoolList.append(BoolList.append(BoolList(),Bool.true()),Bool.false())),Verb.none(),Noun.haveP(Noun("2"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun("binary"))))),
+    "'10' is 2 in binary."
+)
+
+sc.setCorpus(
+    Noun.eq(BoolList.NaturalNum(BoolList.twoBit(Bool.true(),Bool.false())),Verb.none(),Noun.haveP(Noun("2"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun("binary"))))),
+    "'10' is 2 in binary."
+)
+
+sc.setCorpus(
+    Noun.eq(BoolList.NaturalNum(BoolList.twoBit(Bool.true(),Bool.false())),Verb.none(),Noun.haveP(Noun("3"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun("binary"))))),
+    "'11' is 3 in binary."
+)
+
+sc.setCorpus(
+    Noun.eq(BoolList.fourBit(Bool.true(),Bool.false(),Bool.false(),Bool.false()),Verb.none(),Noun.haveP(Noun("8"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun("binary"))))),
+    "'1000' is 8 in binary."
+)
+
+sc.setCorpus(
+    Noun.eq(BoolList.fourBit(Bool.true(),Bool.false(),Bool.false(),Bool.false()),Verb.none(),Noun.haveP(Noun("10"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun("binary"))))),
+    "'1010' is 10 in binary."
+)
+
+#0100 0001
+b1=BoolList.byte(Bool.false(),Bool.true(),Bool.false(),Bool.false(),Bool.false(),Bool.false(),Bool.false(),Bool.true())
+b1_1=BoolList.NaturalNum(b1)#65
+b1_2=BoolList.Int(b1)#65
+b1_3=BoolList.ASCII(b1)#A
+
+sc.setCorpus(
+    Noun.eq(b1_1,Verb.none(),Noun.haveP(Noun("65"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("number"),Verb.none(),Modifier("natural")))))),
+    "'01000001' is 65 in natural number."
+)
+
+sc.setCorpus(
+    Noun.eq(b1_2,Verb.none(),Noun.haveP(Noun("65"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("number"),Verb.none(),Modifier("integer")))))),
+    "'01000001' is 65 in integer number."
+)
+
+sc.setCorpus(
+    Noun.eq(b1_3,Verb.none(),Noun.haveP(Noun("A"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("character"),Verb.none(),Modifier("ascii")))))),
+    "'01000001' is A in ascii character."
+)
+
+#0100 0001
+b2=BoolList.byte(Bool.false(),Bool.true(),Bool.true(),Bool.false(),Bool.false(),Bool.false(),Bool.false(),Bool.true())
+b2_1=BoolList.NaturalNum(b1)#97
+b2_2=BoolList.Int(b1)#97
+b2_3=BoolList.ASCII(b1)#a
+
+sc.setCorpus(
+    Noun.eq(b2_1,Verb.none(),Noun.haveP(Noun("97"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("number"),Verb.none(),Modifier("natural")))))),
+    "'01100001' is 97 in natural number."
+)
+
+sc.setCorpus(
+    Noun.eq(b2_2,Verb.none(),Noun.haveP(Noun("97"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("number"),Verb.none(),Modifier("integer")))))),
+    "'01100001' is 97 in integer number."
+)
+
+sc.setCorpus(
+    Noun.eq(b2_3,Verb.none(),Noun.haveP(Noun("a"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("character"),Verb.none(),Modifier("ascii")))))),
+    "'01100001' is a in ascii character."
+)
+
+b3_bin_str="1"+"10001001"+"00000000000100000000000"
+b3=BoolList.binstr32ToBoolList(b3_bin_str)
+b3_1=BoolList.NaturalNum(b3)#3296724992
+b3_2=BoolList.Int(b3)#-998242304
+b3_3=BoolList.Float(b2)#-1024.25
+
+sc.setCorpus(
+    Noun.eq(b3_1,Verb.none(),Noun.haveP(Noun("3296724992"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("number"),Verb.none(),Modifier("natural")))))),
+    "'"+b3_bin_str+"' is 3296724992 in natural number."
+)
+
+sc.setCorpus(
+    Noun.eq(b3_1,Verb.none(),Noun.haveP(Noun("-998242304"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("number"),Verb.none(),Modifier("integer")))))),
+    "'"+b3_bin_str+"' is -998242304 in integer number."
+)
+
+sc.setCorpus(
+    Noun.eq(b3_1,Verb.none(),Noun.haveP(Noun("-1024.25"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("number"),Verb.none(),Modifier("float")))))),
+    "'"+b3_bin_str+"' is -1024.25 in float number."
+)
+
+b4_bin_str="0"+"10000000"+"10010010000111111011011"
+b4=BoolList.binstr32ToBoolList(b4_bin_str)
+b4_1=BoolList.NaturalNum(b4)#1078530011
+b4_2=BoolList.Int(b4)#1078530011
+b4_3=BoolList.Float(b4)#3.1415927410125732
+
+sc.setCorpus(
+    Noun.eq(b4_1,Verb.none(),Noun.haveP(Noun("1078530011"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("number"),Verb.none(),Modifier("natural")))))),
+    "'"+b4_bin_str+"' is 1078530011 in natural number."
+)
+
+sc.setCorpus(
+    Noun.eq(b4_1,Verb.none(),Noun.haveP(Noun("1078530011"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("number"),Verb.none(),Modifier("integer")))))),
+    "'"+b4_bin_str+"' is 1078530011 in integer number."
+)
+
+sc.setCorpus(
+    Noun.eq(b4_1,Verb.none(),Noun.haveP(Noun("3.1415927410125732"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("number"),Verb.none(),Modifier("float")))))),
+    "'"+b4_bin_str+"' is 3.1415927410125732 in float number."
+)
+
+
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)
 
