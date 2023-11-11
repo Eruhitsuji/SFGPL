@@ -1,7 +1,9 @@
 from SFGPL import *
 
 b1=BoolList.byte(Bool.false(),Bool.true(),Bool.false(),Bool.false(),Bool.false(),Bool.false(),Bool.false(),Bool.true())
-print(b1)
+print("b1\t",b1)
+print(b1.getBytes())
+print(b1.getNaturalNumber())
 print(b1.get())
 
 #65
@@ -22,8 +24,9 @@ print(b1_3.get())
 
 b2_bin_str="1"+"10001001"+"00000000000100000000000"
 b2=BoolList.binstr32ToBoolList(b2_bin_str)
-
-print(b2)
+print("b2\t",b2)
+print(b2.getBytes())
+print(b2.getNaturalNumber())
 
 #3296724992
 b2_1=BoolList.NaturalNum(b2)
@@ -44,8 +47,9 @@ print(b2_3.get())
 
 b3_bin_str="0"+"10000000"+"10010010000111111011011"
 b3=BoolList.binstr32ToBoolList(b3_bin_str)
-
-print(b3)
+print("b3\t",b3)
+print(b3.getBytes())
+print(b3.getNaturalNumber())
 
 #1078530011
 b3_1=BoolList.NaturalNum(b3)

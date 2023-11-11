@@ -24,7 +24,7 @@ The following statement is an example.
 pis ma ga so fa 'student' pos
 ```
 
-Bool types can also use ```pa```, ```be```, ```ba```, ```bo``` and ```bu```, which are provided in LangObj. 
+Bool types can also use NOT ```pa```, OR ```be```, AND ```ba```, NOR ```bo``` and NAND ```bu```, which are provided in LangObj. 
 They can then perform logic operations.
 
 ## About BoolList class

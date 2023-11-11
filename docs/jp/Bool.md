@@ -24,7 +24,7 @@ Bool型のFalseとTrueは次のように表される．
 pis ma ga so fa 'student' pos
 ```
 
-そして，Bool型では，LangObjに備わっている，```pa```，```be```，```ba```，```bo```と```bu```を使用することもできる．
+そして，Bool型では，LangObjに備わっている，NOT ```pa```，OR ```be```，AND ```ba```，NOR ```bo```とNAND ```bu```を使用することもできる．
 そして，それらは，論理演算をすることができる．
 
 ## BoolList型について

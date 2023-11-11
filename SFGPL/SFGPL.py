@@ -1107,7 +1107,12 @@ class BoolList(Noun):
         tmp_list=["1" if b else "0" for b in self.getBoolList()]
         return "".join(tmp_list)
     
-    def __getNaturalInt(self):
+    def getBytes(self,byteorder="big"):
+        l=math.floor(self.boolLen()/8)
+        n=self.getNaturalNumber()
+        return n.to_bytes(l,byteorder=byteorder)
+    
+    def getNaturalNumber(self):
         return BoolList.__boolList2NaturalInt(self.getBoolList())
     
     def __getInt(self):
@@ -1155,13 +1160,13 @@ class BoolList(Noun):
         if(self.__class_type==None):
             return self.getBoolList()
         elif(self.__class_type==BoolList.CLASS_TYPE_NATURAL_NUM):
-            return self.__getNaturalInt()
+            return self.getNaturalNumber()
         elif(self.__class_type==BoolList.CLASS_TYPE_INT):
             return self.__getInt()
         elif(self.__class_type==BoolList.CLASS_TYPE_FLOAT):
             return self.__getFloat32()
         elif(self.__class_type==BoolList.CLASS_TYPE_ASCII):
-            return chr(self.__getNaturalInt())
+            return chr(self.getNaturalNumber())
 
     def append(a,b):
         func_str="BoolList.append"

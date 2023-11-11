@@ -1413,13 +1413,18 @@ sc.setCorpus(
 )
 
 sc.setCorpus(
-    Noun.eq(BoolList.fourBit(Bool.true(),Bool.false(),Bool.false(),Bool.false()),Verb.none(),Noun.haveP(Noun("8"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun("binary"))))),
+    Noun.eq(BoolList.NaturalNum(BoolList.fourBit(Bool.true(),Bool.false(),Bool.false(),Bool.false())),Verb.none(),Noun.haveP(Noun("8"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun("binary"))))),
     "'1000' is 8 in binary."
 )
 
 sc.setCorpus(
-    Noun.eq(BoolList.fourBit(Bool.true(),Bool.false(),Bool.false(),Bool.false()),Verb.none(),Noun.haveP(Noun("10"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun("binary"))))),
+    Noun.eq(BoolList.NaturalNum(BoolList.fourBit(Bool.true(),Bool.false(),Bool.false(),Bool.false())),Verb.none(),Noun.haveP(Noun("10"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun("binary"))))),
     "'1010' is 10 in binary."
+)
+
+sc.setCorpus(
+    Noun.have(Pronoun.I(),Verb.none(),Noun.eq(Noun("pen"),Verb.none(),BoolList.NaturalNum(BoolList.fourBit(Bool.true(),Bool.false(),Bool.false(),Bool.false())))),
+    "I have ten pens."
 )
 
 #0100 0001
@@ -1501,10 +1506,26 @@ sc.setCorpus(
     "'"+b4_bin_str+"' is 1078530011 in integer number."
 )
 
+sub_sentence_10=Noun.eq(b4_1,Verb.none(),Noun.haveP(Noun("3.1415927410125732"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("number"),Verb.none(),Modifier("float"))))))
+
 sc.setCorpus(
-    Noun.eq(b4_1,Verb.none(),Noun.haveP(Noun("3.1415927410125732"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("number"),Verb.none(),Modifier("float")))))),
+    sub_sentence_10,
     "'"+b4_bin_str+"' is 3.1415927410125732 in float number."
 )
+
+sub_sentence_11=Noun.haveP(Noun.AND(sub_sentence_10,Noun("pi")),Verb.none(),WordM.near())
+
+sc.setCorpus(
+    sub_sentence_11,
+    "'"+b4_bin_str+"' is 3.1415927410125732 in float number and pi is close to."
+)
+
+sc.setCorpus(
+    Phrase.So(sub_sentence_11,Noun.doT(Noun("SFGPL"),Verb.add(Verb("represent"),Modifier("can")),Noun.eq(Noun("Number"),Verb.none(),Noun.eq(Noun.haveP(Noun("point"),Verb.none(),Modifier("floating")),Verb.none(),Noun.haveP(Noun("precision"),Verb.none(),Modifier("single")))))),
+    "'"+b4_bin_str+"' is 3.1415927410125732 in float number and pi is close to, so SFGPL can represent single-precision floating-point number.",
+    md_out_path=OUT_DIR+"sample01_02.md"
+)
+
 
 
 tmp_str=sc.toStringSFGPL(opt_str="\n")

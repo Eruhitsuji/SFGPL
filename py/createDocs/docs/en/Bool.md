@@ -24,7 +24,7 @@ The following statement is an example.
 {It_is_true_that_I_am_a_student}
 ```
 
-Bool types can also use ```{LangObj_NOT}```, ```{LangObj_OR}```, ```{LangObj_AND}```, ```{LangObj_NOR}``` and ```{LangObj_NAND}```, which are provided in LangObj. 
+Bool types can also use NOT ```{LangObj_NOT}```, OR ```{LangObj_OR}```, AND ```{LangObj_AND}```, NOR ```{LangObj_NOR}``` and NAND ```{LangObj_NAND}```, which are provided in LangObj. 
 They can then perform logic operations.
 
 ## About BoolList class
