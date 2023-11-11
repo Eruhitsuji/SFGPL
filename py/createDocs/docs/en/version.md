@@ -24,4 +24,5 @@ In addition, the version of the corpus at the time it was executed is listed in 
 |1.1.0|Added details on how to use SFGPL in Python|
 |1.1.1|[How_to_Use_SFGPL_in_Python.ipynb](../../How_to_Use_SFGPL_in_Python.ipynb) fixed|
 |2.0.0|Add classes for logical values|
-|2.0.1|Additions and modifications to Python programs|
+|2.0.1|Add and modify to Python programs|
+|2.0.2|Add and modify to documents|

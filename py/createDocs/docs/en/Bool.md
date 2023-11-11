@@ -51,6 +51,7 @@ The following functions exist in BoolList.
 {bin_0100_0000_0100_1001_0000_1111_1101_1011}
 ```
 
+This represents ```0100 0000 0100 1001 0000 1111 1101 1011``` in binary.
 It can also be used as a number by doing the following.
 
 |Type|SFGPL|Value|

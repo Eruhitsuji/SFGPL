@@ -43,7 +43,7 @@ BoolListには以下のような関数が存在している．
 |{BoolList_NaturalNum} A|BoolListを2進数の自然数とみなす|
 |{BoolList_Int} A|BoolListを2進数の整数とみなす|
 |{BoolList_Float} A|BoolListを2進数の浮動小数とみなす|
-|{BoolList_ASCII} A|BoolListをアスキー文字とみなす|
+|{BoolList_ASCII} A|BoolListをASCII文字とみなす|
 
 次のようにすることによって，4byteのデータを使用することができる．
 
@@ -51,6 +51,7 @@ BoolListには以下のような関数が存在している．
 {bin_0100_0000_0100_1001_0000_1111_1101_1011}
 ```
 
+これは，2進数で```0100 0000 0100 1001 0000 1111 1101 1011```を表している．
 また，次のようにすることで，数値として使うことができる．
 
 |Type|SFGPL|Value|

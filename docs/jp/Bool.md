@@ -43,7 +43,7 @@ BoolListには以下のような関数が存在している．
 |tas A|BoolListを2進数の自然数とみなす|
 |tes A|BoolListを2進数の整数とみなす|
 |tis A|BoolListを2進数の浮動小数とみなす|
-|tus A|BoolListをアスキー文字とみなす|
+|tus A|BoolListをASCII文字とみなす|
 
 次のようにすることによって，4byteのデータを使用することができる．
 
@@ -51,6 +51,7 @@ BoolListには以下のような関数が存在している．
 fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos
 ```
 
+これは，2進数で```0100 0000 0100 1001 0000 1111 1101 1011```を表している．
 また，次のようにすることで，数値として使うことができる．
 
 |Type|SFGPL|Value|

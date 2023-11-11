@@ -51,6 +51,7 @@ The following functions exist in BoolList.
 fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos
 ```
 
+This represents ```0100 0000 0100 1001 0000 1111 1101 1011``` in binary.
 It can also be used as a number by doing the following.
 
 |Type|SFGPL|Value|
