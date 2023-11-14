@@ -35,15 +35,17 @@ The following functions exist in BoolList.
 |Word|Explanation|
 |:-:|:-:|
 |fas|Create a list of true/false (BoolList)|
-|fis A B|Add one Bool to the end of the BoolList|
-|fos A B|Combine two BoolLists|
-|mas A B|Create a BoolList consisting of 2 Bool values|
-|mis X1~X4|Create a BoolList consisting of 4 Bool values|
-|mos X1~X8|Create a BoolList consisting of 8 Bool values|
-|tas A|BoolList is considered a binary natural number|
-|tes A|BoolList is considered a binary integer|
-|tis A|BoolList is considered a binary floating number|
-|tus A|BoolList is considered an ASCII character|
+|fes A B|Gets the B-th value of BoolList(A)|
+|fis A B|Add one Bool (B) to the end of the BoolList (A)|
+|fus A B C|Get the B-th through C-th lists for a BoolList (A)|
+|fos A B|Combine two BoolLists (A,B)|
+|mas A B|Create a BoolList consisting of 2 Bool values (A,B)|
+|mis X1~X4|Create a BoolList consisting of 4 Bool values (x1~x4)|
+|mos X1~X8|Create a BoolList consisting of 8 Bool values (x1~x8)|
+|tas A|BoolList (A) is considered a binary natural number|
+|tes A|BoolList (A) is considered a binary integer|
+|tis A|BoolList (A) is considered a binary floating number|
+|tus A|BoolList (A) is considered an ASCII character|
 
 4-byte data can be used by doing the following.
 

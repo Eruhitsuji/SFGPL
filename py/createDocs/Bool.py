@@ -26,7 +26,9 @@ format_str_list={
     "LangObj_NAND":LangObj._getKeyOfDict("LangObj.NAND"),
 
     "BoolList":LangObj._getKeyOfDict("BoolList"), 
+    "BoolList_get":LangObj._getKeyOfDict("BoolList.get"), 
     "BoolList_append":LangObj._getKeyOfDict("BoolList.append"), 
+    "BoolList_slice":LangObj._getKeyOfDict("BoolList.slice"), 
     "BoolList_add":LangObj._getKeyOfDict("BoolList.add"), 
     "BoolList_twoBit":LangObj._getKeyOfDict("BoolList.twoBit"), 
     "BoolList_fourBit":LangObj._getKeyOfDict("BoolList.fourBit"), 
@@ -40,9 +42,9 @@ format_str_list={
     "NN_b1":b1_1,
     "INT_b1":b1_2,
     "Float_b1":b1_3,
-    "NN_b1_get":b1_1.get(),
-    "INT_b1_get":b1_2.get(),
-    "Float_b1_get":b1_3.get(),
+    "NN_b1_get":b1_1.getData(),
+    "INT_b1_get":b1_2.getData(),
+    "Float_b1_get":b1_3.getData(),
 }
 
 createDocs(FILE_NAME,format_str_list,INDIR_JP,OUTDIR_JP)

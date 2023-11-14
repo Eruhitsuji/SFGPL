@@ -35,15 +35,17 @@ The following functions exist in BoolList.
 |Word|Explanation|
 |:-:|:-:|
 |{BoolList}|Create a list of true/false (BoolList)|
-|{BoolList_append} A B|Add one Bool to the end of the BoolList|
-|{BoolList_add} A B|Combine two BoolLists|
-|{BoolList_twoBit} A B|Create a BoolList consisting of 2 Bool values|
-|{BoolList_fourBit} X1~X4|Create a BoolList consisting of 4 Bool values|
-|{BoolList_byte} X1~X8|Create a BoolList consisting of 8 Bool values|
-|{BoolList_NaturalNum} A|BoolList is considered a binary natural number|
-|{BoolList_Int} A|BoolList is considered a binary integer|
-|{BoolList_Float} A|BoolList is considered a binary floating number|
-|{BoolList_ASCII} A|BoolList is considered an ASCII character|
+|{BoolList_get} A B|Gets the B-th value of BoolList(A)|
+|{BoolList_append} A B|Add one Bool (B) to the end of the BoolList (A)|
+|{BoolList_slice} A B C|Get the B-th through C-th lists for a BoolList (A)|
+|{BoolList_add} A B|Combine two BoolLists (A,B)|
+|{BoolList_twoBit} A B|Create a BoolList consisting of 2 Bool values (A,B)|
+|{BoolList_fourBit} X1~X4|Create a BoolList consisting of 4 Bool values (x1~x4)|
+|{BoolList_byte} X1~X8|Create a BoolList consisting of 8 Bool values (x1~x8)|
+|{BoolList_NaturalNum} A|BoolList (A) is considered a binary natural number|
+|{BoolList_Int} A|BoolList (A) is considered a binary integer|
+|{BoolList_Float} A|BoolList (A) is considered a binary floating number|
+|{BoolList_ASCII} A|BoolList (A) is considered an ASCII character|
 
 4-byte data can be used by doing the following.
 

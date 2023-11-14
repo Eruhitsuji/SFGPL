@@ -1473,7 +1473,7 @@ b3_bin_str="1"+"10001001"+"00000000000100000000000"
 b3=BoolList.binstr32ToBoolList(b3_bin_str)
 b3_1=BoolList.NaturalNum(b3)#3296724992
 b3_2=BoolList.Int(b3)#-998242304
-b3_3=BoolList.Float(b2)#-1024.25
+b3_3=BoolList.Float(b3)#-1024.25
 
 sc.setCorpus(
     Noun.eq(b3_1,Verb.none(),Noun.haveP(Noun("3296724992"),Verb.none(),Modifier.N2M(DeterminerN.In(Noun.haveP(Noun("number"),Verb.none(),Modifier("natural")))))),
@@ -1526,6 +1526,32 @@ sc.setCorpus(
     md_out_path=OUT_DIR+"sample01_02.md"
 )
 
+#index_1=1
+index_1=BoolList.fourBit(Bool.false(),Bool.false(),Bool.false(),Bool.true())
+#index_2=3
+index_2=BoolList.fourBit(Bool.false(),Bool.false(),Bool.true(),Bool.true())
+#index_3=7
+index_3=BoolList.fourBit(Bool.false(),Bool.true(),Bool.true(),Bool.true())
+
+sc.setCorpus(
+    Bool.B2N(Noun.none(),BoolList.get(b4,index_1)),
+    "The 1st value of '"+b4_bin_str+"'is True."
+)
+
+sc.setCorpus(
+    Bool.B2N(Noun.none(),BoolList.get(b4,index_2)),
+    "The 3rd value of '"+b4_bin_str+"'is False."
+)
+
+sc.setCorpus(
+    BoolList.slice(b4,index_1,index_2),
+    "The first through third values of '"+b4_bin_str+"'is 100."
+)
+
+sc.setCorpus(
+    BoolList.slice(b4,index_1,index_3),
+    "The first through third values of '"+b4_bin_str+"'is 1000000."
+)
 
 
 tmp_str=sc.toStringSFGPL(opt_str="\n")

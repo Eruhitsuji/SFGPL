@@ -35,15 +35,17 @@ BoolListには以下のような関数が存在している．
 |単語|説明|
 |:-:|:-:|
 |fas|真偽のリスト（BoolList）を作成する|
-|fis A B|BoolListに1つのBoolを末尾に加える|
-|fos A B|2つのBoolListを結合する|
-|mas A B|2つBoolの値からなるBoolListを作成する|
-|mis X1~X4|4つBoolの値からなるBoolListを作成する|
-|mos X1~X8|8つBoolの値からなるBoolListを作成する|
-|tas A|BoolListを2進数の自然数とみなす|
-|tes A|BoolListを2進数の整数とみなす|
-|tis A|BoolListを2進数の浮動小数とみなす|
-|tus A|BoolListをASCII文字とみなす|
+|fes A B|BoolList(A)のB番目の値を取得する|
+|fis A B|BoolList(A)に1つのBool(B)を末尾に加える|
+|fus A B C|AというBoolListに対して，B番目からC番目までのリストを取得する|
+|fos A B|2つのBoolList(A,B)を結合する|
+|mas A B|2つBoolの値(A,B)からなるBoolListを作成する|
+|mis X1~X4|4つBoolの値(x1~x4)からなるBoolListを作成する|
+|mos X1~X8|8つBoolの値(x1~x8)からなるBoolListを作成する|
+|tas A|BoolList(A)を2進数の自然数とみなす|
+|tes A|BoolList(A)を2進数の整数とみなす|
+|tis A|BoolList(A)を2進数の浮動小数とみなす|
+|tus A|BoolList(A)をASCII文字とみなす|
 
 次のようにすることによって，4byteのデータを使用することができる．
 

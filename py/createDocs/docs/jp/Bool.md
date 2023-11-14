@@ -35,15 +35,17 @@ BoolListには以下のような関数が存在している．
 |単語|説明|
 |:-:|:-:|
 |{BoolList}|真偽のリスト（BoolList）を作成する|
-|{BoolList_append} A B|BoolListに1つのBoolを末尾に加える|
-|{BoolList_add} A B|2つのBoolListを結合する|
-|{BoolList_twoBit} A B|2つBoolの値からなるBoolListを作成する|
-|{BoolList_fourBit} X1~X4|4つBoolの値からなるBoolListを作成する|
-|{BoolList_byte} X1~X8|8つBoolの値からなるBoolListを作成する|
-|{BoolList_NaturalNum} A|BoolListを2進数の自然数とみなす|
-|{BoolList_Int} A|BoolListを2進数の整数とみなす|
-|{BoolList_Float} A|BoolListを2進数の浮動小数とみなす|
-|{BoolList_ASCII} A|BoolListをASCII文字とみなす|
+|{BoolList_get} A B|BoolList(A)のB番目の値を取得する|
+|{BoolList_append} A B|BoolList(A)に1つのBool(B)を末尾に加える|
+|{BoolList_slice} A B C|AというBoolListに対して，B番目からC番目までのリストを取得する|
+|{BoolList_add} A B|2つのBoolList(A,B)を結合する|
+|{BoolList_twoBit} A B|2つBoolの値(A,B)からなるBoolListを作成する|
+|{BoolList_fourBit} X1~X4|4つBoolの値(x1~x4)からなるBoolListを作成する|
+|{BoolList_byte} X1~X8|8つBoolの値(x1~x8)からなるBoolListを作成する|
+|{BoolList_NaturalNum} A|BoolList(A)を2進数の自然数とみなす|
+|{BoolList_Int} A|BoolList(A)を2進数の整数とみなす|
+|{BoolList_Float} A|BoolList(A)を2進数の浮動小数とみなす|
+|{BoolList_ASCII} A|BoolList(A)をASCII文字とみなす|
 
 次のようにすることによって，4byteのデータを使用することができる．
 

@@ -1156,7 +1156,7 @@ class BoolList(Noun):
         else:
             return None
     
-    def get(self):
+    def getData(self):
         if(self.__class_type==None):
             return self.getBoolList()
         elif(self.__class_type==BoolList.CLASS_TYPE_NATURAL_NUM):
@@ -1168,12 +1168,32 @@ class BoolList(Noun):
         elif(self.__class_type==BoolList.CLASS_TYPE_ASCII):
             return chr(self.getNaturalNumber())
 
+    def get(a,b):
+        func_str="BoolList.get"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+        if(isinstance(a,BoolList) and isinstance(b,BoolList)):
+            bool_value=a.getBoolList()[b.getNaturalNumber()]
+            return Bool(arg=arg,bool_value=bool_value)
+        else:
+            LangObj.printTypeError(arg)
+
     def append(a,b):
         func_str="BoolList.append"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
         if(isinstance(a,BoolList) and isinstance(b,Bool)):
             bool_list=a.getBoolList()+[b.getBool()]
+            return BoolList(arg=arg,bool_list=bool_list)
+        else:
+            LangObj.printTypeError(arg)
+
+    def slice(a,b,c):
+        func_str="BoolList.slice"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b,c]
+        if(isinstance(a,BoolList) and isinstance(b,BoolList) and isinstance(c,BoolList)):
+            bool_list=a.getBoolList()[b.getNaturalNumber():c.getNaturalNumber()+1]
             return BoolList(arg=arg,bool_list=bool_list)
         else:
             LangObj.printTypeError(arg)
