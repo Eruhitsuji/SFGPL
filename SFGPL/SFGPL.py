@@ -1602,6 +1602,24 @@ class LangFunc(Noun):
     def __init__(self,arg,bool_value=None,func_mode=False):
         super().__init__(arg,bool_value=bool_value,func_mode=func_mode)
 
+    def __createFuncObjAtRuntime(a_str:str,b_str:str):
+        arg_str=LangObj._getKeyOfDict("LangFunc.arg")
+        raw_str=LangFunc._FUNC_LIST[a_str]
+        raw_str_split_list=raw_str.split()
+        
+        func_str_list=[]
+        for rssli in raw_str_split_list:
+            tmp_str=""
+            if(rssli==arg_str):
+                tmp_str=b_str
+            else:
+                tmp_str=rssli
+            func_str_list.append(tmp_str)
+        func_str=" ".join(func_str_list)
+
+        r_obj=SFGPLLib.str2CMD(func_str)
+        return r_obj
+
     def setFunc(a,b):
         func_str="LangFunc.setFunc"
         key=LangObj._getKeyOfDict(func_str)
@@ -1610,7 +1628,7 @@ class LangFunc(Noun):
         if(isinstance(a,Noun) and isinstance(b,LangList)):
             a_str=str(a)
             if(a_str not in LangFunc._FUNC_LIST):
-                LangFunc._FUNC_LIST[a_str]=[str(b)]
+                LangFunc._FUNC_LIST[a_str]=str(b)
                 return LangFunc(arg)
             else:
                 print(SFGPLError.FUNC_NAME_ERROR_DUPLICATION(arg))
@@ -1631,10 +1649,9 @@ class LangFunc(Noun):
         if(LangObj._isFuncModeOfArgs(arg)):
             return LangList(arg,func_mode=True)
         elif(isinstance(a,Noun) and isinstance(b,LangList)):
-            arg_str=LangObj._getKeyOfDict("LangFunc.arg")
             a_str=str(a)
             b_str=str(b)
-            func_result=SFGPLLib.str2CMD(LangFunc._FUNC_LIST[a_str][-1].replace(arg_str,b_str))
+            func_result=LangFunc.__createFuncObjAtRuntime(a_str,b_str)
             return LangList(arg,bool_value=func_result.getBool(),lang_list=func_result.getLangList())
         else:
             LangObj.printTypeError(arg)
