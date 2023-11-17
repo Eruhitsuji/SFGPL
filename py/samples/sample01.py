@@ -1553,6 +1553,71 @@ sc.setCorpus(
     "The first through third values of '"+b4_bin_str+"'is 1000000."
 )
 
+func_01=LangList.append(LangList(),LangFunc.arg())
+
+sc.setCorpus(
+    LangFunc.setFunc(Noun("f1"),func_01),
+    "Define a function f1 that returns its arguments as they are."
+)
+
+x1=LangList.append(LangList.append(LangList(),Noun("student")),Noun("teacher"))
+
+sc.setCorpus(
+    LangFunc.runFunc(Noun("f1"),x1),
+    "Assign \""+str(x1)+"\" to f1."
+)
+
+number_bl_0=BoolList.twoBit(Bool.false(),Bool.false())
+number_bl_1=BoolList.twoBit(Bool.false(),Bool.true())
+number_bl_2=BoolList.twoBit(Bool.true(),Bool.false())
+number_bl_3=BoolList.twoBit(Bool.true(),Bool.true())
+
+func_02=LangList.append(LangList(),Bool.AND(LangList.get(LangFunc.arg(),number_bl_0),LangList.get(LangFunc.arg(),number_bl_1)))
+
+sc.setCorpus(
+    LangFunc.setFunc(Noun("f2"),func_02),
+    "Define a function f2 that returns the logical product of the 0th and 1st values of the argument BoolList."
+)
+
+x2=LangList.append(LangList.append(LangList(),Bool.true()),Bool.false())
+
+sc.setCorpus(
+    LangFunc.runFunc(Noun("f2"),x2),
+    "Assign \""+str(x2)+"\" to f2."
+)
+
+lang_list_01=LangList.append(LangList.append(LangList.append(LangList.append(LangList(),Pronoun.I()),Verb("go")),Pronoun.you()),Noun("student"))
+lang_list_02=LangList.append(LangList.append(LangList.append(LangList.append(LangList(),Noun("apple")),Modifier("high")),Pronoun.proximal()),WordV.turn())
+lang_list_03=LangList.append(LangList.append(LangList(),Noun.eq(Pronoun.I(),Verb.none(),Noun("student"))),Noun.have(Pronoun.I(),Verb.none(),Noun("pen")))
+lang_list_04=LangList.add(LangList.add(lang_list_01,lang_list_02),lang_list_03)
+
+sc.setCorpus(
+    lang_list_04,
+    "Combine \""+str(lang_list_01)+"\" and \""+str(lang_list_02)+"\"."
+)
+
+lang_list_05=LangList.slice(lang_list_04,number_bl_0,number_bl_1)
+
+sc.setCorpus(
+    lang_list_05,
+    "Slicing the first from the zeroth of \""+str(lang_list_04)+"\" yields \""+str(lang_list_05)+"\"."
+)
+
+lang_list_06=LangList.slice(lang_list_04,number_bl_0,number_bl_3)
+
+sc.setCorpus(
+    lang_list_06,
+    "Slicing the third from the zeroth of \""+str(lang_list_04)+"\" yields \""+str(lang_list_06)+"\"."
+)
+
+lang_list_06_01=LangList.get(lang_list_06,number_bl_0)
+
+sc.setCorpus(
+    lang_list_06_01,
+    "Slicing the third from the zeroth of \""+str(lang_list_04)+"\" yields \""+str(lang_list_06)+"\" and the zeroth value in that list is \""+str(lang_list_06_01)+"\".",
+    md_out_path=OUT_DIR+"sample01_03.md"
+)
+
 
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)
@@ -1560,6 +1625,10 @@ print(tmp_str)
 sc.saveJson(OUT_DIR+"sample01.json")
 sc.saveTextFileOfSFGPL(OUT_DIR+"sample01.txt",opt_str="\n")
 sc.saveCSV(OUT_DIR+"sample01.csv")
+
+#Clear defined functions
+LangFunc.clearDict()
+
 json_obj=SFGPLCorpus.readJson(OUT_DIR+"sample01.json")
 #print(len(json_obj))
 #print(json_obj)

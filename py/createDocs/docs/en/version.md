@@ -27,3 +27,4 @@ In addition, the version of the corpus at the time it was executed is listed in 
 |2.0.1|Add and modify to Python programs|
 |2.0.2|Add and modify to documents|
 |2.0.2|Add BoolList.get() and BoolList.slice()|
+|3.0.0|Add LangList and LangFunc classes|

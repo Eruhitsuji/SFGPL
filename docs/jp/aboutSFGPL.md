@@ -89,7 +89,8 @@ SFGPLの子音は次の表のようなものがある．
 ## SFGPLの品詞
 
 SFGPLの品詞は名詞(Noun)，動詞(Verb)，修飾詞(Modifier)の三種類がある．
-また，名詞のサブクラスとして句(Phrase)，代名詞（Pronoun）とBool配列型（BoolList）が存在する．
+また，名詞のサブクラスとして句(Phrase)，代名詞（Pronoun），Bool配列型（BoolList），LangListとLangFuncが存在する．
+BoolList，LangList，LangFuncは一般的な文以外に論理的な文を作る際に使用される．
 さらに，名詞を修飾する特殊な語として，名詞限定語（DeterminerN）が存在する．
 そして，真偽を表すBool型が存在する．
 それぞれの品詞にはそれぞれ特有の関数（機能語）が存在し，それによって品詞の変更や意味の決定などが行われる．

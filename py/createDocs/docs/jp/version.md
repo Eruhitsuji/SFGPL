@@ -27,3 +27,4 @@ SFGPL.__version__.__version__
 |2.0.1|Pythonプログラムの追加・修正|
 |2.0.2|ドキュメントの追加・修正|
 |2.1.0|BoolList.get()とBoolList.slice()を追加|
+|3.0.0|LangListとLangFuncクラスの追加|

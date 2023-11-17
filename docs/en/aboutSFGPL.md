@@ -89,7 +89,8 @@ Borrowed words are read with the pronunciation specific to the borrowed words.
 ## Parts of speech in the SFGPL
 
 There are three parts of speech in the SFGPL: Noun, Verb and Modifier.
-Phrase, Pronoun and BoolList exist as subclasses of Noun.
+Phrase, Pronoun, BoolList, LangList and LangFunc exist as subclasses of Noun.
+BoolList, LangList, and LangFunc are used to create logical statements in addition to general statements.
 Furthermore, there are two special words that modify nouns: noun determiners (DeterminerN).
 Then, there is a Bool type that represents true/false.
 Each part of speech has its own function words, which change the part of speech and determine its meaning.

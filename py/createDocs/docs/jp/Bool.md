@@ -25,7 +25,7 @@ Bool型のFalseとTrueは次のように表される．
 ```
 
 そして，Bool型では，LangObjに備わっている，NOT ```{LangObj_NOT}```，OR ```{LangObj_OR}```，AND ```{LangObj_AND}```，NOR ```{LangObj_NOR}```とNAND ```{LangObj_NAND}```を使用することもできる．
-そして，それらは，論理演算をすることができる．
+そして，それら関数は論理演算をすることができる．
 
 ## BoolList型について
 

@@ -23,8 +23,10 @@ class SFGPLError():
 
     TYPE_ERROR_SYNTAX=lambda arg : "[Error 101] : "+"There are type error in SFGPL syntax"+SFGPLError.ARG_STRING(arg)
     ARG_IS_WRONG=lambda arg : "[Error 102] : "+"Arg is wrong"+SFGPLError.ARG_STRING(arg)
-    BOOLLIST_FLOAT_ERROR=lambda arg : "[Error 103] : "+"The argument \"a\" of BoolList.Folat function must be of type BoolList and must have a length of 32"+SFGPLError.ARG_STRING(arg)
-
+    
+    BOOLLIST_FLOAT_ERROR=lambda arg : "[Error 201] : "+"The argument \"a\" of BoolList. Float function must be of type BoolList and must have a length of 32"+SFGPLError.ARG_STRING(arg)
+    
+    FUNC_NAME_ERROR_DUPLICATION=lambda arg :"[Error 301] : "+"This function name already exists and cannot be defined."+SFGPLError.ARG_STRING(arg)
 
 #Class for generic SFGPL word
 class LangObj():
@@ -46,9 +48,10 @@ class LangObj():
     def printTypeError(arg):
         print(SFGPLError.TYPE_ERROR_SYNTAX(arg))
 
-    def __init__(self,arg,bool_value=None):
+    def __init__(self,arg,bool_value=None,func_mode=False):
         self._setWords([],arg)
         self._bool_value=bool_value
+        self._func_mode=func_mode
 
     #Set and Objectification words
     def _setWords(self,new_obj_str,arg):
@@ -67,6 +70,19 @@ class LangObj():
     def getWords(self):
         return self.words
     
+    def getWordsAll(self):
+        l=self.words
+        r_l=[]
+        for li in l:
+            if(isinstance(li,LangObj)):
+                l_tmp=li.getWordsAll()
+                r_l.append(l_tmp)
+            elif(isinstance(li,str)):
+                r_l.append(li)
+            else:
+                r_l.append(None)
+        return r_l            
+    
     def _checkTypeOf2obj(a,b):
         return type(a)._getSelfClass()["base"] == type(b)._getSelfClass()["base"]
     
@@ -80,6 +96,16 @@ class LangObj():
 
     def getBool(self):
         return self._bool_value
+
+    def _getFuncMode(self):
+        return self._func_mode
+    
+    def _isFuncModeOfArgs(arg):
+        for ai in arg:
+            if(isinstance(ai,LangObj)):
+                if(ai._getFuncMode()):
+                    return True
+        return False
 
     #To Strings of SFGPL
     def __str__(self):
@@ -97,7 +123,10 @@ class LangObj():
         func_str="LangObj.Because"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(LangObj._checkTypeOf2obj(a,b)):
+
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return (type(a))(arg,func_mode=True)
+        elif(LangObj._checkTypeOf2obj(a,b)):
             return (type(a))(arg)
         else:
             LangObj.printTypeError(arg)
@@ -106,8 +135,11 @@ class LangObj():
         func_str="LangObj.IF"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(LangObj._checkTypeOf2obj(a,b)):
-            return (type(a))(arg)
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return (type(a))(arg,func_mode=True)
+        elif(LangObj._checkTypeOf2obj(a,b)):
+            return (type(a))(arg,bool_value=Bool._if_fanc(a,b))
         else:
             LangObj.printTypeError(arg)
 
@@ -115,7 +147,10 @@ class LangObj():
         func_str="LangObj.So"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(LangObj._checkTypeOf2obj(a,b)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return (type(a))(arg,func_mode=True)
+        elif(LangObj._checkTypeOf2obj(a,b)):
             return (type(a))(arg)
         else:
             LangObj.printTypeError(arg)
@@ -124,7 +159,10 @@ class LangObj():
         func_str="LangObj.But"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(LangObj._checkTypeOf2obj(a,b)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return (type(a))(arg,func_mode=True)
+        elif(LangObj._checkTypeOf2obj(a,b)):
             return (type(a))(arg)
         else:
             LangObj.printTypeError(arg)
@@ -133,7 +171,10 @@ class LangObj():
         func_str="LangObj.AND"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(LangObj._checkTypeOf2obj(a,b)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return (type(a))(arg,func_mode=True)
+        elif(LangObj._checkTypeOf2obj(a,b)):
             bool_value=Bool.defAND(a.getBool(),b.getBool())
             return (type(a))(arg,bool_value=bool_value)
         else:
@@ -143,7 +184,10 @@ class LangObj():
         func_str="LangObj.OR"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(LangObj._checkTypeOf2obj(a,b)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return (type(a))(arg,func_mode=True)
+        elif(LangObj._checkTypeOf2obj(a,b)):
             bool_value=Bool.defOR(a.getBool(),b.getBool())
             return (type(a))(arg,bool_value=bool_value)
         else:
@@ -153,8 +197,11 @@ class LangObj():
         func_str="LangObj.IFELSE"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b,c]
-        if(LangObj._checkTypeOf3obj(a,b,c)):
-            return (type(a))(arg)
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return (type(a))(arg,func_mode=True)
+        elif(LangObj._checkTypeOf3obj(a,b,c)):
+            return (type(a))(arg,bool_value=Bool._if_fanc(a,b,c))
         else:
             LangObj.printTypeError(arg)
 
@@ -162,7 +209,10 @@ class LangObj():
         func_str="LangObj.NAND"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(LangObj._checkTypeOf2obj(a,b)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return (type(a))(arg,func_mode=True)
+        elif(LangObj._checkTypeOf2obj(a,b)):
             bool_value=Bool.defNAND(a.getBool(),b.getBool())
             return (type(a))(arg,bool_value=bool_value)
         else:
@@ -172,7 +222,10 @@ class LangObj():
         func_str="LangObj.NOR"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(LangObj._checkTypeOf2obj(a,b)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return (type(a))(arg,func_mode=True)
+        elif(LangObj._checkTypeOf2obj(a,b)):
             bool_value=Bool.defNOR(a.getBool(),b.getBool())
             return (type(a))(arg,bool_value=bool_value)
         else:
@@ -185,17 +238,21 @@ class Noun(LangObj):
     def _getSelfClass():
         return {"self":Noun,"self_name":"Noun","base":Noun}
     
-    def __init__(self,arg,bool_value=None):
+    def __init__(self,arg,bool_value=None,func_mode=False):
         func_str="Noun"
         key=LangObj._getKeyOfDict(func_str)
         self._setWords(key,arg)
         self._bool_value=bool_value
+        self._func_mode=func_mode
         
     def V2N(a):
         func_str="Noun.V2N"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Verb)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -204,7 +261,10 @@ class Noun(LangObj):
         func_str="Noun.M2N"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Modifier)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Modifier)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -219,7 +279,10 @@ class Noun(LangObj):
         func_str="Noun.eq"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,f,b]
-        if(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun)):
             return Phrase(arg)
         else:
             LangObj.printTypeError(arg)
@@ -228,7 +291,10 @@ class Noun(LangObj):
         func_str="Noun.haveP"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,f,b]
-        if(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Modifier)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Modifier)):
             return Phrase(arg)
         else:
             LangObj.printTypeError(arg)
@@ -237,7 +303,10 @@ class Noun(LangObj):
         func_str="Noun.have"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,f,b]
-        if(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun)):
             return Phrase(arg)
         else:
             LangObj.printTypeError(arg)
@@ -246,7 +315,10 @@ class Noun(LangObj):
         func_str="Noun.belong"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,f,b]
-        if(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun)):
             return Phrase(arg)
         else:
             LangObj.printTypeError(arg)
@@ -255,7 +327,10 @@ class Noun(LangObj):
         func_str="Noun.gt"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,f,b,c]
-        if(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Modifier) and isinstance(c,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Modifier) and isinstance(c,Noun)):
             return Phrase(arg)
         else:
             LangObj.printTypeError(arg)
@@ -264,7 +339,10 @@ class Noun(LangObj):
         func_str="Noun.do"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,f]
-        if(isinstance(a,Noun) and isinstance(f,Verb)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Noun) and isinstance(f,Verb)):
             return Phrase(arg)
         else:
             LangObj.printTypeError(arg)
@@ -273,7 +351,10 @@ class Noun(LangObj):
         func_str="Noun.doT"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,f,b]
-        if(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun)):
             return Phrase(arg)
         else:
             LangObj.printTypeError(arg)
@@ -282,7 +363,10 @@ class Noun(LangObj):
         func_str="Noun.give"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,f,b,c]
-        if(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun) and isinstance(c,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun) and isinstance(c,Noun)):
             return Phrase(arg)
         else:
             LangObj.printTypeError(arg)
@@ -291,7 +375,10 @@ class Noun(LangObj):
         func_str="Noun.makeN"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,f,b,c]
-        if(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun) and isinstance(c,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun) and isinstance(c,Noun)):
             return Phrase(arg)
         else:
             LangObj.printTypeError(arg)
@@ -300,16 +387,10 @@ class Noun(LangObj):
         func_str="Noun.makeM"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,f,b,c]
-        if(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun) and isinstance(c,Modifier)):
-            return Phrase(arg)
-        else:
-            LangObj.printTypeError(arg)
-
-    def Hearsay(a,b):
-        func_str="Noun.Hearsay"
-        key=LangObj._getKeyOfDict(func_str)
-        arg=[key,a,b]
-        if(isinstance(a,Noun) and isinstance(b,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun) and isinstance(c,Modifier)):
             return Phrase(arg)
         else:
             LangObj.printTypeError(arg)
@@ -321,15 +402,17 @@ class Phrase(Noun):
     def _getSelfClass():
         return {"self":Phrase,"self_name":"Phrase","base":Noun}
     
-    def __init__(self,arg,bool_value=None):
-        super().__init__(arg)
-        self._bool_value=bool_value
+    def __init__(self,arg,bool_value=None,func_mode=False):
+        super().__init__(arg,bool_value=bool_value,func_mode=func_mode)
 
     def interrogative(a):
         func_str="Phrase.interrogative"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Phrase)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Phrase)):
             return Phrase(arg)
         else:
             LangObj.printTypeError(arg)
@@ -338,7 +421,10 @@ class Phrase(Noun):
         func_str="Phrase.imperative"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Phrase)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Phrase)):
             return Phrase(arg)
         else:
             LangObj.printTypeError(arg)
@@ -347,7 +433,10 @@ class Phrase(Noun):
         func_str="Phrase.past"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Phrase)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Phrase)):
             return Phrase(arg)
         else:
             LangObj.printTypeError(arg)
@@ -356,7 +445,10 @@ class Phrase(Noun):
         func_str="Phrase.future"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Phrase)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Phrase)):
             return Phrase(arg)
         else:
             LangObj.printTypeError(arg)
@@ -368,17 +460,21 @@ class Verb(LangObj):
     def _getSelfClass():
         return {"self":Verb,"self_name":"Verb","base":Verb}
     
-    def __init__(self,arg,bool_value=None):
+    def __init__(self,arg,bool_value=None,func_mode=False):
         func_str="Verb"
         key=LangObj._getKeyOfDict(func_str)
         self._setWords(key,arg)
         self._bool_value=bool_value
+        self._func_mode=func_mode
         
     def M2V(a):
         func_str="Verb.M2V"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Modifier)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Modifier)):
             return Verb(arg)
         else:
             LangObj.printTypeError(arg)
@@ -387,7 +483,10 @@ class Verb(LangObj):
         func_str="Verb.N2V"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Verb(arg)
         else:
             LangObj.printTypeError(arg)
@@ -402,7 +501,10 @@ class Verb(LangObj):
         func_str="Verb.add"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(isinstance(a,Verb) and isinstance(b,Modifier)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb) and isinstance(b,Modifier)):
             return Verb(arg)
         else:
             LangObj.printTypeError(arg)
@@ -411,7 +513,10 @@ class Verb(LangObj):
         func_str="Verb.passive"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Verb)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
             return Verb(arg)
         else:
             LangObj.printTypeError(arg)
@@ -420,7 +525,10 @@ class Verb(LangObj):
         func_str="Verb.progressive"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Verb)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
             return Verb(arg)
         else:
             LangObj.printTypeError(arg)
@@ -429,7 +537,10 @@ class Verb(LangObj):
         func_str="Verb.perfective"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Verb)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
             return Verb(arg)
         else:
             LangObj.printTypeError(arg)
@@ -441,17 +552,21 @@ class Modifier(LangObj):
     def _getSelfClass():
         return {"self":Modifier,"self_name":"Modifier","base":Modifier}
     
-    def __init__(self,arg,bool_value=None):
+    def __init__(self,arg,bool_value=None,func_mode=False):
         func_str="Modifier"
         key=LangObj._getKeyOfDict(func_str)
         self._setWords(key,arg)
         self._bool_value=bool_value
+        self._func_mode=func_mode
         
     def N2M(a):
         func_str="Modifier.N2M"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Modifier(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Modifier(arg)
         else:
             LangObj.printTypeError(arg)
@@ -460,7 +575,10 @@ class Modifier(LangObj):
         func_str="Modifier.V2M"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Verb)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Modifier(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
             return Modifier(arg)
         else:
             LangObj.printTypeError(arg)
@@ -475,7 +593,10 @@ class Modifier(LangObj):
         func_str="Modifier.add"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(isinstance(a,Modifier) and isinstance(b,Modifier)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Modifier(arg,func_mode=True)
+        elif(isinstance(a,Modifier) and isinstance(b,Modifier)):
             return Modifier(arg)
         else:
             LangObj.printTypeError(arg)
@@ -484,7 +605,10 @@ class Modifier(LangObj):
         func_str="Modifier.Neg"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Modifier)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Modifier(arg,func_mode=True)
+        elif(isinstance(a,Modifier)):
             return Modifier(arg)
         else:
             LangObj.printTypeError(arg)
@@ -500,7 +624,10 @@ class DeterminerN():
         func_str="DeterminerN.biology"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -509,7 +636,10 @@ class DeterminerN():
         func_str="DeterminerN.thing"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -518,7 +648,10 @@ class DeterminerN():
         func_str="DeterminerN.time"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -527,7 +660,10 @@ class DeterminerN():
         func_str="DeterminerN.place"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -536,7 +672,10 @@ class DeterminerN():
         func_str="DeterminerN.reason"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -545,7 +684,10 @@ class DeterminerN():
         func_str="DeterminerN.method"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -554,7 +696,10 @@ class DeterminerN():
         func_str="DeterminerN.human"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -563,7 +708,10 @@ class DeterminerN():
         func_str="DeterminerN.animal"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -572,7 +720,10 @@ class DeterminerN():
         func_str="DeterminerN.plant"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -581,7 +732,10 @@ class DeterminerN():
         func_str="DeterminerN.material"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -590,7 +744,10 @@ class DeterminerN():
         func_str="DeterminerN.start"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -599,7 +756,10 @@ class DeterminerN():
         func_str="DeterminerN.end"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -608,7 +768,10 @@ class DeterminerN():
         func_str="DeterminerN.section"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -617,7 +780,10 @@ class DeterminerN():
         func_str="DeterminerN.In"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -626,7 +792,10 @@ class DeterminerN():
         func_str="DeterminerN.Out"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -635,7 +804,10 @@ class DeterminerN():
         func_str="DeterminerN.above"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -644,7 +816,10 @@ class DeterminerN():
         func_str="DeterminerN.below"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -653,7 +828,10 @@ class DeterminerN():
         func_str="DeterminerN.on"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -662,7 +840,10 @@ class DeterminerN():
         func_str="DeterminerN.right"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -671,7 +852,10 @@ class DeterminerN():
         func_str="DeterminerN.left"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -680,7 +864,10 @@ class DeterminerN():
         func_str="DeterminerN.affect"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -689,7 +876,10 @@ class DeterminerN():
         func_str="DeterminerN.affected"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -698,7 +888,10 @@ class DeterminerN():
         func_str="DeterminerN.near"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -707,7 +900,10 @@ class DeterminerN():
         func_str="DeterminerN.move"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -716,7 +912,10 @@ class DeterminerN():
         func_str="DeterminerN.stop"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -725,7 +924,10 @@ class DeterminerN():
         func_str="DeterminerN.all"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -734,7 +936,10 @@ class DeterminerN():
         func_str="DeterminerN.many"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -743,7 +948,10 @@ class DeterminerN():
         func_str="DeterminerN.some"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -752,7 +960,10 @@ class DeterminerN():
         func_str="DeterminerN.one"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -761,7 +972,10 @@ class DeterminerN():
         func_str="DeterminerN.plural"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -770,7 +984,10 @@ class DeterminerN():
         func_str="DeterminerN.stressed"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -779,7 +996,10 @@ class DeterminerN():
         func_str="DeterminerN.possessive"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -788,7 +1008,10 @@ class DeterminerN():
         func_str="DeterminerN.reflexive"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -797,7 +1020,10 @@ class DeterminerN():
         func_str="DeterminerN.etc"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -806,7 +1032,10 @@ class DeterminerN():
         func_str="DeterminerN.abstract"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -815,7 +1044,10 @@ class DeterminerN():
         func_str="DeterminerN.front"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -824,7 +1056,10 @@ class DeterminerN():
         func_str="DeterminerN.behind"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -833,7 +1068,10 @@ class DeterminerN():
         func_str="DeterminerN.future"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -842,16 +1080,10 @@ class DeterminerN():
         func_str="DeterminerN.past"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
-            return Noun(arg)
-        else:
-            LangObj.printTypeError(arg)
-
-    def now(a):
-        func_str="DeterminerN.now"
-        key=LangObj._getKeyOfDict(func_str)
-        arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -860,7 +1092,10 @@ class DeterminerN():
         func_str="DeterminerN.male"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -869,7 +1104,10 @@ class DeterminerN():
         func_str="DeterminerN.female"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,Noun)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
             return Noun(arg)
         else:
             LangObj.printTypeError(arg)
@@ -881,9 +1119,8 @@ class Pronoun(Noun):
     def _getSelfClass():
         return {"self":Pronoun,"self_name":"Pronoun","base":Noun}
     
-    def __init__(self,arg,bool_value=None):
-        super().__init__(arg)
-        self._bool_value=bool_value
+    def __init__(self,arg,bool_value=None,func_mode=False):
+        super().__init__(arg,bool_value=bool_value,func_mode=func_mode)
 
     def I():
         func_str="Pronoun.I"
@@ -1020,9 +1257,8 @@ class Bool(LangObj):
     def _getSelfClass():
         return {"self":Bool,"self_name":"Bool","base":Bool}
     
-    def __init__(self,arg,bool_value=None):
-        super().__init__(arg)
-        self._bool_value=bool_value
+    def __init__(self,arg,bool_value=None,func_mode=False):
+        super().__init__(arg,bool_value=bool_value,func_mode=func_mode)
 
     def defNAND(bool_a:bool,bool_b:bool):
         if((not isinstance(bool_a,bool)) or (not isinstance(bool_b,bool))):
@@ -1044,6 +1280,11 @@ class Bool(LangObj):
     def defNOR(a:bool,b:bool):
         return Bool.defNOT(Bool.defOR(a,b))
 
+    def _if_fanc(a:LangObj,b:LangObj,c:LangObj=LangObj([])):
+        bool_a=a.getBool()
+        bool_b=b.getBool()
+        bool_c=c.getBool()
+        return bool_b if bool_a else bool_c
 
     def false():
         func_str="Bool.false"
@@ -1061,7 +1302,10 @@ class Bool(LangObj):
         func_str="Bool.B2N"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(isinstance(a,Noun) and isinstance(b,Bool)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun) and isinstance(b,Bool)):
             return Noun(arg,bool_value=b.getBool())
         else:
             LangObj.printTypeError(arg)
@@ -1078,7 +1322,7 @@ class BoolList(Noun):
     def _getSelfClass():
         return {"self":BoolList,"self_name":"BoolList","base":Noun}
     
-    def __init__(self,arg=None,bool_list=[],bool_value=None,class_type=None):
+    def __init__(self,arg=None,bool_list=[],bool_value=None,class_type=None,func_mode=False):
         func_str="BoolList"
         key=LangObj._getKeyOfDict(func_str)
 
@@ -1090,6 +1334,7 @@ class BoolList(Noun):
         self._bool_value=bool_value
         self.__class_type=class_type
         self.__bool_list=bool_list
+        self._func_mode=func_mode
 
     def boolLen(self):
         return len(self.__bool_list)
@@ -1156,6 +1401,31 @@ class BoolList(Noun):
         else:
             return None
     
+    def __hex2bin(num:int):
+        r=[]
+        while num>0:
+            a=num%2
+            num=num//2
+            r.append(a==1)
+        r.reverse()
+        return r
+
+    def hex2BoolList(num:int):
+        if(num>0):
+            bl=BoolList()
+            bin_l=BoolList.__hex2bin(num)
+            
+            for li in bin_l:
+                if(li):
+                    bl=BoolList.append(bl,Bool.true())
+                else:
+                    bl=BoolList.append(bl,Bool.false())
+            return bl
+        elif(num==0):
+            return BoolList.append(BoolList(),Bool.false())
+        else:
+            return None
+
     def getData(self):
         if(self.__class_type==None):
             return self.getBoolList()
@@ -1172,7 +1442,10 @@ class BoolList(Noun):
         func_str="BoolList.get"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(isinstance(a,BoolList) and isinstance(b,BoolList)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Bool(arg,func_mode=True)
+        elif(isinstance(a,BoolList) and isinstance(b,BoolList)):
             bool_value=a.getBoolList()[b.getNaturalNumber()]
             return Bool(arg=arg,bool_value=bool_value)
         else:
@@ -1182,7 +1455,10 @@ class BoolList(Noun):
         func_str="BoolList.append"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(isinstance(a,BoolList) and isinstance(b,Bool)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,BoolList) and isinstance(b,Bool)):
             bool_list=a.getBoolList()+[b.getBool()]
             return BoolList(arg=arg,bool_list=bool_list)
         else:
@@ -1192,7 +1468,10 @@ class BoolList(Noun):
         func_str="BoolList.slice"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b,c]
-        if(isinstance(a,BoolList) and isinstance(b,BoolList) and isinstance(c,BoolList)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,BoolList) and isinstance(b,BoolList) and isinstance(c,BoolList)):
             bool_list=a.getBoolList()[b.getNaturalNumber():c.getNaturalNumber()+1]
             return BoolList(arg=arg,bool_list=bool_list)
         else:
@@ -1202,7 +1481,10 @@ class BoolList(Noun):
         func_str="BoolList.add"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(isinstance(a,BoolList) and isinstance(b,BoolList)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,BoolList) and isinstance(b,BoolList)):
             bool_list=a.getBoolList()+b.getBoolList()
             return BoolList(arg=arg,bool_list=bool_list)
         else:
@@ -1212,7 +1494,10 @@ class BoolList(Noun):
         func_str="BoolList.twoBit"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b]
-        if(isinstance(a,Bool) and isinstance(b,Bool)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,Bool) and isinstance(b,Bool)):
             bool_list=[a.getBool(),b.getBool()]
             return BoolList(arg=arg,bool_list=bool_list)
         else:
@@ -1222,7 +1507,10 @@ class BoolList(Noun):
         func_str="BoolList.fourBit"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a,b,c,d]
-        if(isinstance(a,Bool) and isinstance(b,Bool) and isinstance(c,Bool) and isinstance(d,Bool)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,Bool) and isinstance(b,Bool) and isinstance(c,Bool) and isinstance(d,Bool)):
             bool_list=[a.getBool(),b.getBool(),c.getBool(),d.getBool()]
             return BoolList(arg=arg,bool_list=bool_list)
         else:
@@ -1232,7 +1520,10 @@ class BoolList(Noun):
         func_str="BoolList.byte"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,x1,x2,x3,x4,x5,x6,x7,x8]
-        if(isinstance(x1,Bool) and isinstance(x2,Bool) and isinstance(x3,Bool) and isinstance(x4,Bool) and isinstance(x5,Bool) and isinstance(x6,Bool) and isinstance(x7,Bool) and isinstance(x8,Bool)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(x1,Bool) and isinstance(x2,Bool) and isinstance(x3,Bool) and isinstance(x4,Bool) and isinstance(x5,Bool) and isinstance(x6,Bool) and isinstance(x7,Bool) and isinstance(x8,Bool)):
             bool_list=[x1.getBool(),x2.getBool(),x3.getBool(),x4.getBool(),x5.getBool(),x6.getBool(),x7.getBool(),x8.getBool()]
             return BoolList(arg=arg,bool_list=bool_list)
         else:
@@ -1242,7 +1533,10 @@ class BoolList(Noun):
         func_str="BoolList.NaturalNum"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,BoolList)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,BoolList)):
             bool_list=a.getBoolList()
             class_type=BoolList.CLASS_TYPE_NATURAL_NUM
             return BoolList(arg=arg,bool_list=bool_list,class_type=class_type)
@@ -1253,7 +1547,10 @@ class BoolList(Noun):
         func_str="BoolList.Int"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,BoolList)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,BoolList)):
             bool_list=a.getBoolList()
             class_type=BoolList.CLASS_TYPE_INT
             return BoolList(arg=arg,bool_list=bool_list,class_type=class_type)
@@ -1264,7 +1561,10 @@ class BoolList(Noun):
         func_str="BoolList.Float"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,BoolList)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,BoolList)):
             if(a.boolLen()==32):
                 bool_list=a.getBoolList()
                 class_type=BoolList.CLASS_TYPE_FLOAT
@@ -1278,13 +1578,151 @@ class BoolList(Noun):
         func_str="BoolList.ASCII"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
-        if(isinstance(a,BoolList)):
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,BoolList)):
             bool_list=a.getBoolList()
             class_type=BoolList.CLASS_TYPE_ASCII
             return BoolList(arg=arg,bool_list=bool_list,class_type=class_type)
         else:
             LangObj.printTypeError(arg)
 
+
+class LangFunc(Noun):
+
+    _FUNC_LIST={}
+
+    def _getSelfClass():
+        return {"self":LangFunc,"self_name":"LangFunc","base":Noun}
+
+    def clearDict():
+        LangFunc._FUNC_LIST={}
+    
+    def __init__(self,arg,bool_value=None,func_mode=False):
+        super().__init__(arg,bool_value=bool_value,func_mode=func_mode)
+
+    def setFunc(a,b):
+        func_str="LangFunc.setFunc"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+        
+        if(isinstance(a,Noun) and isinstance(b,LangList)):
+            a_str=str(a)
+            if(a_str not in LangFunc._FUNC_LIST):
+                LangFunc._FUNC_LIST[a_str]=[str(b)]
+                return LangFunc(arg)
+            else:
+                print(SFGPLError.FUNC_NAME_ERROR_DUPLICATION(arg))
+        else:
+            LangObj.printTypeError(arg)
+    
+    def arg():
+        func_str="LangFunc.arg"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key]
+        return LangList(arg,func_mode=True)
+        
+    def runFunc(a,b):
+        func_str="LangFunc.runFunc"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return LangList(arg,func_mode=True)
+        elif(isinstance(a,Noun) and isinstance(b,LangList)):
+            arg_str=LangObj._getKeyOfDict("LangFunc.arg")
+            a_str=str(a)
+            b_str=str(b)
+            func_result=SFGPLLib.str2CMD(LangFunc._FUNC_LIST[a_str][-1].replace(arg_str,b_str))
+            return LangList(arg,bool_value=func_result.getBool(),lang_list=func_result.getLangList())
+        else:
+            LangObj.printTypeError(arg)
+
+
+class LangList(Noun):
+
+    def _getSelfClass():
+        return {"self":LangList,"self_name":"LangList","base":Noun}
+    
+    def __init__(self,arg=None,lang_list=[],bool_value=None,func_mode=False):
+        func_str="LangList"
+        key=LangObj._getKeyOfDict(func_str)
+        self._bool_value=bool_value
+        self._func_mode=func_mode
+
+        if(arg==None):
+            arg_tmp=[key]
+        else:
+            arg_tmp=arg            
+        self._setWords([],arg_tmp)
+        self.__lang_list=lang_list
+
+    def LangListLen(self):
+        return len(self.__lang_list)
+
+    def getLangList(self):
+        return self.__lang_list
+
+    def get(a,b):
+        func_str="LangList.get"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return LangObj(arg,func_mode=True)
+        elif(isinstance(a,LangList) and isinstance(b,BoolList)):
+            tmp_obj=a.getLangList()[b.getNaturalNumber()]
+            r_obj=None
+            if(isinstance(tmp_obj,LangList)):
+                r_obj=LangList(arg,bool_value=tmp_obj.getBool(),lang_list=tmp_obj.getLangList())
+            elif(isinstance(tmp_obj,BoolList)):
+                r_obj=BoolList(arg,bool_value=tmp_obj.getBool(),bool_list=tmp_obj.getBoolList())
+            else:
+                r_obj=type(tmp_obj)(arg,bool_value=tmp_obj.getBool())
+            
+            return r_obj
+        else:
+            LangObj.printTypeError(arg)
+
+    def append(a,b):
+        func_str="LangList.append"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return LangList(arg,func_mode=True)
+        elif(isinstance(a,LangList) and isinstance(b,LangObj)):
+            lang_list=a.getLangList()+[b]
+            return LangList(arg=arg,lang_list=lang_list)
+        else:
+            LangObj.printTypeError(arg)
+
+    def slice(a,b,c):
+        func_str="LangList.slice"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b,c]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return LangList(arg,func_mode=True)
+        elif(isinstance(a,LangList) and isinstance(b,BoolList) and isinstance(c,BoolList)):
+            lang_list=a.getLangList()[b.getNaturalNumber():c.getNaturalNumber()+1]
+            return LangList(arg=arg,lang_list=lang_list)
+        else:
+            LangObj.printTypeError(arg)
+
+    def add(a,b):
+        func_str="LangList.add"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return LangList(arg,func_mode=True)
+        elif(isinstance(a,LangList) and isinstance(b,LangList)):
+            lang_list=a.getLangList()+b.getLangList()
+            return LangList(arg=arg,lang_list=lang_list)
+        else:
+            LangObj.printTypeError(arg)
 
 
 #A class with a collection of functions to support generation, display, etc.

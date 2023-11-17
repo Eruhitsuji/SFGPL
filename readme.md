@@ -18,6 +18,8 @@ However, I may be wrong because Japanese is my native language and English is tr
 - [Conjunction](docs/en/Conjunction.md)
 - [DeterminerN](docs/en/DeterminerN.md)
 - [Bool related classes](docs/en/Bool.md)
+- [LangList](docs/en/LangList.md)
+- [LangFunc](docs/en/LangFunc.md)
 - [About version](docs/en/version.md)
 
 ## 目次
@@ -35,4 +37,6 @@ However, I may be wrong because Japanese is my native language and English is tr
 - [接続詞](docs/jp/Conjunction.md)
 - [名詞限定詞](docs/jp/DeterminerN.md)
 - [Bool関連クラス](docs/jp/Bool.md)
+- [LangList](docs/jp/LangList.md)
+- [LangFunc](docs/jp/LangFunc.md)
 - [バージョンについて](docs/jp/version.md)
