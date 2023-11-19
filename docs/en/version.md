@@ -31,3 +31,4 @@ In addition, the version of the corpus at the time it was executed is listed in 
 |3.0.1|[How_to_Use_SFGPL_in_Python.ipynb](../../How_to_Use_SFGPL_in_Python.ipynb) fixed|
 |3.1.0|Fixed LangFunc.runFunc()|
 |3.1.1|Add and modify to documents|
+|3.1.2|Add and modify to documents|

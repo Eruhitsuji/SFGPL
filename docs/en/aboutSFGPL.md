@@ -90,6 +90,11 @@ Borrowed words are read with the pronunciation specific to the borrowed words.
 
 The SFGPL [word](Word.md) is mainly divided into SFGPL-specific words and loan words.
 
+The unique words are mainly function words necessary for sentence structure, and basic words for verbs and modifiers.
+The rest of the words are loan words.
+
+And in the sentence structure of the SFGPL, the position of the part of speech is determined and words must be used according to their part of speech.
+
 ### Parts of speech in the SFGPL
 
 There are three parts of speech in the SFGPL: Noun, Verb and Modifier.
