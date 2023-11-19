@@ -86,13 +86,18 @@ On the other hand, the vowels in the SFGPL are as shown in the table below.
 
 Borrowed words are read with the pronunciation specific to the borrowed words.
 
-## Parts of speech in the SFGPL
+## SFGPL Words
+
+The SFGPL [word](Word.md) is mainly divided into SFGPL-specific words and loan words.
+
+### Parts of speech in the SFGPL
 
 There are three parts of speech in the SFGPL: Noun, Verb and Modifier.
 Phrase, Pronoun, BoolList, LangList and LangFunc exist as subclasses of Noun.
 BoolList, LangList, and LangFunc are used to create logical statements in addition to general statements.
 Furthermore, there are two special words that modify nouns: noun determiners (DeterminerN).
 Then, there is a Bool type that represents true/false.
+
 Each part of speech has its own function words, which change the part of speech and determine its meaning.
 Other words that implement the basic vocabulary are Word.
 The SFGPL's specific words are classified according to their parts of speech: verbs are "WordV", modifiers are "WordM".
@@ -105,7 +110,7 @@ In the Python library SFGPL, there are classes for each part of speech.
 
 ![PartOfSpeach](../img/PartOfSpeach.jpg)
 
-## Function words in the SFGPL
+### Function words in the SFGPL
 
 Function words determine the role, part of speech, etc. of a sentence.
 The function, role and meaning of function words are only applicable within arguments.
@@ -115,7 +120,7 @@ They also have a fixed number of arguments, and the role of each argument is det
 
 For a list of function words and how to use them, see [dict.csv](../../dict.csv).
 
-## Borrowed words in the SFGPL
+### Borrowed words in the SFGPL
 
 Borrowed words are used for words that do not exist in the SFGPL.
 It is preferable to borrow words from languages commonly used in the world, such as English, but this should not be a problem as long as the words can be understood by others.

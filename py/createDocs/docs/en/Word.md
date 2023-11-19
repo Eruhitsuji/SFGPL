@@ -86,3 +86,14 @@ Examples of these are given below.
 ## About pronouns
 
 [Pronouns](pronoun.md) exist in SFGPL.
+Pronouns are listed in the following table.
+
+||English|SFGPL|
+|:-:|:-:|:-:|
+|First Person Pronoun|I|{pronoun_I}|
+|Second Person Pronoun|you|{pronoun_you}|
+|Third Person Pronoun|he/she/it|{pronoun_he}|
+|Proximate Pronoun|this|{pronoun_proximal}|
+|Distant Pronoun|that|{pronoun_distal}|
+|Interrogative Pronoun|what|{pronoun_interrogative}|
+|Indefinite Pronoun|something|{pronoun_indefinite}|

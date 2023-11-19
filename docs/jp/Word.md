@@ -86,3 +86,14 @@ SFGPLには，意味を付加しない単語が存在する．
 ## 代名詞について
 
 SFGPLでは[代名詞](pronoun.md)が存在する．
+代名詞は次の表のようなものがある．
+
+||English|SFGPL|
+|:-:|:-:|:-:|
+|一人称代名詞|I|ga|
+|二人称代名詞|you|ge|
+|三人称代名詞|he/she/it|gi|
+|近称代名詞|this|gu|
+|遠称代名詞|that|go|
+|疑問代名詞|what|wa|
+|不定代名詞|something|we|

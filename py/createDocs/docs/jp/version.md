@@ -30,3 +30,4 @@ SFGPL.__version__.__version__
 |3.0.0|LangListとLangFuncクラスの追加|
 |3.0.1|[How_to_Use_SFGPL_in_Python.ipynb](../../How_to_Use_SFGPL_in_Python.ipynb)の修正|
 |3.1.0|LangFunc.runFunc()の修正|
+|3.1.1|ドキュメントの追加・修正|

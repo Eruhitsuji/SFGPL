@@ -19,6 +19,13 @@ format_str_list={
     "verb_none":LangObj._getKeyOfDict("Verb.none"),
     "modifier_none":LangObj._getKeyOfDict("Modifier.none"),
 
+    "pronoun_I":Pronoun.I(),
+    "pronoun_you":Pronoun.you(),
+    "pronoun_he":Pronoun.he(),
+    "pronoun_proximal":Pronoun.proximal(),
+    "pronoun_distal":Pronoun.distal(),
+    "pronoun_interrogative":Pronoun.interrogative(),
+    "pronoun_indefinite":Pronoun.indefinite(),
 }
 
 createDocs(FILE_NAME,format_str_list,INDIR_JP,OUTDIR_JP)
