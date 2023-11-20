@@ -20,6 +20,7 @@ However, I may be wrong because Japanese is my native language and English is tr
 - [Bool related classes](docs/en/Bool.md)
 - [LangList](docs/en/LangList.md)
 - [LangFunc](docs/en/LangFunc.md)
+- [Example Sentence](docs/en/exampleSentence.md)
 - [About version](docs/en/version.md)
 
 ## 目次
@@ -39,4 +40,5 @@ However, I may be wrong because Japanese is my native language and English is tr
 - [Bool関連クラス](docs/jp/Bool.md)
 - [LangList](docs/jp/LangList.md)
 - [LangFunc](docs/jp/LangFunc.md)
+- [例文](docs/jp/exampleSentence.md)
 - [バージョンについて](docs/jp/version.md)

@@ -1589,6 +1589,7 @@ class BoolList(Noun):
             LangObj.printTypeError(arg)
 
 
+#Class for LangFunc in SFGPL
 class LangFunc(Noun):
 
     _FUNC_LIST={}
@@ -1657,6 +1658,7 @@ class LangFunc(Noun):
             LangObj.printTypeError(arg)
 
 
+#Class for LangList in SFGPL
 class LangList(Noun):
 
     def _getSelfClass():
@@ -1956,3 +1958,36 @@ class SFGPLCorpus():
         sc_str=sc_str.split(SPLIT_WORD)
         sc_str=[li for li in sc_str if include_word_func(li)]
         return collections.Counter(sc_str)
+    
+    #Converts the information in the corpus to a string in a Markdown table
+    def corpus2MDtableStr(corpus,header:list=[("s","sfgpl_str_list","SFGPL"),("o","sfgpl_obj_list","Python"),("t","translation_str_list","Translation")],SPLIT_STR="|",TABLE_HEAD_STR=":-:",NEW_LINE_STR="\n"):
+        mode=""
+        for key in header:
+            mode+=key[0]
+        
+        corpus_gets=corpus.getAll(mode=mode)
+        r_str=""
+
+        #header
+        r_str+=SPLIT_STR
+        for key in header:
+            r_str+=key[2]+SPLIT_STR
+        r_str+=NEW_LINE_STR
+
+        r_str+=SPLIT_STR
+        for key in header:
+            r_str+=TABLE_HEAD_STR+SPLIT_STR
+        r_str+=NEW_LINE_STR
+
+        #contents
+        for i in range(len(corpus)):
+            r_str+=SPLIT_STR
+            for key in header:
+                tmp_str=str(corpus_gets[key[1]][i])
+                if(key[1]=="sfgpl_obj_list"):
+                    tmp_str=SFGPLLib.str2CMD(tmp_str,toObj=False)
+                
+                r_str+=tmp_str+SPLIT_STR
+            r_str+=NEW_LINE_STR
+        return r_str
+

@@ -19,7 +19,7 @@ SFGPLでは以下の表のような文型が存在し，それらの文の組み
 |5|S V O C|{noun_makeM}|Noun.makeM|S,V,O,C|Cが修飾語|
 |-|A has B|{noun_have}|Noun.have|A,V,B|AがBを所有している|
 |-|A belongs to B|{noun_belong}|Noun.belong|A,V,B|AがBに所属している|
-|-|A is more B than C|{noun_gt}|Noun.gt|A,V,B,C|AがBよりCである|
+|-|A is more B than C|{noun_gt}|Noun.gt|A,V,B,C|AがCよりBである|
 
 ## Noun.do
 

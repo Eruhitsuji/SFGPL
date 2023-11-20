@@ -50,7 +50,7 @@ SFGPLでは固有語によって，文構造が厳密に定義されている．
 |5|S V O C|to|Noun.makeM|S,V,O,C|Cが修飾語|
 |-|A has B|mi|Noun.have|A,V,B|AがBを所有している|
 |-|A belongs to B|mu|Noun.belong|A,V,B|AがBに所属している|
-|-|A is more B than C|mo|Noun.gt|A,V,B,C|AがBよりCである|
+|-|A is more B than C|mo|Noun.gt|A,V,B,C|AがCよりBである|
 
 ## SFGPLの発音
 
