@@ -88,6 +88,22 @@ The progressive form plus the perfect form to express "I have been wearing a dre
 {I_have_been_wearing_a_dress}
 ```
 
+### General progressive form
+
+In SFGPL, we can make a simple progressive form as in ⑥ without considering the phases ① to ⑤ in the previous section.
+The SFGPL can be expressed in the progressive form meaning "I am wearing the dress." as follows.
+
+```{I_am_wearing_the_dress}```
+
+Progressive forms ```{verb_progressive}``` are attached to verbs.
+They can be past or future tense as well as present tense.
+"I am wearing the dress." in the past and future tenses is as follows.
+
+```SFGPL
+{I_was_wearing_the_dress}
+{I_will_be_wearing_the_dress}
+```
+
 ## Perfect tense
 
 In the SFGPL, there is a perfect tense equivalent to English, as shown in the figure below.
@@ -104,21 +120,6 @@ Examples of the perfect tense for the three tenses are as follows.
 |③Future Perfect Tense|I will have lived in Tokyo.|{I_will_have_lived_in_Tokyo}|
 
 In ```{verb_perfective}```, the perfective form is attached to and modifies the verb itself.
-
-## 進行形
-
-The SFGPL can be expressed in the progressive form meaning "I am wearing the dress." as follows.
-
-```{I_am_wearing_the_dress}```
-
-Progressive forms ```{verb_progressive}``` are attached to verbs.
-They can be past or future tense as well as present tense.
-"I am wearing the dress." in the past and future tenses is as follows.
-
-```SFGPL
-{I_was_wearing_the_dress}
-{I_will_be_wearing_the_dress}
-```
 
 ## Passive voice
 

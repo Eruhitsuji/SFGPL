@@ -88,6 +88,22 @@ The progressive form plus the perfect form to express "I have been wearing a dre
 te ga nu ni sa 'wear' fa 'dress'
 ```
 
+### General progressive form
+
+In SFGPL, we can make a simple progressive form as in ⑥ without considering the phases ① to ⑤ in the previous section.
+The SFGPL can be expressed in the progressive form meaning "I am wearing the dress." as follows.
+
+```te ga ni sa 'wear' fa 'dress'```
+
+Progressive forms ```ni``` are attached to verbs.
+They can be past or future tense as well as present tense.
+"I am wearing the dress." in the past and future tenses is as follows.
+
+```SFGPL
+di te ga ni sa 'wear' fa 'dress'
+du te ga ni sa 'wear' fa 'dress'
+```
+
 ## Perfect tense
 
 In the SFGPL, there is a perfect tense equivalent to English, as shown in the figure below.
@@ -104,21 +120,6 @@ Examples of the perfect tense for the three tenses are as follows.
 |③Future Perfect Tense|I will have lived in Tokyo.|du ta ga nu na sa 'live' li pun fa 'Tokyo'|
 
 In ```nu```, the perfective form is attached to and modifies the verb itself.
-
-## 進行形
-
-The SFGPL can be expressed in the progressive form meaning "I am wearing the dress." as follows.
-
-```te ga ni sa 'wear' fa 'dress'```
-
-Progressive forms ```ni``` are attached to verbs.
-They can be past or future tense as well as present tense.
-"I am wearing the dress." in the past and future tenses is as follows.
-
-```SFGPL
-di te ga ni sa 'wear' fa 'dress'
-du te ga ni sa 'wear' fa 'dress'
-```
 
 ## Passive voice
 

@@ -88,6 +88,21 @@ SFGPLでは下の図のように，①起動相，②経過相，③完結相，
 {I_have_been_wearing_a_dress}
 ```
 
+### 一般的な進行形
+
+SFGPLは次のように，"I am wearing the dress."という意味の進行形を表すことができる．
+
+```{I_am_wearing_the_dress}```
+
+進行形を表す```{verb_progressive}```は動詞に付属する．
+これらは，現在形以外にも，過去形，未来形にできる．
+"I am wearing the dress."を過去形，未来形にすると次のようになる．
+
+```SFGPL
+{I_was_wearing_the_dress}
+{I_will_be_wearing_the_dress}
+```
+
 ## 完了形
 
 SFGPLでは，以下の図のような，英語と同等な完了形が存在する．
@@ -104,21 +119,6 @@ SFGPLでは，以下の図のような，英語と同等な完了形が存在す
 |③未来完了形|I will have lived in Tokyo.|{I_will_have_lived_in_Tokyo}|
 
 完了形を表す```{verb_perfective}```では，動詞自体に付属し，修飾する．
-
-## 進行形
-
-SFGPLは次のように，"I am wearing the dress."という意味の進行形を表すことができる．
-
-```{I_am_wearing_the_dress}```
-
-進行形を表す```{verb_progressive}```は動詞に付属する．
-これらは，現在形以外にも，過去形，未来形にできる．
-"I am wearing the dress."を過去形，未来形にすると次のようになる．
-
-```SFGPL
-{I_was_wearing_the_dress}
-{I_will_be_wearing_the_dress}
-```
 
 ## 受動態
 

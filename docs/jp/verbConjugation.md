@@ -88,6 +88,21 @@ du te ga tak sa 'wear' fa 'dress'
 te ga nu ni sa 'wear' fa 'dress'
 ```
 
+### 一般的な進行形
+
+SFGPLは次のように，"I am wearing the dress."という意味の進行形を表すことができる．
+
+```te ga ni sa 'wear' fa 'dress'```
+
+進行形を表す```ni```は動詞に付属する．
+これらは，現在形以外にも，過去形，未来形にできる．
+"I am wearing the dress."を過去形，未来形にすると次のようになる．
+
+```SFGPL
+di te ga ni sa 'wear' fa 'dress'
+du te ga ni sa 'wear' fa 'dress'
+```
+
 ## 完了形
 
 SFGPLでは，以下の図のような，英語と同等な完了形が存在する．
@@ -104,21 +119,6 @@ SFGPLでは，以下の図のような，英語と同等な完了形が存在す
 |③未来完了形|I will have lived in Tokyo.|du ta ga nu na sa 'live' li pun fa 'Tokyo'|
 
 完了形を表す```nu```では，動詞自体に付属し，修飾する．
-
-## 進行形
-
-SFGPLは次のように，"I am wearing the dress."という意味の進行形を表すことができる．
-
-```te ga ni sa 'wear' fa 'dress'```
-
-進行形を表す```ni```は動詞に付属する．
-これらは，現在形以外にも，過去形，未来形にできる．
-"I am wearing the dress."を過去形，未来形にすると次のようになる．
-
-```SFGPL
-di te ga ni sa 'wear' fa 'dress'
-du te ga ni sa 'wear' fa 'dress'
-```
 
 ## 受動態
 
