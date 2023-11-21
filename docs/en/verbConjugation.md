@@ -26,7 +26,8 @@ In particular, ```di``` and ```du``` are attached to the sentence itself.
 
 The verbs described in the previous section are the most basic way of expressing verb tenses.
 However, in the SFGPL, there are words that are mainly used to combine tenses, depending on the DetermineV class.
-The following table shows these words.
+The extended tense by the DeterminerV class has a lower priority than the base tense by the Phrase class, and the base tense basically represents the tense of the entire sentence.
+The following table shows the words that represent the extended tense.
 
 |Tense|Word|
 |:-:|:-:|

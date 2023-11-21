@@ -35,3 +35,4 @@ In addition, the version of the corpus at the time it was executed is listed in 
 |3.1.3|Add and modify to documents|
 |4.0.0|Add DeterminerV class|
 |4.0.1|Fixed dictionary|
+|4.0.2|Add and modify to documents|
