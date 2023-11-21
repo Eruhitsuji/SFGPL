@@ -1113,6 +1113,469 @@ class DeterminerN():
             LangObj.printTypeError(arg)
 
 
+#Class for determiners of verbs in SFGPL
+class DeterminerV():
+
+    def _getSelfClass():
+        return {"self":DeterminerV,"self_name":"DeterminerV"}
+        
+    def Estimation100(a):
+        func_str="DeterminerV.Estimation100"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Estimation75(a):
+        func_str="DeterminerV.Estimation75"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Estimation50(a):
+        func_str="DeterminerV.Estimation50"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Estimation25(a):
+        func_str="DeterminerV.Estimation25"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Estimation0(a):
+        func_str="DeterminerV.Estimation0"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Frequency100(a):
+        func_str="DeterminerV.Frequency100"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Frequency75(a):
+        func_str="DeterminerV.Frequency75"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Frequency50(a):
+        func_str="DeterminerV.Frequency50"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Frequency25(a):
+        func_str="DeterminerV.Frequency25"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Frequency0(a):
+        func_str="DeterminerV.Frequency0"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Start(a):
+        func_str="DeterminerV.Start"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Condition(a):
+        func_str="DeterminerV.Condition"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Complete(a):
+        func_str="DeterminerV.Complete"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Continue(a):
+        func_str="DeterminerV.Continue"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def End(a):
+        func_str="DeterminerV.End"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def past(a):
+        func_str="DeterminerV.past"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def present(a):
+        func_str="DeterminerV.present"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def future(a):
+        func_str="DeterminerV.future"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Possible(a):
+        func_str="DeterminerV.Possible"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Ability(a):
+        func_str="DeterminerV.Ability"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Will(a):
+        func_str="DeterminerV.Will"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Obligation(a):
+        func_str="DeterminerV.Obligation"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Necessary(a):
+        func_str="DeterminerV.Necessary"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Duty(a):
+        func_str="DeterminerV.Duty"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def forced(a):
+        func_str="DeterminerV.forced"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def want(a):
+        func_str="DeterminerV.want"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def dare(a):
+        func_str="DeterminerV.dare"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def allow(a):
+        func_str="DeterminerV.allow"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def easy(a):
+        func_str="DeterminerV.easy"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def hard(a):
+        func_str="DeterminerV.hard"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def habit(a):
+        func_str="DeterminerV.habit"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Polite(a):
+        func_str="DeterminerV.Polite"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Respect(a):
+        func_str="DeterminerV.Respect"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def volitional(a):
+        func_str="DeterminerV.volitional"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def nonVolitional(a):
+        func_str="DeterminerV.nonVolitional"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Requests(a):
+        func_str="DeterminerV.Requests"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Permission(a):
+        func_str="DeterminerV.Permission"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    def Suggestion(a):
+        func_str="DeterminerV.Suggestion"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,Verb)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+
+
 #Class for pronouns in SFGPL
 class Pronoun(Noun):
     

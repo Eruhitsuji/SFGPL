@@ -100,7 +100,7 @@ And in the sentence structure of the SFGPL, the position of the part of speech i
 There are three parts of speech in the SFGPL: Noun, Verb and Modifier.
 Phrase, Pronoun, BoolList, LangList and LangFunc exist as subclasses of Noun.
 BoolList, LangList, and LangFunc are used to create logical statements in addition to general statements.
-Furthermore, there are two special words that modify nouns: noun determiners (DeterminerN).
+In addition, there are two special words that modify nouns and verbs: noun determiners (DeterminerN) and verb determiners (DeterminerV).
 Then, there is a Bool type that represents true/false.
 
 Each part of speech has its own function words, which change the part of speech and determine its meaning.

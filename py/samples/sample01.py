@@ -1618,6 +1618,500 @@ sc.setCorpus(
     md_out_path=OUT_DIR+"sample01_03.md"
 )
 
+void_func=lambda a:a
+
+lang_list_07=lambda tense=void_func,determinerV=void_func:tense(Noun.doT(DeterminerN.male(Pronoun.he()),determinerV(Verb("study")),Noun("English")))
+
+sc.setCorpus(
+    lang_list_07(),
+    "He study English."
+)
+
+sc.setCorpus(
+    lang_list_07(tense=Phrase.past),
+    "He studied English."
+)
+
+sc.setCorpus(
+    lang_list_07(tense=Phrase.past,determinerV=DeterminerV.Estimation100),
+    "He 100% probability studied English."
+)
+
+sc.setCorpus(
+    lang_list_07(tense=Phrase.past,determinerV=DeterminerV.Estimation75),
+    "He 75% probability studied English."
+)
+
+sc.setCorpus(
+    lang_list_07(tense=Phrase.past,determinerV=DeterminerV.Estimation50),
+    "He 50% probability studied English."
+)
+
+sc.setCorpus(
+    lang_list_07(tense=Phrase.past,determinerV=DeterminerV.Estimation25),
+    "He 25% probability studied English."
+)
+
+sc.setCorpus(
+    lang_list_07(tense=Phrase.past,determinerV=DeterminerV.Estimation0),
+    "He 0% probability studied English."
+)
+
+sc.setCorpus(
+    lang_list_07(determinerV=DeterminerV.Frequency100),
+    "He 100% frequently study English."
+)
+
+sc.setCorpus(
+    lang_list_07(determinerV=DeterminerV.Frequency75),
+    "He 75% frequently study English."
+)
+
+sc.setCorpus(
+    lang_list_07(determinerV=DeterminerV.Frequency50),
+    "He 50% frequently study English."
+)
+
+sc.setCorpus(
+    lang_list_07(determinerV=DeterminerV.Frequency25),
+    "He 25% frequently study English."
+)
+
+sc.setCorpus(
+    lang_list_07(determinerV=DeterminerV.Frequency0),
+    "He 0% frequently study English."
+)
+
+lang_list_08=lambda tense=void_func,determinerV=void_func:tense(Noun.do(DeterminerN.male(Pronoun.he()),Verb.add(determinerV(Verb("go")),Modifier.N2M(DeterminerN.place(Noun("Tokyo"))))))
+
+sc.setCorpus(
+    lang_list_08(),
+    "He goes to Tokyo."
+)
+
+sc.setCorpus(
+    lang_list_08(tense=Phrase.past),
+    "He went to Tokyo."
+)
+
+sc.setCorpus(
+    lang_list_08(tense=Phrase.past,determinerV=DeterminerV.Estimation100),
+    "He 100% probability went to Tokyo."
+)
+
+sc.setCorpus(
+    lang_list_08(tense=Phrase.past,determinerV=DeterminerV.Estimation75),
+    "He 75% probability went to Tokyo."
+)
+
+sc.setCorpus(
+    lang_list_08(tense=Phrase.past,determinerV=DeterminerV.Estimation50),
+    "He 50% probability went to Tokyo."
+)
+
+sc.setCorpus(
+    lang_list_08(tense=Phrase.past,determinerV=DeterminerV.Estimation25),
+    "He 25% probability went to Tokyo."
+)
+
+sc.setCorpus(
+    lang_list_08(tense=Phrase.past,determinerV=DeterminerV.Estimation0),
+    "He 0% probability went to Tokyo."
+)
+
+sc.setCorpus(
+    lang_list_08(determinerV=DeterminerV.Frequency100),
+    "He 100% frequently goes to Tokyo."
+)
+
+sc.setCorpus(
+    lang_list_08(determinerV=DeterminerV.Frequency75),
+    "He 75% frequently goes to Tokyo."
+)
+
+sc.setCorpus(
+    lang_list_08(determinerV=DeterminerV.Frequency50),
+    "He 50% frequently goes to Tokyo."
+)
+
+sc.setCorpus(
+    lang_list_08(determinerV=DeterminerV.Frequency25),
+    "He 25% frequently goes to Tokyo."
+)
+
+sc.setCorpus(
+    lang_list_08(determinerV=DeterminerV.Frequency0),
+    "He 0% frequently goes to Tokyo."
+)
+
+lang_list_09=lambda determinerV=void_func:(Noun.doT(Pronoun.I(),determinerV(Verb("wear")),Noun("dress")))
+
+sc.setCorpus(
+    lang_list_09(),
+    "I wear a dress."
+)
+
+sc.setCorpus(
+    lang_list_09(DeterminerV.Start),
+    "I start to wear a dress. (The state in which the wearing operation is initiated)"
+)
+
+sc.setCorpus(
+    lang_list_09(DeterminerV.Condition),
+    "I am in the process of changing a dress. (in the process of changing a dress)"
+)
+
+sc.setCorpus(
+    lang_list_09(DeterminerV.Complete),
+    "I end to change a dress. (Finished changing a dress and wearing them)"
+)
+
+sc.setCorpus(
+    lang_list_09(DeterminerV.Continue),
+    "I'm in a state wearing a dress. (Wearing)"
+)
+
+sc.setCorpus(
+    lang_list_09(DeterminerV.Continue),
+    "I finish wearing a dress. (Finished wearing and undressing or beginning to undress)"
+)
+
+lang_list_10=lambda tense_base=void_func,determinerV=void_func:(tense_base(Noun.do(Pronoun.I(),determinerV(Verb("sit")))))
+
+sc.setCorpus(
+    lang_list_10(),
+    "I sit."
+)
+
+sc.setCorpus(
+    lang_list_10(determinerV=DeterminerV.Start),
+    "I start to sit."
+)
+
+sc.setCorpus(
+    lang_list_10(determinerV=DeterminerV.Condition),
+    "I am in the process of sitting down."
+)
+
+sc.setCorpus(
+    lang_list_10(determinerV=DeterminerV.Complete),
+    "I complete the sitting process."
+)
+
+sc.setCorpus(
+    lang_list_10(determinerV=DeterminerV.Continue),
+    "I am in a sitting position."
+)
+
+sc.setCorpus(
+    lang_list_10(determinerV=DeterminerV.Continue),
+    "I finish sitting and begin to stand."
+)
+
+lang_list_11=lambda subject=Pronoun.I(),tense_base=void_func,determinerV=void_func:(tense_base(Noun.doT(subject,determinerV(Verb("create")),Noun("table"))))
+
+sc.setCorpus(
+    lang_list_11(),
+    "I create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.present),
+    "I create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(tense_base=Phrase.past),
+    "I created a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.past),
+    "I created a table."
+)
+
+sc.setCorpus(
+    lang_list_11(tense_base=Phrase.future),
+    "I will create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.future),
+    "I will create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(tense_base=Phrase.past,determinerV=DeterminerV.past),
+    "I created a table.(Past in the past at a point in time)"
+)
+
+sc.setCorpus(
+    lang_list_11(tense_base=Phrase.past,determinerV=DeterminerV.present),
+    "I created a table.(Present in the past at a point in time)"
+)
+
+sc.setCorpus(
+    lang_list_11(tense_base=Phrase.past,determinerV=DeterminerV.future),
+    "I would create a table.(Future in the past at a point in time)"
+)
+
+sc.setCorpus(
+    lang_list_11(tense_base=Phrase.past,determinerV=DeterminerV.past),
+    "I will have created a table.(Past in the future at a point in time)"
+)
+
+sc.setCorpus(
+    lang_list_11(tense_base=Phrase.past,determinerV=DeterminerV.present),
+    "I will create a table.(Present in the future at a point in time)"
+)
+
+sc.setCorpus(
+    lang_list_11(tense_base=Phrase.past,determinerV=DeterminerV.future),
+    "I will create a table.(Future in the future at a point in time)"
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.Possible),
+    "I can create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.Ability),
+    "I can create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.Will),
+    "I will create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.Obligation),
+    "I should create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.Necessary),
+    "I need to create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.Duty),
+    "I must create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.forced),
+    "I am forced to create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.want),
+    "I want to create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.dare),
+    "I dare create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.allow),
+    "I allow to create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.easy),
+    "I easy to create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.hard),
+    "I hard to create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.habit),
+    "I habitually create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.Polite),
+    "I create a table.(polite expression)"
+)
+
+sc.setCorpus(
+    lang_list_11(subject=DeterminerN.male(Pronoun.he()),determinerV=DeterminerV.Respect),
+    "He creates a table.(respectful expression)"
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.volitional),
+    "I consciously create a table."
+)
+
+sc.setCorpus(
+    lang_list_11(determinerV=DeterminerV.nonVolitional),
+    "I unconsciously create a table."
+)
+
+sc.setCorpus(
+    Phrase.interrogative(lang_list_11(subject=Pronoun.you(),determinerV=DeterminerV.Requests)),
+    "Can you create a table?"
+)
+
+sc.setCorpus(
+    Phrase.interrogative(lang_list_11(determinerV=DeterminerV.Permission)),
+    "May I create a table?"
+)
+
+sc.setCorpus(
+    Phrase.interrogative(lang_list_11(determinerV=DeterminerV.Suggestion)),
+    "Shall I create a table?"
+)
+
+lang_list_12=lambda subject=Pronoun.I(),tense_base=void_func,determinerV=void_func:(tense_base(Noun.doT(subject,determinerV(Verb("teach")),Noun.eq(Noun("engineering"),Verb.none(),Noun("information")))))
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.Possible),
+    "I can teach information engineering."
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.Ability),
+    "I can teach information engineering."
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.Will),
+    "I will teach information engineering."
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.Obligation),
+    "I should teach information engineering."
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.Necessary),
+    "I need to teach information engineering."
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.Duty),
+    "I must teach information engineering."
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.forced),
+    "I am forced to teach information engineering."
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.want),
+    "I want to teach information engineering."
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.dare),
+    "I dare teach information engineering."
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.allow),
+    "I allow to teach information engineering."
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.easy),
+    "I easy to teach information engineering."
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.hard),
+    "I hard to teach information engineering."
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.habit),
+    "I habitually teach information engineering."
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.Polite),
+    "I teach information engineering.(polite expression)"
+)
+
+sc.setCorpus(
+    lang_list_12(subject=DeterminerN.male(Pronoun.he()),determinerV=DeterminerV.Respect),
+    "He teaches information engineering.(respectful expression)"
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.volitional),
+    "I consciously teach information engineering."
+)
+
+sc.setCorpus(
+    lang_list_12(determinerV=DeterminerV.nonVolitional),
+    "I unconsciously teach information engineering."
+)
+
+sc.setCorpus(
+    Phrase.interrogative(lang_list_12(subject=Pronoun.you(),determinerV=DeterminerV.Requests)),
+    "Can you teach information engineering?"
+)
+
+sc.setCorpus(
+    Phrase.interrogative(lang_list_12(determinerV=DeterminerV.Permission)),
+    "May I teach information engineering?"
+)
+
+sc.setCorpus(
+    Phrase.interrogative(lang_list_12(determinerV=DeterminerV.Suggestion)),
+    "Shall I teach information engineering?"
+)
+
+sc.setCorpus(
+    Noun.do(Pronoun.I(),DeterminerV.Ability(Verb("swim"))),
+    "I can swim."
+)
+
+sc.setCorpus(
+    Phrase.NOT(Noun.do(Pronoun.I(),DeterminerV.Ability(Verb("swim")))),
+    "I can't swim."
+)
+
+sc.setCorpus(
+    Noun.do(Pronoun.I(),Verb.add(DeterminerV.Possible(Verb("rest")),Modifier.N2M(DeterminerN.time(Noun("tomorrow"))))),
+    "I can rest tomorrow."
+)
+
+sc.setCorpus(
+    Phrase.NOT(Noun.do(Pronoun.I(),Verb.add(DeterminerV.Possible(Verb("rest")),Modifier.N2M(DeterminerN.time(Noun("tomorrow")))))),
+    "I can't rest tomorrow."
+)
+
+sc.setCorpus(
+    Noun.do(Pronoun.I(),Verb.add(DeterminerV.Duty(Verb("rest")),Modifier.N2M(DeterminerN.time(Noun("tomorrow"))))),
+    "I have to rest tomorrow."
+)
+
+sc.setCorpus(
+    Phrase.NOT(Noun.do(Pronoun.I(),Verb.add(DeterminerV.Duty(Verb("rest")),Modifier.N2M(DeterminerN.time(Noun("tomorrow")))))),
+    "I don't have to rest tomorrow."
+)
+
+sc.setCorpus(
+    Noun.do(Pronoun.I(),Verb.add(DeterminerV.easy(Verb("go")),Modifier.N2M(DeterminerN.place(Noun("NewYork"))))),
+    "I easy to go to NewYork."
+)
+
+sc.setCorpus(
+    Noun.do(Pronoun.I(),Verb.add(DeterminerV.hard(Verb("go")),Modifier.N2M(DeterminerN.place(Noun("NewYork"))))),
+    "I hard to go to NewYork."
+)
+
 
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)

@@ -13,6 +13,7 @@ python3 py/createDocs/Modifier.py
 python3 py/createDocs/partOfSpeechConversion.py
 python3 py/createDocs/Conjunction.py
 python3 py/createDocs/DeterminerN.py
+python3 py/createDocs/DeterminerV.py
 python3 py/createDocs/Bool.py
 python3 py/createDocs/LangList.py
 python3 py/createDocs/LangFunc.py
