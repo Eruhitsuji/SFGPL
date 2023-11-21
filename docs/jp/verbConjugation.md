@@ -90,6 +90,7 @@ te ga nu ni sa 'wear' fa 'dress'
 
 ### 一般的な進行形
 
+SFGPLでは前節の①～⑤のような相を考えずに，⑥のように単純な進行形にすることができる．
 SFGPLは次のように，"I am wearing the dress."という意味の進行形を表すことができる．
 
 ```te ga ni sa 'wear' fa 'dress'```
