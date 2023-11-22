@@ -115,11 +115,16 @@ sc.setCorpus(
     "I will go to Osaka.",
 )
 
-sentence_04=lambda subject=Pronoun.I(),tense_base=void_func,determinerV=void_func:(tense_base(Noun.doT(subject,determinerV(Verb("create")),Noun("table"))))
+sentence_04=lambda subject=Pronoun.I(),tense_base=void_func,determinerV=void_func,tableD=void_func:(tense_base(Noun.doT(subject,determinerV(Verb("create")),tableD(Noun("table")))))
 
 sc.setCorpus(
     sentence_04(),
     "I create a table."
+)
+
+sc.setCorpus(
+    sentence_04(tableD=lambda x:Noun.eq(Pronoun.proximal(),Verb.none(),DeterminerN.stressed(x))),
+    "I create this table."
 )
 
 sc.setCorpus(
@@ -135,6 +140,31 @@ sc.setCorpus(
 sc.setCorpus(
     Phrase.interrogative(sentence_04(subject=Pronoun.you())),
     "Do you create a table?"
+)
+
+sc.setCorpus(
+    Phrase.interrogative(Phrase.past(sentence_04(subject=Pronoun.you()))),
+    "Did you create a table?"
+)
+
+sc.setCorpus(
+    Phrase.interrogative(sentence_04(subject=DeterminerN.human(Pronoun.interrogative()))),
+    "Who create the table?"
+)
+
+sc.setCorpus(
+    Phrase.interrogative(Noun.doT(Pronoun.you(),Verb("create"),DeterminerN.thing(Pronoun.interrogative()))),
+    "What do you create?"
+)
+
+sc.setCorpus(
+    Phrase.interrogative(Noun.doT(Pronoun.you(),Verb.add(Verb("create"),Modifier.N2M(DeterminerN.time(Pronoun.interrogative()))),Noun("table"))),
+    "When do you create the table?"
+)
+
+sc.setCorpus(
+    Phrase.interrogative(Noun.doT(Pronoun.you(),Verb.add(Verb("create"),Modifier.N2M(DeterminerN.reason(Pronoun.interrogative()))),Noun("table"))),
+    "Why do you create the table?"
 )
 
 sc.setCorpus(
@@ -158,8 +188,13 @@ sc.setCorpus(
 )
 
 sc.setCorpus(
-    sentence_04(determinerV=Verb.perfective),
+    sentence_04(determinerV=Verb.progressive),
     "I am creating a table."
+)
+
+sc.setCorpus(
+    sentence_04(determinerV=Verb.perfective),
+    "I have created a table."
 )
 
 sc.setCorpus(

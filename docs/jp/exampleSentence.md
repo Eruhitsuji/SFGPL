@@ -30,14 +30,21 @@
 |di ta ga na sa 'go' li pun fa 'Osaka'|Phrase.past(Noun.do(Pronoun.I(),Verb.add(Verb("'go'"),Modifier.N2M(DeterminerN.place(Noun("'Osaka'"))))))|I went to Osaka.|
 |du ta ga na sa 'go' li pun fa 'Osaka'|Phrase.future(Noun.do(Pronoun.I(),Verb.add(Verb("'go'"),Modifier.N2M(DeterminerN.place(Noun("'Osaka'"))))))|I will go to Osaka.|
 |te ga sa 'create' fa 'table'|Noun.doT(Pronoun.I(),Verb("'create'"),Noun("'table'"))|I create a table.|
+|te ga sa 'create' ma gu so san fa 'table'|Noun.doT(Pronoun.I(),Verb("'create'"),Noun.eq(Pronoun.proximal(),Verb.none(),DeterminerN.stressed(Noun("'table'"))))|I create this table.|
 |pa te ga sa 'create' fa 'table'|LangObj.NOT(Noun.doT(Pronoun.I(),Verb("'create'"),Noun("'table'")))|I don't create a table.|
 |te ge sa 'create' fa 'table'|Noun.doT(Pronoun.you(),Verb("'create'"),Noun("'table'"))|You create a table.|
 |da te ge sa 'create' fa 'table'|Phrase.interrogative(Noun.doT(Pronoun.you(),Verb("'create'"),Noun("'table'")))|Do you create a table?|
+|da di te ge sa 'create' fa 'table'|Phrase.interrogative(Phrase.past(Noun.doT(Pronoun.you(),Verb("'create'"),Noun("'table'"))))|Did you create a table?|
+|da te ben wa sa 'create' fa 'table'|Phrase.interrogative(Noun.doT(DeterminerN.human(Pronoun.interrogative()),Verb("'create'"),Noun("'table'")))|Who create the table?|
+|da te ge sa 'create' pen wa|Phrase.interrogative(Noun.doT(Pronoun.you(),Verb("'create'"),DeterminerN.thing(Pronoun.interrogative())))|What do you create?|
+|da te ge na sa 'create' li pin wa fa 'table'|Phrase.interrogative(Noun.doT(Pronoun.you(),Verb.add(Verb("'create'"),Modifier.N2M(DeterminerN.time(Pronoun.interrogative()))),Noun("'table'")))|When do you create the table?|
+|da te ge na sa 'create' li pon wa fa 'table'|Phrase.interrogative(Noun.doT(Pronoun.you(),Verb.add(Verb("'create'"),Modifier.N2M(DeterminerN.reason(Pronoun.interrogative()))),Noun("'table'")))|Why do you create the table?|
 |de te we sa 'create' fa 'table'|Phrase.imperative(Noun.doT(Pronoun.indefinite(),Verb("'create'"),Noun("'table'")))|Create a table!|
 |di te ga sa 'create' fa 'table'|Phrase.past(Noun.doT(Pronoun.I(),Verb("'create'"),Noun("'table'")))|I created a table.|
 |du te ga sa 'create' fa 'table'|Phrase.future(Noun.doT(Pronoun.I(),Verb("'create'"),Noun("'table'")))|I will create a table.|
 |ta fa 'table' na ne sa 'create' li tan tin ga|Noun.do(Noun("'table'"),Verb.add(Verb.passive(Verb("'create'")),Modifier.N2M(DeterminerN.affect(DeterminerN.near(Pronoun.I())))))|The table is created by me.|
-|te ga nu sa 'create' fa 'table'|Noun.doT(Pronoun.I(),Verb.perfective(Verb("'create'")),Noun("'table'"))|I am creating a table.|
+|te ga ni sa 'create' fa 'table'|Noun.doT(Pronoun.I(),Verb.progressive(Verb("'create'")),Noun("'table'"))|I am creating a table.|
+|te ga nu sa 'create' fa 'table'|Noun.doT(Pronoun.I(),Verb.perfective(Verb("'create'")),Noun("'table'"))|I have created a table.|
 |du te ga pak sa 'create' fa 'table'|Phrase.future(Noun.doT(Pronoun.I(),DeterminerV.Estimation100(Verb("'create'")),Noun("'table'")))|I 100% probability will create a table.|
 |du te ga pek sa 'create' fa 'table'|Phrase.future(Noun.doT(Pronoun.I(),DeterminerV.Estimation75(Verb("'create'")),Noun("'table'")))|I 75% probability will create a table.|
 |du te ga pik sa 'create' fa 'table'|Phrase.future(Noun.doT(Pronoun.I(),DeterminerV.Estimation50(Verb("'create'")),Noun("'table'")))|I 50% probability will create a table.|
