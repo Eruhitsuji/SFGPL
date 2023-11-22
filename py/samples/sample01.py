@@ -6,6 +6,8 @@ import os
 
 OUT_DIR="out/"
 
+void_func=lambda a:a
+
 os.makedirs(OUT_DIR,exist_ok=True)
 
 sc=SFGPLCorpus()
@@ -1618,8 +1620,6 @@ sc.setCorpus(
     md_out_path=OUT_DIR+"sample01_03.md"
 )
 
-void_func=lambda a:a
-
 lang_list_07=lambda tense=void_func,determinerV=void_func:tense(Noun.doT(DeterminerN.male(Pronoun.he()),determinerV(Verb("study")),Noun("English")))
 
 sc.setCorpus(
@@ -1922,12 +1922,12 @@ sc.setCorpus(
 
 sc.setCorpus(
     lang_list_11(determinerV=DeterminerV.easy),
-    "I easy to create a table."
+    "I am easy to create a table."
 )
 
 sc.setCorpus(
     lang_list_11(determinerV=DeterminerV.hard),
-    "I hard to create a table."
+    "I am hard to create a table."
 )
 
 sc.setCorpus(
@@ -2024,12 +2024,12 @@ sc.setCorpus(
 
 sc.setCorpus(
     lang_list_12(determinerV=DeterminerV.easy),
-    "I easy to teach information engineering."
+    "I am easy to teach information engineering."
 )
 
 sc.setCorpus(
     lang_list_12(determinerV=DeterminerV.hard),
-    "I hard to teach information engineering."
+    "I am hard to teach information engineering."
 )
 
 sc.setCorpus(
@@ -2083,6 +2083,16 @@ sc.setCorpus(
 )
 
 sc.setCorpus(
+    Phrase.past(Noun.do(Pronoun.I(),DeterminerV.Ability(Verb("swim")))),
+    "I could swim."
+)
+
+sc.setCorpus(
+    Phrase.past(Phrase.NOT(Noun.do(Pronoun.I(),DeterminerV.Ability(Verb("swim"))))),
+    "I couldn't swim."
+)
+
+sc.setCorpus(
     Noun.do(Pronoun.I(),Verb.add(DeterminerV.Possible(Verb("rest")),Modifier.N2M(DeterminerN.time(Noun("tomorrow"))))),
     "I can rest tomorrow."
 )
@@ -2102,14 +2112,26 @@ sc.setCorpus(
     "I don't have to rest tomorrow."
 )
 
+lang_list_13=lambda x:Noun.do(Pronoun.I(),Verb.add(x(Verb("go")),Modifier.N2M(DeterminerN.place(Noun("NewYork")))))
+
 sc.setCorpus(
-    Noun.do(Pronoun.I(),Verb.add(DeterminerV.easy(Verb("go")),Modifier.N2M(DeterminerN.place(Noun("NewYork"))))),
-    "I easy to go to NewYork."
+    lang_list_13(DeterminerV.easy),
+    "I am easy to go to New York."
 )
 
 sc.setCorpus(
-    Noun.do(Pronoun.I(),Verb.add(DeterminerV.hard(Verb("go")),Modifier.N2M(DeterminerN.place(Noun("NewYork"))))),
-    "I hard to go to NewYork."
+    lang_list_13(DeterminerV.hard),
+    "I am hard to go to New York."
+)
+
+sc.setCorpus(
+    Phrase.past(lang_list_13(DeterminerV.easy)),
+    "I was easy to go to New York."
+)
+
+sc.setCorpus(
+    Phrase.past(lang_list_13(DeterminerV.hard)),
+    "I was hard to go to New York."
 )
 
 
