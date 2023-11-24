@@ -42,3 +42,4 @@ In addition, the version of the corpus at the time it was executed is listed in 
 |4.0.6|Add and modify to documents|
 |4.0.7|Add and modify to documents|
 |4.0.8|Add and modify to documents|
+|4.0.9|Add and modify to documents|

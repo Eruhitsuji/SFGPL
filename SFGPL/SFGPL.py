@@ -2422,8 +2422,24 @@ class SFGPLCorpus():
         sc_str=[li for li in sc_str if include_word_func(li)]
         return collections.Counter(sc_str)
     
+    def __pyCodeSpaceReplace(tmp_str:str):
+        pre_space_chars=[]
+        post_space_chars=["(","{","[",","]
+        pre_and_post_space_chars=[")","}","]"]
+
+        pre_space_chars_r=[" "+c for c in pre_space_chars]
+        post_space_chars_r=[c+" " for c in post_space_chars]
+        pre_and_post_space_chars_r=[" "+c+" " for c in pre_and_post_space_chars]
+
+        before_replace_chars=pre_space_chars+post_space_chars+pre_and_post_space_chars
+        after_replace_chars=pre_space_chars_r+post_space_chars_r+pre_and_post_space_chars_r
+
+        for i in range(len(before_replace_chars)):
+            tmp_str=tmp_str.replace(before_replace_chars[i],after_replace_chars[i])
+        return tmp_str
+
     #Converts the information in the corpus to a string in a Markdown table
-    def corpus2MDtableStr(corpus,header:list=[("s","sfgpl_str_list","SFGPL"),("o","sfgpl_obj_list","Python"),("t","translation_str_list","Translation")],SPLIT_STR="|",TABLE_HEAD_STR=":-:",NEW_LINE_STR="\n"):
+    def corpus2MDtableStr(corpus,header:list=[("s","sfgpl_str_list","SFGPL"),("o","sfgpl_obj_list","Python"),("t","translation_str_list","Translation")],SPLIT_STR="|",TABLE_HEAD_STR=":-:",NEW_LINE_STR="\n",py_code_space_flag=True):
         mode=""
         for key in header:
             mode+=key[0]
@@ -2449,6 +2465,8 @@ class SFGPLCorpus():
                 tmp_str=str(corpus_gets[key[1]][i])
                 if(key[1]=="sfgpl_obj_list"):
                     tmp_str=SFGPLLib.str2CMD(tmp_str,toObj=False)
+                    if(py_code_space_flag):
+                        tmp_str=SFGPLCorpus.__pyCodeSpaceReplace(tmp_str)
                 
                 r_str+=tmp_str+SPLIT_STR
             r_str+=NEW_LINE_STR
