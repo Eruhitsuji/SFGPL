@@ -1,6 +1,6 @@
 from createDocs import *
 
-FILE_NAME="DeterminerV.md"
+NAME="DeterminerV"
 
 format_str_list={
     "determinerV_possible":LangObj._getKeyOfDict("DeterminerV.Possible"),
@@ -23,5 +23,5 @@ format_str_list={
     "swim":Verb("swim"),
 }
 
-createDocs(FILE_NAME,format_str_list,INDIR_JP,OUTDIR_JP)
-createDocs(FILE_NAME,format_str_list,INDIR_EN,OUTDIR_EN)
+createDocs(name=NAME,format_str_list=format_str_list,lang_mode="JP",md_mode=True,out_flag=True,all_docs_flag=True)
+createDocs(name=NAME,format_str_list=format_str_list,lang_mode="EN",md_mode=True,out_flag=True,all_docs_flag=True)

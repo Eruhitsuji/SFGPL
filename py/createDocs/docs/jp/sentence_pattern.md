@@ -1,8 +1,4 @@
-# 文型
-
-[TOP](../../readme.md)
-/
-[EN](../en/sentence_pattern.md)
+{page_header}
 
 ## SFGPLの文型の一覧
 

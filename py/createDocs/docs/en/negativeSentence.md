@@ -1,8 +1,4 @@
-# Negative Sentence
-
-[TOP](../../readme.md)
-/
-[JP](../jp/negativeSentence.md)
+{page_header}
 
 Use ```{langobj_not}``` to create a negative sentence.
 This word is attached to a sentence to make a negative sentence.

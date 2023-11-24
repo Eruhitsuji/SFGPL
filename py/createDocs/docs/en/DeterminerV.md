@@ -1,8 +1,4 @@
-# DeterminerV
-
-[TOP](../../readme.md)
-/
-[JP](../jp/DeterminerV.md)
+{page_header}
 
 Verb DeterminerV are the simplest to modify verbs.
 They are the equivalent of English auxiliary verbs.
@@ -17,7 +13,7 @@ The following table shows some examples of Verb DeterminerV.
 |{determinerV_duty}|duty|I must swim.|{I_must_swim}|
 |{determinerV_want}|want to|I want to swim.|{I_want_to_swim}|
 
-We can also do [verb conjugation](verbConjugation.md), such as aspect.
+We can also do [verb conjugation]({docs_verbConjugation}), such as aspect.
 
 ## Wordbook
 

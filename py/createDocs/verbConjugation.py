@@ -1,6 +1,6 @@
 from createDocs import *
 
-FILE_NAME="verbConjugation.md"
+NAME="verbConjugation"
 
 format_str_list={
     "I_lived_in_Tokyo":Phrase.past(Noun.do(Pronoun.I(),Verb.add(Verb("live"),Modifier.N2M(DeterminerN.place(Noun("Tokyo")))))),
@@ -53,5 +53,5 @@ format_str_list={
     "dress":Noun("dress"),
 }
 
-createDocs(FILE_NAME,format_str_list,INDIR_JP,OUTDIR_JP)
-createDocs(FILE_NAME,format_str_list,INDIR_EN,OUTDIR_EN)
+createDocs(name=NAME,format_str_list=format_str_list,lang_mode="JP",md_mode=True,out_flag=True,all_docs_flag=True)
+createDocs(name=NAME,format_str_list=format_str_list,lang_mode="EN",md_mode=True,out_flag=True,all_docs_flag=True)

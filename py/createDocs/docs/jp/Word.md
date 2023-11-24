@@ -1,8 +1,4 @@
-# 単語
-
-[TOP](../../readme.md)
-/
-[EN](../en/Word.md)
+{page_header}
 
 ## 借用語について
 
@@ -46,7 +42,7 @@ WordV，WordMクラスでは，SFGPLに固有に存在する単語群である�
 
 ## 限定詞について
 
-SFGPLには[名詞限定詞](DeterminerN.md)が存在する．
+SFGPLには[名詞限定詞]({docs_DeterminerN})が存在する．
 これは，元々名詞を修飾する特別な語である．
 しかし，限定詞自体の意味をそのまま名詞にすることもできる．
 そのためには，```{noun_none}```を使用する．
@@ -73,8 +69,8 @@ SFGPLには，意味を付加しない単語が存在する．
 |Verb|{verb_none}|
 |Modifier|{modifier_none}|
 
-```{noun_none}```では，[名詞限定詞](DeterminerN.md)をそのままの意味で表すときによく使われる．
-また，```{verb_none}```は，特に[文型](sentence_pattern.md)で，動詞が必要ない場合など使われる．
+```{noun_none}```では，[名詞限定詞]({docs_DeterminerN})をそのままの意味で表すときによく使われる．
+また，```{verb_none}```は，特に[文型]({docs_sentence_pattern})で，動詞が必要ない場合など使われる．
 一方，```{modifier_none}```は，あまり使われない．
 これらの例を次に表す．
 
@@ -85,7 +81,7 @@ SFGPLには，意味を付加しない単語が存在する．
 
 ## 代名詞について
 
-SFGPLでは[代名詞](pronoun.md)が存在する．
+SFGPLでは[代名詞]({docs_pronoun})が存在する．
 代名詞は次の表のようなものがある．
 
 ||English|SFGPL|

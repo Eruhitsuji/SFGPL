@@ -1,8 +1,4 @@
-# 疑問文
-
-[TOP](../../readme.md)
-/
-[EN](../en/interrogativeSentence.md)
+{page_header}
 
 疑問文を作成するためには```{phrase_interrogative}```を使用する．
 この単語を文につけると疑問文になる．

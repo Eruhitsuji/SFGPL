@@ -1,8 +1,4 @@
-# LangFunc
-
-[TOP](../../readme.md)
-/
-[EN](../en/LangFunc.md)
+{page_header}
 
 SFGPLでは基本的な関数型として，LangFunc型が存在する．
 LangFuncには，以下の関数が存在している．

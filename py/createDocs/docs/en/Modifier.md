@@ -1,8 +1,4 @@
-# Modifier
-
-[TOP](../../readme.md)
-/
-[JP](../jp/Modifier.md)
+{page_header}
 
 ## About modifiers
 
@@ -29,7 +25,7 @@ To simply modify each part of speech with a modifier, the following table is use
 ## Applications of modifiers
 
 Modifiers allow us to substitute English prepositions and noun phrases as modifiers.
-In this case, the ```{Modifier_N2M}```, which converts nouns to modifiers, and [noun determiners](DeterminerN.md) are often combined to form expressions.
+In this case, the ```{Modifier_N2M}```, which converts nouns to modifiers, and [noun determiners]({docs_DeterminerN}) are often combined to form expressions.
 For example, "I live in Tokyo.".
 
 ```SFGPL

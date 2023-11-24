@@ -1,4 +1,4 @@
-# About SFGPL
+# 1. about SFGPL
 
 [TOP](../../readme.md)
 /

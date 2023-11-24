@@ -1,8 +1,4 @@
-# 動詞限定詞
-
-[TOP](../../readme.md)
-/
-[EN](../en/DeterminerV.md)
+{page_header}
 
 動詞限定詞は，動詞を修飾するための最も単純なものである．
 これらは，英語の助動詞に相当する．
@@ -17,7 +13,7 @@
 |{determinerV_duty}|duty|I must swim.|{I_must_swim}|
 |{determinerV_want}|want to|I want to swim.|{I_want_to_swim}|
 
-また，相などの，[動詞の活用](verbConjugation.md)をすることもできる．
+また，相などの，[動詞の活用]({docs_verbConjugation})をすることもできる．
 
 ## 単語集
 

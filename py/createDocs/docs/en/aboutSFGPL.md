@@ -1,8 +1,4 @@
-# About SFGPL
-
-[TOP](../../readme.md)
-/
-[JP](../jp/aboutSFGPL.md)
+{page_header}
 
 ## Introduction
 
@@ -37,7 +33,7 @@ In addition, complex sentences can be created by combining sentence structures.
 
 The sentence structure of the SFGPL is strictly defined by proper words.
 The following table shows the sentence structures that can be expressed in the SFGPL.
-The details of how to use them are described in [Sentence Pattern](sentence_pattern.md).
+The details of how to use them are described in [Sentence Pattern]({docs_sentence_pattern}).
 
 |||word|function|arguments|supplement|
 |:-:|:-:|:-:|:-:|:-:|:-:|
@@ -88,7 +84,7 @@ Borrowed words are read with the pronunciation specific to the borrowed words.
 
 ## SFGPL Words
 
-The SFGPL [word](Word.md) is mainly divided into SFGPL-specific words and loan words.
+The SFGPL [word]({docs_Word}) is mainly divided into SFGPL-specific words and loan words.
 
 The unique words are mainly function words necessary for sentence structure, and basic words for verbs and modifiers.
 The rest of the words are loan words.

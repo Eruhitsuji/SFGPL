@@ -1,8 +1,4 @@
-# 品詞変換
-
-[TOP](../../readme.md)
-/
-[EN](../en/partOfSpeechConversion.md)
+{page_header}
 
 SFGPLでは，名詞，動詞，修飾語の相互の品詞を変換することができる．
 以下の表はSFGPLで品詞変換する語の一覧である．
@@ -24,7 +20,7 @@ SFGPLでは，名詞，動詞，修飾語の相互の品詞を変換すること
 ```
 
 また，名詞から修飾語は，英語の前置詞と名詞が組み合わされた句と同等の意味を作成するときに使われる．
-またそのときは，```{N2M}```と限定詞([DeterminerN](DeterminerN.md))が組み合わされて使用する．
+またそのときは，```{N2M}```と限定詞([DeterminerN]({docs_DeterminerN}))が組み合わされて使用する．
 "I live in Tokyo."をSFGPLにすると次のようになる．
 このとき，```{determinerN_place}```は場所を表す限定詞である．
 

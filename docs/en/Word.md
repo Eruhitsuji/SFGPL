@@ -1,4 +1,4 @@
-# Word
+# 3. Word
 
 [TOP](../../readme.md)
 /
@@ -46,7 +46,7 @@ Examples using these words are shown below.
 
 ## About the determiners
 
-The SFGPL has a [noun determiner] (DeterminerN.md).
+The SFGPL has a [noun determiner](DeterminerN.md).
 This is a special word that originally modifies a noun.
 However, they can also be used as nouns in the same sense as the determiners themselves.
 To do so, use ```fo```.

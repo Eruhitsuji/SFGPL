@@ -1,8 +1,4 @@
-# Bool related classes
-
-[TOP](../../readme.md)
-/
-[JP](../jp/Bool.md)
+{page_header}
 
 SFGPL has classes related to Bool, Bool type and BoolList type.
 These classes are used to represent boolean values, numerical values, and so on.

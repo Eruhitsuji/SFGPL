@@ -1,4 +1,4 @@
-# Sentence Pattern
+# 2. Sentence Pattern
 
 [TOP](../../readme.md)
 /

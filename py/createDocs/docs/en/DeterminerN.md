@@ -1,8 +1,4 @@
-# DeterminerN
-
-[TOP](../../readme.md)
-/
-[JP](../jp/DeterminerN.md)
+{page_header}
 
 DeterminerN are the simplest of all noun modifiers.
 They are also often used with pronouns or with ```{N2M}```, which is used to convert a noun to a modifier.

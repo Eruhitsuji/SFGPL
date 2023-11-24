@@ -1,8 +1,4 @@
-# 例文
-
-[TOP](../../readme.md)
-/
-[EN](../en/exampleSentence.md)
+{page_header}
 
 以下の表は，SFGPLの例文を示す．
 

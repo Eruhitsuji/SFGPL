@@ -1,4 +1,4 @@
-# Interrogative Sentence
+# 6. Interrogative Sentence
 
 [TOP](../../readme.md)
 /

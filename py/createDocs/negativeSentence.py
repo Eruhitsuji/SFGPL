@@ -1,6 +1,6 @@
 from createDocs import *
 
-FILE_NAME="negativeSentence.md"
+NAME="negativeSentence"
 
 format_str_list={
     "langobj_not":LangObj._getKeyOfDict("LangObj.NOT"),
@@ -10,5 +10,5 @@ format_str_list={
     "table":Noun("table"),
 }
 
-createDocs(FILE_NAME,format_str_list,INDIR_JP,OUTDIR_JP)
-createDocs(FILE_NAME,format_str_list,INDIR_EN,OUTDIR_EN)
+createDocs(name=NAME,format_str_list=format_str_list,lang_mode="JP",md_mode=True,out_flag=True,all_docs_flag=True)
+createDocs(name=NAME,format_str_list=format_str_list,lang_mode="EN",md_mode=True,out_flag=True,all_docs_flag=True)

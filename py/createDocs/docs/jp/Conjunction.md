@@ -1,8 +1,4 @@
-# 接続詞
-
-[TOP](../../readme.md)
-/
-[EN](../en/Conjunction.md)
+{page_header}
 
 SFGPLは，文と文や単語と単語を繋ぐものとして接続詞が存在する．
 SFGPLの主な接続詞として次のようなものがある．

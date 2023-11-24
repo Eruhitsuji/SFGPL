@@ -1,8 +1,4 @@
-# 動詞の活用
-
-[TOP](../../readme.md)
-/
-[EN](../en/verbConjugation.md)
+{page_header}
 
 ## 動詞の時制
 
@@ -138,7 +134,7 @@ SFGPLは次のように，"The dress is worn."という意味の受動態を表�
 
 ## その他の動詞の修飾
 
-[DeterminerV](DeterminerV.md)クラス内の関数では，その他の動詞の修飾をすることができる．
+[DeterminerV]({docs_DeterminerV})クラス内の関数では，その他の動詞の修飾をすることができる．
 また，それらは，英語の助動詞と似ている．
 
 ## 単語集

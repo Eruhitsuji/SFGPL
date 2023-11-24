@@ -1,8 +1,4 @@
-# LangList
-
-[TOP](../../readme.md)
-/
-[EN](../en/LangList.md)
+{page_header}
 
 SFGPLでは基本的なデータ構造型として，LangList型が存在する．
 LangListには，以下の関数が存在している．
@@ -23,7 +19,7 @@ LangListは，LangObjを継承しているすべてのクラスを格納する�
 ```
 
 また，このLangListから最初の値を取得するには次のようにする．
-このとき```{number_0}```は[BoolList](Bool.md)における0を表している．
+このとき```{number_0}```は[BoolList]({docs_Bool})における0を表している．
 
 ```SFGPL
 {lang_list_01_get_0}

@@ -1,8 +1,4 @@
-# LangFunc
-
-[TOP](../../readme.md)
-/
-[JP](../jp/LangFunc.md)
+{page_header}
 
 The LangFunc type exists as a basic function type in SFGPL.
 The following functions exist in LangFunc.

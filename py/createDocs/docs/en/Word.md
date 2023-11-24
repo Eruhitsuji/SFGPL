@@ -1,8 +1,4 @@
-# Word
-
-[TOP](../../readme.md)
-/
-[JP](../jp/Word.md)
+{page_header}
 
 ## Borrowed Words
 
@@ -46,7 +42,7 @@ Examples using these words are shown below.
 
 ## About the determiners
 
-The SFGPL has a [noun determiner] (DeterminerN.md).
+The SFGPL has a [noun determiner]({docs_DeterminerN}).
 This is a special word that originally modifies a noun.
 However, they can also be used as nouns in the same sense as the determiners themselves.
 To do so, use ```{noun_none}```.
@@ -67,8 +63,8 @@ Examples using these words are shown below.
 There are words in the SFGPL that do not add meaning.
 These words exist for each part of speech and are used when grammatically necessary.
 
-```{noun_none}``` is often used to express [noun determiners](DeterminerN.md) as they are.
-Also, ```{verb_none}``` is used when a verb is not needed, especially in [sentence pattern](sentence_pattern.md).
+```{noun_none}``` is often used to express [noun determiners]({docs_DeterminerN}) as they are.
+Also, ```{verb_none}``` is used when a verb is not needed, especially in [sentence pattern]({docs_sentence_pattern}).
 On the other hand, ```{modifier_none}``` is rarely used.
 Examples of these are given below.
 
@@ -85,7 +81,7 @@ Examples of these are given below.
 
 ## About pronouns
 
-[Pronouns](pronoun.md) exist in SFGPL.
+[Pronouns]({docs_pronoun}) exist in SFGPL.
 Pronouns are listed in the following table.
 
 ||English|SFGPL|

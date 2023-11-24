@@ -1,8 +1,4 @@
-# LangList
-
-[TOP](../../readme.md)
-/
-[JP](../jp/LangList.md)
+{page_header}
 
 The LangList type exists as a basic data structure type in SFGPL.
 The following functions exist in LangList.
@@ -23,7 +19,7 @@ The following is an example of LangList creation.
 ```
 
 To retrieve the first value from this LangList, do the following.
-In this case ```{number_0}``` represents 0 in [BoolList](Bool.md).
+In this case ```{number_0}``` represents 0 in [BoolList]({docs_Bool}).
 
 ```SFGPL
 {lang_list_01_get_0}

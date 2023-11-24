@@ -1,4 +1,4 @@
-# Bool関連クラス
+# 14. Bool関連クラス
 
 [TOP](../../readme.md)
 /

@@ -1,8 +1,4 @@
-# Imperative Sentence
-
-[TOP](../../readme.md)
-/
-[JP](../jp/imperativeSentence.md)
+{page_header}
 
 Use ```{phrase_imperative}``` to create imperative sentences.
 This word is added to a sentence to make it an imperative sentence.

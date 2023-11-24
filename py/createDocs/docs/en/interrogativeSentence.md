@@ -1,8 +1,4 @@
-# Interrogative Sentence
-
-[TOP](../../readme.md)
-/
-[JP](../jp/interrogativeSentence.md)
+{page_header}
 
 Use ```{phrase_interrogative}``` to create interrogative sentences.
 When this word is added to a sentence, it becomes a interrogative sentence.

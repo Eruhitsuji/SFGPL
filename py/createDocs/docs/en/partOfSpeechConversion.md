@@ -1,8 +1,4 @@
-# Part of Speech Conversion
-
-[TOP](../../readme.md)
-/
-[JP](../jp/partOfSpeechConversion.md)
+{page_header}
 
 The SFGPL can convert nouns, verbs, and modifiers into each other's parts of speech.
 The following table lists the words converted to parts-of-speech by the SFGPL.
@@ -24,7 +20,7 @@ Verb to noun is used as in "This is building.".
 ```
 
 Noun-to-Modifier is also used to create the equivalent meaning of a phrase that combines an English preposition and a noun.
-In such cases, ```{N2M}``` and [DeterminerN](DeterminerN.md) are used in combination.
+In such cases, ```{N2M}``` and [DeterminerN]({docs_DeterminerN}) are used in combination.
 "I live in Tokyo." in SFGPL becomes the following.
 In this case, ```{determinerN_place}``` is a determiner of location.
 

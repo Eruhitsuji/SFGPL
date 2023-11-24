@@ -1,8 +1,4 @@
-# 否定文
-
-[TOP](../../readme.md)
-/
-[EN](../en/negativeSentence.md)
+{page_header}
 
 否定文を作成するためには```{langobj_not}```を使用する．
 この語は，文章に付属することで否定文を作る．

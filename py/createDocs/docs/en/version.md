@@ -1,8 +1,4 @@
-# About version
-
-[TOP](../../readme.md)
-/
-[JP](../jp/version.md)
+{page_header}
 
 The version of this project is [\_\_version\_\_.py](../../SFGPL/__version__.py).
 In particular, if you want to run it in Python, you can check it by executing the following code.
@@ -40,3 +36,4 @@ In addition, the version of the corpus at the time it was executed is listed in 
 |4.0.4|Add and modify to documents|
 |4.0.5|Add and modify to documents|
 |4.0.6|Add and modify to documents|
+|4.0.7|Add and modify to documents|

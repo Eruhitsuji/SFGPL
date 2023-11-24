@@ -1,8 +1,4 @@
-# Bool関連クラス
-
-[TOP](../../readme.md)
-/
-[EN](../en/Bool.md)
+{page_header}
 
 SFGPLにはBoolに関連したクラス，Bool型と，BoolList型が存在する．
 これらのクラスは，真偽値や，数値などを表すために使われる．

@@ -1,8 +1,4 @@
-# 命令文
-
-[TOP](../../readme.md)
-/
-[EN](../en/imperativeSentence.md)
+{page_header}
 
 命令文を作成するためには```{phrase_imperative}```を使用する．
 この単語を文につけると命令文になる．

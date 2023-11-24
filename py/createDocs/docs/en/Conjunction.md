@@ -1,8 +1,4 @@
-# Conjunction
-
-[TOP](../../readme.md)
-/
-[JP](../jp/Conjunction.md)
+{page_header}
 
 In the SFGPL, conjunctions exist as connections between sentences and between words.
 The main conjunctions of the SFGPL are as follows.

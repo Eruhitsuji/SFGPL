@@ -1,8 +1,4 @@
-# Example Sentence
-
-[TOP](../../readme.md)
-/
-[JP](../jp/exampleSentence.md)
+{page_header}
 
 The following table shows example sentences from the SFGPL.
 

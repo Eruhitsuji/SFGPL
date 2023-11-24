@@ -1,8 +1,4 @@
-# Verb Conjugation
-
-[TOP](../../readme.md)
-/
-[JP](../jp/verbConjugation.md)
+{page_header}
 
 ## Verb tenses
 
@@ -138,7 +134,7 @@ These can be in the past or future tense as well as the present tense.
 
 ## Other verb modifiers
 
-Functions in the [DeterminerV](DeterminerV.md) class can modify other verbs.
+Functions in the [DeterminerV]({docs_DeterminerV}) class can modify other verbs.
 They are similar to English auxiliary verbs.
 
 ## Wordbook

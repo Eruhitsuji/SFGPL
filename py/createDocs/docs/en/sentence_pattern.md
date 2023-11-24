@@ -1,8 +1,4 @@
-# Sentence Pattern
-
-[TOP](../../readme.md)
-/
-[JP](../jp/sentence_pattern.md)
+{page_header}
 
 ## List of SFGPL sentence patterns
 

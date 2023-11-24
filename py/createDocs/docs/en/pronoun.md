@@ -1,8 +1,4 @@
-# Pronoun
-
-[TOP](../../readme.md)
-/
-[JP](../jp/pronoun.md)
+{page_header}
 
 ## List of pronouns
 
@@ -22,7 +18,7 @@ Pronouns are listed in the following table.
 
 As a rule, SFGPL pronouns do not distinguish between people, organisms, objects, concepts, places, times, reasons, methods, etc.
 There is no distinction based on gender or number.
-These distinctions can be made by using [noun determiner](DeterminerN.md).
+These distinctions can be made by using [noun determiner]({docs_DeterminerN}).
 
 
 The following table shows the use of noun determiners for interrogatives.
