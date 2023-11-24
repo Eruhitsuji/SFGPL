@@ -1,0 +1,130 @@
+{
+    "docs_config":[
+        {
+            "name":"aboutSFGPL",
+            "md_filename":"aboutSFGPL.md",
+            "py_filename":"aboutSFGPL.py",
+            "EN_title":"about SFGPL",
+            "JP_title":"SFGPLについて"
+        },
+        {
+            "name":"sentence_pattern",
+            "md_filename":"sentence_pattern.md",
+            "py_filename":"sentence_pattern.py",
+            "EN_title":"Sentence Pattern",
+            "JP_title":"文型"
+        },
+        {
+            "name":"Word",
+            "md_filename":"Word.md",
+            "py_filename":"Word.py",
+            "EN_title":"Word",
+            "JP_title":"単語"
+        },
+        {
+            "name":"pronoun",
+            "md_filename":"pronoun.md",
+            "py_filename":"pronoun.py",
+            "EN_title":"Pronoun",
+            "JP_title":"代名詞"
+        },
+        {
+            "name":"negativeSentence",
+            "md_filename":"negativeSentence.md",
+            "py_filename":"negativeSentence.py",
+            "EN_title":"Negative Sentence",
+            "JP_title":"否定文"
+        },
+        {
+            "name":"interrogativeSentence",
+            "md_filename":"interrogativeSentence.md",
+            "py_filename":"interrogativeSentence.py",
+            "EN_title":"Interrogative Sentence",
+            "JP_title":"疑問文"
+        },
+        {
+            "name":"imperativeSentence",
+            "md_filename":"imperativeSentence.md",
+            "py_filename":"imperativeSentence.py",
+            "EN_title":"Imperative Sentence",
+            "JP_title":"命令文"
+        },
+        {
+            "name":"verbConjugation",
+            "md_filename":"verbConjugation.md",
+            "py_filename":"verbConjugation.py",
+            "EN_title":"Verb Conjugation",
+            "JP_title":"動詞の活用"
+        },
+        {
+            "name":"Modifier",
+            "md_filename":"Modifier.md",
+            "py_filename":"Modifier.py",
+            "EN_title":"Modifier",
+            "JP_title":"修飾語"
+        },
+        {
+            "name":"partOfSpeechConversion",
+            "md_filename":"partOfSpeechConversion.md",
+            "py_filename":"partOfSpeechConversion.py",
+            "EN_title":"Part of Speech Conversion",
+            "JP_title":"品詞変換"
+        },
+        {
+            "name":"Conjunction",
+            "md_filename":"Conjunction.md",
+            "py_filename":"Conjunction.py",
+            "EN_title":"Conjunction",
+            "JP_title":"接続詞"
+        },
+        {
+            "name":"DeterminerN",
+            "md_filename":"DeterminerN.md",
+            "py_filename":"DeterminerN.py",
+            "EN_title":"DeterminerN",
+            "JP_title":"名詞限定詞"
+        },
+        {
+            "name":"DeterminerV",
+            "md_filename":"DeterminerV.md",
+            "py_filename":"DeterminerV.py",
+            "EN_title":"DeterminerV",
+            "JP_title":"動詞限定詞"
+        },
+        {
+            "name":"Bool",
+            "md_filename":"Bool.md",
+            "py_filename":"Bool.py",
+            "EN_title":"Bool related classes",
+            "JP_title":"Bool関連クラス"
+        },
+        {
+            "name":"LangList",
+            "md_filename":"LangList.md",
+            "py_filename":"LangList.py",
+            "EN_title":"LangList",
+            "JP_title":"LangList"
+        },
+        {
+            "name":"LangFunc",
+            "md_filename":"LangFunc.md",
+            "py_filename":"LangFunc.py",
+            "EN_title":"LangFunc",
+            "JP_title":"LangFunc"
+        },
+        {
+            "name":"exampleSentence",
+            "md_filename":"exampleSentence.md",
+            "py_filename":"exampleSentence.py",
+            "EN_title":"Example Sentence",
+            "JP_title":"例文"
+        },
+        {
+            "name":"version",
+            "md_filename":"version.md",
+            "py_filename":"version.py",
+            "EN_title":"About version",
+            "JP_title":"バージョンについて"
+        }
+    ]
+}
