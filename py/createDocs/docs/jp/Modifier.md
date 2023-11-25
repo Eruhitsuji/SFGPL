@@ -12,6 +12,12 @@ SFGPLには形容詞と副詞の違いがなく，修飾する語はすべて修
 SFGPLには2項の名詞に対しての比較を行う文の```{Noun_gt}```が存在する．
 ```{Noun_gt} A F B C```で，"AはCよりBである．"という意味となる．
 
+"My table is bigger than yours."のような比較表現は次のようにして表す．
+
+```SFGPL
+{my_table_is_bigger_than_yours}
+```
+
 ## 各品詞に対する修飾語
 
 各品詞を単純に修飾語で修飾するためには，次の表になる．
@@ -39,5 +45,7 @@ SFGPLには2項の名詞に対しての比較を行う文の```{Noun_gt}```が�
 |English|SFGPL|
 |:-:|:-:|
 |I|{I}|
+|table|{table}|
+|yours|{yours}|
 |live|{live}|
 |in Tokyo|{in_Tokyo}|

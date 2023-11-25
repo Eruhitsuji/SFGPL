@@ -8,7 +8,9 @@ format_str_list={
     "Modifier_N":LangObj._getKeyOfDict("Noun.haveP"),
     "Modifier_V":LangObj._getKeyOfDict("Verb.add"),
     "Modifier_M":LangObj._getKeyOfDict("Modifier.add"),
+
     "Noun_gt":LangObj._getKeyOfDict("Noun.gt"),
+    "my_table_is_bigger_than_yours":Noun.gt(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("table"))),Verb.none(),WordM.big(),DeterminerN.possessive(Pronoun.you())),
 
 
     "Modifier_N2M":LangObj._getKeyOfDict("Modifier.N2M"),
@@ -16,6 +18,8 @@ format_str_list={
     "DeterminerN_place":LangObj._getKeyOfDict("DeterminerN.place"),
     
     "I":Pronoun.I(),
+    "table":Noun("table"),
+    "yours":DeterminerN.possessive(Pronoun.you()),
     "live":Verb("live"),
     "in_Tokyo":Modifier.N2M(DeterminerN.place(Noun("Tokyo"))),
 }

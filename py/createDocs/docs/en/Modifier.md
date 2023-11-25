@@ -12,6 +12,12 @@ It is thereby possible to make ```{WordM_big}``` corresponding to the English wo
 The SFGPL has a ```{Noun_gt}``` of sentences that make comparisons between nouns of two terms.
 ```{Noun_gt} A F B C```, meaning "A is more B than C.".
 
+Comparative expressions such as "My table is bigger than yours." are expressed as follows.
+
+```SFGPL
+{my_table_is_bigger_than_yours}
+```
+
 ## Modifiers for each part of speech
 
 To simply modify each part of speech with a modifier, the following table is used.
@@ -39,5 +45,7 @@ The ```{DeterminerN_place}``` is a determiner of place.
 |English|SFGPL|
 |:-:|:-:|
 |I|{I}|
+|table|{table}|
+|yours|{yours}|
 |live|{live}|
 |in Tokyo|{in_Tokyo}|

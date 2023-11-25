@@ -31,7 +31,7 @@ In addition, complex sentences can be created by combining sentence structures.
 - In principle, each argument corresponds to a word or an object, but if the source word is more than one word, it can be regarded as a single word by connecting it with an underscore.
 - Borrowed words are distinguished by placing a single quotation mark before and after them.
 - There are no grammatical distinctions between genders, numbers, etc., and there are no articles.
-- A semicolon (;) is added at the end of a sentence. However, it can be omitted in the case of a single sentence.
+- A semicolon ( ; ) is added at the end of a sentence. However, it can be omitted in the case of a single sentence.
 
 ### Sentence structure of the SFGPL
 

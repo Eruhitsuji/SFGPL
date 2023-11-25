@@ -699,6 +699,12 @@ SFGPLには形容詞と副詞の違いがなく，修飾する語はすべて修
 SFGPLには2項の名詞に対しての比較を行う文の```mo```が存在する．
 ```mo A F B C```で，"AはCよりBである．"という意味となる．
 
+"My table is bigger than yours."のような比較表現は次のようにして表す．
+
+```SFGPL
+mo mi ga so san fa 'table' so wan sen ge
+```
+
 ## 各品詞に対する修飾語
 
 各品詞を単純に修飾語で修飾するためには，次の表になる．
@@ -726,6 +732,8 @@ ta ga na sa 'live' li pun fa 'Tokyo'
 |English|SFGPL|
 |:-:|:-:|
 |I|ga|
+|table|fa 'table'|
+|yours|sen ge|
 |live|sa 'live'|
 |in Tokyo|li pun fa 'Tokyo'|
 
@@ -1109,4 +1117,5 @@ SFGPL.__version__.__version__
 |4.0.7|ドキュメントの追加・修正|
 |4.0.8|ドキュメントの追加・修正|
 |4.0.9|ドキュメントの追加・修正|
+|4.0.10|ドキュメントの追加・修正|
 
