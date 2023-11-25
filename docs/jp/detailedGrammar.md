@@ -52,7 +52,7 @@ me ta ga sa 'go' so li pun fa 'Tokyo'
 |by/about|By/About|li tan tin|
 |with|With|li ten tin|
 
-## Wordbook
+## 単語集
 
 |English|SFGPL|
 |:-:|:-:|

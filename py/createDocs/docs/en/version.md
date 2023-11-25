@@ -9,6 +9,17 @@ SFGPL.__version__.__version__
 
 In addition, the version of the corpus at the time it was executed is listed in the JSON file of the corpus output by ```SFGPL.SFGPLCorpus.saveJson``` of Python code.
 
+## Version naming conventions
+
+The SFGPL uses and manages versions like ```A.B.C```.
+The content of updates due to changes in version names is based on the following table.
+
+|Version|Update|Contents|
+|:-:|:-:|:-:|
+|**A**|Main update|When there are major changes to words, programs, etc.|
+|**B**|Minor update|When there are small changes to words, programs, etc.|
+|**C**|Patch update|When there are small changes or changes in the documentation due to bug fixes in the program etc.|
+
 ## Version update details
 
 |Version|Update contents|
@@ -42,3 +53,4 @@ In addition, the version of the corpus at the time it was executed is listed in 
 |4.0.10|Add and modify to documents|
 |4.0.11|Add and modify to documents|
 |4.0.12|Add and modify to documents|
+|4.0.13|ドキュメントの追加・修正|

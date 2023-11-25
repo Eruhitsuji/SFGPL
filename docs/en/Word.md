@@ -4,6 +4,13 @@
 /
 [JP](../jp/Word.md)
 
+The SFGPL words have a basic set of usages.
+For example, the way in which loan words are used is defined.
+This chapter describes the types of these words and how they are used.
+
+In general, SFGPL words are not transformed by articles, number, gender or case.
+If you want to indicate number or gender, use [noun determiner](DeterminerN.md).
+
 ## Borrowed Words
 
 The SFGPL uses loan words for all but the basic words.

@@ -48,7 +48,7 @@ SFGPLは基本的に，[文型]({docs_sentence_pattern})に記されているよ
 |by/about|By/About|{pre_by}|
 |with|With|{pre_with}|
 
-## Wordbook
+## 単語集
 
 |English|SFGPL|
 |:-:|:-:|
