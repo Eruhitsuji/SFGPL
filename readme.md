@@ -21,8 +21,9 @@ However, I may be wrong because Japanese is my native language and English is tr
 - [14. Bool related classes](docs/en/Bool.md)
 - [15. LangList](docs/en/LangList.md)
 - [16. LangFunc](docs/en/LangFunc.md)
-- [17. Example Sentence](docs/en/exampleSentence.md)
-- [18. About version](docs/en/version.md)
+- [17. Sentence Pattern](docs/en/sentence_pattern.md)
+- [18. Detailed Grammar](docs/en/detailedGrammar.md)
+- [19. About version](docs/en/version.md)
 
 ## 目次
 
@@ -42,5 +43,6 @@ However, I may be wrong because Japanese is my native language and English is tr
 - [14. Bool関連クラス](docs/jp/Bool.md)
 - [15. LangList](docs/jp/LangList.md)
 - [16. LangFunc](docs/jp/LangFunc.md)
-- [17. 例文](docs/jp/exampleSentence.md)
-- [18. バージョンについて](docs/jp/version.md)
+- [17. 文型](docs/jp/sentence_pattern.md)
+- [18. 詳細な文法](docs/jp/detailedGrammar.md)
+- [19. バージョンについて](docs/jp/version.md)

@@ -33,7 +33,7 @@ In addition, complex sentences can be created by combining sentence structures.
 
 The sentence structure of the SFGPL is strictly defined by proper words.
 The following table shows the sentence structures that can be expressed in the SFGPL.
-The details of how to use them are described in [Sentence Pattern](#2-sentence-pattern).
+The details of how to use them are described in [Sentence Pattern](#17-sentence-pattern).
 
 |||word|function|arguments|supplement|
 |:-:|:-:|:-:|:-:|:-:|:-:|
@@ -380,7 +380,7 @@ There are words in the SFGPL that do not add meaning.
 These words exist for each part of speech and are used when grammatically necessary.
 
 ```fo``` is often used to express [noun determiners](#12-determinern) as they are.
-Also, ```so``` is used when a verb is not needed, especially in [sentence pattern](#2-sentence-pattern).
+Also, ```so``` is used when a verb is not needed, especially in [sentence pattern](#17-sentence-pattern).
 On the other hand, ```lo``` is rarely used.
 Examples of these are given below.
 
@@ -992,91 +992,243 @@ When (false,false) is given to the function, do the following.
 pot fa 'xor' fit fit fat pas pas
 ```
 
-# 17. Example Sentence
+# 2. Sentence Pattern
 
-The following table shows example sentences from the SFGPL.
+## List of SFGPL sentence patterns
 
-|SFGPL|Python|Translation|
+In the SFGPL, there are sentence types as shown in the table below, and the sentences themselves are composed by the combination of these sentence types. In addition, modification of words is also performed.
+
+|||word|function|arguments|supplement|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|1|S V|ta|Noun.do|S,V||
+|2|S V C|ma|Noun.eq|S,V,C|C is the noun|
+|2|S V C|me|Noun.haveP|S,V,C|C is the modifier|
+|3|S V O|te|Noun.doT|S,V,O||
+|4|S V O1 O2|ti|Noun.give|S,V,O1,O2||
+|5|S V O C|tu|Noun.makeN|S,V,O,C|C is the noun|
+|5|S V O C|to|Noun.makeM|S,V,O,C|C is the modifier|
+|-|A has B|mi|Noun.have|A,V,B||
+|-|A belongs to B|mu|Noun.belong|A,V,B||
+|-|A is more B than C|mo|Noun.gt|A,V,B,C||
+
+## Noun.do
+
+In Noun.do ```ta```, in particular, S is the subject and V is the verb in the same form as the English first sentence form, and the subject is said to perform some action. It can express simple sentences.
+"I run." can be expressed in SFGPL as follows.
+
+```SFGPL
+ta ga sa 'run'
+```
+
+## Noun.eq
+
+Noun.eq ```ma``` corresponds to the English second sentence pattern "S is C", in which the complement C is a noun.
+This construction also shows that S and C are equivalent.
+If V corresponds to a be verb in English, use ```so``` as the verb.
+To express "This is a table." in SFGPL, it is as follows.
+
+```SFGPL
+ma gu so fa 'table'
+```
+
+"You become a teacher." can be expressed in SFGPL as follows.
+
+```SFGPL
+ma ge sa 'become' fa 'teacher'
+```
+
+## Noun.haveP
+
+Noun.haveP ```me``` corresponds to the English second sentence pattern "S is C", in which the complement C can be used as a modifier.
+In this construction, S is the property or state of C.
+If V corresponds to a be verb in English, use ```so``` as the verb.
+To express "The table is red." in SFGPL, it is as follows.
+
+```SFGPL
+me fa 'table' so la 'red'
+```
+
+"You look sad." can be expressed in SFGPL as follows.
+
+```SFGPL
+me ge sa 'look' la 'sad'
+```
+
+## Noun.doT
+
+Noun.doT ```te```, in particular, corresponds to the third sentence pattern in English, where S is the subject, V is the verb, and O is the object.
+"I study English." can be expressed in SFGPL as follows.
+
+```SFGPL
+te ga sa 'study' fa 'English'
+```
+
+## Noun.give
+
+In Noun.give ```ti```, in particular, it corresponds to the English fourth sentence pattern, where S is the subject, V is the verb, and O1 and O2 are the objects. In particular, this construction means "S gives O1 O2".
+If V corresponds to "give" in English, use ```so``` as the verb.
+"I give you a table." can be expressed in SFGPL as follows.
+
+```SFGPL
+ti ga so ge fa 'table'
+```
+
+## Noun.makeN and Noun.makeM
+
+Noun.makeN ```tu``` and Noun.makeM ```to```, in particular, correspond to the English fifth sentence pattern, where S is the subject, V is the verb, O is the object and C is the complement.
+Noun.makeN is used when C is a noun and Noun.makeM when C is a modifier.
+In this construction, it means "S makes O C".
+If V corresponds to "make" in English, use ```so``` as the verb.
+
+"I make you a teacher." can be expressed in SFGPL as follows.
+
+```SFGPL
+tu ga so ge fa 'teacher'
+```
+
+"I make you sad." can be expressed in SFGPL as follows.
+
+```SFGPL
+to ga so ge la 'sad'
+```
+
+## Noun.have
+
+Noun.have ```mi``` means "A owns B".
+If V corresponds to "have" in English, use ```so``` as the verb.
+"I have a table." can be expressed in SFGPL as follows.
+
+```SFGPL
+mi ga so fa 'table'
+```
+
+## Noun.belong
+
+Noun.belong ```mu``` means "A belongs to B".
+If V corresponds to "belong to" in English, use ```so``` as the verb.
+"I belong to a school." can be expressed in SFGPL as follows.
+
+```SFGPL
+mu ga so fa 'school'
+```
+
+## Noun.gt
+
+Noun.gt ```mo``` means "A is more B than C".
+In this case, A and B are the nouns being compared and C is a modifier.
+If V corresponds to a be verb in English, use ```so``` as the verb.
+"The bed is bigger than yours." can be expressed in the SFGPL as follows.
+
+```SFGPL
+mo fa 'bed' so wan sen ge
+```
+
+## How to modify nouns using sentence structures
+
+SFGPL uses these sentence structures to modify nouns.
+When a sentence is generated, the entire sentence becomes a noun, which can be embedded in another sentence.
+
+"Your table is red." can be expressed in SFGPL as follows.
+
+```SFGPL
+me mi ge so fa 'table' so la 'red'
+```
+
+Thus, ```mi ge so fa 'table'```, which is "You have table", becomes the subject, and it can be explained that the table is red ```la 'red'```.
+The equivalent "You have red table." can be expressed as follows.
+
+```SFGPL
+mi ge so me fa 'table' so la 'red'
+```
+
+### Stressed Form
+
+Emphasis ```san``` can also be used, especially when you want to emphasize a word other than the subject in a sentence.
+To stress the word "table" in "Your table is red.".
+
+```SFGPL
+me mi ge so san fa 'table' so la 'red'
+```
+
+## Wordbook
+
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|run|sa 'run'|
+|this|gu|
+|table|fa 'table'|
+|red|la 'red'|
+|you|ge|
+|become|sa 'become'|
+|teacher|fa 'teacher'|
+|look|sa 'look'|
+|sad|la 'sad'|
+|study|sa 'study'|
+|English|fa 'English'|
+|school|fa 'school'|
+|bed|fa 'bed'|
+|big|wan|
+|yours|sen ge|
+
+# 18. Detailed Grammar
+
+Basically, the SFGPL must adhere strictly to the grammar as described in [sentence pattern](#17-sentence-pattern), but the rest may be decided to some extent by the user.
+However, an exemplary grammar is described in this chapter.
+
+## How to qualify a sentence
+
+To modify a whole sentence, you basically modify the verbs in that sentence by using ```na```.
+For example, in the example sentence "I go to Tokyo.", the "to Tokyo" part is a modifier.
+In this case, the SFGPL uses the following.
+
+```SFGPL
+ta ga na sa 'go' li pun fa 'Tokyo'
+```
+
+Another alternative is to use ```me```.
+
+```SFGPL
+me ta ga sa 'go' so li pun fa 'Tokyo'
+```
+
+### Prepositional usage in English
+
+In particular, when modifying verbs, like prepositions in English, they are expressed using ```li``` and [DeterminerN](#12-determinern).
+Examples of English prepositions and SFGPLs are given in the following table.
+
+|English|Meaning|SFGPL|
 |:-:|:-:|:-:|
-|ma ga so me fa 'worker' so li pun fa 'office'|Noun.eq( Pronoun.I(  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  ) |I am an office worker.|
-|ma ge so me fa 'worker' so li pun fa 'office'|Noun.eq( Pronoun.you(  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  ) |You are an office worker.|
-|ma lan gi so me fa 'worker' so li pun fa 'office'|Noun.eq( DeterminerN.male( Pronoun.he(  )  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  ) |He is an office worker.|
-|ma len gi so me fa 'worker' so li pun fa 'office'|Noun.eq( DeterminerN.female( Pronoun.he(  )  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  ) |She is an office worker.|
-|ma don ga so me fa 'worker' so li pun fa 'office'|Noun.eq( DeterminerN.plural( Pronoun.I(  )  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  ) |We are an office worker.|
-|ma don ge so me fa 'worker' so li pun fa 'office'|Noun.eq( DeterminerN.plural( Pronoun.you(  )  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  ) |You are an office worker.|
-|ma don gi so me fa 'worker' so li pun fa 'office'|Noun.eq( DeterminerN.plural( Pronoun.he(  )  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  ) |They are an office worker.|
-|di ma ga so me fa 'worker' so li pun fa 'office'|Phrase.past( Noun.eq( Pronoun.I(  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  )  ) |I was an office worker.|
-|du ma ga so me fa 'worker' so li pun fa 'office'|Phrase.future( Noun.eq( Pronoun.I(  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  )  ) |I will be an office worker.|
-|ta ga na sa 'go' li pun mu ga so san fa 'school'|Noun.do( Pronoun.I(  ) , Verb.add( Verb( "'go'" ) , Modifier.N2M( DeterminerN.place( Noun.belong( Pronoun.I(  ) , Verb.none(  ) , DeterminerN.stressed( Noun( "'school'" )  )  )  )  )  )  ) |I go to my school.|
-|di ta ga na sa 'go' li pun mu ga so san fa 'school'|Phrase.past( Noun.do( Pronoun.I(  ) , Verb.add( Verb( "'go'" ) , Modifier.N2M( DeterminerN.place( Noun.belong( Pronoun.I(  ) , Verb.none(  ) , DeterminerN.stressed( Noun( "'school'" )  )  )  )  )  )  )  ) |I went to my school.|
-|du ta ga na sa 'go' li pun mu ga so san fa 'school'|Phrase.future( Noun.do( Pronoun.I(  ) , Verb.add( Verb( "'go'" ) , Modifier.N2M( DeterminerN.place( Noun.belong( Pronoun.I(  ) , Verb.none(  ) , DeterminerN.stressed( Noun( "'school'" )  )  )  )  )  )  )  ) |I will go to my school.|
-|te ga sa 'read' fa 'book'|Noun.doT( Pronoun.I(  ) , Verb( "'read'" ) , Noun( "'book'" )  ) |I read a book.|
-|di ti ga na sa 'send' li pin fa 'yesterday' lan gi fa 'letter'|Phrase.past( Noun.give( Pronoun.I(  ) , Verb.add( Verb( "'send'" ) , Modifier.N2M( DeterminerN.time( Noun( "'yesterday'" )  )  )  ) , DeterminerN.male( Pronoun.he(  )  ) , Noun( "'letter'" )  )  ) |I sent him a letter yesterday.|
-|di tu ga so lan gi fa 'teacher'|Phrase.past( Noun.makeN( Pronoun.I(  ) , Verb.none(  ) , DeterminerN.male( Pronoun.he(  )  ) , Noun( "'teacher'" )  )  ) |I made him a teacher.|
-|di to ga so lan gi la 'happy'|Phrase.past( Noun.makeM( Pronoun.I(  ) , Verb.none(  ) , DeterminerN.male( Pronoun.he(  )  ) , Modifier( "'happy'" )  )  ) |I made her happy.|
-|mo lan gi so la 'tall' ga|Noun.gt( DeterminerN.male( Pronoun.he(  )  ) , Verb.none(  ) , Modifier( "'tall'" ) , Pronoun.I(  )  ) |He is taller than me.|
-|di te ga na sa 'put' li pun min fa 'table' ba fa 'apple' fa 'peach'|Phrase.past( Noun.doT( Pronoun.I(  ) , Verb.add( Verb( "'put'" ) , Modifier.N2M( DeterminerN.place( DeterminerN.on( Noun( "'table'" )  )  )  )  ) , LangObj.AND( Noun( "'apple'" ) , Noun( "'peach'" )  )  )  ) |I put an apple and a peach on the table.|
-|ta ga na sa 'go' li pun fa 'Osaka'|Noun.do( Pronoun.I(  ) , Verb.add( Verb( "'go'" ) , Modifier.N2M( DeterminerN.place( Noun( "'Osaka'" )  )  )  )  ) |I go to Osaka.|
-|di ta ga na sa 'go' li pun fa 'Osaka'|Phrase.past( Noun.do( Pronoun.I(  ) , Verb.add( Verb( "'go'" ) , Modifier.N2M( DeterminerN.place( Noun( "'Osaka'" )  )  )  )  )  ) |I went to Osaka.|
-|du ta ga na sa 'go' li pun fa 'Osaka'|Phrase.future( Noun.do( Pronoun.I(  ) , Verb.add( Verb( "'go'" ) , Modifier.N2M( DeterminerN.place( Noun( "'Osaka'" )  )  )  )  )  ) |I will go to Osaka.|
-|te ga sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , Verb( "'create'" ) , Noun( "'table'" )  ) |I create a table.|
-|te ga sa 'create' ma gu so san fa 'table'|Noun.doT( Pronoun.I(  ) , Verb( "'create'" ) , Noun.eq( Pronoun.proximal(  ) , Verb.none(  ) , DeterminerN.stressed( Noun( "'table'" )  )  )  ) |I create this table.|
-|pa te ga sa 'create' fa 'table'|LangObj.NOT( Noun.doT( Pronoun.I(  ) , Verb( "'create'" ) , Noun( "'table'" )  )  ) |I don't create a table.|
-|te ge sa 'create' fa 'table'|Noun.doT( Pronoun.you(  ) , Verb( "'create'" ) , Noun( "'table'" )  ) |You create a table.|
-|da te ge sa 'create' fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.you(  ) , Verb( "'create'" ) , Noun( "'table'" )  )  ) |Do you create a table?|
-|da di te ge sa 'create' fa 'table'|Phrase.interrogative( Phrase.past( Noun.doT( Pronoun.you(  ) , Verb( "'create'" ) , Noun( "'table'" )  )  )  ) |Did you create a table?|
-|da te ben wa sa 'create' fa 'table'|Phrase.interrogative( Noun.doT( DeterminerN.human( Pronoun.interrogative(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  )  ) |Who create the table?|
-|da te ge sa 'create' pen wa|Phrase.interrogative( Noun.doT( Pronoun.you(  ) , Verb( "'create'" ) , DeterminerN.thing( Pronoun.interrogative(  )  )  )  ) |What do you create?|
-|da te ge na sa 'create' li pin wa fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.you(  ) , Verb.add( Verb( "'create'" ) , Modifier.N2M( DeterminerN.time( Pronoun.interrogative(  )  )  )  ) , Noun( "'table'" )  )  ) |When do you create the table?|
-|da te ge na sa 'create' li pon wa fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.you(  ) , Verb.add( Verb( "'create'" ) , Modifier.N2M( DeterminerN.reason( Pronoun.interrogative(  )  )  )  ) , Noun( "'table'" )  )  ) |Why do you create the table?|
-|de te we sa 'create' fa 'table'|Phrase.imperative( Noun.doT( Pronoun.indefinite(  ) , Verb( "'create'" ) , Noun( "'table'" )  )  ) |Create a table!|
-|di te ga sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , Verb( "'create'" ) , Noun( "'table'" )  )  ) |I created a table.|
-|du te ga sa 'create' fa 'table'|Phrase.future( Noun.doT( Pronoun.I(  ) , Verb( "'create'" ) , Noun( "'table'" )  )  ) |I will create a table.|
-|ta fa 'table' na ne sa 'create' li tan tin ga|Noun.do( Noun( "'table'" ) , Verb.add( Verb.passive( Verb( "'create'" )  ) , Modifier.N2M( DeterminerN.affect( DeterminerN.near( Pronoun.I(  )  )  )  )  )  ) |The table is created by me.|
-|te ga ni sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , Verb.progressive( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I am creating a table.|
-|te ga nu sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , Verb.perfective( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I have created a table.|
-|du te ga pak sa 'create' fa 'table'|Phrase.future( Noun.doT( Pronoun.I(  ) , DeterminerV.Estimation100( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I 100% probability will create a table.|
-|du te ga pek sa 'create' fa 'table'|Phrase.future( Noun.doT( Pronoun.I(  ) , DeterminerV.Estimation75( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I 75% probability will create a table.|
-|du te ga pik sa 'create' fa 'table'|Phrase.future( Noun.doT( Pronoun.I(  ) , DeterminerV.Estimation50( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I 50% probability will create a table.|
-|du te ga puk sa 'create' fa 'table'|Phrase.future( Noun.doT( Pronoun.I(  ) , DeterminerV.Estimation25( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I 25% probability will create a table.|
-|du te ga pok sa 'create' fa 'table'|Phrase.future( Noun.doT( Pronoun.I(  ) , DeterminerV.Estimation0( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I 0% probability will create a table.|
-|te ga fak sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Frequency100( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I 100% frequently create a table.|
-|te ga fek sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Frequency75( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I 75% frequently create a table.|
-|te ga fik sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Frequency50( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I 50% frequently create a table.|
-|te ga fuk sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Frequency25( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I 25% frequently create a table.|
-|te ga fok sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Frequency0( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I 0% frequently create a table.|
-|te ga bik sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.present( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I create a table.|
-|te ga bak sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.past( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I created a table.|
-|te ga bok sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.future( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I will create a table.|
-|di te ga bak sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , DeterminerV.past( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I created a table.(Past in the past at a point in time)|
-|di te ga bik sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , DeterminerV.present( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I created a table.(Present in the past at a point in time)|
-|di te ga bok sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , DeterminerV.future( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I would create a table.(Future in the past at a point in time)|
-|di te ga bak sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , DeterminerV.past( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I will have created a table.(Past in the future at a point in time)|
-|di te ga bik sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , DeterminerV.present( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I will create a table.(Present in the future at a point in time)|
-|di te ga bok sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , DeterminerV.future( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I will create a table.(Future in the future at a point in time)|
-|te ga nak sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Possible( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I can create a table.|
-|te ga nek sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Ability( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I can create a table.|
-|te ga nik sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Will( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I will create a table.|
-|te ga nuk sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Obligation( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I should create a table.|
-|te ga nok sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Necessary( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I need to create a table.|
-|te ga lak sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Duty( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I must create a table.|
-|te ga lek sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.forced( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I am forced to create a table.|
-|te ga lik sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.want( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I want to create a table.|
-|te ga luk sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.dare( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I dare create a table.|
-|te ga lok sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.allow( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I allow to create a table.|
-|te ga kak sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.easy( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I am easy to create a table.|
-|te ga kek sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.hard( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I am hard to create a table.|
-|te ga kik sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.habit( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I habitually create a table.|
-|te ga kuk sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Polite( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I create a table.(polite expression)|
-|te lan gi kok sa 'create' fa 'table'|Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , DeterminerV.Respect( Verb( "'create'" )  ) , Noun( "'table'" )  ) |He creates a table.(respectful expression)|
-|te ga gak sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.volitional( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I consciously create a table.|
-|te ga gek sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.nonVolitional( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I unconsciously create a table.|
-|da te ge gik sa 'create' fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.you(  ) , DeterminerV.Requests( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |Can you create a table?|
-|da te ga guk sa 'create' fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.I(  ) , DeterminerV.Permission( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |May I create a table?|
-|da te ga gok sa 'create' fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.I(  ) , DeterminerV.Suggestion( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |Shall I create a table?|
+|at/in/on/to/from|Time|li pin|
+|at/in/on/to/from|Place|li pun|
+|for|Reason|li pon|
+|for|Way/Means|li ban|
+|from|Start|li fan|
+|to|End|li fen|
+|between/among|Section|li fin|
+|in|In|li fun|
+|into|Into|li tun fun|
+|out|Out|li fon|
+|up/over|Move&Above|li tun man|
+|above|Above|li man|
+|down|Move&Below|li tun men|
+|under|On&Below|li min men|
+|below|Below|li men|
+|on|On|li min|
+|right|Right|li mun|
+|left|Left|li mon|
+|near|Near|li tin|
+|by/about|By/About|li tan tin|
+|with|With|li ten tin|
 
+## Wordbook
 
-# 18. About version
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|go|sa 'go'|
+
+# 19. About version
 
 The version of this project is [\_\_version\_\_.py](../../SFGPL/__version__.py).
 In particular, if you want to run it in Python, you can check it by executing the following code.
@@ -1118,4 +1270,5 @@ In addition, the version of the corpus at the time it was executed is listed in 
 |4.0.8|Add and modify to documents|
 |4.0.9|Add and modify to documents|
 |4.0.10|Add and modify to documents|
+|4.0.11|Add and modify to documents|
 
