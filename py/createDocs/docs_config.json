@@ -113,18 +113,18 @@
             "JP_title":"LangFunc"
         },
         {
-            "name":"sentence_pattern",
-            "md_filename":"sentence_pattern.md",
-            "py_filename":"sentence_pattern.py",
-            "EN_title":"Sentence Pattern",
-            "JP_title":"文型"
-        },
-        {
             "name":"detailedGrammar",
             "md_filename":"detailedGrammar.md",
             "py_filename":"detailedGrammar.py",
             "EN_title":"Detailed Grammar",
             "JP_title":"詳細な文法"
+        },
+        {
+            "name":"exampleSentence",
+            "md_filename":"exampleSentence.md",
+            "py_filename":"exampleSentence.py",
+            "EN_title":"Example Sentence",
+            "JP_title":"例文"
         },
         {
             "name":"version",

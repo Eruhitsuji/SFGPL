@@ -11,7 +11,7 @@ In particular, if you want to run it in Python, you can check it by executing th
 SFGPL.__version__.__version__
 ```
 
-In addition, the version of the corpus at the time it was executed is listed in the JSON file of the corpus output by ```SFGPL.SFGPLCorpus.saveJson```.
+In addition, the version of the corpus at the time it was executed is listed in the JSON file of the corpus output by ```SFGPL.SFGPLCorpus.saveJson``` of Python code.
 
 ## Version update details
 
@@ -45,3 +45,4 @@ In addition, the version of the corpus at the time it was executed is listed in 
 |4.0.9|Add and modify to documents|
 |4.0.10|Add and modify to documents|
 |4.0.11|Add and modify to documents|
+|4.0.12|Add and modify to documents|

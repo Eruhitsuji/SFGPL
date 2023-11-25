@@ -2134,6 +2134,15 @@ sc.setCorpus(
     "I was hard to go to New York."
 )
 
+sc.setCorpus(
+    Noun.doT(Pronoun.I(),Verb("get"),Noun.eq(Noun("information"),Verb.none(),Noun.doT(DeterminerN.male(Pronoun.he()),Verb.perfective(Verb("create")),Noun("table")))),
+    "I get the information that he has create a table."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(Pronoun.I(),Verb("get"),Noun.eq(Noun("information"),Verb.none(),Noun.doT(DeterminerN.male(Pronoun.he()),Verb.perfective(Verb("create")),Noun("table"))))),
+    "I got the information that he has create a table."
+)
 
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)
