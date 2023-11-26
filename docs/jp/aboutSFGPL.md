@@ -35,7 +35,8 @@ SFGPLでは，文構造それぞれに関数が割り振られているため，
 
 ### SFGPLの文構造
 
-SFGPLでは固有語によって，文構造が厳密に定義されている．
+SFGPLの語順はSVOであるが，文頭に文の構造を決定する機能語が付属する．
+また，SFGPLでは固有語によって，文構造が厳密に定義されている．
 以下の表は，SFGPLで表現できる文構造の表である．
 また使用方法等の詳細は，[文型](sentence_pattern.md)に記述してある．
 
@@ -51,6 +52,7 @@ SFGPLでは固有語によって，文構造が厳密に定義されている．
 |-|A has B|mi|Noun.have|A,V,B|AがBを所有している|
 |-|A belongs to B|mu|Noun.belong|A,V,B|AがBに所属している|
 |-|A is more B than C|mo|Noun.gt|A,V,B,C|AがCよりBである|
+|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|Bという内容をCという情報源から，AはFする|
 
 ## SFGPLの発音
 
@@ -75,6 +77,7 @@ SFGPLの子音は次の表のようなものがある．
 |w|/w/|
 
 一方，SFGPLの母音は次の表のようなものがある．
+SFGPLの固有語は，数少ない単語を除いて二重母音は存在しない．
 
 |表記|IPA|
 |:-:|:-:|

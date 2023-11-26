@@ -37,7 +37,7 @@ The content of updates due to changes in version names is based on the following
 |2.0.0|Add classes for logical values|
 |2.0.1|Add and modify to Python programs|
 |2.0.2|Add and modify to documents|
-|2.0.2|Add BoolList.get() and BoolList.slice()|
+|2.1.0|Add BoolList.get() and BoolList.slice()|
 |3.0.0|Add LangList and LangFunc classes|
 |3.0.1|[How_to_Use_SFGPL_in_Python.ipynb](../../How_to_Use_SFGPL_in_Python.ipynb) fixed|
 |3.1.0|Fixed LangFunc.runFunc()|
@@ -57,4 +57,5 @@ The content of updates due to changes in version names is based on the following
 |4.0.10|Add and modify to documents|
 |4.0.11|Add and modify to documents|
 |4.0.12|Add and modify to documents|
-|4.0.13|ドキュメントの追加・修正|
+|4.0.13|Add and modify to documents|
+|4.1.0|Add Noun.hearSay()|

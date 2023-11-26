@@ -335,6 +335,18 @@ class Noun(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    def hearSay(a,f,b,c):
+        func_str="Noun.hearSay"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,f,b,c]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Phrase(arg,func_mode=True)
+        elif(isinstance(a,Noun) and isinstance(f,Verb) and isinstance(b,Noun) and isinstance(c,Noun)):
+            return Phrase(arg)
+        else:
+            LangObj.printTypeError(arg)
+
     def do(a,f):
         func_str="Noun.do"
         key=LangObj._getKeyOfDict(func_str)

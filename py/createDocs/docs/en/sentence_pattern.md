@@ -16,6 +16,7 @@ In the SFGPL, there are sentence types as shown in the table below, and the sent
 |-|A has B|{noun_have}|Noun.have|A,V,B||
 |-|A belongs to B|{noun_belong}|Noun.belong|A,V,B||
 |-|A is more B than C|{noun_gt}|Noun.gt|A,V,B,C||
+|-|According to C, A V B|{noun_hearSay}|Noun.hearSay|A,V,B,C|A(Subject) V(Verb) that B(Content) according to C(Source)|
 
 ## Noun.do
 
@@ -129,6 +130,17 @@ If V corresponds to a be verb in English, use ```{verb_none}``` as the verb.
 {The_bed_is_bigger_than_yours}
 ```
 
+## Noun.hearSay
+
+Noun.hearSay ```{noun_hearSay}``` means "A(Subject) V(Verb) that B(Content) according to C(Source)".
+In this case, A is the person or thing receiving the information, V is the verb, B is the content of the information and C is the source person or thing.
+If V corresponds to a verbs related to hearsay, such as hear and say in English, use ```{verb_none}``` as the verb.
+"According to the book, I heard that Japan is located in East Asia." can be expressed in the SFGPL as.
+
+```SFGPL
+{According_to_the_book_I_heard_that_Japan_is_located_in_East_Asia}
+```
+
 ## How to modify nouns using sentence structures
 
 SFGPL uses these sentence structures to modify nouns.
@@ -176,3 +188,6 @@ To stress the word "table" in "Your table is red.".
 |bed|{bed}|
 |big|{big}|
 |yours|{yours_possessive}|
+|book|{book}|
+|Japan|{Japan}|
+|in East Asia|{in_East_Asia}|

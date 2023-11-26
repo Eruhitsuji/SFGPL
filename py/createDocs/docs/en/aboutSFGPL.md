@@ -31,7 +31,8 @@ In addition, complex sentences can be created by combining sentence structures.
 
 ### Sentence structure of the SFGPL
 
-The sentence structure of the SFGPL is strictly defined by proper words.
+The word order of the SFGPL is SVO, but a function word that determines the structure of the sentence is attached to the beginning of the sentence.
+Also, the sentence structure of the SFGPL is strictly defined by proper words.
 The following table shows the sentence structures that can be expressed in the SFGPL.
 The details of how to use them are described in [Sentence Pattern]({docs_sentence_pattern}).
 
@@ -47,6 +48,7 @@ The details of how to use them are described in [Sentence Pattern]({docs_sentenc
 |-|A has B|{noun_have}|Noun.have|A,V,B||
 |-|A belongs to B|{noun_belong}|Noun.belong|A,V,B||
 |-|A is more B than C|{noun_gt}|Noun.gt|A,V,B,C||
+|-|According to C, A V B|{noun_hearSay}|Noun.hearSay|A,V,B,C|A(Subject) V(Verb) that B(Content) according to C(Source)|
 
 ## Pronunciation of SFGPL
 
@@ -71,6 +73,7 @@ Consonants of the SFGPL are listed in the table below.
 |w|/w/|
 
 On the other hand, the vowels in the SFGPL are as shown in the table below.
+SFGPL unique words do not have double vowels, except in a few words.
 
 |Spell|IPA|
 |:-:|:-:|

@@ -31,7 +31,8 @@ SFGPLでは，文構造それぞれに関数が割り振られているため，
 
 ### SFGPLの文構造
 
-SFGPLでは固有語によって，文構造が厳密に定義されている．
+SFGPLの語順はSVOであるが，文頭に文の構造を決定する機能語が付属する．
+また，SFGPLでは固有語によって，文構造が厳密に定義されている．
 以下の表は，SFGPLで表現できる文構造の表である．
 また使用方法等の詳細は，[文型](#2-文型)に記述してある．
 
@@ -47,6 +48,7 @@ SFGPLでは固有語によって，文構造が厳密に定義されている．
 |-|A has B|mi|Noun.have|A,V,B|AがBを所有している|
 |-|A belongs to B|mu|Noun.belong|A,V,B|AがBに所属している|
 |-|A is more B than C|mo|Noun.gt|A,V,B,C|AがCよりBである|
+|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|Bという内容をCという情報源から，AはFする|
 
 ## SFGPLの発音
 
@@ -71,6 +73,7 @@ SFGPLの子音は次の表のようなものがある．
 |w|/w/|
 
 一方，SFGPLの母音は次の表のようなものがある．
+SFGPLの固有語は，数少ない単語を除いて二重母音は存在しない．
 
 |表記|IPA|
 |:-:|:-:|
@@ -153,6 +156,7 @@ SFGPLでは以下の表のような文型が存在し，それらの文の組み
 |-|A has B|mi|Noun.have|A,V,B|AがBを所有している|
 |-|A belongs to B|mu|Noun.belong|A,V,B|AがBに所属している|
 |-|A is more B than C|mo|Noun.gt|A,V,B,C|AがCよりBである|
+|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|Bという内容をCという情報源から，AはFする|
 
 ## Noun.do
 
@@ -266,6 +270,17 @@ Vが英語でbe動詞に相当する場合，動詞として```so```を使用す
 mo fa 'bed' so wan sen ge
 ```
 
+## Noun.hearSay
+
+Noun.hearSay ```moa```は"Bという内容をCという情報源から，AはVする"という意味になる．
+このとき，Aは情報を受け取った人や物，Vは動詞，Bは情報の内容，Cは情報源の人や物である．
+Vが英語でhearやsayなどの伝聞に関する動詞に相当する場合，動詞として```so```を使用する．
+"According to the book, I heard that Japan is located in East Asia."をSFGPLで表すには，次のようになる．
+
+```SFGPL
+di moa ga so ta fa 'Japan' na ne sa 'locate' li fun pun me fa 'Asia' so la 'east' fa 'book'
+```
+
 ## 文構造を使用した名詞の修飾方法
 
 SFGPLでは名詞の修飾を行う際に，これらの文構造を使用する．
@@ -313,6 +328,9 @@ me mi ge so san fa 'table' so la 'red'
 |bed|fa 'bed'|
 |big|wan|
 |yours|sen ge|
+|book|fa 'book'|
+|Japan|fa 'Japan'|
+|in East Asia|li fun pun me fa 'Asia' so la 'east'|
 
 # 3. 単語
 
@@ -1141,6 +1159,8 @@ me ta ga sa 'go' so li pun fa 'Tokyo'
 |da te ga gok sa 'create' fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.I(  ) , DeterminerV.Suggestion( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |Shall I create a table?|
 |te ga sa 'get' ma fa 'information' so te lan gi nu sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , Verb( "'get'" ) , Noun.eq( Noun( "'information'" ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb.perfective( Verb( "'create'" )  ) , Noun( "'table'" )  )  )  ) |I get the information that he has create a table.|
 |di te ga sa 'get' ma fa 'information' so te lan gi nu sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , Verb( "'get'" ) , Noun.eq( Noun( "'information'" ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb.perfective( Verb( "'create'" )  ) , Noun( "'table'" )  )  )  )  ) |I got the information that he has create a table.|
+|di moa ga so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.I(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, I heard that he create a table.|
+|di moa ge so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.you(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, you heard that he create a table.|
 
 
 # 19. バージョンについて
@@ -1199,4 +1219,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |4.0.11|ドキュメントの追加・修正|
 |4.0.12|ドキュメントの追加・修正|
 |4.0.13|ドキュメントの追加・修正|
+|4.1.0|Noun.hearSay()を追加|
 

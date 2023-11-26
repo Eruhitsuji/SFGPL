@@ -20,6 +20,7 @@ In the SFGPL, there are sentence types as shown in the table below, and the sent
 |-|A has B|mi|Noun.have|A,V,B||
 |-|A belongs to B|mu|Noun.belong|A,V,B||
 |-|A is more B than C|mo|Noun.gt|A,V,B,C||
+|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|A(Subject) V(Verb) that B(Content) according to C(Source)|
 
 ## Noun.do
 
@@ -133,6 +134,17 @@ If V corresponds to a be verb in English, use ```so``` as the verb.
 mo fa 'bed' so wan sen ge
 ```
 
+## Noun.hearSay
+
+Noun.hearSay ```moa``` means "A(Subject) V(Verb) that B(Content) according to C(Source)".
+In this case, A is the person or thing receiving the information, V is the verb, B is the content of the information and C is the source person or thing.
+If V corresponds to a verbs related to hearsay, such as hear and say in English, use ```so``` as the verb.
+"According to the book, I heard that Japan is located in East Asia." can be expressed in the SFGPL as.
+
+```SFGPL
+di moa ga so ta fa 'Japan' na ne sa 'locate' li fun pun me fa 'Asia' so la 'east' fa 'book'
+```
+
 ## How to modify nouns using sentence structures
 
 SFGPL uses these sentence structures to modify nouns.
@@ -180,3 +192,6 @@ me mi ge so san fa 'table' so la 'red'
 |bed|fa 'bed'|
 |big|wan|
 |yours|sen ge|
+|book|fa 'book'|
+|Japan|fa 'Japan'|
+|in East Asia|li fun pun me fa 'Asia' so la 'east'|

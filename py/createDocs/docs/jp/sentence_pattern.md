@@ -16,6 +16,7 @@ SFGPLでは以下の表のような文型が存在し，それらの文の組み
 |-|A has B|{noun_have}|Noun.have|A,V,B|AがBを所有している|
 |-|A belongs to B|{noun_belong}|Noun.belong|A,V,B|AがBに所属している|
 |-|A is more B than C|{noun_gt}|Noun.gt|A,V,B,C|AがCよりBである|
+|-|According to C, A V B|{noun_hearSay}|Noun.hearSay|A,V,B,C|Bという内容をCという情報源から，AはFする|
 
 ## Noun.do
 
@@ -129,6 +130,17 @@ Vが英語でbe動詞に相当する場合，動詞として```{verb_none}```を
 {The_bed_is_bigger_than_yours}
 ```
 
+## Noun.hearSay
+
+Noun.hearSay ```{noun_hearSay}```は"Bという内容をCという情報源から，AはVする"という意味になる．
+このとき，Aは情報を受け取った人や物，Vは動詞，Bは情報の内容，Cは情報源の人や物である．
+Vが英語でhearやsayなどの伝聞に関する動詞に相当する場合，動詞として```{verb_none}```を使用する．
+"According to the book, I heard that Japan is located in East Asia."をSFGPLで表すには，次のようになる．
+
+```SFGPL
+{According_to_the_book_I_heard_that_Japan_is_located_in_East_Asia}
+```
+
 ## 文構造を使用した名詞の修飾方法
 
 SFGPLでは名詞の修飾を行う際に，これらの文構造を使用する．
@@ -176,3 +188,6 @@ SFGPLでは名詞の修飾を行う際に，これらの文構造を使用する
 |bed|{bed}|
 |big|{big}|
 |yours|{yours_possessive}|
+|book|{book}|
+|Japan|{Japan}|
+|in East Asia|{in_East_Asia}|

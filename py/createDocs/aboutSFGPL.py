@@ -13,6 +13,7 @@ format_str_list={
     "noun_have":LangObj._getKeyOfDict("Noun.have"),
     "noun_belong":LangObj._getKeyOfDict("Noun.belong"),
     "noun_gt":LangObj._getKeyOfDict("Noun.gt"),
+    "noun_hearSay":LangObj._getKeyOfDict("Noun.hearSay"),
 }
 
 createDocs(name=NAME,format_str_list=format_str_list,lang_mode="JP",md_mode=True,out_flag=True,all_docs_flag=True)

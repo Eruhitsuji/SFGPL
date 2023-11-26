@@ -31,7 +31,8 @@ In addition, complex sentences can be created by combining sentence structures.
 
 ### Sentence structure of the SFGPL
 
-The sentence structure of the SFGPL is strictly defined by proper words.
+The word order of the SFGPL is SVO, but a function word that determines the structure of the sentence is attached to the beginning of the sentence.
+Also, the sentence structure of the SFGPL is strictly defined by proper words.
 The following table shows the sentence structures that can be expressed in the SFGPL.
 The details of how to use them are described in [Sentence Pattern](#2-sentence-pattern).
 
@@ -47,6 +48,7 @@ The details of how to use them are described in [Sentence Pattern](#2-sentence-p
 |-|A has B|mi|Noun.have|A,V,B||
 |-|A belongs to B|mu|Noun.belong|A,V,B||
 |-|A is more B than C|mo|Noun.gt|A,V,B,C||
+|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|A(Subject) V(Verb) that B(Content) according to C(Source)|
 
 ## Pronunciation of SFGPL
 
@@ -71,6 +73,7 @@ Consonants of the SFGPL are listed in the table below.
 |w|/w/|
 
 On the other hand, the vowels in the SFGPL are as shown in the table below.
+SFGPL unique words do not have double vowels, except in a few words.
 
 |Spell|IPA|
 |:-:|:-:|
@@ -153,6 +156,7 @@ In the SFGPL, there are sentence types as shown in the table below, and the sent
 |-|A has B|mi|Noun.have|A,V,B||
 |-|A belongs to B|mu|Noun.belong|A,V,B||
 |-|A is more B than C|mo|Noun.gt|A,V,B,C||
+|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|A(Subject) V(Verb) that B(Content) according to C(Source)|
 
 ## Noun.do
 
@@ -266,6 +270,17 @@ If V corresponds to a be verb in English, use ```so``` as the verb.
 mo fa 'bed' so wan sen ge
 ```
 
+## Noun.hearSay
+
+Noun.hearSay ```moa``` means "A(Subject) V(Verb) that B(Content) according to C(Source)".
+In this case, A is the person or thing receiving the information, V is the verb, B is the content of the information and C is the source person or thing.
+If V corresponds to a verbs related to hearsay, such as hear and say in English, use ```so``` as the verb.
+"According to the book, I heard that Japan is located in East Asia." can be expressed in the SFGPL as.
+
+```SFGPL
+di moa ga so ta fa 'Japan' na ne sa 'locate' li fun pun me fa 'Asia' so la 'east' fa 'book'
+```
+
 ## How to modify nouns using sentence structures
 
 SFGPL uses these sentence structures to modify nouns.
@@ -313,6 +328,9 @@ me mi ge so san fa 'table' so la 'red'
 |bed|fa 'bed'|
 |big|wan|
 |yours|sen ge|
+|book|fa 'book'|
+|Japan|fa 'Japan'|
+|in East Asia|li fun pun me fa 'Asia' so la 'east'|
 
 # 3. Word
 
@@ -1140,6 +1158,8 @@ The following table shows example sentences from the SFGPL.
 |da te ga gok sa 'create' fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.I(  ) , DeterminerV.Suggestion( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |Shall I create a table?|
 |te ga sa 'get' ma fa 'information' so te lan gi nu sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , Verb( "'get'" ) , Noun.eq( Noun( "'information'" ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb.perfective( Verb( "'create'" )  ) , Noun( "'table'" )  )  )  ) |I get the information that he has create a table.|
 |di te ga sa 'get' ma fa 'information' so te lan gi nu sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , Verb( "'get'" ) , Noun.eq( Noun( "'information'" ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb.perfective( Verb( "'create'" )  ) , Noun( "'table'" )  )  )  )  ) |I got the information that he has create a table.|
+|di moa ga so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.I(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, I heard that he create a table.|
+|di moa ge so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.you(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, you heard that he create a table.|
 
 
 # 19. About version
@@ -1177,7 +1197,7 @@ The content of updates due to changes in version names is based on the following
 |2.0.0|Add classes for logical values|
 |2.0.1|Add and modify to Python programs|
 |2.0.2|Add and modify to documents|
-|2.0.2|Add BoolList.get() and BoolList.slice()|
+|2.1.0|Add BoolList.get() and BoolList.slice()|
 |3.0.0|Add LangList and LangFunc classes|
 |3.0.1|[How_to_Use_SFGPL_in_Python.ipynb](../../How_to_Use_SFGPL_in_Python.ipynb) fixed|
 |3.1.0|Fixed LangFunc.runFunc()|
@@ -1197,5 +1217,6 @@ The content of updates due to changes in version names is based on the following
 |4.0.10|Add and modify to documents|
 |4.0.11|Add and modify to documents|
 |4.0.12|Add and modify to documents|
-|4.0.13|ドキュメントの追加・修正|
+|4.0.13|Add and modify to documents|
+|4.1.0|Add Noun.hearSay()|
 

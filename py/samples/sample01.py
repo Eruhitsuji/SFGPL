@@ -2144,6 +2144,16 @@ sc.setCorpus(
     "I got the information that he has create a table."
 )
 
+sc.setCorpus(
+    Phrase.past(Noun.hearSay(Pronoun.I(),Verb.none(),Noun.doT(DeterminerN.male(Pronoun.he()),Verb("create"),Noun("table")),Noun("John"))),
+    "According to John, I heard that he create a table."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.hearSay(Pronoun.you(),Verb.none(),Noun.doT(DeterminerN.male(Pronoun.he()),Verb("create"),Noun("table")),Noun("John"))),
+    "According to John, you heard that he create a table."
+)
+
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)
 
