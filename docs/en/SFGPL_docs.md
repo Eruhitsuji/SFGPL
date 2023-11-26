@@ -274,7 +274,7 @@ mo fa 'bed' so wan sen ge
 
 Noun.hearSay ```moa``` means "A(Subject) V(Verb) that B(Content) according to C(Source)".
 In this case, A is the person or thing receiving the information, V is the verb, B is the content of the information and C is the source person or thing.
-If V corresponds to a verbs related to hearsay, such as hear and say in English, use ```so``` as the verb.
+If V corresponds to a verbs related to hearsay, such as hear, say and see in English, use ```so``` as the verb.
 "According to the book, I heard that Japan is located in East Asia." can be expressed in the SFGPL as.
 
 ```SFGPL
@@ -1067,12 +1067,61 @@ Examples of English prepositions and SFGPLs are given in the following table.
 |by/about|By/About|li tan tin|
 |with|With|li ten tin|
 
+## Grammar of comparative expressions
+
+In the SFGPL, comparative expressions using comparative classes in English are defined by ```mo```, but not comparisons using superlative or equivalent classes.
+It is recommended that such sentences be expressed as follows.
+
+### Comparative degree
+
+Comparative expressions such as "A is B(-er) than C" are expressed by ```mo```.
+"My bag is bigger than yours." is expressed as follows.
+
+```SFGPL
+mo mi ga so san fa 'big' so wan sen ge
+```
+
+### Superlative
+
+Comparative expressions such as "A is the B(-est) in/of C" are expressed with the following syntax.
+
+```SFGPL
+me A V ka B li fun C
+```
+
+"My bag is the biggest in my class." is expressed as follows.
+
+```SFGPL
+me mi ga so san fa 'big' so ka wan li fun mu ga so san fa 'class'
+```
+
+### Equivalent classes
+
+Comparative expressions such as "A is as B as C" are expressed with the following syntax.
+In this case, use ```wen``` to mean "similar".
+
+```SFGPL
+me ba A C V ka B wen
+```
+
+"My bag is as big as his." is expressed as follows.
+
+```SFGPL
+me ba mi ga so san fa 'big' sen lan gi so ka wan wen
+```
+
 ## Wordbook
 
 |English|SFGPL|
 |:-:|:-:|
 |I|ga|
 |go|sa 'go'|
+|to Tokyo|li pun fa 'Tokyo'|
+|bag|fa 'bag'|
+|big|wan|
+|yours(possessive)|sen ge|
+|my class|mu ga so san fa 'class'|
+|his(possessive)|sen lan gi|
 
 # 18. Example Sentence
 
@@ -1220,4 +1269,5 @@ The content of updates due to changes in version names is based on the following
 |4.0.13|Add and modify to documents|
 |4.1.0|Add Noun.hearSay()|
 |4.1.1|Fixed dictionary|
+|4.1.2|Add and modify to documents|
 

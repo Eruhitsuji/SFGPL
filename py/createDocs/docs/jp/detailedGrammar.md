@@ -48,6 +48,49 @@ SFGPLは基本的に，[文型]({docs_sentence_pattern})に記されているよ
 |by/about|By/About|{pre_by}|
 |with|With|{pre_with}|
 
+## 比較表現の文法
+
+SFGPLでは，英語における比較級を使った比較表現は，```{noun_gt}```によって定義されているが，最上級や同級による比較は定義されていない．
+このような文は次のように表すことを推奨する．
+
+### 比較級
+
+"A is B(-er) than C"のような比較表現は，```{noun_gt}```によって表現する．
+"My bag is bigger than yours."は，次のように表現する．
+
+```SFGPL
+{my_bag_is_bigger_than_yours}
+```
+
+### 最上級
+
+"A is the B(-est) in/of C"のような比較表現は，次のような構文で表現する．
+
+```SFGPL
+{superlative_exp}
+```
+
+"My bag is the biggest in my class."は，次のように表現する．
+
+```SFGPL
+{my_bag_is_the_biggest_in_my_class}
+```
+
+### 同級
+
+"A is as B as C"のような比較表現は，次のような構文で表現する．
+このとき，"似ている"という意味の```{wordM_near}```を使って表現する．
+
+```SFGPL
+{equivalent_classes_exp}
+```
+
+"My bag is as big as his."は，次のように表現する．
+
+```SFGPL
+{my_bag_is_as_big_as_his}
+```
+
 ## 単語集
 
 |English|SFGPL|
@@ -55,3 +98,8 @@ SFGPLは基本的に，[文型]({docs_sentence_pattern})に記されているよ
 |I|{I}|
 |go|{go}|
 |to Tokyo|{to_tokyo}|
+|bag|{bag}|
+|big|{big}|
+|yours(possessive)|{yours_possessive}|
+|my class|{my_class}|
+|his(possessive)|{his_possessive}|

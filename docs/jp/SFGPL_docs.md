@@ -274,7 +274,7 @@ mo fa 'bed' so wan sen ge
 
 Noun.hearSay ```moa```は"Bという内容をCという情報源から，AはVする"という意味になる．
 このとき，Aは情報を受け取った人や物，Vは動詞，Bは情報の内容，Cは情報源の人や物である．
-Vが英語でhearやsayなどの伝聞に関する動詞に相当する場合，動詞として```so```を使用する．
+Vが英語でhear，sayやseeなどの伝聞に関する動詞に相当する場合，動詞として```so```を使用する．
 "According to the book, I heard that Japan is located in East Asia."をSFGPLで表すには，次のようになる．
 
 ```SFGPL
@@ -1067,6 +1067,49 @@ me ta ga sa 'go' so li pun fa 'Tokyo'
 |by/about|By/About|li tan tin|
 |with|With|li ten tin|
 
+## 比較表現の文法
+
+SFGPLでは，英語における比較級を使った比較表現は，```mo```によって定義されているが，最上級や同級による比較は定義されていない．
+このような文は次のように表すことを推奨する．
+
+### 比較級
+
+"A is B(-er) than C"のような比較表現は，```mo```によって表現する．
+"My bag is bigger than yours."は，次のように表現する．
+
+```SFGPL
+mo mi ga so san fa 'big' so wan sen ge
+```
+
+### 最上級
+
+"A is the B(-est) in/of C"のような比較表現は，次のような構文で表現する．
+
+```SFGPL
+me A V ka B li fun C
+```
+
+"My bag is the biggest in my class."は，次のように表現する．
+
+```SFGPL
+me mi ga so san fa 'big' so ka wan li fun mu ga so san fa 'class'
+```
+
+### 同級
+
+"A is as B as C"のような比較表現は，次のような構文で表現する．
+このとき，"似ている"という意味の```wen```を使って表現する．
+
+```SFGPL
+me ba A C V ka B wen
+```
+
+"My bag is as big as his."は，次のように表現する．
+
+```SFGPL
+me ba mi ga so san fa 'big' sen lan gi so ka wan wen
+```
+
 ## 単語集
 
 |English|SFGPL|
@@ -1074,6 +1117,11 @@ me ta ga sa 'go' so li pun fa 'Tokyo'
 |I|ga|
 |go|sa 'go'|
 |to Tokyo|li pun fa 'Tokyo'|
+|bag|fa 'bag'|
+|big|wan|
+|yours(possessive)|sen ge|
+|my class|mu ga so san fa 'class'|
+|his(possessive)|sen lan gi|
 
 # 18. 例文
 
@@ -1221,4 +1269,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |4.0.13|ドキュメントの追加・修正|
 |4.1.0|Noun.hearSay()を追加|
 |4.1.1|辞書の修正|
+|4.1.2|ドキュメントの追加・修正|
 

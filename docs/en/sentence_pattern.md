@@ -138,7 +138,7 @@ mo fa 'bed' so wan sen ge
 
 Noun.hearSay ```moa``` means "A(Subject) V(Verb) that B(Content) according to C(Source)".
 In this case, A is the person or thing receiving the information, V is the verb, B is the content of the information and C is the source person or thing.
-If V corresponds to a verbs related to hearsay, such as hear and say in English, use ```so``` as the verb.
+If V corresponds to a verbs related to hearsay, such as hear, say and see in English, use ```so``` as the verb.
 "According to the book, I heard that Japan is located in East Asia." can be expressed in the SFGPL as.
 
 ```SFGPL

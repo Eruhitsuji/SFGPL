@@ -41,8 +41,20 @@ format_str_list={
     "pre_by":multiWord([n2m,LangObj._getKeyOfDict("DeterminerN.affect"),LangObj._getKeyOfDict("DeterminerN.near")]),
     "pre_with":multiWord([n2m,LangObj._getKeyOfDict("DeterminerN.affected"),LangObj._getKeyOfDict("DeterminerN.near")]),
     
-    
-    
+    "noun_gt":LangObj._getKeyOfDict("Noun.gt"),
+    "my_bag_is_bigger_than_yours":Noun.gt(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("big"))),Verb.none(),WordM.big(),DeterminerN.possessive(Pronoun.you())),
+    "bag":Noun("bag"),
+    "big":WordM.big(),
+    "yours_possessive":DeterminerN.possessive(Pronoun.you()),
+
+    "superlative_exp":multiWord([LangObj._getKeyOfDict("Noun.haveP"),"A","V",LangObj._getKeyOfDict("Modifier.add"),"B",LangObj._getKeyOfDict("Modifier.N2M"),LangObj._getKeyOfDict("DeterminerN.In"),"C"]),
+    "my_bag_is_the_biggest_in_my_class":Noun.haveP(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("big"))),Verb.none(),Modifier.add(WordM.big(),Modifier.N2M(DeterminerN.In(Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("class"))))))),
+    "my_class":Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("class"))),
+
+    "wordM_near":LangObj._getKeyOfDict("WordM.near"),
+    "equivalent_classes_exp":multiWord([LangObj._getKeyOfDict("Noun.haveP"),LangObj._getKeyOfDict("LangObj.AND"),"A","C","V",LangObj._getKeyOfDict("Modifier.add"),"B",LangObj._getKeyOfDict("WordM.near")]),
+    "my_bag_is_as_big_as_his":Noun.haveP(Noun.AND(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("big"))),DeterminerN.possessive(DeterminerN.male(Pronoun.he()))),Verb.none(),Modifier.add(WordM.big(),WordM.near())),
+    "his_possessive":DeterminerN.possessive(DeterminerN.male(Pronoun.he())),
 
 }
 

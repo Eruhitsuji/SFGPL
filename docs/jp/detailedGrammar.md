@@ -52,6 +52,49 @@ me ta ga sa 'go' so li pun fa 'Tokyo'
 |by/about|By/About|li tan tin|
 |with|With|li ten tin|
 
+## 比較表現の文法
+
+SFGPLでは，英語における比較級を使った比較表現は，```mo```によって定義されているが，最上級や同級による比較は定義されていない．
+このような文は次のように表すことを推奨する．
+
+### 比較級
+
+"A is B(-er) than C"のような比較表現は，```mo```によって表現する．
+"My bag is bigger than yours."は，次のように表現する．
+
+```SFGPL
+mo mi ga so san fa 'big' so wan sen ge
+```
+
+### 最上級
+
+"A is the B(-est) in/of C"のような比較表現は，次のような構文で表現する．
+
+```SFGPL
+me A V ka B li fun C
+```
+
+"My bag is the biggest in my class."は，次のように表現する．
+
+```SFGPL
+me mi ga so san fa 'big' so ka wan li fun mu ga so san fa 'class'
+```
+
+### 同級
+
+"A is as B as C"のような比較表現は，次のような構文で表現する．
+このとき，"似ている"という意味の```wen```を使って表現する．
+
+```SFGPL
+me ba A C V ka B wen
+```
+
+"My bag is as big as his."は，次のように表現する．
+
+```SFGPL
+me ba mi ga so san fa 'big' sen lan gi so ka wan wen
+```
+
 ## 単語集
 
 |English|SFGPL|
@@ -59,3 +102,8 @@ me ta ga sa 'go' so li pun fa 'Tokyo'
 |I|ga|
 |go|sa 'go'|
 |to Tokyo|li pun fa 'Tokyo'|
+|bag|fa 'bag'|
+|big|wan|
+|yours(possessive)|sen ge|
+|my class|mu ga so san fa 'class'|
+|his(possessive)|sen lan gi|

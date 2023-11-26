@@ -134,11 +134,11 @@ Vが英語でbe動詞に相当する場合，動詞として```{verb_none}```を
 
 Noun.hearSay ```{noun_hearSay}```は"Bという内容をCという情報源から，AはVする"という意味になる．
 このとき，Aは情報を受け取った人や物，Vは動詞，Bは情報の内容，Cは情報源の人や物である．
-Vが英語でhearやsayなどの伝聞に関する動詞に相当する場合，動詞として```{verb_none}```を使用する．
+Vが英語でhear，sayやseeなどの伝聞に関する動詞に相当する場合，動詞として```{verb_none}```を使用する．
 "According to the book, I heard that Japan is located in East Asia."をSFGPLで表すには，次のようになる．
 
 ```SFGPL
-{According_to_the_book_I_heard_that_Japan_is_located_in_East_Asia}
+{According_to_the_book_I_saw_that_Japan_is_located_in_East_Asia}
 ```
 
 ## 文構造を使用した名詞の修飾方法

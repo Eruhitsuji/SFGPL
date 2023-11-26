@@ -48,9 +48,58 @@ Examples of English prepositions and SFGPLs are given in the following table.
 |by/about|By/About|{pre_by}|
 |with|With|{pre_with}|
 
+## Grammar of comparative expressions
+
+In the SFGPL, comparative expressions using comparative classes in English are defined by ```{noun_gt}```, but not comparisons using superlative or equivalent classes.
+It is recommended that such sentences be expressed as follows.
+
+### Comparative degree
+
+Comparative expressions such as "A is B(-er) than C" are expressed by ```{noun_gt}```.
+"My bag is bigger than yours." is expressed as follows.
+
+```SFGPL
+{my_bag_is_bigger_than_yours}
+```
+
+### Superlative
+
+Comparative expressions such as "A is the B(-est) in/of C" are expressed with the following syntax.
+
+```SFGPL
+{superlative_exp}
+```
+
+"My bag is the biggest in my class." is expressed as follows.
+
+```SFGPL
+{my_bag_is_the_biggest_in_my_class}
+```
+
+### Equivalent classes
+
+Comparative expressions such as "A is as B as C" are expressed with the following syntax.
+In this case, use ```{wordM_near}``` to mean "similar".
+
+```SFGPL
+{equivalent_classes_exp}
+```
+
+"My bag is as big as his." is expressed as follows.
+
+```SFGPL
+{my_bag_is_as_big_as_his}
+```
+
 ## Wordbook
 
 |English|SFGPL|
 |:-:|:-:|
 |I|{I}|
 |go|{go}|
+|to Tokyo|{to_tokyo}|
+|bag|{bag}|
+|big|{big}|
+|yours(possessive)|{yours_possessive}|
+|my class|{my_class}|
+|his(possessive)|{his_possessive}|

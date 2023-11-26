@@ -60,3 +60,4 @@ The content of updates due to changes in version names is based on the following
 |4.0.13|Add and modify to documents|
 |4.1.0|Add Noun.hearSay()|
 |4.1.1|Fixed dictionary|
+|4.1.2|Add and modify to documents|

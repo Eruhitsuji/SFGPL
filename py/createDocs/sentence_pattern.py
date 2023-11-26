@@ -44,7 +44,7 @@ format_str_list={
     "bed":Noun("bed"),
     "big":WordM.big(),
     "yours_possessive":DeterminerN.possessive(Pronoun.you()),
-    "According_to_the_book_I_heard_that_Japan_is_located_in_East_Asia":Phrase.past(Noun.hearSay(Pronoun.I(),Verb.none(),Noun.do(Noun("Japan"),Verb.add(Verb.passive(Verb("locate")),Modifier.N2M(DeterminerN.In(DeterminerN.place(Noun.haveP(Noun("Asia"),Verb.none(),Modifier("east"))))))),Noun("book"))),
+    "According_to_the_book_I_saw_that_Japan_is_located_in_East_Asia":Phrase.past(Noun.hearSay(Pronoun.I(),Verb.none(),Noun.do(Noun("Japan"),Verb.add(Verb.passive(Verb("locate")),Modifier.N2M(DeterminerN.In(DeterminerN.place(Noun.haveP(Noun("Asia"),Verb.none(),Modifier("east"))))))),Noun("book"))),
     "book":Noun("book"),
     "Japan":Noun("Japan"),
     "in_East_Asia":Modifier.N2M(DeterminerN.In(DeterminerN.place(Noun.haveP(Noun("Asia"),Verb.none(),Modifier("east"))))),
