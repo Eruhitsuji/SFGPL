@@ -6,6 +6,7 @@
 
 ## SFGPLの文型の一覧
 
+SFGPLでは，文を構成するためには，必ず文型を決定する機能語が文の先頭に付属する．
 SFGPLでは以下の表のような文型が存在し，それらの文の組み合わせにより，文自体が構成される．また，単語の修飾なども行われる．
 
 |||単語|関数|引数|補足|
@@ -139,7 +140,7 @@ mo fa 'bed' so wan sen ge
 Noun.hearSay ```moa```は"Bという内容をCという情報源から，AはVする"という意味になる．
 このとき，Aは情報を受け取った人や物，Vは動詞，Bは情報の内容，Cは情報源の人や物である．
 Vが英語でhear，sayやseeなどの伝聞に関する動詞に相当する場合，動詞として```so```を使用する．
-"According to the book, I heard that Japan is located in East Asia."をSFGPLで表すには，次のようになる．
+"According to the book, I saw that Japan is located in East Asia."をSFGPLで表すには，次のようになる．
 
 ```SFGPL
 di moa ga so ta fa 'Japan' na ne sa 'locate' li fun pun me fa 'Asia' so la 'east' fa 'book'

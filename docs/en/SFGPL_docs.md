@@ -142,6 +142,7 @@ Also, for detailed instructions on how to run the SFGPL library in Python, see [
 
 ## List of SFGPL sentence patterns
 
+In the SFGPL, a function word that determines the sentence type is always attached to the beginning of a sentence in order to form a sentence.
 In the SFGPL, there are sentence types as shown in the table below, and the sentences themselves are composed by the combination of these sentence types. In addition, modification of words is also performed.
 
 |||word|function|arguments|supplement|
@@ -275,7 +276,7 @@ mo fa 'bed' so wan sen ge
 Noun.hearSay ```moa``` means "A(Subject) V(Verb) that B(Content) according to C(Source)".
 In this case, A is the person or thing receiving the information, V is the verb, B is the content of the information and C is the source person or thing.
 If V corresponds to a verbs related to hearsay, such as hear, say and see in English, use ```so``` as the verb.
-"According to the book, I heard that Japan is located in East Asia." can be expressed in the SFGPL as.
+"According to the book, I saw that Japan is located in East Asia." can be expressed in the SFGPL as.
 
 ```SFGPL
 di moa ga so ta fa 'Japan' na ne sa 'locate' li fun pun me fa 'Asia' so la 'east' fa 'book'
@@ -777,13 +778,20 @@ The following table lists the words converted to parts-of-speech by the SFGPL.
 |V2M|Verb|Modifier|lu|
 
 Verb to noun and noun to modifier are especially common.
+
+## Verb to Noun
+
 Verb to noun is used as in "This is building.".
 
 ```SFGPL
 ma gu so fi sa 'build'
 ```
 
-Noun-to-Modifier is also used to create the equivalent meaning of a phrase that combines an English preposition and a noun.
+The verb of the original word can also be pre-conjugated according to [verb conjugation](#8-verb-conjugation).
+
+## Noun to Modifier
+
+Noun to modifier is used to create the equivalent meaning of a phrase that combines an English preposition and a noun.
 In such cases, ```li``` and [DeterminerN](#12-determinern) are used in combination.
 "I live in Tokyo." in SFGPL becomes the following.
 In this case, ```pun``` is a determiner of location.
@@ -792,15 +800,48 @@ In this case, ```pun``` is a determiner of location.
 ta ga na sa 'live' li pun fa 'Tokyo'
 ```
 
+It can also be combined with the word ```son```, which abstracts the noun, to mean "-like".
+"My daughter has a cat-like stuffed toy." can be expressed in SFGPL as follows.
+
+```SFGPL
+mi mi ga so san fa 'daughter' so me me fa 'toy' so lu ne sa 'stuff' so li son fa 'cat'
+```
+
+## Verb to Modifier
+
+Verb to modifier conversion allows for the use of the participle equivalent, which is common in the Indo-European language family.
+The verb of the original word can also be pre-conjugated according to [verb conjugation](#8-verb-conjugation).
+
+"There is a sleeping boy." can be expressed in the SFGPL as follows.
+
+```SFGPL
+ma pun go so me fa 'boy' so lu ni sa 'sleep'
+```
+
+The phrase "I lived in that destroyed building." can be expressed as follows.
+
+```SFGPL
+di ta ga na sa 'live' li pun ma go so san me fi sa 'build' so lu ne sa 'destroy'
+```
+
 ## Wordbook
 
 |English|SFGPL|
 |:-:|:-:|
 |this|gu|
-|building|fi sa 'build'|
+|build|sa 'build'|
 |I|ga|
 |live|sa 'live'|
 |in Tokyo|li pun fa 'Tokyo'|
+|daughter|fa 'daughter'|
+|cat|fa 'cat'|
+|stuffed|lu ne sa 'stuff'|
+|toy|fa 'toy'|
+|there|pun go|
+|sleep|sa 'sleep'|
+|boy|fa 'boy'|
+|that|go|
+|destroy|sa 'destroy'|
 
 # 11. Conjunction
 
@@ -1270,4 +1311,5 @@ The content of updates due to changes in version names is based on the following
 |4.1.0|Add Noun.hearSay()|
 |4.1.1|Fixed dictionary|
 |4.1.2|Add and modify to documents|
+|4.1.3|Add and modify to documents|
 

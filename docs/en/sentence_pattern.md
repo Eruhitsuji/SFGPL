@@ -6,6 +6,7 @@
 
 ## List of SFGPL sentence patterns
 
+In the SFGPL, a function word that determines the sentence type is always attached to the beginning of a sentence in order to form a sentence.
 In the SFGPL, there are sentence types as shown in the table below, and the sentences themselves are composed by the combination of these sentence types. In addition, modification of words is also performed.
 
 |||word|function|arguments|supplement|
@@ -139,7 +140,7 @@ mo fa 'bed' so wan sen ge
 Noun.hearSay ```moa``` means "A(Subject) V(Verb) that B(Content) according to C(Source)".
 In this case, A is the person or thing receiving the information, V is the verb, B is the content of the information and C is the source person or thing.
 If V corresponds to a verbs related to hearsay, such as hear, say and see in English, use ```so``` as the verb.
-"According to the book, I heard that Japan is located in East Asia." can be expressed in the SFGPL as.
+"According to the book, I saw that Japan is located in East Asia." can be expressed in the SFGPL as.
 
 ```SFGPL
 di moa ga so ta fa 'Japan' na ne sa 'locate' li fun pun me fa 'Asia' so la 'east' fa 'book'
