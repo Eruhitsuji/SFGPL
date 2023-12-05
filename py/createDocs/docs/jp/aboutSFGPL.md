@@ -97,10 +97,16 @@ SFGPLの[単語]({docs_Word})は主に，SFGPLの固有の単語と借用語に�
 ### SFGPLの品詞
 
 SFGPLの品詞は名詞(Noun)，動詞(Verb)，修飾詞(Modifier)の三種類がある．
-また，名詞のサブクラスとして句(Phrase)，代名詞（Pronoun），Bool配列型（BoolList），LangListとLangFuncが存在する．
+また，名詞のサブクラスとして句(Phrase)，代名詞（Pronoun），Bool配列型（BoolList），LangList，LangFuncとNumberListが存在する．
+
 BoolList，LangList，LangFuncは一般的な文以外に論理的な文を作る際に使用される．
-さらに，名詞や動詞を修飾する特殊な語として，名詞限定語（DeterminerN）と動詞限定語（DeterminerV）が存在する．
 そして，真偽を表すBool型が存在する．
+
+NumberListは主に数詞として使われる．
+また，基数詞としてのNumberクラスが存在する．
+このNumberクラスは通常単体で使われない．
+
+さらに，名詞や動詞を修飾する特殊な語として，名詞限定語（DeterminerN）と動詞限定語（DeterminerV）が存在する．
 
 それぞれの品詞にはそれぞれ特有の関数（機能語）が存在し，それによって品詞の変更や意味の決定などが行われる．
 その他に，基礎単語を実装する，単語（Word）が存在する．

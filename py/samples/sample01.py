@@ -2154,6 +2154,169 @@ sc.setCorpus(
     "According to John, you heard that he create a table."
 )
 
+sc.setCorpus(
+    Noun.have(Pronoun.I(),Verb.none(),Noun.eq(Noun("apple"),Verb.none(),NumberList.digit1(Number.three()))),
+    "I have 3 apples."
+)
+
+sc.setCorpus(
+    Noun.have(Pronoun.I(),Verb.none(),Noun.eq(Noun("apple"),Verb.none(),NumberList.append(NumberList(),Number.six()))),
+    "I have 6 apples."
+)
+
+sc.setCorpus(
+    Noun.have(Pronoun.I(),Verb.none(),Noun.eq(Noun("apple"),Verb.none(),NumberList.digit2(Number.one(),Number.five()))),
+    "I have 15 apples."
+)
+
+sc.setCorpus(
+    Noun.have(Pronoun.I(),Verb.none(),Noun.eq(Noun("apple"),Verb.none(),NumberList.digit2(Number.two(),Number.three()))),
+    "I have 23 apples."
+)
+
+sc.setCorpus(
+    Noun.have(Pronoun.I(),Verb.none(),Noun.eq(Noun("peach"),Verb.none(),NumberList.digit1(Number.nine()))),
+    "I have 9 peaches."
+)
+
+sc.setCorpus(
+    Noun.have(Pronoun.I(),Verb.none(),Noun.eq(Noun("peach"),Verb.none(),NumberList.digit2(Number.one(),Number.zero()))),
+    "I have 10 peaches."
+)
+
+sc.setCorpus(
+    Noun.have(Pronoun.I(),Verb.none(),Noun.eq(Noun("peach"),Verb.none(),NumberList.append(NumberList.append(NumberList(),Number.one()),Number.zero()))),
+    "I have 10 peaches."
+)
+
+sc.setCorpus(
+    Noun.have(Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("school"))),Verb.none(),Noun.eq(Noun("people"),Verb.none(),NumberList.digit3(Number.five(),Number.two(),Number.seven()))),
+    "My school has 527 people."
+)
+
+sc.setCorpus(
+    Noun.have(Noun.belong(DeterminerN.male(Pronoun.he()),Verb.none(),DeterminerN.stressed(Noun("school"))),Verb.none(),Noun.eq(Noun("people"),Verb.none(),NumberList.digit3(Number.four(),Number.zero(),Number.nine()))),
+    "His school has 409 people."
+)
+
+sc.setCorpus(
+    Noun.have(Noun.belong(Pronoun.proximal(),Verb.none(),DeterminerN.stressed(Noun("village"))),Verb.none(),Noun.eq(Noun("people"),Verb.none(),NumberList.digit4(Number.one(),Number.three(),Number.two(),Number.four()))),
+    "This village has 1324 people."
+)
+
+sc.setCorpus(
+    Noun.have(Noun.belong(Pronoun.proximal(),Verb.none(),DeterminerN.stressed(Noun("town"))),Verb.none(),Noun.eq(Noun("people"),Verb.none(),NumberList.digit4(Number.eight(),Number.one(),Number.two(),Number.three()))),
+    "This town has 8123 people."
+)
+
+sc.setCorpus(
+    Noun.have(Noun.belong(Pronoun.proximal(),Verb.none(),DeterminerN.stressed(Noun("city"))),Verb.none(),Noun.eq(Noun("people"),Verb.none(),NumberList.digit5(Number.six(),Number.three(),Number.two(),Number.eight(),Number.seven()))),
+    "This city has 63287 people."
+)
+
+sc.setCorpus(
+    Noun.have(Noun("Tokyo"),Verb.none(),Noun.eq(Noun("people"),Verb.none(),NumberList.add(NumberList.digit3(Number.one(),Number.four(),Number.one()),NumberList.digit5(Number.one(),Number.zero(),Number.seven(),Number.three(),Number.three())))),
+    "Tokyo has 14110733 people."
+)
+
+sc.setCorpus(
+    Noun.have(Noun("Japan"),Verb.none(),Noun.eq(Noun("people"),Verb.none(),NumberList.add(NumberList.digit4(Number.one(),Number.two(),Number.five(),Number.four()),NumberList.digit5(Number.one(),Number.six(),Number.eight(),Number.seven(),Number.seven())))),
+    "Japan has 125416877 people."
+)
+
+num_1024=NumberList.digit4(Number.one(),Number.zero(),Number.two(),Number.four())
+
+sc.setCorpus(
+    NumberList.get(num_1024,NumberList.IntNL2BL(NumberList.digit1(Number.zero()))),
+    "The upper 0th digit of 1024 is 1."
+)
+
+sc.setCorpus(
+    NumberList.get(num_1024,NumberList.IntNL2BL(NumberList.digit1(Number.three()))),
+    "The upper 3rd digit of 1024 is 4."
+)
+
+sc.setCorpus(
+    NumberList.slice(num_1024,NumberList.IntNL2BL(NumberList.digit1(Number.zero())),NumberList.IntNL2BL(NumberList.digit1(Number.one()))),
+    "The upper 2 digit of 1024 is 10."
+)
+
+sc.setCorpus(
+    NumberList.slice(num_1024,NumberList.IntNL2BL(NumberList.digit1(Number.zero())),NumberList.IntNL2BL(NumberList.digit1(Number.two()))),
+    "The upper 3 digit of 1024 is 102."
+)
+
+num_16=NumberList.digit2(Number.one(),Number.six())
+num_60=NumberList.digit2(Number.six(),Number.zero())
+num_12=NumberList.digit2(Number.one(),Number.two())
+num_3=NumberList.digit1(Number.three())
+
+calc_01=NumberList.calcSub(NumberList.calcAdd(NumberList.calcDiv(num_1024,num_16),num_60),NumberList.calcMul(num_12,num_3))
+
+sc.setCorpus(
+    calc_01,
+    "1024/16+60-12*3=88."
+)
+
+sc.setCorpus(
+    NumberList.IntNL2BL(calc_01),
+    "Converting 88 in decimal to binary gives 01011000."
+)
+
+sc.setCorpus(
+    BoolList.IntBL2NL(NumberList.IntNL2BL(calc_01)),
+    "Converting the binary number 01011000 to decimal gives 88."
+)
+
+num_360=NumberList.digit3(Number.three(),Number.six(),Number.zero())
+num_32768=NumberList.digit5(Number.three(),Number.two(),Number.seven(),Number.six(),Number.eight())
+num_9=NumberList.digit1(Number.nine())
+num_95=NumberList.digit2(Number.nine(),Number.five())
+
+calc_02=NumberList.calcAdd(NumberList.calcSub(NumberList.calcAdd(NumberList.calcDiv(num_32768,num_1024),NumberList.calcDiv(num_360,num_60)),NumberList.calcMul(num_9,num_12)),num_95)
+
+sc.setCorpus(
+    calc_02,
+    "32768/1024+360/60-9*12+95=25."
+)
+
+sc.setCorpus(
+    NumberList.IntNL2BL(calc_02),
+    "Converting 25 in decimal to binary gives 00011001."
+)
+
+sc.setCorpus(
+    BoolList.IntBL2NL(NumberList.IntNL2BL(calc_02)),
+    "Converting the binary number 00011001 to decimal gives 25."
+)
+
+calc_03=NumberList.calcSub(calc_01,calc_02)
+
+sc.setCorpus(
+    calc_03,
+    "(1024/16+60-12*3)-(32768/1024+360/60-9*12+95)=63."
+)
+
+sc.setCorpus(
+    NumberList.IntNL2BL(calc_03),
+    "Converting 63 in decimal to binary gives 00111111."
+)
+
+sc.setCorpus(
+    BoolList.IntBL2NL(NumberList.IntNL2BL(calc_03)),
+    "Converting the binary number 00111111 to decimal gives 63."
+)
+
+sc.setCorpus(
+    Noun.haveP(Noun.eq(Pronoun.proximal(),Verb.none(),DeterminerN.stressed(Noun("bag"))),Verb.none(),Modifier.Very(WordM.big())),
+    "This bag is very big."
+)
+
+sc.setCorpus(
+    Noun.haveP(Noun.eq(Pronoun.proximal(),Verb.none(),DeterminerN.stressed(Noun("bag"))),Verb.none(),Modifier.Very(Modifier.Neg(WordM.big()))),
+    "This bag is very small."
+)
+
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)
 

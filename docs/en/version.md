@@ -1,4 +1,4 @@
-# 19. About version
+# 20. About version
 
 [TOP](../../readme.md)
 /
@@ -62,3 +62,4 @@ The content of updates due to changes in version names is based on the following
 |4.1.1|Fixed dictionary|
 |4.1.2|Add and modify to documents|
 |4.1.3|Add and modify to documents|
+|5.0.0|Add Number and NumberList classes|

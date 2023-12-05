@@ -9,7 +9,7 @@ DICT_CSV_PATH=os.path.join(THIS_FILE_DIR,"../","dict.csv")
 DICT_PY_PATH=os.path.join(THIS_FILE_DIR,"../","SFGPL","dict.py")
 
 def readWordListCSV():
-    TO_INT_KEYS=["arg"]
+    TO_INT_KEYS=["arg","Level"]
     NECESSARY_KEYS=["word","func","arg"]
     KEYS_KEY="word"
     

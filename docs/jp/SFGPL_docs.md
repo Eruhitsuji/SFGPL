@@ -97,10 +97,16 @@ SFGPLの[単語](#3-単語)は主に，SFGPLの固有の単語と借用語に分
 ### SFGPLの品詞
 
 SFGPLの品詞は名詞(Noun)，動詞(Verb)，修飾詞(Modifier)の三種類がある．
-また，名詞のサブクラスとして句(Phrase)，代名詞（Pronoun），Bool配列型（BoolList），LangListとLangFuncが存在する．
+また，名詞のサブクラスとして句(Phrase)，代名詞（Pronoun），Bool配列型（BoolList），LangList，LangFuncとNumberListが存在する．
+
 BoolList，LangList，LangFuncは一般的な文以外に論理的な文を作る際に使用される．
-さらに，名詞や動詞を修飾する特殊な語として，名詞限定語（DeterminerN）と動詞限定語（DeterminerV）が存在する．
 そして，真偽を表すBool型が存在する．
+
+NumberListは主に数詞として使われる．
+また，基数詞としてのNumberクラスが存在する．
+このNumberクラスは通常単体で使われない．
+
+さらに，名詞や動詞を修飾する特殊な語として，名詞限定語（DeterminerN）と動詞限定語（DeterminerV）が存在する．
 
 それぞれの品詞にはそれぞれ特有の関数（機能語）が存在し，それによって品詞の変更や意味の決定などが行われる．
 その他に，基礎単語を実装する，単語（Word）が存在する．
@@ -338,6 +344,7 @@ me mi ge so san fa 'table' so la 'red'
 SFGPLの単語は，基本的に使い方が定まっている．
 例えば，借用語を使用する方法などが決まっている．
 本章ではこれら単語の種類と使用方法について記載する．
+また，単語の詳細は[dict.csv](../../dict.csv)に記述されている．
 
 また，SFGPLの単語では，基本的に，冠詞，数，性，格などによる変形は行われない．
 数や性を示したいときには，[名詞限定詞](#12-名詞限定詞)を使用する．
@@ -926,7 +933,100 @@ SFGPLの主な接続詞として次のようなものがある．
 |sea|fa 'sea'|
 |swim|sa 'swim'|
 
-# 14. Bool関連クラス
+# 14. 数字の表現方法
+
+SFGPLでは10進数の数値を表すために，NumberとNumberListクラスが存在する．
+
+## Numberクラス
+
+Numberクラスは，基数詞用のクラスであり，単体では使用されない．
+このクラスでは以下の表のように，0~9までの値が定義されている．
+
+|Meaning|SFGPL|
+|:-:|:-:|
+|0|pal|
+|1|pel|
+|2|pil|
+|3|pul|
+|4|pol|
+|5|bal|
+|6|bel|
+|7|bil|
+|8|bul|
+|9|bol|
+
+## NumberListクラス
+
+通常の数詞として使う場合にはNumberListクラスを使用する．
+このクラスは基数詞のデータをリストに格納することができる．
+数値の表現方法は，大きい桁から順に0番目から格納し，10進数の数値を表す．
+
+NumberListクラスにはリスト型の関数として次の表のようなものが存在する．
+ただしこれらの関数は，下記に記述する数値計算した後のNumberListには適用することがでない．
+
+|単語|説明|
+|:-:|:-:|
+|fal|NumberのリストNumberListを作成する|
+|fel A B|NumberList(A)のB番目の値を取得する|
+|fil A B|NumberListに1つのNumberを末尾に加える|
+|ful A B C|AというNumberListに対して，B番目からC番目までのリストを取得する|
+|fol A B|2つのNumberListを結合する|
+
+また，1~5桁の整数を作るためには，以下の表のような専用の関数が用意されている．
+
+|単語|説明|
+|:-:|:-:|
+|mal|10進数1桁からなるNumberListを作成する|
+|mel|10進数2桁からなるNumberListを作成する|
+|mil|10進数3桁からなるNumberListを作成する|
+|mul|10進数4桁からなるNumberListを作成する|
+|mol|10進数5桁からなるNumberListを作成する|
+
+SFGPLで，"I have five apples."を表すには次のようにする．
+
+```SFGPL
+mi ga so ma fa 'apple' so mal bal
+```
+
+また，"I have fifteen apples."を表すには次のようにする．
+
+```SFGPL
+mi ga so ma fa 'apple' so mel pel bal
+```
+
+さらに，10進数で5桁より大きな数値を表すためには，次のように```fol```を使い，2つのNumberListを結合することで実現できる．
+次の文はSFGPLで"Japan has 125416877 people."を表している．
+
+```SFGPL
+mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil bil
+```
+
+そして，次の表のようにNumberListでは四則演算を行う関数が存在する．
+
+||SFGPL|
+|:-:|:-:|
+|Addition|tal|
+|Subtraction|tel|
+|Multiplication|til|
+|Division|tul|
+
+加えて，次の表のように整数のBoolListとNumberListを相互に変換する関数が存在する．
+
+|SFGPL|from|to|
+|:-:|:-:|:-:|
+|tol|NumberList|BoolList|
+|tos|BoolList|NumberList|
+
+## 単語集
+
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|apple|fa 'apple'|
+|Japan|fa 'Japan'|
+|people|fa 'people'|
+
+# 15. Bool関連クラス
 
 SFGPLにはBoolに関連したクラス，Bool型と，BoolList型が存在する．
 これらのクラスは，真偽値や，数値などを表すために使われる．
@@ -992,7 +1092,7 @@ fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos 
 |:-:|:-:|
 |I am a student|ma ga so fa 'student'|
 
-# 15. LangList
+# 16. LangList
 
 SFGPLでは基本的なデータ構造型として，LangList型が存在する．
 LangListには，以下の関数が存在している．
@@ -1013,7 +1113,7 @@ fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
 ```
 
 また，このLangListから最初の値を取得するには次のようにする．
-このとき```fis fas pas```は[BoolList](#14-bool関連クラス)における0を表している．
+このとき```fis fas pas```は[BoolList](#15-bool関連クラス)における0を表している．
 
 ```SFGPL
 fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student' fis fas pas
@@ -1029,7 +1129,7 @@ fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
 |happy|la 'happy'|
 |I am a student|ma ga so fa 'student'|
 
-# 16. LangFunc
+# 17. LangFunc
 
 SFGPLでは基本的な関数型として，LangFunc型が存在する．
 LangFuncには，以下の関数が存在している．
@@ -1058,7 +1158,7 @@ pat fa 'xor' fit fat bu bu fet pit mas pas pas bu fet pit mas pas pas fet pit ma
 pot fa 'xor' fit fit fat pas pas
 ```
 
-# 17. 詳細な文法
+# 18. 詳細な文法
 
 SFGPLは基本的に，[文型](#2-文型)に記されているような文法は厳守する必要があるが，その他はユーザ側である程度決めてよい．
 しかし，模範的な文法を本章で記述しておく．
@@ -1164,7 +1264,7 @@ me ba mi ga so san fa 'big' sen lan gi so ka wan wen
 |my class|mu ga so san fa 'class'|
 |his(possessive)|sen lan gi|
 
-# 18. 例文
+# 19. 例文
 
 以下の表は，SFGPLの例文を示す．
 
@@ -1252,7 +1352,7 @@ me ba mi ga so san fa 'big' sen lan gi so ka wan wen
 |di moa ge so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.you(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, you heard that he create a table.|
 
 
-# 19. バージョンについて
+# 20. バージョンについて
 
 このプロジェクトのバージョンは[\_\_version\_\_.py](../../SFGPL/__version__.py)に記載されている．
 特に，Pythonで実行する場合は，以下のコードを実行することで確認できる．
@@ -1312,4 +1412,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |4.1.1|辞書の修正|
 |4.1.2|ドキュメントの追加・修正|
 |4.1.3|ドキュメントの追加・修正|
+|5.0.0|NumberとNumberListクラスの追加|
 

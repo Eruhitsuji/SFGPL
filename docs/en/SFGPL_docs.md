@@ -97,10 +97,16 @@ And in the sentence structure of the SFGPL, the position of the part of speech i
 ### Parts of speech in the SFGPL
 
 There are three parts of speech in the SFGPL: Noun, Verb and Modifier.
-Phrase, Pronoun, BoolList, LangList and LangFunc exist as subclasses of Noun.
+Phrase, Pronoun, BoolList, LangList, LangFunc and NumberList exist as subclasses of Noun.
+
 BoolList, LangList, and LangFunc are used to create logical statements in addition to general statements.
-In addition, there are two special words that modify nouns and verbs: noun determiners (DeterminerN) and verb determiners (DeterminerV).
 Then, there is a Bool type that represents true/false.
+
+NumberList is mainly used as a numeral.
+There is also a Number class as a base numeral.
+This Number class is not normally used by itself.
+
+In addition, there are two special words that modify nouns and verbs: noun determiners (DeterminerN) and verb determiners (DeterminerV).
 
 Each part of speech has its own function words, which change the part of speech and determine its meaning.
 Other words that implement the basic vocabulary are Word.
@@ -338,6 +344,7 @@ me mi ge so san fa 'table' so la 'red'
 The SFGPL words have a basic set of usages.
 For example, the way in which loan words are used is defined.
 This chapter describes the types of these words and how they are used.
+The details of the words are also available in [dict.csv](../../dict.csv).
 
 In general, SFGPL words are not transformed by articles, number, gender or case.
 If you want to indicate number or gender, use [noun determiner](#12-determinern).
@@ -926,7 +933,100 @@ We can also do [verb conjugation](#8-verb-conjugation), such as aspect.
 |sea|fa 'sea'|
 |swim|sa 'swim'|
 
-# 14. Bool related classes
+# 14. How numbers are expressed
+
+The Number and NumberList classes exist in SFGPL to represent decimal numbers.
+
+## Number class
+
+The Number class is a class for cardinal numerals and is not used by itself.
+In this class, values from 0 to 9 are defined, as shown in the table below.
+
+|Meaning|SFGPL|
+|:-:|:-:|
+|0|pal|
+|1|pel|
+|2|pil|
+|3|pul|
+|4|pol|
+|5|bal|
+|6|bel|
+|7|bil|
+|8|bul|
+|9|bol|
+
+## NumberList class
+
+Use the NumberList class when used as a normal numeral.
+This class can store radix data in a list.
+Numbers are represented as decimal numbers, with the largest digit stored first, starting with the 0th digit.
+
+The NumberList class has the following list-type functions.
+However, these functions cannot be applied to NumberList after numerical calculation as described below.
+
+|Word|Explanation|
+|:-:|:-:|
+|fal|Create a list of Number(NumberList)|
+|fel A B|Gets the B-th value of NumberList(A)|
+|fil A B|Add one Number to the end of the NumberList|
+|ful A B C|Get the B-th through C-th lists for a NumberList (A)|
+|fol A B|Combine two NumberLists|
+
+In addition, dedicated functions are available to create 1~5-digit integers, as shown in the table below.
+
+|Word|Explanation|
+|:-:|:-:|
+|mal|Create a NumberList consisting of one decimal digit
+|mel|Create a NumberList consisting of two decimal digit|
+|mil|Create a NumberList consisting of three decimal digit|
+|mul|Create a NumberList consisting of four decimal digit|
+|mol|Create a NumberList consisting of five decimal digit|
+
+In the SFGPL, "I have five apples." can be expressed as follows.
+
+```SFGPL
+mi ga so ma fa 'apple' so mal bal
+```
+
+The expression "I have fifteen apples." can be expressed as follows.
+
+```SFGPL
+mi ga so ma fa 'apple' so mel pel bal
+```
+
+Furthermore, the representation of numbers with more than five digits in decimal can be achieved by using ```fol``` and concatenating NumberList.
+The following sentence represents "Japan has 125416877 people." in the SFGPL.
+
+```SFGPL
+mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil bil
+```
+
+Then, as shown in the following table, there are functions in NumberList that perform the four arithmetic operations.
+
+||SFGPL|
+|:-:|:-:|
+|Addition|tal|
+|Subtraction|tel|
+|Multiplication|til|
+|Division|tul|
+
+In addition, there are functions that convert integer BoolList and NumberList into each other, as shown in the table below.
+
+|SFGPL|from|to|
+|:-:|:-:|:-:|
+|tol|NumberList|BoolList|
+|tos|BoolList|NumberList|
+
+## Wordbook
+
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|apple|fa 'apple'|
+|Japan|fa 'Japan'|
+|people|fa 'people'|
+
+# 15. Bool related classes
 
 SFGPL has classes related to Bool, Bool type and BoolList type.
 These classes are used to represent boolean values, numerical values, and so on.
@@ -992,7 +1092,7 @@ It can also be used as a number by doing the following.
 |:-:|:-:|
 |I am a student|ma ga so fa 'student'|
 
-# 15. LangList
+# 16. LangList
 
 The LangList type exists as a basic data structure type in SFGPL.
 The following functions exist in LangList.
@@ -1013,7 +1113,7 @@ fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
 ```
 
 To retrieve the first value from this LangList, do the following.
-In this case ```fis fas pas``` represents 0 in [BoolList](#14-bool-related-classes).
+In this case ```fis fas pas``` represents 0 in [BoolList](#15-bool-related-classes).
 
 ```SFGPL
 fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student' fis fas pas
@@ -1029,7 +1129,7 @@ fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
 |happy|la 'happy'|
 |I am a student|ma ga so fa 'student'|
 
-# 16. LangFunc
+# 17. LangFunc
 
 The LangFunc type exists as a basic function type in SFGPL.
 The following functions exist in LangFunc.
@@ -1058,7 +1158,7 @@ When (false,false) is given to the function, do the following.
 pot fa 'xor' fit fit fat pas pas
 ```
 
-# 17. Detailed Grammar
+# 18. Detailed Grammar
 
 Basically, the SFGPL must adhere strictly to the grammar as described in [sentence pattern](#2-sentence-pattern), but the rest may be decided to some extent by the user.
 However, an exemplary grammar is described in this chapter.
@@ -1164,7 +1264,7 @@ me ba mi ga so san fa 'big' sen lan gi so ka wan wen
 |my class|mu ga so san fa 'class'|
 |his(possessive)|sen lan gi|
 
-# 18. Example Sentence
+# 19. Example Sentence
 
 The following table shows example sentences from the SFGPL.
 
@@ -1252,7 +1352,7 @@ The following table shows example sentences from the SFGPL.
 |di moa ge so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.you(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, you heard that he create a table.|
 
 
-# 19. About version
+# 20. About version
 
 The version of this project is [\_\_version\_\_.py](../../SFGPL/__version__.py).
 In particular, if you want to run it in Python, you can check it by executing the following code.
@@ -1312,4 +1412,5 @@ The content of updates due to changes in version names is based on the following
 |4.1.1|Fixed dictionary|
 |4.1.2|Add and modify to documents|
 |4.1.3|Add and modify to documents|
+|5.0.0|Add Number and NumberList classes|
 

@@ -92,6 +92,13 @@
             "JP_title":"動詞限定詞"
         },
         {
+            "name":"Number",
+            "md_filename":"Number.md",
+            "py_filename":"Number.py",
+            "EN_title":"How numbers are expressed",
+            "JP_title":"数字の表現方法"
+        },
+        {
             "name":"Bool",
             "md_filename":"Bool.md",
             "py_filename":"Bool.py",
