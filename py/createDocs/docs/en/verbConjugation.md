@@ -89,7 +89,9 @@ The progressive form plus the perfect form to express "I have been wearing a dre
 In SFGPL, we can make a simple progressive form as in ⑥ without considering the phases ① to ⑤ in the previous section.
 The SFGPL can be expressed in the progressive form meaning "I am wearing the dress." as follows.
 
-```{I_am_wearing_the_dress}```
+```SFGPL
+{I_am_wearing_the_dress}
+```
 
 Progressive forms ```{verb_progressive}``` are attached to verbs.
 They can be past or future tense as well as present tense.
@@ -121,7 +123,9 @@ In ```{verb_perfective}```, the perfective form is attached to and modifies the 
 
 SFGPL can express the passive voice with the meaning "The dress is worn.".
 
-```{the_dress_is_worn}```
+```SFGPL
+{the_dress_is_worn}
+```
 
 The ```{verb_passive}```, which indicates the passive form, is attached to the verb.
 These can be in the past or future tense as well as the present tense.

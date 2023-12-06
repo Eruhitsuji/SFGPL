@@ -93,7 +93,9 @@ te ga nu ni sa 'wear' fa 'dress'
 In SFGPL, we can make a simple progressive form as in ⑥ without considering the phases ① to ⑤ in the previous section.
 The SFGPL can be expressed in the progressive form meaning "I am wearing the dress." as follows.
 
-```te ga ni sa 'wear' fa 'dress'```
+```SFGPL
+te ga ni sa 'wear' fa 'dress'
+```
 
 Progressive forms ```ni``` are attached to verbs.
 They can be past or future tense as well as present tense.
@@ -125,7 +127,9 @@ In ```nu```, the perfective form is attached to and modifies the verb itself.
 
 SFGPL can express the passive voice with the meaning "The dress is worn.".
 
-```ta fa 'dress' ne sa 'wear'```
+```SFGPL
+ta fa 'dress' ne sa 'wear'
+```
 
 The ```ne```, which indicates the passive form, is attached to the verb.
 These can be in the past or future tense as well as the present tense.

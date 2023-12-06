@@ -89,7 +89,9 @@ SFGPLでは下の図のように，①起動相，②経過相，③完結相，
 SFGPLでは前節の①～⑤のような相を考えずに，⑥のように単純な進行形にすることができる．
 SFGPLは次のように，"I am wearing the dress."という意味の進行形を表すことができる．
 
-```{I_am_wearing_the_dress}```
+```SFGPL
+{I_am_wearing_the_dress}
+```
 
 進行形を表す```{verb_progressive}```は動詞に付属する．
 これらは，現在形以外にも，過去形，未来形にできる．
@@ -121,7 +123,9 @@ SFGPLでは，以下の図のような，英語と同等な完了形が存在す
 
 SFGPLは次のように，"The dress is worn."という意味の受動態を表すことができる．
 
-```{the_dress_is_worn}```
+```SFGPL
+{the_dress_is_worn}
+```
 
 受動態を表す```{verb_passive}```は動詞に付属する．
 これらは，現在形以外にも，過去形，未来形にできる．

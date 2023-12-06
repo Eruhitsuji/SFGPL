@@ -93,7 +93,9 @@ te ga nu ni sa 'wear' fa 'dress'
 SFGPLでは前節の①～⑤のような相を考えずに，⑥のように単純な進行形にすることができる．
 SFGPLは次のように，"I am wearing the dress."という意味の進行形を表すことができる．
 
-```te ga ni sa 'wear' fa 'dress'```
+```SFGPL
+te ga ni sa 'wear' fa 'dress'
+```
 
 進行形を表す```ni```は動詞に付属する．
 これらは，現在形以外にも，過去形，未来形にできる．
@@ -125,7 +127,9 @@ SFGPLでは，以下の図のような，英語と同等な完了形が存在す
 
 SFGPLは次のように，"The dress is worn."という意味の受動態を表すことができる．
 
-```ta fa 'dress' ne sa 'wear'```
+```SFGPL
+ta fa 'dress' ne sa 'wear'
+```
 
 受動態を表す```ne```は動詞に付属する．
 これらは，現在形以外にも，過去形，未来形にできる．

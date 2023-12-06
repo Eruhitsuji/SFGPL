@@ -50,6 +50,11 @@ WordV，WordMクラスでは，SFGPLに固有に存在する単語群である�
 
 ## 限定詞について
 
+文法上の機能として，単語を単純に修飾する語である限定詞が存在する．
+限定詞には，名詞を限定する名詞限定詞と，動詞を限定する動詞限定詞が存在する．
+
+### 名詞限定詞
+
 SFGPLには[名詞限定詞]({docs_DeterminerN})が存在する．
 これは，元々名詞を修飾する特別な語である．
 しかし，限定詞自体の意味をそのまま名詞にすることもできる．
@@ -65,6 +70,12 @@ SFGPLには[名詞限定詞]({docs_DeterminerN})が存在する．
 |English|SFGPL|
 |:-:|:-:|
 |I am human.|{I_am_human}|
+
+### 動詞限定詞
+
+SFGPLには[動詞限定詞]({docs_DeterminerV})が存在する．
+これは，動詞を修飾する特別な語である．
+そしてこれらは，動詞の時制や相として使われる語や，助動詞的に動詞の意味を付加するものが存在している．
 
 ## 無意味単語について
 
@@ -101,3 +112,7 @@ SFGPLでは[代名詞]({docs_pronoun})が存在する．
 |遠称代名詞|that|{pronoun_distal}|
 |疑問代名詞|what|{pronoun_interrogative}|
 |不定代名詞|something|{pronoun_indefinite}|
+
+## 数値や論理的に使われる語
+
+SFGPLには，[数値的な単語]({docs_Number})や[真偽値に関する単語]({docs_Bool})，[リストに関する単語]({docs_LangList})，[関数に関する単語]({docs_LangFunc})が存在している．

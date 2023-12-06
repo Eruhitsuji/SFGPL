@@ -391,6 +391,11 @@ Examples using these words are shown below.
 
 ## About the determiners
 
+As a grammatical function, there are determiners, which are words that simply modify a word.
+There are two types of determiners: noun determiners, which limit nouns, and verb determiners, which limit verbs.
+
+### DeterminerN
+
 The SFGPL has a [noun determiner](#12-determinern).
 This is a special word that originally modifies a noun.
 However, they can also be used as nouns in the same sense as the determiners themselves.
@@ -406,6 +411,12 @@ Examples using these words are shown below.
 |English|SFGPL|
 |:-:|:-:|
 |I am human.|ma ga so ben fo|
+
+### DeterminerV
+
+There is a [verb determiner](#13-determinerv) in the SFGPL.
+These are special words that modify verbs.
+These include words used as verb tenses and phases, and words that add meaning to the verb in an auxiliary verb-like manner.
 
 ## About meaningless words
 
@@ -442,6 +453,11 @@ Pronouns are listed in the following table.
 |Distant Pronoun|that|go|
 |Interrogative Pronoun|what|wa|
 |Indefinite Pronoun|something|we|
+
+## Words used numerically and logically
+
+There are [numerical words](#14-how-numbers-are-expressed), [words for boolean values](#15-bool-related-classes), [words for lists](#16-langlist) and [words for functions](#17-langfunc) in the SFGPL.
+These words are not often used in general sentences, but are used to indicate logic.
 
 # 4. Pronoun
 
@@ -660,7 +676,9 @@ te ga nu ni sa 'wear' fa 'dress'
 In SFGPL, we can make a simple progressive form as in ⑥ without considering the phases ① to ⑤ in the previous section.
 The SFGPL can be expressed in the progressive form meaning "I am wearing the dress." as follows.
 
-```te ga ni sa 'wear' fa 'dress'```
+```SFGPL
+te ga ni sa 'wear' fa 'dress'
+```
 
 Progressive forms ```ni``` are attached to verbs.
 They can be past or future tense as well as present tense.
@@ -692,7 +710,9 @@ In ```nu```, the perfective form is attached to and modifies the verb itself.
 
 SFGPL can express the passive voice with the meaning "The dress is worn.".
 
-```ta fa 'dress' ne sa 'wear'```
+```SFGPL
+ta fa 'dress' ne sa 'wear'
+```
 
 The ```ne```, which indicates the passive form, is attached to the verb.
 These can be in the past or future tense as well as the present tense.
@@ -1413,4 +1433,5 @@ The content of updates due to changes in version names is based on the following
 |4.1.2|Add and modify to documents|
 |4.1.3|Add and modify to documents|
 |5.0.0|Add Number and NumberList classes|
+|5.0.1|Add and modify to documents|
 

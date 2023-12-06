@@ -50,6 +50,11 @@ Examples using these words are shown below.
 
 ## About the determiners
 
+As a grammatical function, there are determiners, which are words that simply modify a word.
+There are two types of determiners: noun determiners, which limit nouns, and verb determiners, which limit verbs.
+
+### DeterminerN
+
 The SFGPL has a [noun determiner]({docs_DeterminerN}).
 This is a special word that originally modifies a noun.
 However, they can also be used as nouns in the same sense as the determiners themselves.
@@ -65,6 +70,12 @@ Examples using these words are shown below.
 |English|SFGPL|
 |:-:|:-:|
 |I am human.|{I_am_human}|
+
+### DeterminerV
+
+There is a [verb determiner]({docs_DeterminerV}) in the SFGPL.
+These are special words that modify verbs.
+These include words used as verb tenses and phases, and words that add meaning to the verb in an auxiliary verb-like manner.
 
 ## About meaningless words
 
@@ -101,3 +112,8 @@ Pronouns are listed in the following table.
 |Distant Pronoun|that|{pronoun_distal}|
 |Interrogative Pronoun|what|{pronoun_interrogative}|
 |Indefinite Pronoun|something|{pronoun_indefinite}|
+
+## Words used numerically and logically
+
+There are [numerical words]({docs_Number}), [words for boolean values]({docs_Bool}), [words for lists]({docs_LangList}) and [words for functions]({docs_LangFunc}) in the SFGPL.
+These words are not often used in general sentences, but are used to indicate logic.
