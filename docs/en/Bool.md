@@ -1,4 +1,4 @@
-# 15. Bool related classes
+# 16. Bool related classes
 
 [TOP](../../readme.md)
 /

@@ -87,7 +87,7 @@ Borrowed words are read with the pronunciation specific to the borrowed words.
 
 ## SFGPL Words
 
-The SFGPL [word](#3-word) is mainly divided into SFGPL-specific words and loan words.
+The SFGPL [word](#8-word) is mainly divided into SFGPL-specific words and loan words.
 
 The unique words are mainly function words necessary for sentence structure, and basic words for verbs and modifiers.
 The rest of the words are loan words.
@@ -339,7 +339,256 @@ me mi ge so san fa 'table' so la 'red'
 |Japan|fa 'Japan'|
 |in East Asia|li fun pun me fa 'Asia' so la 'east'|
 
-# 3. Word
+# 3. Negative Sentence
+
+Use ```pa``` to create a negative sentence.
+This word is attached to a sentence to make a negative sentence.
+"I have a table." is ```mi ga so fa 'table'``` under the SFGPL.
+To make it mean "I don't have a table.", it can be expressed as follows in the SFGPL.
+
+```SFGPL
+pa mi ga so fa 'table'
+```
+
+## Wordbook
+
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|table|fa 'table'|
+
+# 4. Interrogative Sentence
+
+Use ```da``` to create interrogative sentences.
+When this word is added to a sentence, it becomes a interrogative sentence.
+"You have a table." is ```mi ge so fa 'table'``` under the SFGPL.
+To make it mean "Do you have a table?", it can be expressed as follows in the SFGPL.
+
+```SFGPL
+da mi ge so fa 'table'
+```
+
+In the case of interrogative sentences containing interrogatives, the indefinite is expressed by replacing the indefinite with an interrogative.
+
+"Who has a table?" is expressed as follows.
+
+```SFGPL
+da mi ben wa so fa 'table'
+```
+
+"What do you have?" is expressed as follows.
+
+```SFGPL
+da mi ge so pen wa
+```
+
+## Wordbook
+
+|English|SFGPL|
+|:-:|:-:|
+|you|ge|
+|table|fa 'table'|
+|who|ben wa|
+|what|pen wa|
+
+# 5. Imperative Sentence
+
+Use ```de``` to create imperative sentences.
+This word is added to a sentence to make it an imperative sentence.
+"You buy a table." is ```te ge sa 'buy' fa 'table'``` under the SFGPL.
+To make it mean "Buy a table, you!", it can be expressed as follows in the SFGPL.
+
+```SFGPL
+de te ge sa 'buy' fa 'table'
+```
+
+## Wordbook
+
+|English|SFGPL|
+|:-:|:-:|
+|you|ge|
+|buy|sa 'buy'|
+|table|fa 'table'|
+
+# 6. Compound sentences
+
+The SFGPL allows you to create sentences that combine several within a single sentence.
+
+## Parallel clauses
+
+A [conjunction](#12-conjunction) is used to connect two or more sentences in parallel.
+
+In the SFGPL, "I went to Tokyo and I was shopping there." can be expressed as follows.
+
+```SFGPL
+ba di ta ga na sa 'go' li pun fa 'Tokyo' di ta ga na ni sa 'shop' li pun gu
+```
+
+And while English-like tense agreement requires clause-by-clause utilisation in this way, the SFGPL allows the basic tense to be utilised throughout the sentence.
+
+```SFGPL
+di ba ta ga na sa 'go' li pun fa 'Tokyo' ta ga na ni sa 'shop' li pun gu
+```
+
+## Dependent clauses
+
+A subordinate modification of a noun in the main clause can be achieved by inserting a sentence describing the noun instead of the noun.
+In addition, the SFGPL generally uses subordinate clauses to modify nouns.
+
+In the SFGPL, "My bag is big." can be expressed as follows.
+In this case, "My bag" is expressed as "I have a bag".
+The noun is then marked with ```san``` because "bag" is the noun being modified.
+
+```SFGPL
+me mi ga so san fa 'bag' so wan
+```
+
+The meaning of "I have a bag is big." is almost the same as "I have a bag is big.
+In this case, the "bag" in "a bag is big" is the subject of the subordinate clause, so ```san``` need not be added.
+
+```SFGPL
+mi ga so me fa 'bag' so wan
+```
+
+Then, to express "I give you the desk I built.", do the following.
+
+```SFGPL
+ti ga so ge di te ga sa 'build' san fa 'desk'
+```
+
+The tense of only the subordinate clause can be changed in this way.
+
+In addition, adverbial clauses can be used to modify predicates and whole sentences.
+In the SFGPL, "I ate sushi, when I went to Tokyo." can be expressed as follows.
+
+```SFGPL
+di te ga na sa 'eat' li ta ga na sa 'go' li pun fa 'Tokyo' fa 'sushi'
+```
+
+## Wordbook
+
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|go|sa 'go'|
+|to Tokyo|li pun fa 'Tokyo'|
+|shop (Verb)|sa 'shop'|
+|there|pun gu|
+|bag|fa 'bag'|
+|big|wan|
+|you|ge|
+|build|sa 'build'|
+|desk|fa 'desk'|
+|eat|sa 'eat'|
+|sushi|fa 'sushi'|
+
+# 7. Detailed Grammar
+
+Basically, the SFGPL must adhere strictly to the grammar as described in [sentence pattern](#2-sentence-pattern), but the rest may be decided to some extent by the user.
+However, an exemplary grammar is described in this chapter.
+
+## How to qualify a sentence
+
+To modify a whole sentence, you basically modify the verbs in that sentence by using ```na```.
+For example, in the example sentence "I go to Tokyo.", the "to Tokyo" part is a modifier.
+In this case, the SFGPL uses the following.
+
+```SFGPL
+ta ga na sa 'go' li pun fa 'Tokyo'
+```
+
+Another alternative is to use ```me```.
+
+```SFGPL
+me ta ga sa 'go' so li pun fa 'Tokyo'
+```
+
+### Prepositional usage in English
+
+In particular, when modifying verbs, like prepositions in English, they are expressed using ```li``` and [DeterminerN](#14-determinern).
+Examples of English prepositions and SFGPLs are given in the following table.
+
+|English|Meaning|SFGPL|
+|:-:|:-:|:-:|
+|at/in/on/to/from|Time|li pin|
+|at/in/on/to/from|Place|li pun|
+|for|Reason|li pon|
+|for|Way/Means|li ban|
+|from|Start|li fan|
+|to|End|li fen|
+|between/among|Section|li fin|
+|in|In|li fun|
+|into|Into|li tun fun|
+|out|Out|li fon|
+|up/over|Move&Above|li tun man|
+|above|Above|li man|
+|down|Move&Below|li tun men|
+|under|On&Below|li min men|
+|below|Below|li men|
+|on|On|li min|
+|right|Right|li mun|
+|left|Left|li mon|
+|near|Near|li tin|
+|by/about|By/About|li tan tin|
+|with|With|li ten tin|
+
+## Grammar of comparative expressions
+
+In the SFGPL, comparative expressions using comparative classes in English are defined by ```mo```, but not comparisons using superlative or equivalent classes.
+It is recommended that such sentences be expressed as follows.
+
+### Comparative degree
+
+Comparative expressions such as "A is B(-er) than C" are expressed by ```mo```.
+"My bag is bigger than yours." is expressed as follows.
+
+```SFGPL
+mo mi ga so san fa 'big' so wan sen ge
+```
+
+### Superlative
+
+Comparative expressions such as "A is the B(-est) in/of C" are expressed with the following syntax.
+
+```SFGPL
+me A V ka B li fun C
+```
+
+"My bag is the biggest in my class." is expressed as follows.
+
+```SFGPL
+me mi ga so san fa 'big' so ka wan li fun mu ga so san fa 'class'
+```
+
+### Equivalent classes
+
+Comparative expressions such as "A is as B as C" are expressed with the following syntax.
+In this case, use ```wen``` to mean "similar".
+
+```SFGPL
+me ba A C V ka B wen
+```
+
+"My bag is as big as his." is expressed as follows.
+
+```SFGPL
+me ba mi ga so san fa 'big' sen lan gi so ka wan wen
+```
+
+## Wordbook
+
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|go|sa 'go'|
+|to Tokyo|li pun fa 'Tokyo'|
+|bag|fa 'bag'|
+|big|wan|
+|yours(possessive)|sen ge|
+|my class|mu ga so san fa 'class'|
+|his(possessive)|sen lan gi|
+
+# 8. Word
 
 The SFGPL words have a basic set of usages.
 For example, the way in which loan words are used is defined.
@@ -347,7 +596,7 @@ This chapter describes the types of these words and how they are used.
 The details of the words are also available in [dict.csv](../../dict.csv).
 
 In general, SFGPL words are not transformed by articles, number, gender or case.
-If you want to indicate number or gender, use [noun determiner](#12-determinern).
+If you want to indicate number or gender, use [noun determiner](#14-determinern).
 
 ## Borrowed Words
 
@@ -396,7 +645,7 @@ There are two types of determiners: noun determiners, which limit nouns, and ver
 
 ### DeterminerN
 
-The SFGPL has a [noun determiner](#12-determinern).
+The SFGPL has a [noun determiner](#14-determinern).
 This is a special word that originally modifies a noun.
 However, they can also be used as nouns in the same sense as the determiners themselves.
 To do so, use ```fo```.
@@ -414,7 +663,7 @@ Examples using these words are shown below.
 
 ### DeterminerV
 
-There is a [verb determiner](#13-determinerv) in the SFGPL.
+There is a [verb determiner](#15-determinerv) in the SFGPL.
 These are special words that modify verbs.
 These include words used as verb tenses and phases, and words that add meaning to the verb in an auxiliary verb-like manner.
 
@@ -423,7 +672,7 @@ These include words used as verb tenses and phases, and words that add meaning t
 There are words in the SFGPL that do not add meaning.
 These words exist for each part of speech and are used when grammatically necessary.
 
-```fo``` is often used to express [noun determiners](#12-determinern) as they are.
+```fo``` is often used to express [noun determiners](#14-determinern) as they are.
 Also, ```so``` is used when a verb is not needed, especially in [sentence pattern](#2-sentence-pattern).
 On the other hand, ```lo``` is rarely used.
 Examples of these are given below.
@@ -441,7 +690,7 @@ Examples of these are given below.
 
 ## About pronouns
 
-[Pronouns](#4-pronoun) exist in SFGPL.
+[Pronouns](#13-pronoun) exist in SFGPL.
 Pronouns are listed in the following table.
 
 ||English|SFGPL|
@@ -456,136 +705,10 @@ Pronouns are listed in the following table.
 
 ## Words used numerically and logically
 
-There are [numerical words](#14-how-numbers-are-expressed), [words for boolean values](#15-bool-related-classes), [words for lists](#16-langlist) and [words for functions](#17-langfunc) in the SFGPL.
+There are [numerical words](#19-how-numbers-are-expressed), [words for boolean values](#16-bool-related-classes), [words for lists](#17-langlist) and [words for functions](#18-langfunc) in the SFGPL.
 These words are not often used in general sentences, but are used to indicate logic.
 
-# 4. Pronoun
-
-## List of pronouns
-
-Pronouns are listed in the following table.
-
-||English|SFGPL|
-|:-:|:-:|:-:|
-|First Person Pronoun|I|ga|
-|Second Person Pronoun|you|ge|
-|Third Person Pronoun|he/she/it|gi|
-|Proximate Pronoun|this|gu|
-|Distant Pronoun|that|go|
-|Interrogative Pronoun|what|wa|
-|Indefinite Pronoun|something|we|
-
-## Pronoun applications
-
-As a rule, SFGPL pronouns do not distinguish between people, organisms, objects, concepts, places, times, reasons, methods, etc.
-There is no distinction based on gender or number.
-These distinctions can be made by using [noun determiner](#12-determinern).
-
-
-The following table shows the use of noun determiners for interrogatives.
-
-|English|SFGPL|
-|:-:|:-:|
-|what|pen wa|
-|who|ben wa|
-|when|pin wa|
-|where|pun wa|
-|why|pon wa|
-|how|ban wa|
-
-To indicate plurals, use ```don```.
-For example, ```don ga``` is used to denote "We".
-
-Gender distinctions do not exist in the SFGPL.
-Nor is there a distinction between persons and things.
-For example, to make explicit the third person pronouns masculine, feminine and thing, one can do the following.
-
-||English|SFGPL|
-|:-:|:-:|:-:|
-|male|he|lan gi|
-|female|she|len gi|
-|thing|it|pen gi|
-
-In addition, you can create possessive and reflexive pronouns using ```sen``` and ```sin```.
-The following table shows the possessive and reflexive pronouns for first person pronouns.
-
-||English|SFGPL|
-|:-:|:-:|:-:|
-|Possessive Pronoun|mine|sen ga|
-|Reflexive Pronoun|myself|sin ga|
-
-# 5. Negative Sentence
-
-Use ```pa``` to create a negative sentence.
-This word is attached to a sentence to make a negative sentence.
-"I have a table." is ```mi ga so fa 'table'``` under the SFGPL.
-To make it mean "I don't have a table.", it can be expressed as follows in the SFGPL.
-
-```SFGPL
-pa mi ga so fa 'table'
-```
-
-## Wordbook
-
-|English|SFGPL|
-|:-:|:-:|
-|I|ga|
-|table|fa 'table'|
-
-# 6. Interrogative Sentence
-
-Use ```da``` to create interrogative sentences.
-When this word is added to a sentence, it becomes a interrogative sentence.
-"You have a table." is ```mi ge so fa 'table'``` under the SFGPL.
-To make it mean "Do you have a table?", it can be expressed as follows in the SFGPL.
-
-```SFGPL
-da mi ge so fa 'table'
-```
-
-In the case of interrogative sentences containing interrogatives, the indefinite is expressed by replacing the indefinite with an interrogative.
-
-"Who has a table?" is expressed as follows.
-
-```SFGPL
-da mi ben wa so fa 'table'
-```
-
-"What do you have?" is expressed as follows.
-
-```SFGPL
-da mi ge so pen wa
-```
-
-## Wordbook
-
-|English|SFGPL|
-|:-:|:-:|
-|you|ge|
-|table|fa 'table'|
-|who|ben wa|
-|what|pen wa|
-
-# 7. Imperative Sentence
-
-Use ```de``` to create imperative sentences.
-This word is added to a sentence to make it an imperative sentence.
-"You buy a table." is ```te ge sa 'buy' fa 'table'``` under the SFGPL.
-To make it mean "Buy a table, you!", it can be expressed as follows in the SFGPL.
-
-```SFGPL
-de te ge sa 'buy' fa 'table'
-```
-
-## Wordbook
-
-|English|SFGPL|
-|:-:|:-:|
-|you|ge|
-|buy|sa 'buy'|
-|table|fa 'table'|
-
-# 8. Verb Conjugation
+# 9. Verb Conjugation
 
 ## Verb tenses
 
@@ -725,7 +848,7 @@ du ta fa 'dress' ne sa 'wear'
 
 ## Other verb modifiers
 
-Functions in the [DeterminerV](#13-determinerv) class can modify other verbs.
+Functions in the [DeterminerV](#15-determinerv) class can modify other verbs.
 They are similar to English auxiliary verbs.
 
 ## Wordbook
@@ -738,7 +861,7 @@ They are similar to English auxiliary verbs.
 |wear|sa 'wear'|
 |dress|fa 'dress'|
 
-# 9. Modifier
+# 10. Modifier
 
 ## About modifiers
 
@@ -771,7 +894,7 @@ To simply modify each part of speech with a modifier, the following table is use
 ## Applications of modifiers
 
 Modifiers allow us to substitute English prepositions and noun phrases as modifiers.
-In this case, the ```li```, which converts nouns to modifiers, and [noun determiners](#12-determinern) are often combined to form expressions.
+In this case, the ```li```, which converts nouns to modifiers, and [noun determiners](#14-determinern) are often combined to form expressions.
 For example, "I live in Tokyo.".
 
 ```SFGPL
@@ -790,7 +913,7 @@ The ```pun``` is a determiner of place.
 |live|sa 'live'|
 |in Tokyo|li pun fa 'Tokyo'|
 
-# 10. Part of Speech Conversion
+# 11. Part of Speech Conversion
 
 The SFGPL can convert nouns, verbs, and modifiers into each other's parts of speech.
 The following table lists the words converted to parts-of-speech by the SFGPL.
@@ -814,12 +937,12 @@ Verb to noun is used as in "This is building.".
 ma gu so fi sa 'build'
 ```
 
-The verb of the original word can also be pre-conjugated according to [verb conjugation](#8-verb-conjugation).
+The verb of the original word can also be pre-conjugated according to [verb conjugation](#9-verb-conjugation).
 
 ## Noun to Modifier
 
 Noun to modifier is used to create the equivalent meaning of a phrase that combines an English preposition and a noun.
-In such cases, ```li``` and [DeterminerN](#12-determinern) are used in combination.
+In such cases, ```li``` and [DeterminerN](#14-determinern) are used in combination.
 "I live in Tokyo." in SFGPL becomes the following.
 In this case, ```pun``` is a determiner of location.
 
@@ -837,7 +960,7 @@ mi mi ga so san fa 'daughter' so me me fa 'toy' so lu ne sa 'stuff' so li son fa
 ## Verb to Modifier
 
 Verb to modifier conversion allows for the use of the participle equivalent, which is common in the Indo-European language family.
-The verb of the original word can also be pre-conjugated according to [verb conjugation](#8-verb-conjugation).
+The verb of the original word can also be pre-conjugated according to [verb conjugation](#9-verb-conjugation).
 
 "There is a sleeping boy." can be expressed in the SFGPL as follows.
 
@@ -870,7 +993,7 @@ di ta ga na sa 'live' li pun ma go so san me fi sa 'build' so lu ne sa 'destroy'
 |that|go|
 |destroy|sa 'destroy'|
 
-# 11. Conjunction
+# 12. Conjunction
 
 In the SFGPL, conjunctions exist as connections between sentences and between words.
 The main conjunctions of the SFGPL are as follows.
@@ -897,7 +1020,62 @@ You can also connect words together, such as ```ba fa 'store' fa 'library'``` or
 |store|fa 'store'|
 |library|fa 'library'|
 
-# 12. DeterminerN
+# 13. Pronoun
+
+## List of pronouns
+
+Pronouns are listed in the following table.
+
+||English|SFGPL|
+|:-:|:-:|:-:|
+|First Person Pronoun|I|ga|
+|Second Person Pronoun|you|ge|
+|Third Person Pronoun|he/she/it|gi|
+|Proximate Pronoun|this|gu|
+|Distant Pronoun|that|go|
+|Interrogative Pronoun|what|wa|
+|Indefinite Pronoun|something|we|
+
+## Pronoun applications
+
+As a rule, SFGPL pronouns do not distinguish between people, organisms, objects, concepts, places, times, reasons, methods, etc.
+There is no distinction based on gender or number.
+These distinctions can be made by using [noun determiner](#14-determinern).
+
+
+The following table shows the use of noun determiners for interrogatives.
+
+|English|SFGPL|
+|:-:|:-:|
+|what|pen wa|
+|who|ben wa|
+|when|pin wa|
+|where|pun wa|
+|why|pon wa|
+|how|ban wa|
+
+To indicate plurals, use ```don```.
+For example, ```don ga``` is used to denote "We".
+
+Gender distinctions do not exist in the SFGPL.
+Nor is there a distinction between persons and things.
+For example, to make explicit the third person pronouns masculine, feminine and thing, one can do the following.
+
+||English|SFGPL|
+|:-:|:-:|:-:|
+|male|he|lan gi|
+|female|she|len gi|
+|thing|it|pen gi|
+
+In addition, you can create possessive and reflexive pronouns using ```sen``` and ```sin```.
+The following table shows the possessive and reflexive pronouns for first person pronouns.
+
+||English|SFGPL|
+|:-:|:-:|:-:|
+|Possessive Pronoun|mine|sen ga|
+|Reflexive Pronoun|myself|sin ga|
+
+# 14. DeterminerN
 
 DeterminerN are the simplest of all noun modifiers.
 They are also often used with pronouns or with ```li```, which is used to convert a noun to a modifier.
@@ -927,7 +1105,7 @@ In general, in the case of the DeterminerN A, B and the noun N, the clause ```A 
 |Tokyo|fa 'Tokyo'|
 |today|fa 'today'|
 
-# 13. DeterminerV
+# 15. DeterminerV
 
 Verb DeterminerV are the simplest to modify verbs.
 They are the equivalent of English auxiliary verbs.
@@ -942,7 +1120,7 @@ The following table shows some examples of Verb DeterminerV.
 |lak|duty|I must swim.|ta ga lak sa 'swim'|
 |lik|want to|I want to swim.|ta ga lik sa 'swim'|
 
-We can also do [verb conjugation](#8-verb-conjugation), such as aspect.
+We can also do [verb conjugation](#9-verb-conjugation), such as aspect.
 
 ## Wordbook
 
@@ -953,7 +1131,139 @@ We can also do [verb conjugation](#8-verb-conjugation), such as aspect.
 |sea|fa 'sea'|
 |swim|sa 'swim'|
 
-# 14. How numbers are expressed
+# 16. Bool related classes
+
+SFGPL has classes related to Bool, Bool type and BoolList type.
+These classes are used to represent boolean values, numerical values, and so on.
+
+## About Bool class
+
+The Bool type is a class for representing true or false.
+False and True of type Bool are represented as follows.
+
+||word|
+|:-:|:-:|
+|False|pas|
+|True|pos|
+
+You can also use ```pis``` to connect a Bool type to a noun to indicate the truth or falsehood of a noun.
+The following statement is an example.
+
+```SFGPL
+pis ma ga so fa 'student' pos
+```
+
+Bool types can also use NOT ```pa```, OR ```be```, AND ```ba```, NOR ```bo``` and NAND ```bu```, which are provided in LangObj. 
+They can then perform logic operations.
+
+## About BoolList class
+
+BoolList can create an array of boolean values.
+The following functions exist in BoolList.
+
+|Word|Explanation|
+|:-:|:-:|
+|fas|Create a list of true/false (BoolList)|
+|fes A B|Gets the B-th value of BoolList(A)|
+|fis A B|Add one Bool (B) to the end of the BoolList (A)|
+|fus A B C|Get the B-th through C-th lists for a BoolList (A)|
+|fos A B|Combine two BoolLists (A,B)|
+|mas A B|Create a BoolList consisting of 2 Bool values (A,B)|
+|mis X1~X4|Create a BoolList consisting of 4 Bool values (x1~x4)|
+|mos X1~X8|Create a BoolList consisting of 8 Bool values (x1~x8)|
+|tas A|BoolList (A) is considered a binary natural number|
+|tes A|BoolList (A) is considered a binary integer|
+|tis A|BoolList (A) is considered a binary floating number|
+|tus A|BoolList (A) is considered an ASCII character|
+
+4-byte data can be used by doing the following.
+
+```SFGPL
+fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos
+```
+
+This represents ```0100 0000 0100 1001 0000 1111 1101 1011``` in binary.
+It can also be used as a number by doing the following.
+
+|Type|SFGPL|Value|
+|:-:|:-:|:-:|
+|Natural Number|tas fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|1078530011|
+|Integer Number|tes fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|1078530011|
+|Floating Point Number|tis fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|3.1415927410125732|
+
+## Wordbook
+
+|English|SFGPL|
+|:-:|:-:|
+|I am a student|ma ga so fa 'student'|
+
+# 17. LangList
+
+The LangList type exists as a basic data structure type in SFGPL.
+The following functions exist in LangList.
+
+|Word|Explanation|
+|:-:|:-:|
+|fat|Create a list of LangObj (LangList)|
+|fet A B|Gets the B-th value of LangList (A)|
+|fit A B|Add one LangObj (B) to the end of the LangList (A)|
+|fut A B C|Get the B-th through C-th lists for a LangList (A)|
+|fot A B|Combine two LangLists|
+
+LangList can store all classes that inherit from LangObj.
+The following is an example of LangList creation.
+
+```SFGPL
+fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
+```
+
+To retrieve the first value from this LangList, do the following.
+In this case ```fis fas pas``` represents 0 in [BoolList](#16-bool-related-classes).
+
+```SFGPL
+fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student' fis fas pas
+```
+
+## Wordbook
+
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|pen|fa 'pen'|
+|go|sa 'go'|
+|happy|la 'happy'|
+|I am a student|ma ga so fa 'student'|
+
+# 18. LangFunc
+
+The LangFunc type exists as a basic function type in SFGPL.
+The following functions exist in LangFunc.
+
+|Word|Explanation|
+|:-:|:-:|
+|pat A B|Set up a function that returns B named A with a certain LangList as an argument|
+|pit|Used for pat arguments|
+|pot A B|Execute the configured LangFunc named A with argument B|
+
+LangFunc sets the function by ```pat```.
+Also, ```pit``` can be included in the second argument of ```pat``` statement.
+This will cause the actual value to be assigned and processed when the function is executed.
+The first argument of ```pat``` is a function name.
+And the function name cannot be duplicated.
+The following is an example of a function setup.
+
+```SFGPL
+pat fa 'xor' fit fat bu bu fet pit mas pas pas bu fet pit mas pas pas fet pit mas pas pos bu bu fet pit mas pas pas fet pit mas pas pos fet pit mas pas pos
+```
+
+The function takes the XOR of the zeroth and first values of a LangList.
+When (false,false) is given to the function, do the following.
+
+```SFGPL
+pot fa 'xor' fit fit fat pas pas
+```
+
+# 19. How numbers are expressed
 
 The Number and NumberList classes exist in SFGPL to represent decimal numbers.
 
@@ -1046,245 +1356,7 @@ In addition, there are functions that convert integer BoolList and NumberList in
 |Japan|fa 'Japan'|
 |people|fa 'people'|
 
-# 15. Bool related classes
-
-SFGPL has classes related to Bool, Bool type and BoolList type.
-These classes are used to represent boolean values, numerical values, and so on.
-
-## About Bool class
-
-The Bool type is a class for representing true or false.
-False and True of type Bool are represented as follows.
-
-||word|
-|:-:|:-:|
-|False|pas|
-|True|pos|
-
-You can also use ```pis``` to connect a Bool type to a noun to indicate the truth or falsehood of a noun.
-The following statement is an example.
-
-```SFGPL
-pis ma ga so fa 'student' pos
-```
-
-Bool types can also use NOT ```pa```, OR ```be```, AND ```ba```, NOR ```bo``` and NAND ```bu```, which are provided in LangObj. 
-They can then perform logic operations.
-
-## About BoolList class
-
-BoolList can create an array of boolean values.
-The following functions exist in BoolList.
-
-|Word|Explanation|
-|:-:|:-:|
-|fas|Create a list of true/false (BoolList)|
-|fes A B|Gets the B-th value of BoolList(A)|
-|fis A B|Add one Bool (B) to the end of the BoolList (A)|
-|fus A B C|Get the B-th through C-th lists for a BoolList (A)|
-|fos A B|Combine two BoolLists (A,B)|
-|mas A B|Create a BoolList consisting of 2 Bool values (A,B)|
-|mis X1~X4|Create a BoolList consisting of 4 Bool values (x1~x4)|
-|mos X1~X8|Create a BoolList consisting of 8 Bool values (x1~x8)|
-|tas A|BoolList (A) is considered a binary natural number|
-|tes A|BoolList (A) is considered a binary integer|
-|tis A|BoolList (A) is considered a binary floating number|
-|tus A|BoolList (A) is considered an ASCII character|
-
-4-byte data can be used by doing the following.
-
-```SFGPL
-fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos
-```
-
-This represents ```0100 0000 0100 1001 0000 1111 1101 1011``` in binary.
-It can also be used as a number by doing the following.
-
-|Type|SFGPL|Value|
-|:-:|:-:|:-:|
-|Natural Number|tas fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|1078530011|
-|Integer Number|tes fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|1078530011|
-|Floating Point Number|tis fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|3.1415927410125732|
-
-## Wordbook
-
-|English|SFGPL|
-|:-:|:-:|
-|I am a student|ma ga so fa 'student'|
-
-# 16. LangList
-
-The LangList type exists as a basic data structure type in SFGPL.
-The following functions exist in LangList.
-
-|Word|Explanation|
-|:-:|:-:|
-|fat|Create a list of LangObj (LangList)|
-|fet A B|Gets the B-th value of LangList (A)|
-|fit A B|Add one LangObj (B) to the end of the LangList (A)|
-|fut A B C|Get the B-th through C-th lists for a LangList (A)|
-|fot A B|Combine two LangLists|
-
-LangList can store all classes that inherit from LangObj.
-The following is an example of LangList creation.
-
-```SFGPL
-fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
-```
-
-To retrieve the first value from this LangList, do the following.
-In this case ```fis fas pas``` represents 0 in [BoolList](#15-bool-related-classes).
-
-```SFGPL
-fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student' fis fas pas
-```
-
-## Wordbook
-
-|English|SFGPL|
-|:-:|:-:|
-|I|ga|
-|pen|fa 'pen'|
-|go|sa 'go'|
-|happy|la 'happy'|
-|I am a student|ma ga so fa 'student'|
-
-# 17. LangFunc
-
-The LangFunc type exists as a basic function type in SFGPL.
-The following functions exist in LangFunc.
-
-|Word|Explanation|
-|:-:|:-:|
-|pat A B|Set up a function that returns B named A with a certain LangList as an argument|
-|pit|Used for pat arguments|
-|pot A B|Execute the configured LangFunc named A with argument B|
-
-LangFunc sets the function by ```pat```.
-Also, ```pit``` can be included in the second argument of ```pat``` statement.
-This will cause the actual value to be assigned and processed when the function is executed.
-The first argument of ```pat``` is a function name.
-And the function name cannot be duplicated.
-The following is an example of a function setup.
-
-```SFGPL
-pat fa 'xor' fit fat bu bu fet pit mas pas pas bu fet pit mas pas pas fet pit mas pas pos bu bu fet pit mas pas pas fet pit mas pas pos fet pit mas pas pos
-```
-
-The function takes the XOR of the zeroth and first values of a LangList.
-When (false,false) is given to the function, do the following.
-
-```SFGPL
-pot fa 'xor' fit fit fat pas pas
-```
-
-# 18. Detailed Grammar
-
-Basically, the SFGPL must adhere strictly to the grammar as described in [sentence pattern](#2-sentence-pattern), but the rest may be decided to some extent by the user.
-However, an exemplary grammar is described in this chapter.
-
-## How to qualify a sentence
-
-To modify a whole sentence, you basically modify the verbs in that sentence by using ```na```.
-For example, in the example sentence "I go to Tokyo.", the "to Tokyo" part is a modifier.
-In this case, the SFGPL uses the following.
-
-```SFGPL
-ta ga na sa 'go' li pun fa 'Tokyo'
-```
-
-Another alternative is to use ```me```.
-
-```SFGPL
-me ta ga sa 'go' so li pun fa 'Tokyo'
-```
-
-### Prepositional usage in English
-
-In particular, when modifying verbs, like prepositions in English, they are expressed using ```li``` and [DeterminerN](#12-determinern).
-Examples of English prepositions and SFGPLs are given in the following table.
-
-|English|Meaning|SFGPL|
-|:-:|:-:|:-:|
-|at/in/on/to/from|Time|li pin|
-|at/in/on/to/from|Place|li pun|
-|for|Reason|li pon|
-|for|Way/Means|li ban|
-|from|Start|li fan|
-|to|End|li fen|
-|between/among|Section|li fin|
-|in|In|li fun|
-|into|Into|li tun fun|
-|out|Out|li fon|
-|up/over|Move&Above|li tun man|
-|above|Above|li man|
-|down|Move&Below|li tun men|
-|under|On&Below|li min men|
-|below|Below|li men|
-|on|On|li min|
-|right|Right|li mun|
-|left|Left|li mon|
-|near|Near|li tin|
-|by/about|By/About|li tan tin|
-|with|With|li ten tin|
-
-## Grammar of comparative expressions
-
-In the SFGPL, comparative expressions using comparative classes in English are defined by ```mo```, but not comparisons using superlative or equivalent classes.
-It is recommended that such sentences be expressed as follows.
-
-### Comparative degree
-
-Comparative expressions such as "A is B(-er) than C" are expressed by ```mo```.
-"My bag is bigger than yours." is expressed as follows.
-
-```SFGPL
-mo mi ga so san fa 'big' so wan sen ge
-```
-
-### Superlative
-
-Comparative expressions such as "A is the B(-est) in/of C" are expressed with the following syntax.
-
-```SFGPL
-me A V ka B li fun C
-```
-
-"My bag is the biggest in my class." is expressed as follows.
-
-```SFGPL
-me mi ga so san fa 'big' so ka wan li fun mu ga so san fa 'class'
-```
-
-### Equivalent classes
-
-Comparative expressions such as "A is as B as C" are expressed with the following syntax.
-In this case, use ```wen``` to mean "similar".
-
-```SFGPL
-me ba A C V ka B wen
-```
-
-"My bag is as big as his." is expressed as follows.
-
-```SFGPL
-me ba mi ga so san fa 'big' sen lan gi so ka wan wen
-```
-
-## Wordbook
-
-|English|SFGPL|
-|:-:|:-:|
-|I|ga|
-|go|sa 'go'|
-|to Tokyo|li pun fa 'Tokyo'|
-|bag|fa 'bag'|
-|big|wan|
-|yours(possessive)|sen ge|
-|my class|mu ga so san fa 'class'|
-|his(possessive)|sen lan gi|
-
-# 19. Example Sentence
+# 20. Example Sentence
 
 The following table shows example sentences from the SFGPL.
 
@@ -1372,7 +1444,7 @@ The following table shows example sentences from the SFGPL.
 |di moa ge so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.you(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, you heard that he create a table.|
 
 
-# 20. About version
+# 21. About version
 
 The version of this project is [\_\_version\_\_.py](../../SFGPL/__version__.py).
 In particular, if you want to run it in Python, you can check it by executing the following code.
@@ -1434,4 +1506,5 @@ The content of updates due to changes in version names is based on the following
 |4.1.3|Add and modify to documents|
 |5.0.0|Add Number and NumberList classes|
 |5.0.1|Add and modify to documents|
+|5.0.2|Add and modify to documents|
 

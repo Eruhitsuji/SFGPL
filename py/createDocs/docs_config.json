@@ -7,26 +7,13 @@
             "EN_title":"about SFGPL",
             "JP_title":"SFGPLについて"
         },
+
         {
             "name":"sentence_pattern",
             "md_filename":"sentence_pattern.md",
             "py_filename":"sentence_pattern.py",
             "EN_title":"Sentence Pattern",
             "JP_title":"文型"
-        },
-        {
-            "name":"Word",
-            "md_filename":"Word.md",
-            "py_filename":"Word.py",
-            "EN_title":"Word",
-            "JP_title":"単語"
-        },
-        {
-            "name":"pronoun",
-            "md_filename":"pronoun.md",
-            "py_filename":"pronoun.py",
-            "EN_title":"Pronoun",
-            "JP_title":"代名詞"
         },
         {
             "name":"negativeSentence",
@@ -48,6 +35,28 @@
             "py_filename":"imperativeSentence.py",
             "EN_title":"Imperative Sentence",
             "JP_title":"命令文"
+        },
+        {
+            "name":"CompoundSentences",
+            "md_filename":"CompoundSentences.md",
+            "py_filename":"CompoundSentences.py",
+            "EN_title":"Compound sentences",
+            "JP_title":"複文"
+        },
+        {
+            "name":"detailedGrammar",
+            "md_filename":"detailedGrammar.md",
+            "py_filename":"detailedGrammar.py",
+            "EN_title":"Detailed Grammar",
+            "JP_title":"詳細な文法"
+        },
+
+        {
+            "name":"Word",
+            "md_filename":"Word.md",
+            "py_filename":"Word.py",
+            "EN_title":"Word",
+            "JP_title":"単語"
         },
         {
             "name":"verbConjugation",
@@ -78,6 +87,13 @@
             "JP_title":"接続詞"
         },
         {
+            "name":"pronoun",
+            "md_filename":"pronoun.md",
+            "py_filename":"pronoun.py",
+            "EN_title":"Pronoun",
+            "JP_title":"代名詞"
+        },
+        {
             "name":"DeterminerN",
             "md_filename":"DeterminerN.md",
             "py_filename":"DeterminerN.py",
@@ -90,13 +106,6 @@
             "py_filename":"DeterminerV.py",
             "EN_title":"DeterminerV",
             "JP_title":"動詞限定詞"
-        },
-        {
-            "name":"Number",
-            "md_filename":"Number.md",
-            "py_filename":"Number.py",
-            "EN_title":"How numbers are expressed",
-            "JP_title":"数字の表現方法"
         },
         {
             "name":"Bool",
@@ -120,12 +129,13 @@
             "JP_title":"LangFunc"
         },
         {
-            "name":"detailedGrammar",
-            "md_filename":"detailedGrammar.md",
-            "py_filename":"detailedGrammar.py",
-            "EN_title":"Detailed Grammar",
-            "JP_title":"詳細な文法"
+            "name":"Number",
+            "md_filename":"Number.md",
+            "py_filename":"Number.py",
+            "EN_title":"How numbers are expressed",
+            "JP_title":"数字の表現方法"
         },
+
         {
             "name":"exampleSentence",
             "md_filename":"exampleSentence.md",
@@ -133,6 +143,7 @@
             "EN_title":"Example Sentence",
             "JP_title":"例文"
         },
+
         {
             "name":"version",
             "md_filename":"version.md",

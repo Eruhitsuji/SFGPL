@@ -1,4 +1,4 @@
-# 7. Imperative Sentence
+# 5. Imperative Sentence
 
 [TOP](../../readme.md)
 /

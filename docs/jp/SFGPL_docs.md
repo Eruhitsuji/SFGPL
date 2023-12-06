@@ -87,7 +87,7 @@ SFGPLの固有語は，数少ない単語を除いて二重母音は存在しな
 
 ## SFGPLの単語
 
-SFGPLの[単語](#3-単語)は主に，SFGPLの固有の単語と借用語に分かれる．
+SFGPLの[単語](#8-単語)は主に，SFGPLの固有の単語と借用語に分かれる．
 
 固有単語は，主に文構造に必要な機能語と，動詞と修飾語の基礎単語が存在する．
 またそれ以外は，借用語が使用される．
@@ -339,7 +339,256 @@ me mi ge so san fa 'table' so la 'red'
 |Japan|fa 'Japan'|
 |in East Asia|li fun pun me fa 'Asia' so la 'east'|
 
-# 3. 単語
+# 3. 否定文
+
+否定文を作成するためには```pa```を使用する．
+この語は，文章に付属することで否定文を作る．
+"I have a table."はSFGPLでは```mi ga so fa 'table'```である．
+それを否定文の"I don't have a table."という意味にする場合，SFGPLでは次のように表現できる．
+
+```SFGPL
+pa mi ga so fa 'table'
+```
+
+## 単語集
+
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|table|fa 'table'|
+
+# 4. 疑問文
+
+疑問文を作成するためには```da```を使用する．
+この単語を文につけると疑問文になる．
+"You have a table."はSFGPLでは```mi ge so fa 'table'```である．
+それを疑問文の"Do you have a table?"という意味にする場合，SFGPLでは次のように表現できる．
+
+```SFGPL
+da mi ge so fa 'table'
+```
+
+また，疑問詞を含む疑問文の場合，不定のところを疑問詞に置き換えることで表す．
+
+"Who has a table?"は次のように表す．
+
+```SFGPL
+da mi ben wa so fa 'table'
+```
+
+"What do you have?"は次のように表す．
+
+```SFGPL
+da mi ge so pen wa
+```
+
+## 単語集
+
+|English|SFGPL|
+|:-:|:-:|
+|you|ge|
+|table|fa 'table'|
+|who|ben wa|
+|what|pen wa|
+
+# 5. 命令文
+
+命令文を作成するためには```de```を使用する．
+この単語を文につけると命令文になる．
+"You buy a table."はSFGPLでは```te ge sa 'buy' fa 'table'```である．
+それを命令文の"Buy a table, you!"という意味にする場合，SFGPLでは次のように表現できる．
+
+```SFGPL
+de te ge sa 'buy' fa 'table'
+```
+
+## 単語集
+
+|English|SFGPL|
+|:-:|:-:|
+|you|ge|
+|buy|sa 'buy'|
+|table|fa 'table'|
+
+# 6. 複文
+
+SFGPLでは1つの文の中に，複数のを組み合わせて表す文を作成することができる．
+
+## 並列節
+
+2つ以上の文を並列に接続するためには，[接続詞](#12-接続詞)が使用される．
+
+SFGPLで，"I went to Tokyo and I was shopping there."を表すには次のようにする．
+
+```SFGPL
+ba di ta ga na sa 'go' li pun fa 'Tokyo' di ta ga na ni sa 'shop' li pun gu
+```
+
+また，英語のような時制の一致をするにはこのように節ごとに時制を活用させるが，SFGPLでは文全体に基本時制を活用させることができる．
+
+```SFGPL
+di ba ta ga na sa 'go' li pun fa 'Tokyo' ta ga na ni sa 'shop' li pun gu
+```
+
+## 従属節
+
+主節内の名詞に対して従属的に修飾するためには，その名詞の代わりにその名詞を説明する文を入れることで実現できる．
+また，SFGPLでは一般的に，名詞を修飾する場合には従属節を使用することが多い．
+
+SFGPLで，"My bag is big."を表すには次のようにする．
+またこのときの"My bag"は，"I have a bag"であるというように表現する．
+そしてこのとき，"bag"が修飾されている名詞であるため，その名詞には```san```を付ける．
+
+```SFGPL
+me mi ga so san fa 'bag' so wan
+```
+
+また，意味がほぼ同じである，"I have a bag is big."を表すには次のようにする．
+またこのときは，"a bag is big"の"bag"は従属節の主語となっているため，```san```を付けなくても良い．
+
+```SFGPL
+mi ga so me fa 'bag' so wan
+```
+
+そして，"I give you the desk I built."を表すには次のようにする．
+
+```SFGPL
+ti ga so ge di te ga sa 'build' san fa 'desk'
+```
+
+このように従属節だけの時制を変えることもできる．
+
+さらに，副詞節で述語や文全体に対して修飾することができる．
+SFGPLで"I ate sushi, when I went to Tokyo."を表すには次のようにする．
+
+```SFGPL
+di te ga na sa 'eat' li ta ga na sa 'go' li pun fa 'Tokyo' fa 'sushi'
+```
+
+## 単語集
+
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|go|sa 'go'|
+|to Tokyo|li pun fa 'Tokyo'|
+|shop (Verb)|sa 'shop'|
+|there|pun gu|
+|bag|fa 'bag'|
+|big|wan|
+|you|ge|
+|build|sa 'build'|
+|desk|fa 'desk'|
+|eat|sa 'eat'|
+|sushi|fa 'sushi'|
+
+# 7. 詳細な文法
+
+SFGPLは基本的に，[文型](#2-文型)に記されているような文法は厳守する必要があるが，その他はユーザ側である程度決めてよい．
+しかし，模範的な文法を本章で記述しておく．
+
+## 文章を修飾する方法
+
+文章全体に対して修飾するためには，基本的にその文内の動詞を```na```を使用することで修飾する．
+例えば，"I go to Tokyo."という例文では，"to Tokyo"の部分が修飾語となる．
+その際SFGPLでは次のように表現する．
+
+```SFGPL
+ta ga na sa 'go' li pun fa 'Tokyo'
+```
+
+また，別の方法として，```me```を使う方法もある．
+
+```SFGPL
+me ta ga sa 'go' so li pun fa 'Tokyo'
+```
+
+### 英語における前置詞的な用法
+
+特に，英語における前置詞のように動詞を修飾する場合，```li```と[DeterminerN](#14-名詞限定詞)を使用して表現する．
+英語の前置詞とSFGPLの一例を次の表に示す．
+
+|English|Meaning|SFGPL|
+|:-:|:-:|:-:|
+|at/in/on/to/from|Time|li pin|
+|at/in/on/to/from|Place|li pun|
+|for|Reason|li pon|
+|for|Way/Means|li ban|
+|from|Start|li fan|
+|to|End|li fen|
+|between/among|Section|li fin|
+|in|In|li fun|
+|into|Into|li tun fun|
+|out|Out|li fon|
+|up/over|Move&Above|li tun man|
+|above|Above|li man|
+|down|Move&Below|li tun men|
+|under|On&Below|li min men|
+|below|Below|li men|
+|on|On|li min|
+|right|Right|li mun|
+|left|Left|li mon|
+|near|Near|li tin|
+|by/about|By/About|li tan tin|
+|with|With|li ten tin|
+
+## 比較表現の文法
+
+SFGPLでは，英語における比較級を使った比較表現は，```mo```によって定義されているが，最上級や同級による比較は定義されていない．
+このような文は次のように表すことを推奨する．
+
+### 比較級
+
+"A is B(-er) than C"のような比較表現は，```mo```によって表現する．
+"My bag is bigger than yours."は，次のように表現する．
+
+```SFGPL
+mo mi ga so san fa 'big' so wan sen ge
+```
+
+### 最上級
+
+"A is the B(-est) in/of C"のような比較表現は，次のような構文で表現する．
+
+```SFGPL
+me A V ka B li fun C
+```
+
+"My bag is the biggest in my class."は，次のように表現する．
+
+```SFGPL
+me mi ga so san fa 'big' so ka wan li fun mu ga so san fa 'class'
+```
+
+### 同級
+
+"A is as B as C"のような比較表現は，次のような構文で表現する．
+このとき，"似ている"という意味の```wen```を使って表現する．
+
+```SFGPL
+me ba A C V ka B wen
+```
+
+"My bag is as big as his."は，次のように表現する．
+
+```SFGPL
+me ba mi ga so san fa 'big' sen lan gi so ka wan wen
+```
+
+## 単語集
+
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|go|sa 'go'|
+|to Tokyo|li pun fa 'Tokyo'|
+|bag|fa 'bag'|
+|big|wan|
+|yours(possessive)|sen ge|
+|my class|mu ga so san fa 'class'|
+|his(possessive)|sen lan gi|
+
+# 8. 単語
 
 SFGPLの単語は，基本的に使い方が定まっている．
 例えば，借用語を使用する方法などが決まっている．
@@ -347,7 +596,7 @@ SFGPLの単語は，基本的に使い方が定まっている．
 また，単語の詳細は[dict.csv](../../dict.csv)に記述されている．
 
 また，SFGPLの単語では，基本的に，冠詞，数，性，格などによる変形は行われない．
-数や性を示したいときには，[名詞限定詞](#12-名詞限定詞)を使用する．
+数や性を示したいときには，[名詞限定詞](#14-名詞限定詞)を使用する．
 
 ## 借用語について
 
@@ -396,7 +645,7 @@ WordV，WordMクラスでは，SFGPLに固有に存在する単語群である�
 
 ### 名詞限定詞
 
-SFGPLには[名詞限定詞](#12-名詞限定詞)が存在する．
+SFGPLには[名詞限定詞](#14-名詞限定詞)が存在する．
 これは，元々名詞を修飾する特別な語である．
 しかし，限定詞自体の意味をそのまま名詞にすることもできる．
 そのためには，```fo```を使用する．
@@ -414,7 +663,7 @@ SFGPLには[名詞限定詞](#12-名詞限定詞)が存在する．
 
 ### 動詞限定詞
 
-SFGPLには[動詞限定詞](#13-動詞限定詞)が存在する．
+SFGPLには[動詞限定詞](#15-動詞限定詞)が存在する．
 これは，動詞を修飾する特別な語である．
 そしてこれらは，動詞の時制や相として使われる語や，助動詞的に動詞の意味を付加するものが存在している．
 
@@ -429,7 +678,7 @@ SFGPLには，意味を付加しない単語が存在する．
 |Verb|so|
 |Modifier|lo|
 
-```fo```では，[名詞限定詞](#12-名詞限定詞)をそのままの意味で表すときによく使われる．
+```fo```では，[名詞限定詞](#14-名詞限定詞)をそのままの意味で表すときによく使われる．
 また，```so```は，特に[文型](#2-文型)で，動詞が必要ない場合など使われる．
 一方，```lo```は，あまり使われない．
 これらの例を次に表す．
@@ -441,7 +690,7 @@ SFGPLには，意味を付加しない単語が存在する．
 
 ## 代名詞について
 
-SFGPLでは[代名詞](#4-代名詞)が存在する．
+SFGPLでは[代名詞](#13-代名詞)が存在する．
 代名詞は次の表のようなものがある．
 
 ||English|SFGPL|
@@ -456,135 +705,10 @@ SFGPLでは[代名詞](#4-代名詞)が存在する．
 
 ## 数値や論理的に使われる語
 
-SFGPLには，[数値的な単語](#14-数字の表現方法)や[真偽値に関する単語](#15-bool関連クラス)，[リストに関する単語](#16-langlist)，[関数に関する単語](#17-langfunc)が存在している．
+SFGPLには，[数値的な単語](#19-数字の表現方法)や[真偽値に関する単語](#16-bool関連クラス)，[リストに関する単語](#17-langlist)，[関数に関する単語](#18-langfunc)が存在している．
+これらの単語は，一般的な文ではあまり使われないが，論理的なことを示す際に使われる．
 
-# 4. 代名詞
-
-## 代名詞一覧
-
-代名詞は次の表のようなものがある．
-
-||English|SFGPL|
-|:-:|:-:|:-:|
-|一人称代名詞|I|ga|
-|二人称代名詞|you|ge|
-|三人称代名詞|he/she/it|gi|
-|近称代名詞|this|gu|
-|遠称代名詞|that|go|
-|疑問代名詞|what|wa|
-|不定代名詞|something|we|
-
-## 代名詞の応用
-
-SFGPLの代名詞は原則として人，生物，物，概念，場所，時間，理由，方法等の区別はされない．
-そして，性別や，数による区別も存在しない．
-これらの区別をする場合は，[名詞限定詞](#12-名詞限定詞)を使用することで限定できる．
-
-
-疑問詞に対する名詞限定詞の使用方法は次の表となる．
-
-|English|SFGPL|
-|:-:|:-:|
-|what|pen wa|
-|who|ben wa|
-|when|pin wa|
-|where|pun wa|
-|why|pon wa|
-|how|ban wa|
-
-また，複数形を明示するためには```don```を使用する．
-例えば，"We"を表すには```don ga```とする．
-
-SFGPLでは性の区別が存在しない．
-また，人と物の区別も存在しない．
-例えば，三人称代名詞の男性，女性，事物を明示するためには，次のようにする．
-
-||English|SFGPL|
-|:-:|:-:|:-:|
-|男性|he|lan gi|
-|女性|she|len gi|
-|事物|it|pen gi|
-
-さらに，所有代名詞，再帰代名詞を作成するには```sen```や```sin```を使用する．
-次の表は，一人称代名詞の所有代名詞，再帰代名詞である．
-
-||English|SFGPL|
-|:-:|:-:|:-:|
-|所有代名詞|mine|sen ga|
-|再帰代名詞|myself|sin ga|
-
-# 5. 否定文
-
-否定文を作成するためには```pa```を使用する．
-この語は，文章に付属することで否定文を作る．
-"I have a table."はSFGPLでは```mi ga so fa 'table'```である．
-それを否定文の"I don't have a table."という意味にする場合，SFGPLでは次のように表現できる．
-
-```SFGPL
-pa mi ga so fa 'table'
-```
-
-## 単語集
-
-|English|SFGPL|
-|:-:|:-:|
-|I|ga|
-|table|fa 'table'|
-
-# 6. 疑問文
-
-疑問文を作成するためには```da```を使用する．
-この単語を文につけると疑問文になる．
-"You have a table."はSFGPLでは```mi ge so fa 'table'```である．
-それを疑問文の"Do you have a table?"という意味にする場合，SFGPLでは次のように表現できる．
-
-```SFGPL
-da mi ge so fa 'table'
-```
-
-また，疑問詞を含む疑問文の場合，不定のところを疑問詞に置き換えることで表す．
-
-"Who has a table?"は次のように表す．
-
-```SFGPL
-da mi ben wa so fa 'table'
-```
-
-"What do you have?"は次のように表す．
-
-```SFGPL
-da mi ge so pen wa
-```
-
-## 単語集
-
-|English|SFGPL|
-|:-:|:-:|
-|you|ge|
-|table|fa 'table'|
-|who|ben wa|
-|what|pen wa|
-
-# 7. 命令文
-
-命令文を作成するためには```de```を使用する．
-この単語を文につけると命令文になる．
-"You buy a table."はSFGPLでは```te ge sa 'buy' fa 'table'```である．
-それを命令文の"Buy a table, you!"という意味にする場合，SFGPLでは次のように表現できる．
-
-```SFGPL
-de te ge sa 'buy' fa 'table'
-```
-
-## 単語集
-
-|English|SFGPL|
-|:-:|:-:|
-|you|ge|
-|buy|sa 'buy'|
-|table|fa 'table'|
-
-# 8. 動詞の活用
+# 9. 動詞の活用
 
 ## 動詞の時制
 
@@ -724,7 +848,7 @@ du ta fa 'dress' ne sa 'wear'
 
 ## その他の動詞の修飾
 
-[DeterminerV](#13-動詞限定詞)クラス内の関数では，その他の動詞の修飾をすることができる．
+[DeterminerV](#15-動詞限定詞)クラス内の関数では，その他の動詞の修飾をすることができる．
 また，それらは，英語の助動詞と似ている．
 
 ## 単語集
@@ -737,7 +861,7 @@ du ta fa 'dress' ne sa 'wear'
 |wear|sa 'wear'|
 |dress|fa 'dress'|
 
-# 9. 修飾語
+# 10. 修飾語
 
 ## 修飾語について
 
@@ -770,7 +894,7 @@ mo mi ga so san fa 'table' so wan sen ge
 ## 修飾語の応用
 
 修飾語では，英語の前置詞と名詞含む句を修飾語として代用する事ができる．
-このとき，名詞を修飾語に変換する```li```と，[名詞限定詞](#12-名詞限定詞)がよく組み合わされて表現される．
+このとき，名詞を修飾語に変換する```li```と，[名詞限定詞](#14-名詞限定詞)がよく組み合わされて表現される．
 例えば，"I live in Tokyo."と表す場合は，次のように表せる．
 
 ```SFGPL
@@ -789,7 +913,7 @@ ta ga na sa 'live' li pun fa 'Tokyo'
 |live|sa 'live'|
 |in Tokyo|li pun fa 'Tokyo'|
 
-# 10. 品詞変換
+# 11. 品詞変換
 
 SFGPLでは，名詞，動詞，修飾語の相互の品詞を変換することができる．
 以下の表はSFGPLで品詞変換する語の一覧である．
@@ -813,12 +937,12 @@ SFGPLでは，名詞，動詞，修飾語の相互の品詞を変換すること
 ma gu so fi sa 'build'
 ```
 
-また元の単語の動詞は[動詞の活用](#8-動詞の活用)に従って事前に活用させることも可能である．
+また元の単語の動詞は[動詞の活用](#9-動詞の活用)に従って事前に活用させることも可能である．
 
 ## 名詞から修飾語
 
 名詞から修飾語は，英語の前置詞と名詞が組み合わされた句と同等の意味を作成するときに使われる．
-またそのときは，```li```と限定詞([DeterminerN](#12-名詞限定詞))が組み合わされて使用する．
+またそのときは，```li```と限定詞([DeterminerN](#14-名詞限定詞))が組み合わされて使用する．
 "I live in Tokyo."をSFGPLにすると次のようになる．
 このとき，```pun```は場所を表す限定詞である．
 
@@ -836,7 +960,7 @@ mi mi ga so san fa 'daughter' so me me fa 'toy' so lu ne sa 'stuff' so li son fa
 ## 動詞から修飾語
 
 動詞から修飾語に変換すると，印欧語族に多く見られる分詞に相当する用法を使用できる．
-また元の単語の動詞は[動詞の活用](#8-動詞の活用)に従って事前に活用させることも可能である．
+また元の単語の動詞は[動詞の活用](#9-動詞の活用)に従って事前に活用させることも可能である．
 
 "There is a sleeping boy."をSFGPLで表すには次のようにする．
 
@@ -869,7 +993,7 @@ di ta ga na sa 'live' li pun ma go so san me fi sa 'build' so lu ne sa 'destroy'
 |that|go|
 |destroy|sa 'destroy'|
 
-# 11. 接続詞
+# 12. 接続詞
 
 SFGPLは，文と文や単語と単語を繋ぐものとして接続詞が存在する．
 SFGPLの主な接続詞として次のようなものがある．
@@ -896,7 +1020,62 @@ SFGPLの主な接続詞として次のようなものがある．
 |store|fa 'store'|
 |library|fa 'library'|
 
-# 12. 名詞限定詞
+# 13. 代名詞
+
+## 代名詞一覧
+
+代名詞は次の表のようなものがある．
+
+||English|SFGPL|
+|:-:|:-:|:-:|
+|一人称代名詞|I|ga|
+|二人称代名詞|you|ge|
+|三人称代名詞|he/she/it|gi|
+|近称代名詞|this|gu|
+|遠称代名詞|that|go|
+|疑問代名詞|what|wa|
+|不定代名詞|something|we|
+
+## 代名詞の応用
+
+SFGPLの代名詞は原則として人，生物，物，概念，場所，時間，理由，方法等の区別はされない．
+そして，性別や，数による区別も存在しない．
+これらの区別をする場合は，[名詞限定詞](#14-名詞限定詞)を使用することで限定できる．
+
+
+疑問詞に対する名詞限定詞の使用方法は次の表となる．
+
+|English|SFGPL|
+|:-:|:-:|
+|what|pen wa|
+|who|ben wa|
+|when|pin wa|
+|where|pun wa|
+|why|pon wa|
+|how|ban wa|
+
+また，複数形を明示するためには```don```を使用する．
+例えば，"We"を表すには```don ga```とする．
+
+SFGPLでは性の区別が存在しない．
+また，人と物の区別も存在しない．
+例えば，三人称代名詞の男性，女性，事物を明示するためには，次のようにする．
+
+||English|SFGPL|
+|:-:|:-:|:-:|
+|男性|he|lan gi|
+|女性|she|len gi|
+|事物|it|pen gi|
+
+さらに，所有代名詞，再帰代名詞を作成するには```sen```や```sin```を使用する．
+次の表は，一人称代名詞の所有代名詞，再帰代名詞である．
+
+||English|SFGPL|
+|:-:|:-:|:-:|
+|所有代名詞|mine|sen ga|
+|再帰代名詞|myself|sin ga|
+
+# 14. 名詞限定詞
 
 名詞限定詞は，名詞を修飾するための最も単純なものである．
 また，代名詞と使われたり，名詞から修飾語に変換するときに使用する```li```と一緒に使われることが多い．
@@ -926,7 +1105,7 @@ SFGPLの主な接続詞として次のようなものがある．
 |Tokyo|fa 'Tokyo'|
 |today|fa 'today'|
 
-# 13. 動詞限定詞
+# 15. 動詞限定詞
 
 動詞限定詞は，動詞を修飾するための最も単純なものである．
 これらは，英語の助動詞に相当する．
@@ -941,7 +1120,7 @@ SFGPLの主な接続詞として次のようなものがある．
 |lak|duty|I must swim.|ta ga lak sa 'swim'|
 |lik|want to|I want to swim.|ta ga lik sa 'swim'|
 
-また，相などの，[動詞の活用](#8-動詞の活用)をすることもできる．
+また，相などの，[動詞の活用](#9-動詞の活用)をすることもできる．
 
 ## 単語集
 
@@ -952,7 +1131,139 @@ SFGPLの主な接続詞として次のようなものがある．
 |sea|fa 'sea'|
 |swim|sa 'swim'|
 
-# 14. 数字の表現方法
+# 16. Bool関連クラス
+
+SFGPLにはBoolに関連したクラス，Bool型と，BoolList型が存在する．
+これらのクラスは，真偽値や，数値などを表すために使われる．
+
+## Bool型について
+
+Bool型は，真偽を表すためのクラスである．
+Bool型のFalseとTrueは次のように表される．
+
+||word|
+|:-:|:-:|
+|False|pas|
+|True|pos|
+
+また，```pis```を使用して，Bool型と名詞を次のように接続することで，ある名詞に対する真偽を表すことができる．
+次の文は"It is true that I am a student."という例を表す．
+
+```SFGPL
+pis ma ga so fa 'student' pos
+```
+
+そして，Bool型では，LangObjに備わっている，NOT ```pa```，OR ```be```，AND ```ba```，NOR ```bo```とNAND ```bu```を使用することもできる．
+そして，それら関数は論理演算をすることができる．
+
+## BoolList型について
+
+BoolListでは，真偽値の配列を作成することができる．
+BoolListには以下のような関数が存在している．
+
+|単語|説明|
+|:-:|:-:|
+|fas|真偽のリスト（BoolList）を作成する|
+|fes A B|BoolList(A)のB番目の値を取得する|
+|fis A B|BoolList(A)に1つのBool(B)を末尾に加える|
+|fus A B C|AというBoolListに対して，B番目からC番目までのリストを取得する|
+|fos A B|2つのBoolList(A,B)を結合する|
+|mas A B|2つBoolの値(A,B)からなるBoolListを作成する|
+|mis X1~X4|4つBoolの値(x1~x4)からなるBoolListを作成する|
+|mos X1~X8|8つBoolの値(x1~x8)からなるBoolListを作成する|
+|tas A|BoolList(A)を2進数の自然数とみなす|
+|tes A|BoolList(A)を2進数の整数とみなす|
+|tis A|BoolList(A)を2進数の浮動小数とみなす|
+|tus A|BoolList(A)をASCII文字とみなす|
+
+次のようにすることによって，4byteのデータを使用することができる．
+
+```SFGPL
+fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos
+```
+
+これは，2進数で```0100 0000 0100 1001 0000 1111 1101 1011```を表している．
+また，次のようにすることで，数値として使うことができる．
+
+|Type|SFGPL|Value|
+|:-:|:-:|:-:|
+|自然数|tas fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|1078530011|
+|整数|tes fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|1078530011|
+|浮動小数点|tis fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|3.1415927410125732|
+
+## 単語集
+
+|English|SFGPL|
+|:-:|:-:|
+|I am a student|ma ga so fa 'student'|
+
+# 17. LangList
+
+SFGPLでは基本的なデータ構造型として，LangList型が存在する．
+LangListには，以下の関数が存在している．
+
+|単語|説明|
+|:-:|:-:|
+|fat|LangObjのリストLangListを作成する|
+|fet A B|LangList(A)のB番目の値を取得する|
+|fit A B|LangList(A)に1つのLangObj(B)を末尾に加える|
+|fut A B C|AというLangListに対して，B番目からC番目までのリストを取得する|
+|fot A B|2つのLangListを結合する|
+
+LangListは，LangObjを継承しているすべてのクラスを格納することができる．
+次はLangListを作成する一例である．
+
+```SFGPL
+fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
+```
+
+また，このLangListから最初の値を取得するには次のようにする．
+このとき```fis fas pas```は[BoolList](#16-bool関連クラス)における0を表している．
+
+```SFGPL
+fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student' fis fas pas
+```
+
+## 単語集
+
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|pen|fa 'pen'|
+|go|sa 'go'|
+|happy|la 'happy'|
+|I am a student|ma ga so fa 'student'|
+
+# 18. LangFunc
+
+SFGPLでは基本的な関数型として，LangFunc型が存在する．
+LangFuncには，以下の関数が存在している．
+
+|単語|説明|
+|:-:|:-:|
+|pat A B|あるLangListを引数とするAという名前のBを返す関数を設定する|
+|pit|patの引数用に使用する|
+|pot A B|設定したAという名前のLangFuncを引数Bとして実行する|
+
+LangFuncは，```pat```によって関数を設定する．
+また，```pit```を```pat```の第二引数内の文内に含ませることができる．
+それによって，関数実行時に実際の値が代入されて処理される．
+また，```pat```の第一引数は関数名を表す．
+そして，関数名は重複して付けることはできない．
+以下は，関数設定の例を示す．
+
+```SFGPL
+pat fa 'xor' fit fat bu bu fet pit mas pas pas bu fet pit mas pas pas fet pit mas pas pos bu bu fet pit mas pas pas fet pit mas pas pos fet pit mas pas pos
+```
+
+この関数は，あるLangListに対して，0番目と1番目のXORを取る関数である．
+この関数に(false,false)を与えるときは，次のようにする．
+
+```SFGPL
+pot fa 'xor' fit fit fat pas pas
+```
+
+# 19. 数字の表現方法
 
 SFGPLでは10進数の数値を表すために，NumberとNumberListクラスが存在する．
 
@@ -1045,245 +1356,7 @@ mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil b
 |Japan|fa 'Japan'|
 |people|fa 'people'|
 
-# 15. Bool関連クラス
-
-SFGPLにはBoolに関連したクラス，Bool型と，BoolList型が存在する．
-これらのクラスは，真偽値や，数値などを表すために使われる．
-
-## Bool型について
-
-Bool型は，真偽を表すためのクラスである．
-Bool型のFalseとTrueは次のように表される．
-
-||word|
-|:-:|:-:|
-|False|pas|
-|True|pos|
-
-また，```pis```を使用して，Bool型と名詞を次のように接続することで，ある名詞に対する真偽を表すことができる．
-次の文は"It is true that I am a student."という例を表す．
-
-```SFGPL
-pis ma ga so fa 'student' pos
-```
-
-そして，Bool型では，LangObjに備わっている，NOT ```pa```，OR ```be```，AND ```ba```，NOR ```bo```とNAND ```bu```を使用することもできる．
-そして，それら関数は論理演算をすることができる．
-
-## BoolList型について
-
-BoolListでは，真偽値の配列を作成することができる．
-BoolListには以下のような関数が存在している．
-
-|単語|説明|
-|:-:|:-:|
-|fas|真偽のリスト（BoolList）を作成する|
-|fes A B|BoolList(A)のB番目の値を取得する|
-|fis A B|BoolList(A)に1つのBool(B)を末尾に加える|
-|fus A B C|AというBoolListに対して，B番目からC番目までのリストを取得する|
-|fos A B|2つのBoolList(A,B)を結合する|
-|mas A B|2つBoolの値(A,B)からなるBoolListを作成する|
-|mis X1~X4|4つBoolの値(x1~x4)からなるBoolListを作成する|
-|mos X1~X8|8つBoolの値(x1~x8)からなるBoolListを作成する|
-|tas A|BoolList(A)を2進数の自然数とみなす|
-|tes A|BoolList(A)を2進数の整数とみなす|
-|tis A|BoolList(A)を2進数の浮動小数とみなす|
-|tus A|BoolList(A)をASCII文字とみなす|
-
-次のようにすることによって，4byteのデータを使用することができる．
-
-```SFGPL
-fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos
-```
-
-これは，2進数で```0100 0000 0100 1001 0000 1111 1101 1011```を表している．
-また，次のようにすることで，数値として使うことができる．
-
-|Type|SFGPL|Value|
-|:-:|:-:|:-:|
-|自然数|tas fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|1078530011|
-|整数|tes fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|1078530011|
-|浮動小数点|tis fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|3.1415927410125732|
-
-## 単語集
-
-|English|SFGPL|
-|:-:|:-:|
-|I am a student|ma ga so fa 'student'|
-
-# 16. LangList
-
-SFGPLでは基本的なデータ構造型として，LangList型が存在する．
-LangListには，以下の関数が存在している．
-
-|単語|説明|
-|:-:|:-:|
-|fat|LangObjのリストLangListを作成する|
-|fet A B|LangList(A)のB番目の値を取得する|
-|fit A B|LangList(A)に1つのLangObj(B)を末尾に加える|
-|fut A B C|AというLangListに対して，B番目からC番目までのリストを取得する|
-|fot A B|2つのLangListを結合する|
-
-LangListは，LangObjを継承しているすべてのクラスを格納することができる．
-次はLangListを作成する一例である．
-
-```SFGPL
-fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
-```
-
-また，このLangListから最初の値を取得するには次のようにする．
-このとき```fis fas pas```は[BoolList](#15-bool関連クラス)における0を表している．
-
-```SFGPL
-fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student' fis fas pas
-```
-
-## 単語集
-
-|English|SFGPL|
-|:-:|:-:|
-|I|ga|
-|pen|fa 'pen'|
-|go|sa 'go'|
-|happy|la 'happy'|
-|I am a student|ma ga so fa 'student'|
-
-# 17. LangFunc
-
-SFGPLでは基本的な関数型として，LangFunc型が存在する．
-LangFuncには，以下の関数が存在している．
-
-|単語|説明|
-|:-:|:-:|
-|pat A B|あるLangListを引数とするAという名前のBを返す関数を設定する|
-|pit|patの引数用に使用する|
-|pot A B|設定したAという名前のLangFuncを引数Bとして実行する|
-
-LangFuncは，```pat```によって関数を設定する．
-また，```pit```を```pat```の第二引数内の文内に含ませることができる．
-それによって，関数実行時に実際の値が代入されて処理される．
-また，```pat```の第一引数は関数名を表す．
-そして，関数名は重複して付けることはできない．
-以下は，関数設定の例を示す．
-
-```SFGPL
-pat fa 'xor' fit fat bu bu fet pit mas pas pas bu fet pit mas pas pas fet pit mas pas pos bu bu fet pit mas pas pas fet pit mas pas pos fet pit mas pas pos
-```
-
-この関数は，あるLangListに対して，0番目と1番目のXORを取る関数である．
-この関数に(false,false)を与えるときは，次のようにする．
-
-```SFGPL
-pot fa 'xor' fit fit fat pas pas
-```
-
-# 18. 詳細な文法
-
-SFGPLは基本的に，[文型](#2-文型)に記されているような文法は厳守する必要があるが，その他はユーザ側である程度決めてよい．
-しかし，模範的な文法を本章で記述しておく．
-
-## 文章を修飾する方法
-
-文章全体に対して修飾するためには，基本的にその文内の動詞を```na```を使用することで修飾する．
-例えば，"I go to Tokyo."という例文では，"to Tokyo"の部分が修飾語となる．
-その際SFGPLでは次のように表現する．
-
-```SFGPL
-ta ga na sa 'go' li pun fa 'Tokyo'
-```
-
-また，別の方法として，```me```を使う方法もある．
-
-```SFGPL
-me ta ga sa 'go' so li pun fa 'Tokyo'
-```
-
-### 英語における前置詞的な用法
-
-特に，英語における前置詞のように動詞を修飾する場合，```li```と[DeterminerN](#12-名詞限定詞)を使用して表現する．
-英語の前置詞とSFGPLの一例を次の表に示す．
-
-|English|Meaning|SFGPL|
-|:-:|:-:|:-:|
-|at/in/on/to/from|Time|li pin|
-|at/in/on/to/from|Place|li pun|
-|for|Reason|li pon|
-|for|Way/Means|li ban|
-|from|Start|li fan|
-|to|End|li fen|
-|between/among|Section|li fin|
-|in|In|li fun|
-|into|Into|li tun fun|
-|out|Out|li fon|
-|up/over|Move&Above|li tun man|
-|above|Above|li man|
-|down|Move&Below|li tun men|
-|under|On&Below|li min men|
-|below|Below|li men|
-|on|On|li min|
-|right|Right|li mun|
-|left|Left|li mon|
-|near|Near|li tin|
-|by/about|By/About|li tan tin|
-|with|With|li ten tin|
-
-## 比較表現の文法
-
-SFGPLでは，英語における比較級を使った比較表現は，```mo```によって定義されているが，最上級や同級による比較は定義されていない．
-このような文は次のように表すことを推奨する．
-
-### 比較級
-
-"A is B(-er) than C"のような比較表現は，```mo```によって表現する．
-"My bag is bigger than yours."は，次のように表現する．
-
-```SFGPL
-mo mi ga so san fa 'big' so wan sen ge
-```
-
-### 最上級
-
-"A is the B(-est) in/of C"のような比較表現は，次のような構文で表現する．
-
-```SFGPL
-me A V ka B li fun C
-```
-
-"My bag is the biggest in my class."は，次のように表現する．
-
-```SFGPL
-me mi ga so san fa 'big' so ka wan li fun mu ga so san fa 'class'
-```
-
-### 同級
-
-"A is as B as C"のような比較表現は，次のような構文で表現する．
-このとき，"似ている"という意味の```wen```を使って表現する．
-
-```SFGPL
-me ba A C V ka B wen
-```
-
-"My bag is as big as his."は，次のように表現する．
-
-```SFGPL
-me ba mi ga so san fa 'big' sen lan gi so ka wan wen
-```
-
-## 単語集
-
-|English|SFGPL|
-|:-:|:-:|
-|I|ga|
-|go|sa 'go'|
-|to Tokyo|li pun fa 'Tokyo'|
-|bag|fa 'bag'|
-|big|wan|
-|yours(possessive)|sen ge|
-|my class|mu ga so san fa 'class'|
-|his(possessive)|sen lan gi|
-
-# 19. 例文
+# 20. 例文
 
 以下の表は，SFGPLの例文を示す．
 
@@ -1371,7 +1444,7 @@ me ba mi ga so san fa 'big' sen lan gi so ka wan wen
 |di moa ge so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.you(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, you heard that he create a table.|
 
 
-# 20. バージョンについて
+# 21. バージョンについて
 
 このプロジェクトのバージョンは[\_\_version\_\_.py](../../SFGPL/__version__.py)に記載されている．
 特に，Pythonで実行する場合は，以下のコードを実行することで確認できる．
@@ -1433,4 +1506,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |4.1.3|ドキュメントの追加・修正|
 |5.0.0|NumberとNumberListクラスの追加|
 |5.0.1|ドキュメントの追加・修正|
+|5.0.2|ドキュメントの追加・修正|
 
