@@ -34,7 +34,7 @@ SFGPLでは，文構造それぞれに関数が割り振られているため，
 SFGPLの語順はSVOであるが，文頭に文の構造を決定する機能語が付属する．
 また，SFGPLでは固有語によって，文構造が厳密に定義されている．
 以下の表は，SFGPLで表現できる文構造の表である．
-また使用方法等の詳細は，[文型](#2-文型)に記述してある．
+また使用方法等の詳細は，[文型](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/sentence_pattern.md)に記述してある．
 
 |||単語|関数|引数|補足|
 |:-:|:-:|:-:|:-:|:-:|:-:|
@@ -87,7 +87,7 @@ SFGPLの固有語は，数少ない単語を除いて二重母音は存在しな
 
 ## SFGPLの単語
 
-SFGPLの[単語](#8-単語)は主に，SFGPLの固有の単語と借用語に分かれる．
+SFGPLの[単語](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/Word.md)は主に，SFGPLの固有の単語と借用語に分かれる．
 
 固有単語は，主に文構造に必要な機能語と，動詞と修飾語の基礎単語が存在する．
 またそれ以外は，借用語が使用される．
@@ -416,7 +416,7 @@ SFGPLでは1つの文の中に，複数のを組み合わせて表す文を作�
 
 ## 並列節
 
-2つ以上の文を並列に接続するためには，[接続詞](#12-接続詞)が使用される．
+2つ以上の文を並列に接続するためには，[接続詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/Conjunction.md)が使用される．
 
 SFGPLで，"I went to Tokyo and I was shopping there."を表すには次のようにする．
 
@@ -484,7 +484,7 @@ di te ga na sa 'eat' li ta ga na sa 'go' li pun fa 'Tokyo' fa 'sushi'
 
 # 7. 詳細な文法
 
-SFGPLは基本的に，[文型](#2-文型)に記されているような文法は厳守する必要があるが，その他はユーザ側である程度決めてよい．
+SFGPLは基本的に，[文型](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/sentence_pattern.md)に記されているような文法は厳守する必要があるが，その他はユーザ側である程度決めてよい．
 しかし，模範的な文法を本章で記述しておく．
 
 ## 文章を修飾する方法
@@ -505,7 +505,7 @@ me ta ga sa 'go' so li pun fa 'Tokyo'
 
 ### 英語における前置詞的な用法
 
-特に，英語における前置詞のように動詞を修飾する場合，```li```と[DeterminerN](#14-名詞限定詞)を使用して表現する．
+特に，英語における前置詞のように動詞を修飾する場合，```li```と[DeterminerN](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerN.md)を使用して表現する．
 英語の前置詞とSFGPLの一例を次の表に示す．
 
 |English|Meaning|SFGPL|
@@ -596,7 +596,7 @@ SFGPLの単語は，基本的に使い方が定まっている．
 また，単語の詳細は[dict.csv](../../dict.csv)に記述されている．
 
 また，SFGPLの単語では，基本的に，冠詞，数，性，格などによる変形は行われない．
-数や性を示したいときには，[名詞限定詞](#14-名詞限定詞)を使用する．
+数や性を示したいときには，[名詞限定詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerN.md)を使用する．
 
 ## 借用語について
 
@@ -645,7 +645,7 @@ WordV，WordMクラスでは，SFGPLに固有に存在する単語群である�
 
 ### 名詞限定詞
 
-SFGPLには[名詞限定詞](#14-名詞限定詞)が存在する．
+SFGPLには[名詞限定詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerN.md)が存在する．
 これは，元々名詞を修飾する特別な語である．
 しかし，限定詞自体の意味をそのまま名詞にすることもできる．
 そのためには，```fo```を使用する．
@@ -663,7 +663,7 @@ SFGPLには[名詞限定詞](#14-名詞限定詞)が存在する．
 
 ### 動詞限定詞
 
-SFGPLには[動詞限定詞](#15-動詞限定詞)が存在する．
+SFGPLには[動詞限定詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerV.md)が存在する．
 これは，動詞を修飾する特別な語である．
 そしてこれらは，動詞の時制や相として使われる語や，助動詞的に動詞の意味を付加するものが存在している．
 
@@ -678,9 +678,9 @@ SFGPLには，意味を付加しない単語が存在する．
 |Verb|so|
 |Modifier|lo|
 
-```fo```では，[名詞限定詞](#14-名詞限定詞)をそのままの意味で表すときによく使われる．
-また，```so```は，特に[文型](#2-文型)で，動詞が必要ない場合など使われる．
-一方，```lo```は，あまり使われない．
+はじめに，無意味名詞の```fo```では，[名詞限定詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerN.md)をそのままの意味で表すときによく使われる．
+また，無意味動詞の```so```は，特に[文型](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/sentence_pattern.md)で，動詞が必要ない場合など使われる．
+一方，無意味修飾詞```lo```は，あまり使われない．
 これらの例を次に表す．
 
 |English|SFGPL|
@@ -690,7 +690,7 @@ SFGPLには，意味を付加しない単語が存在する．
 
 ## 代名詞について
 
-SFGPLでは[代名詞](#13-代名詞)が存在する．
+SFGPLでは[代名詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/pronoun.md)が存在する．
 代名詞は次の表のようなものがある．
 
 ||English|SFGPL|
@@ -705,7 +705,7 @@ SFGPLでは[代名詞](#13-代名詞)が存在する．
 
 ## 数値や論理的に使われる語
 
-SFGPLには，[数値的な単語](#19-数字の表現方法)や[真偽値に関する単語](#16-bool関連クラス)，[リストに関する単語](#17-langlist)，[関数に関する単語](#18-langfunc)が存在している．
+SFGPLには，[数値的な単語](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/Number.md)や[真偽値に関する単語](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/Bool.md)，[リストに関する単語](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/LangList.md)，[関数に関する単語](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/LangFunc.md)が存在している．
 これらの単語は，一般的な文ではあまり使われないが，論理的なことを示す際に使われる．
 
 # 9. 動詞の活用
@@ -848,7 +848,7 @@ du ta fa 'dress' ne sa 'wear'
 
 ## その他の動詞の修飾
 
-[DeterminerV](#15-動詞限定詞)クラス内の関数では，その他の動詞の修飾をすることができる．
+[DeterminerV](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerV.md)クラス内の関数では，その他の動詞の修飾をすることができる．
 また，それらは，英語の助動詞と似ている．
 
 ## 単語集
@@ -894,7 +894,7 @@ mo mi ga so san fa 'table' so wan sen ge
 ## 修飾語の応用
 
 修飾語では，英語の前置詞と名詞含む句を修飾語として代用する事ができる．
-このとき，名詞を修飾語に変換する```li```と，[名詞限定詞](#14-名詞限定詞)がよく組み合わされて表現される．
+このとき，名詞を修飾語に変換する```li```と，[名詞限定詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerN.md)がよく組み合わされて表現される．
 例えば，"I live in Tokyo."と表す場合は，次のように表せる．
 
 ```SFGPL
@@ -937,12 +937,12 @@ SFGPLでは，名詞，動詞，修飾語の相互の品詞を変換すること
 ma gu so fi sa 'build'
 ```
 
-また元の単語の動詞は[動詞の活用](#9-動詞の活用)に従って事前に活用させることも可能である．
+また元の単語の動詞は[動詞の活用](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/verbConjugation.md)に従って事前に活用させることも可能である．
 
 ## 名詞から修飾語
 
 名詞から修飾語は，英語の前置詞と名詞が組み合わされた句と同等の意味を作成するときに使われる．
-またそのときは，```li```と限定詞([DeterminerN](#14-名詞限定詞))が組み合わされて使用する．
+またそのときは，```li```と限定詞([DeterminerN](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerN.md))が組み合わされて使用する．
 "I live in Tokyo."をSFGPLにすると次のようになる．
 このとき，```pun```は場所を表す限定詞である．
 
@@ -960,7 +960,7 @@ mi mi ga so san fa 'daughter' so me me fa 'toy' so lu ne sa 'stuff' so li son fa
 ## 動詞から修飾語
 
 動詞から修飾語に変換すると，印欧語族に多く見られる分詞に相当する用法を使用できる．
-また元の単語の動詞は[動詞の活用](#9-動詞の活用)に従って事前に活用させることも可能である．
+また元の単語の動詞は[動詞の活用](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/verbConjugation.md)に従って事前に活用させることも可能である．
 
 "There is a sleeping boy."をSFGPLで表すには次のようにする．
 
@@ -1040,7 +1040,7 @@ SFGPLの主な接続詞として次のようなものがある．
 
 SFGPLの代名詞は原則として人，生物，物，概念，場所，時間，理由，方法等の区別はされない．
 そして，性別や，数による区別も存在しない．
-これらの区別をする場合は，[名詞限定詞](#14-名詞限定詞)を使用することで限定できる．
+これらの区別をする場合は，[名詞限定詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerN.md)を使用することで限定できる．
 
 
 疑問詞に対する名詞限定詞の使用方法は次の表となる．
@@ -1120,7 +1120,7 @@ SFGPLでは性の区別が存在しない．
 |lak|duty|I must swim.|ta ga lak sa 'swim'|
 |lik|want to|I want to swim.|ta ga lik sa 'swim'|
 
-また，相などの，[動詞の活用](#9-動詞の活用)をすることもできる．
+また，相などの，[動詞の活用](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/verbConjugation.md)をすることもできる．
 
 ## 単語集
 
@@ -1218,7 +1218,7 @@ fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
 ```
 
 また，このLangListから最初の値を取得するには次のようにする．
-このとき```fis fas pas```は[BoolList](#16-bool関連クラス)における0を表している．
+このとき```fis fas pas```は[BoolList](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/Bool.md)における0を表している．
 
 ```SFGPL
 fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student' fis fas pas
@@ -1464,7 +1464,7 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |:-:|:-:|:-:|
 **A**|メインアップデート|単語やプログラム等の大きな変更がある場合|
 **B**|マイナーアップデート|単語やプログラム等の少量の変更がある場合|
-**C**|パッチアップデート|プログラムのバグ修正等による少量の変更やドキュメントの変更がある場合|
+**C**|パッチアップデート|プログラムのバグ修正等による少量の変更や ドキュメントの変更がある場合|
 
 ## バージョン更新内容について
 
@@ -1507,4 +1507,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.0.0|NumberとNumberListクラスの追加|
 |5.0.1|ドキュメントの追加・修正|
 |5.0.2|ドキュメントの追加・修正|
+|5.0.3|ドキュメントの追加・修正|
 

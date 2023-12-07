@@ -49,6 +49,11 @@ def removeFile(p:str):
 #import config json file
 CONFIG_PATH=THIS_BASE+"docs_config.json"
 
+DEFAULT_TITLE_MODE="d"
+DEFAULT_ALL_DOCS_TITLE_MODE="g"
+GITHUB_PRJ_DOCS_URL="https://github.com/Eruhitsuji/SFGPL/blob/main/docs/"
+
+
 def readConfig(path=CONFIG_PATH):
     with open(path,mode="r",encoding="utf-8") as f:
         return json.load(f)
@@ -62,7 +67,13 @@ def preProcessConfig(data):
         jp_title_md="{i}. {title}".format(i=i+1,title=di["JP_title"])
 
         format_key="docs_{name}".format(i=i,name=di["name"])
-        tmp_dict={"EN_title_md":en_title_md,"JP_title_md":jp_title_md,"format_key":format_key}
+        tmp_dict={
+            "EN_title_md":en_title_md,
+            "JP_title_md":jp_title_md,
+            "format_key":format_key,
+            "EN_github_link":GITHUB_PRJ_DOCS_URL+"en/"+di["md_filename"],
+            "JP_github_link":GITHUB_PRJ_DOCS_URL+"jp/"+di["md_filename"],
+        }
         
         r_list_dict={**di,**tmp_dict}
         r_list.append(r_list_dict)
@@ -79,27 +90,33 @@ def mdLinkString(tmp:str):
     tmp="#"+tmp
     return tmp
 
-def getTitleKey(lang_mode:str,md_mode:bool):
+def getTitleKey(lang_mode:str,md_mode:bool,title_mode:str=DEFAULT_TITLE_MODE):
     data_key=""
     if(md_mode):
         data_key="md_filename"
     else:
-        if(lang_mode=="EN"):
-            data_key="EN_title_md"
-        elif(lang_mode=="JP"):
-            data_key="JP_title_md"
+        if(title_mode=="d"):
+            if(lang_mode=="EN"):
+                data_key="EN_title_md"
+            elif(lang_mode=="JP"):
+                data_key="JP_title_md"
+        elif(title_mode=="g"):
+            if(lang_mode=="EN"):
+                data_key="EN_github_link"
+            elif(lang_mode=="JP"):
+                data_key="JP_github_link"
     return data_key
 
-def getFormatkeyDict(lang_mode:str,md_mode:bool,base_str:str="",data=CONFIG_DATA):
+def getFormatkeyDict(lang_mode:str,md_mode:bool,title_mode:str,base_str:str="",data=CONFIG_DATA):
     #md_mode
     #   True:Each file mode
     #   False:Include All mode
-    data_key=getTitleKey(lang_mode,md_mode)
+    data_key=getTitleKey(lang_mode,md_mode,title_mode)
 
     r_dict={}
     for di in data["docs_config"]:
         tmp=base_str+di[data_key]
-        if(not md_mode):
+        if(not md_mode and title_mode=="d"):
             tmp=mdLinkString(tmp)
             
         r_dict[di["format_key"]]=tmp
@@ -114,7 +131,7 @@ def getDataOfName(name:str,data=CONFIG_DATA):
 def createHeader(name:str,lang_mode:str,md_mode:bool,data=CONFIG_DATA):
     n_data=getDataOfName(name,data)
 
-    data_key=getTitleKey(lang_mode,False)
+    data_key=getTitleKey(lang_mode,False,"d")
 
     r_str="# {}".format(n_data[data_key])
 
@@ -154,22 +171,22 @@ def __createDocsSub(filename:str,format_str_list:dict,input_dir:str,output_dir:s
             f.write(write_str)
     return write_str
 
-def createDocsSub(name:str,format_str_list:dict,lang_mode:str,md_mode:bool,data:dict=CONFIG_DATA,out_flag:bool=True):
+def createDocsSub(name:str,format_str_list:dict,lang_mode:str,md_mode:bool,title_mode:str,data:dict=CONFIG_DATA,out_flag:bool=True):
     dict_data=DIR_DICT[lang_mode]
     n_data=getDataOfName(name,data)
 
     header_dict={"page_header":createHeader(name,lang_mode,md_mode,data)}
-    link_dict=getFormatkeyDict(lang_mode,md_mode,"",data)
+    link_dict=getFormatkeyDict(lang_mode,md_mode,title_mode,"",data)
 
     fsl_dict={**header_dict,**link_dict,**format_str_list}
 
     r_str=__createDocsSub(n_data["md_filename"],fsl_dict,dict_data["in_dir"],dict_data["out_dir"],out_flag)
     return r_str
 
-def createDocs(name:str,format_str_list:dict,lang_mode:str,md_mode:bool,data:dict=CONFIG_DATA,out_flag:bool=True,all_docs_flag:bool=True):
-    r_str=createDocsSub(name=name,format_str_list=format_str_list,lang_mode=lang_mode,md_mode=md_mode,data=data,out_flag=out_flag)
+def createDocs(name:str,format_str_list:dict,lang_mode:str,md_mode:bool,title_mode:str=DEFAULT_ALL_DOCS_TITLE_MODE,data:dict=CONFIG_DATA,out_flag:bool=True,all_docs_flag:bool=True):
+    r_str=createDocsSub(name=name,format_str_list=format_str_list,lang_mode=lang_mode,md_mode=md_mode,title_mode=title_mode,data=data,out_flag=out_flag)
     if(all_docs_flag):
-        r_str_all=createDocsSub(name=name,format_str_list=format_str_list,lang_mode=lang_mode,md_mode=False,data=data,out_flag=False)
+        r_str_all=createDocsSub(name=name,format_str_list=format_str_list,lang_mode=lang_mode,md_mode=False,title_mode=title_mode,data=data,out_flag=False)
         all_docs_path=getPathAllDocs(lang_mode)
 
         with open(all_docs_path,mode="a",encoding="utf-8") as f:

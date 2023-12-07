@@ -34,7 +34,7 @@ In addition, complex sentences can be created by combining sentence structures.
 The word order of the SFGPL is SVO, but a function word that determines the structure of the sentence is attached to the beginning of the sentence.
 Also, the sentence structure of the SFGPL is strictly defined by proper words.
 The following table shows the sentence structures that can be expressed in the SFGPL.
-The details of how to use them are described in [Sentence Pattern](#2-sentence-pattern).
+The details of how to use them are described in [Sentence Pattern](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/sentence_pattern.md).
 
 |||word|function|arguments|supplement|
 |:-:|:-:|:-:|:-:|:-:|:-:|
@@ -87,7 +87,7 @@ Borrowed words are read with the pronunciation specific to the borrowed words.
 
 ## SFGPL Words
 
-The SFGPL [word](#8-word) is mainly divided into SFGPL-specific words and loan words.
+The SFGPL [word](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/Word.md) is mainly divided into SFGPL-specific words and loan words.
 
 The unique words are mainly function words necessary for sentence structure, and basic words for verbs and modifiers.
 The rest of the words are loan words.
@@ -416,7 +416,7 @@ The SFGPL allows you to create sentences that combine several within a single se
 
 ## Parallel clauses
 
-A [conjunction](#12-conjunction) is used to connect two or more sentences in parallel.
+A [conjunction](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/Conjunction.md) is used to connect two or more sentences in parallel.
 
 In the SFGPL, "I went to Tokyo and I was shopping there." can be expressed as follows.
 
@@ -484,7 +484,7 @@ di te ga na sa 'eat' li ta ga na sa 'go' li pun fa 'Tokyo' fa 'sushi'
 
 # 7. Detailed Grammar
 
-Basically, the SFGPL must adhere strictly to the grammar as described in [sentence pattern](#2-sentence-pattern), but the rest may be decided to some extent by the user.
+Basically, the SFGPL must adhere strictly to the grammar as described in [sentence pattern](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/sentence_pattern.md), but the rest may be decided to some extent by the user.
 However, an exemplary grammar is described in this chapter.
 
 ## How to qualify a sentence
@@ -505,7 +505,7 @@ me ta ga sa 'go' so li pun fa 'Tokyo'
 
 ### Prepositional usage in English
 
-In particular, when modifying verbs, like prepositions in English, they are expressed using ```li``` and [DeterminerN](#14-determinern).
+In particular, when modifying verbs, like prepositions in English, they are expressed using ```li``` and [DeterminerN](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/DeterminerN.md).
 Examples of English prepositions and SFGPLs are given in the following table.
 
 |English|Meaning|SFGPL|
@@ -596,7 +596,7 @@ This chapter describes the types of these words and how they are used.
 The details of the words are also available in [dict.csv](../../dict.csv).
 
 In general, SFGPL words are not transformed by articles, number, gender or case.
-If you want to indicate number or gender, use [noun determiner](#14-determinern).
+If you want to indicate number or gender, use [noun determiner](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/DeterminerN.md).
 
 ## Borrowed Words
 
@@ -645,7 +645,7 @@ There are two types of determiners: noun determiners, which limit nouns, and ver
 
 ### DeterminerN
 
-The SFGPL has a [noun determiner](#14-determinern).
+The SFGPL has a [noun determiner](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/DeterminerN.md).
 This is a special word that originally modifies a noun.
 However, they can also be used as nouns in the same sense as the determiners themselves.
 To do so, use ```fo```.
@@ -663,7 +663,7 @@ Examples using these words are shown below.
 
 ### DeterminerV
 
-There is a [verb determiner](#15-determinerv) in the SFGPL.
+There is a [verb determiner](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/DeterminerV.md) in the SFGPL.
 These are special words that modify verbs.
 These include words used as verb tenses and phases, and words that add meaning to the verb in an auxiliary verb-like manner.
 
@@ -672,9 +672,9 @@ These include words used as verb tenses and phases, and words that add meaning t
 There are words in the SFGPL that do not add meaning.
 These words exist for each part of speech and are used when grammatically necessary.
 
-```fo``` is often used to express [noun determiners](#14-determinern) as they are.
-Also, ```so``` is used when a verb is not needed, especially in [sentence pattern](#2-sentence-pattern).
-On the other hand, ```lo``` is rarely used.
+First, ```fo``` of meaningless noun is often used to express [noun determiners](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/DeterminerN.md) as they are.
+Also, ```so``` of meaningless verb is used when a verb is not needed, especially in [sentence pattern](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/sentence_pattern.md).
+On the other hand, ```lo``` of meaningless modifier is rarely used.
 Examples of these are given below.
 
 |English|SFGPL|
@@ -690,7 +690,7 @@ Examples of these are given below.
 
 ## About pronouns
 
-[Pronouns](#13-pronoun) exist in SFGPL.
+[Pronouns](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/pronoun.md) exist in SFGPL.
 Pronouns are listed in the following table.
 
 ||English|SFGPL|
@@ -705,7 +705,7 @@ Pronouns are listed in the following table.
 
 ## Words used numerically and logically
 
-There are [numerical words](#19-how-numbers-are-expressed), [words for boolean values](#16-bool-related-classes), [words for lists](#17-langlist) and [words for functions](#18-langfunc) in the SFGPL.
+There are [numerical words](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/Number.md), [words for boolean values](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/Bool.md), [words for lists](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/LangList.md) and [words for functions](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/LangFunc.md) in the SFGPL.
 These words are not often used in general sentences, but are used to indicate logic.
 
 # 9. Verb Conjugation
@@ -848,7 +848,7 @@ du ta fa 'dress' ne sa 'wear'
 
 ## Other verb modifiers
 
-Functions in the [DeterminerV](#15-determinerv) class can modify other verbs.
+Functions in the [DeterminerV](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/DeterminerV.md) class can modify other verbs.
 They are similar to English auxiliary verbs.
 
 ## Wordbook
@@ -894,7 +894,7 @@ To simply modify each part of speech with a modifier, the following table is use
 ## Applications of modifiers
 
 Modifiers allow us to substitute English prepositions and noun phrases as modifiers.
-In this case, the ```li```, which converts nouns to modifiers, and [noun determiners](#14-determinern) are often combined to form expressions.
+In this case, the ```li```, which converts nouns to modifiers, and [noun determiners](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/DeterminerN.md) are often combined to form expressions.
 For example, "I live in Tokyo.".
 
 ```SFGPL
@@ -937,12 +937,12 @@ Verb to noun is used as in "This is building.".
 ma gu so fi sa 'build'
 ```
 
-The verb of the original word can also be pre-conjugated according to [verb conjugation](#9-verb-conjugation).
+The verb of the original word can also be pre-conjugated according to [verb conjugation](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/verbConjugation.md).
 
 ## Noun to Modifier
 
 Noun to modifier is used to create the equivalent meaning of a phrase that combines an English preposition and a noun.
-In such cases, ```li``` and [DeterminerN](#14-determinern) are used in combination.
+In such cases, ```li``` and [DeterminerN](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/DeterminerN.md) are used in combination.
 "I live in Tokyo." in SFGPL becomes the following.
 In this case, ```pun``` is a determiner of location.
 
@@ -960,7 +960,7 @@ mi mi ga so san fa 'daughter' so me me fa 'toy' so lu ne sa 'stuff' so li son fa
 ## Verb to Modifier
 
 Verb to modifier conversion allows for the use of the participle equivalent, which is common in the Indo-European language family.
-The verb of the original word can also be pre-conjugated according to [verb conjugation](#9-verb-conjugation).
+The verb of the original word can also be pre-conjugated according to [verb conjugation](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/verbConjugation.md).
 
 "There is a sleeping boy." can be expressed in the SFGPL as follows.
 
@@ -1040,7 +1040,7 @@ Pronouns are listed in the following table.
 
 As a rule, SFGPL pronouns do not distinguish between people, organisms, objects, concepts, places, times, reasons, methods, etc.
 There is no distinction based on gender or number.
-These distinctions can be made by using [noun determiner](#14-determinern).
+These distinctions can be made by using [noun determiner](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/DeterminerN.md).
 
 
 The following table shows the use of noun determiners for interrogatives.
@@ -1120,7 +1120,7 @@ The following table shows some examples of Verb DeterminerV.
 |lak|duty|I must swim.|ta ga lak sa 'swim'|
 |lik|want to|I want to swim.|ta ga lik sa 'swim'|
 
-We can also do [verb conjugation](#9-verb-conjugation), such as aspect.
+We can also do [verb conjugation](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/verbConjugation.md), such as aspect.
 
 ## Wordbook
 
@@ -1218,7 +1218,7 @@ fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
 ```
 
 To retrieve the first value from this LangList, do the following.
-In this case ```fis fas pas``` represents 0 in [BoolList](#16-bool-related-classes).
+In this case ```fis fas pas``` represents 0 in [BoolList](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/en/Bool.md).
 
 ```SFGPL
 fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student' fis fas pas
@@ -1507,4 +1507,5 @@ The content of updates due to changes in version names is based on the following
 |5.0.0|Add Number and NumberList classes|
 |5.0.1|Add and modify to documents|
 |5.0.2|Add and modify to documents|
+|5.0.3|Add and modify to documents|
 

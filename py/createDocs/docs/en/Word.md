@@ -82,9 +82,9 @@ These include words used as verb tenses and phases, and words that add meaning t
 There are words in the SFGPL that do not add meaning.
 These words exist for each part of speech and are used when grammatically necessary.
 
-```{noun_none}``` is often used to express [noun determiners]({docs_DeterminerN}) as they are.
-Also, ```{verb_none}``` is used when a verb is not needed, especially in [sentence pattern]({docs_sentence_pattern}).
-On the other hand, ```{modifier_none}``` is rarely used.
+First, ```{noun_none}``` of meaningless noun is often used to express [noun determiners]({docs_DeterminerN}) as they are.
+Also, ```{verb_none}``` of meaningless verb is used when a verb is not needed, especially in [sentence pattern]({docs_sentence_pattern}).
+On the other hand, ```{modifier_none}``` of meaningless modifier is rarely used.
 Examples of these are given below.
 
 |English|SFGPL|

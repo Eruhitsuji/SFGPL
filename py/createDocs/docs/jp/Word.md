@@ -88,9 +88,9 @@ SFGPLには，意味を付加しない単語が存在する．
 |Verb|{verb_none}|
 |Modifier|{modifier_none}|
 
-```{noun_none}```では，[名詞限定詞]({docs_DeterminerN})をそのままの意味で表すときによく使われる．
-また，```{verb_none}```は，特に[文型]({docs_sentence_pattern})で，動詞が必要ない場合など使われる．
-一方，```{modifier_none}```は，あまり使われない．
+はじめに，無意味名詞の```{noun_none}```では，[名詞限定詞]({docs_DeterminerN})をそのままの意味で表すときによく使われる．
+また，無意味動詞の```{verb_none}```は，特に[文型]({docs_sentence_pattern})で，動詞が必要ない場合など使われる．
+一方，無意味修飾詞```{modifier_none}```は，あまり使われない．
 これらの例を次に表す．
 
 |English|SFGPL|

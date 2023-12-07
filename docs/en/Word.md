@@ -86,9 +86,9 @@ These include words used as verb tenses and phases, and words that add meaning t
 There are words in the SFGPL that do not add meaning.
 These words exist for each part of speech and are used when grammatically necessary.
 
-```fo``` is often used to express [noun determiners](DeterminerN.md) as they are.
-Also, ```so``` is used when a verb is not needed, especially in [sentence pattern](sentence_pattern.md).
-On the other hand, ```lo``` is rarely used.
+First, ```fo``` of meaningless noun is often used to express [noun determiners](DeterminerN.md) as they are.
+Also, ```so``` of meaningless verb is used when a verb is not needed, especially in [sentence pattern](sentence_pattern.md).
+On the other hand, ```lo``` of meaningless modifier is rarely used.
 Examples of these are given below.
 
 |English|SFGPL|
