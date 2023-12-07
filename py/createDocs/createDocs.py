@@ -2,6 +2,9 @@ import sys
 import os
 import json
 import re
+import datetime
+
+TODAY_STR=datetime.datetime.now().strftime("%Y-%m-%d")
 
 PRJ_BASE="../../"
 THIS_BASE="py/createDocs/"
@@ -80,7 +83,26 @@ def preProcessConfig(data):
 
     return {"docs_config":r_list}
 
-CONFIG_DATA=preProcessConfig(readConfig())
+RAW_JSON_DATA=readConfig()
+
+CONFIG_DATA=preProcessConfig(RAW_JSON_DATA)
+META_DATA=RAW_JSON_DATA["meta_config"]
+
+def getMetaData(lang_mode:str):
+    data=META_DATA[lang_mode]
+    s=""
+    s+="---\n"
+    for key in data:
+        s+="{}: {}\n".format(key,data[key])
+    
+    s+="{}: {}\n".format("date",TODAY_STR)
+    s+="---\n\n"
+    return s
+
+def writeAllDocsOfMetaData(lang_mode:str,file_mode:str="r"):
+    with open(getPathAllDocs(lang_mode),mode=file_mode,encoding="utf-8") as f:
+        f.write(getMetaData(lang_mode))
+
 
 def mdLinkString(tmp:str):
     tmp=tmp.replace(" ","-")

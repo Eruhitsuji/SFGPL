@@ -22,7 +22,6 @@ cd $tmp_dir
 docker run --rm -v $(pwd):/data frozenbonito/pandoc-eisvogel-ja:plantuml \
     --listings \
     --filter=$filter_path_name \
-    --reference-links \
     -N \
     --toc \
     -V linkcolor=blue \
