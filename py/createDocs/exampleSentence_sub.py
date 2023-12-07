@@ -403,6 +403,11 @@ sc.setCorpus(
 )
 
 sc.setCorpus(
+    Phrase.past(Noun.doT(Pronoun.I(),Verb("get"),Noun.eq(Noun("information"),Verb.none(),Noun.doT(DeterminerN.male(Pronoun.he()),Verb.perfective(Verb("create")),Noun.eq(DeterminerN.plural(Noun("table")),Verb.none(),NumberList.digit1(Number.three())))))),
+    "I got the information that he has create three tables."
+)
+
+sc.setCorpus(
     Phrase.past(Noun.hearSay(Pronoun.I(),Verb.none(),Noun.doT(DeterminerN.male(Pronoun.he()),Verb("create"),Noun("table")),Noun("John"))),
     "According to John, I heard that he create a table."
 )

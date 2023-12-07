@@ -69,3 +69,4 @@ The content of updates due to changes in version names is based on the following
 |5.0.4|Add and modify to documents|
 |5.0.5|Add and modify to documents|
 |5.0.6|Add and modify to documents|
+|5.0.7|Add and modify to documents|

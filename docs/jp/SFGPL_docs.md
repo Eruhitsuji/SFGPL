@@ -54,7 +54,7 @@ SFGPLの語順はSVOであるが，文頭に文の構造を決定する機能語
 |-|A has B|mi|Noun.have|A,V,B|AがBを所有している|
 |-|A belongs to B|mu|Noun.belong|A,V,B|AがBに所属している|
 |-|A is more B than C|mo|Noun.gt|A,V,B,C|AがCよりBである|
-|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|Bという内容をCという情報源から，AはFする|
+|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|Bという内容をCという  情報源から，AはFする|
 
 ## SFGPLの発音
 
@@ -169,7 +169,7 @@ SFGPLでは以下の表のような文型が存在し，それらの文の組み
 |-|A has B|mi|Noun.have|A,V,B|AがBを所有している|
 |-|A belongs to B|mu|Noun.belong|A,V,B|AがBに所属している|
 |-|A is more B than C|mo|Noun.gt|A,V,B,C|AがCよりBである|
-|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|Bという内容をCという情報源から，AはFする|
+|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|Bという内容をCという  情報源から，AはFする|
 
 ## Noun.do
 
@@ -1462,6 +1462,7 @@ mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil b
 |da te ga gok sa 'create' fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.I(  ) , DeterminerV.Suggestion( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |Shall I create a table?|
 |te ga sa 'get' ma fa 'information' so te lan gi nu sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , Verb( "'get'" ) , Noun.eq( Noun( "'information'" ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb.perfective( Verb( "'create'" )  ) , Noun( "'table'" )  )  )  ) |I get the information that he has create a table.|
 |di te ga sa 'get' ma fa 'information' so te lan gi nu sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , Verb( "'get'" ) , Noun.eq( Noun( "'information'" ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb.perfective( Verb( "'create'" )  ) , Noun( "'table'" )  )  )  )  ) |I got the information that he has create a table.|
+|di te ga sa 'get' ma fa 'information' so te lan gi nu sa 'create' ma don fa 'table' so mal pul|Phrase.past( Noun.doT( Pronoun.I(  ) , Verb( "'get'" ) , Noun.eq( Noun( "'information'" ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb.perfective( Verb( "'create'" )  ) , Noun.eq( DeterminerN.plural( Noun( "'table'" )  ) , Verb.none(  ) , NumberList.digit1( Number.three(  )  )  )  )  )  )  ) |I got the information that he has create three tables.|
 |di moa ga so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.I(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, I heard that he create a table.|
 |di moa ge so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.you(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, you heard that he create a table.|
 
@@ -1486,7 +1487,7 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |:-:|:-:|:-:|
 **A**|メインアップデート|単語やプログラム等の大きな変更がある場合|
 **B**|マイナーアップデート|単語やプログラム等の少量の変更がある場合|
-**C**|パッチアップデート|プログラムのバグ修正等による少量の変更や ドキュメントの変更がある場合|
+**C**|パッチアップデート|プログラムのバグ修正等による少量の変更や  ドキュメントの変更がある場合|
 
 ## バージョン更新内容について
 
@@ -1533,4 +1534,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.0.4|ドキュメントの追加・修正|
 |5.0.5|ドキュメントの追加・修正|
 |5.0.6|ドキュメントの追加・修正|
+|5.0.7|ドキュメントの追加・修正|
 
