@@ -23,6 +23,8 @@ And while English-like tense agreement requires clause-by-clause utilisation in 
 A subordinate modification of a noun in the main clause can be achieved by inserting a sentence describing the noun instead of the noun.
 In addition, the SFGPL generally uses subordinate clauses to modify nouns.
 
+### General subordinate clauses
+
 In the SFGPL, "My bag is big." can be expressed as follows.
 In this case, "My bag" is expressed as "I have a bag".
 The noun is then marked with ```{DeterminerN_stressed}``` because "bag" is the noun being modified.
@@ -46,11 +48,19 @@ Then, to express "I give you the desk I built.", do the following.
 
 The tense of only the subordinate clause can be changed in this way.
 
-In addition, adverbial clauses can be used to modify predicates and whole sentences.
+### Adverbial clauses
+
+Adverbial clauses can be used to modify predicates and whole sentences.
 In the SFGPL, "I ate sushi, when I went to Tokyo." can be expressed as follows.
 
 ```SFGPL
 {I_ate_sushi_when_I_went_to_Tokyo}
+```
+
+Or, to express "I went grocery shopping while my kids were sleeping." in the SFGPL.
+
+```SFGPL
+{I_went_grocery_shopping_while_my_kids_were_sleeping}
 ```
 
 ## Wordbook
@@ -69,3 +79,6 @@ In the SFGPL, "I ate sushi, when I went to Tokyo." can be expressed as follows.
 |desk|{desk}|
 |eat|{eat}|
 |sushi|{sushi}|
+|grocery|{grocery}|
+|kid|{kid}|
+|sleep|{sleep}|

@@ -29,6 +29,12 @@ format_str_list={
     "I_ate_sushi_when_I_went_to_Tokyo":Phrase.past(Noun.doT(Pronoun.I(),Verb.add(Verb("eat"),Modifier.N2M(s01)),Noun("sushi"))),
     "eat":Verb("eat"),
     "sushi":Noun("sushi"),
+
+    "I_went_grocery_shopping_while_my_kids_were_sleeping":Phrase.past(Noun.do(Pronoun.I(),Verb.add(Verb("go"),Modifier.AND(Modifier.N2M(Noun.eq(Noun.V2N(Verb.progressive(Verb("shop"))),Verb.none(),Noun("grocery"))),Modifier.N2M(Noun.do(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(DeterminerN.plural(Noun("kid")))),Verb.progressive(Verb("sleep")))))))),
+    "grocery":Noun("grocery"),
+    "kid":Noun("kid"),
+    "sleep":Verb("sleep"),
+
 }
 
 createDocs(name=NAME,format_str_list=format_str_list,lang_mode="JP",md_mode=True,out_flag=True,all_docs_flag=True)

@@ -27,6 +27,8 @@ di ba ta ga na sa 'go' li pun fa 'Tokyo' ta ga na ni sa 'shop' li pun gu
 主節内の名詞に対して従属的に修飾するためには，その名詞の代わりにその名詞を説明する文を入れることで実現できる．
 また，SFGPLでは一般的に，名詞を修飾する場合には従属節を使用することが多い．
 
+### 一般的な従属節
+
 SFGPLで，"My bag is big."を表すには次のようにする．
 またこのときの"My bag"は，"I have a bag"であるというように表現する．
 そしてこのとき，"bag"が修飾されている名詞であるため，その名詞には```san```を付ける．
@@ -50,11 +52,19 @@ ti ga so ge di te ga sa 'build' san fa 'desk'
 
 このように従属節だけの時制を変えることもできる．
 
-さらに，副詞節で述語や文全体に対して修飾することができる．
+### 副詞節
+
+副詞節で述語や文全体に対して修飾することができる．
 SFGPLで"I ate sushi, when I went to Tokyo."を表すには次のようにする．
 
 ```SFGPL
 di te ga na sa 'eat' li ta ga na sa 'go' li pun fa 'Tokyo' fa 'sushi'
+```
+
+また，SFGPLで"I went grocery shopping while my kids were sleeping."を表すためには次のようにする．
+
+```SFGPL
+di ta ga na sa 'go' ba li ma fi ni sa 'shop' so fa 'grocery' li ta mi ga so san don fa 'kid' ni sa 'sleep'
 ```
 
 ## 単語集
@@ -73,3 +83,6 @@ di te ga na sa 'eat' li ta ga na sa 'go' li pun fa 'Tokyo' fa 'sushi'
 |desk|fa 'desk'|
 |eat|sa 'eat'|
 |sushi|fa 'sushi'|
+|grocery|fa 'grocery'|
+|kid|fa 'kid'|
+|sleep|sa 'sleep'|

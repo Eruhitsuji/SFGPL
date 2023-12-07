@@ -27,6 +27,8 @@ di ba ta ga na sa 'go' li pun fa 'Tokyo' ta ga na ni sa 'shop' li pun gu
 A subordinate modification of a noun in the main clause can be achieved by inserting a sentence describing the noun instead of the noun.
 In addition, the SFGPL generally uses subordinate clauses to modify nouns.
 
+### General subordinate clauses
+
 In the SFGPL, "My bag is big." can be expressed as follows.
 In this case, "My bag" is expressed as "I have a bag".
 The noun is then marked with ```san``` because "bag" is the noun being modified.
@@ -50,11 +52,19 @@ ti ga so ge di te ga sa 'build' san fa 'desk'
 
 The tense of only the subordinate clause can be changed in this way.
 
-In addition, adverbial clauses can be used to modify predicates and whole sentences.
+### Adverbial clauses
+
+Adverbial clauses can be used to modify predicates and whole sentences.
 In the SFGPL, "I ate sushi, when I went to Tokyo." can be expressed as follows.
 
 ```SFGPL
 di te ga na sa 'eat' li ta ga na sa 'go' li pun fa 'Tokyo' fa 'sushi'
+```
+
+Or, to express "I went grocery shopping while my kids were sleeping." in the SFGPL.
+
+```SFGPL
+di ta ga na sa 'go' ba li ma fi ni sa 'shop' so fa 'grocery' li ta mi ga so san don fa 'kid' ni sa 'sleep'
 ```
 
 ## Wordbook
@@ -73,3 +83,6 @@ di te ga na sa 'eat' li ta ga na sa 'go' li pun fa 'Tokyo' fa 'sushi'
 |desk|fa 'desk'|
 |eat|sa 'eat'|
 |sushi|fa 'sushi'|
+|grocery|fa 'grocery'|
+|kid|fa 'kid'|
+|sleep|sa 'sleep'|

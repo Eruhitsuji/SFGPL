@@ -23,6 +23,8 @@ SFGPLで，"I went to Tokyo and I was shopping there."を表すには次のよ�
 主節内の名詞に対して従属的に修飾するためには，その名詞の代わりにその名詞を説明する文を入れることで実現できる．
 また，SFGPLでは一般的に，名詞を修飾する場合には従属節を使用することが多い．
 
+### 一般的な従属節
+
 SFGPLで，"My bag is big."を表すには次のようにする．
 またこのときの"My bag"は，"I have a bag"であるというように表現する．
 そしてこのとき，"bag"が修飾されている名詞であるため，その名詞には```{DeterminerN_stressed}```を付ける．
@@ -46,11 +48,19 @@ SFGPLで，"My bag is big."を表すには次のようにする．
 
 このように従属節だけの時制を変えることもできる．
 
-さらに，副詞節で述語や文全体に対して修飾することができる．
+### 副詞節
+
+副詞節で述語や文全体に対して修飾することができる．
 SFGPLで"I ate sushi, when I went to Tokyo."を表すには次のようにする．
 
 ```SFGPL
 {I_ate_sushi_when_I_went_to_Tokyo}
+```
+
+また，SFGPLで"I went grocery shopping while my kids were sleeping."を表すためには次のようにする．
+
+```SFGPL
+{I_went_grocery_shopping_while_my_kids_were_sleeping}
 ```
 
 ## 単語集
@@ -69,3 +79,6 @@ SFGPLで"I ate sushi, when I went to Tokyo."を表すには次のようにする
 |desk|{desk}|
 |eat|{eat}|
 |sushi|{sushi}|
+|grocery|{grocery}|
+|kid|{kid}|
+|sleep|{sleep}|
