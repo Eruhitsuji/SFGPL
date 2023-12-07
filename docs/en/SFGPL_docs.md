@@ -3,6 +3,7 @@ title: Introduction to the SFGPL
 author: Eruhitsuji
 date: 2023-12-07
 ---
+
 # 1. about SFGPL
 
 ## Introduction
@@ -727,6 +728,9 @@ There are [numerical words](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/e
 These words are not often used in general sentences, but are used to indicate logic.
 
 # 9. Verb Conjugation
+
+The SFGPL has words that modify verbs, such as tense, phase and auxiliary verbs.
+These words are mainly attached directly to the verb and modify it, while others modify the whole sentence.
 
 ## Verb tenses
 
@@ -1528,4 +1532,5 @@ The content of updates due to changes in version names is based on the following
 |5.0.3|Add and modify to documents|
 |5.0.4|Add and modify to documents|
 |5.0.5|Add and modify to documents|
+|5.0.6|Add and modify to documents|
 

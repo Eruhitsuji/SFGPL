@@ -1,5 +1,8 @@
 {page_header}
 
+The SFGPL has words that modify verbs, such as tense, phase and auxiliary verbs.
+These words are mainly attached directly to the verb and modify it, while others modify the whole sentence.
+
 ## Verb tenses
 
 Verb tenses exist in the SFGPL as shown in the figure below.
