@@ -54,7 +54,7 @@ SFGPLの語順はSVOであるが，文頭に文の構造を決定する機能語
 |-|A has B|mi|Noun.have|A,V,B|AがBを所有している|
 |-|A belongs to B|mu|Noun.belong|A,V,B|AがBに所属している|
 |-|A is more B than C|mo|Noun.gt|A,V,B,C|AがCよりBである|
-|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|Bという内容をCという  情報源から，AはFする|
+|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|Bという内容をCという<br>情報源から，AはFする|
 
 ## SFGPLの発音
 
@@ -169,7 +169,7 @@ SFGPLでは以下の表のような文型が存在し，それらの文の組み
 |-|A has B|mi|Noun.have|A,V,B|AがBを所有している|
 |-|A belongs to B|mu|Noun.belong|A,V,B|AがBに所属している|
 |-|A is more B than C|mo|Noun.gt|A,V,B,C|AがCよりBである|
-|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|Bという内容をCという  情報源から，AはFする|
+|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|Bという内容をCという<br>情報源から，AはFする|
 
 ## Noun.do
 
@@ -1487,7 +1487,7 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |:-:|:-:|:-:|
 **A**|メインアップデート|単語やプログラム等の大きな変更がある場合|
 **B**|マイナーアップデート|単語やプログラム等の少量の変更がある場合|
-**C**|パッチアップデート|プログラムのバグ修正等による少量の変更や  ドキュメントの変更がある場合|
+**C**|パッチアップデート|プログラムのバグ修正等による少量の変更や<br>ドキュメントの変更がある場合|
 
 ## バージョン更新内容について
 
@@ -1535,4 +1535,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.0.5|ドキュメントの追加・修正|
 |5.0.6|ドキュメントの追加・修正|
 |5.0.7|ドキュメントの追加・修正|
+|5.0.8|ドキュメントの追加・修正|
 
