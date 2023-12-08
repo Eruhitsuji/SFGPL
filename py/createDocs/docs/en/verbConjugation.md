@@ -21,6 +21,9 @@ Example sentences using the tenses are shown in the following table.
 
 In particular, ```{phrase_past}``` and ```{phrase_future}``` are attached to the sentence itself.
 
+The present tense in ②, with nothing attached, usually denotes the present.
+However, it is essentially an indefinite tense and is also used when no particular tense is required.
+
 ### Extended verb tenses
 
 The verbs described in the previous section are the most basic way of expressing verb tenses.
@@ -121,6 +124,22 @@ Examples of the perfect tense for the three tenses are as follows.
 |③Future Perfect Tense|I will have lived in Tokyo.|{I_will_have_lived_in_Tokyo}|
 
 In ```{verb_perfective}```, the perfective form is attached to and modifies the verb itself.
+
+## Summary of time expressions in the SFGPL
+
+The following table exists with regard to the time expressions of the SFGPL.
+
+|Base tense|Extended tense|Perfect tense|Progressive form|
+|:-:|:-:|:-:|:-:|
+|-|-|-|-|
+|{phrase_past}|{determinerV_past}|{verb_perfective}|{verb_start}|
+|{phrase_future}|{determinerV_present}||{verb_condition}|
+||{determinerV_future}||{verb_complete}|
+||||{verb_continue}|
+||||{verb_end}|
+||||{verb_progressive}|
+
+このように，SFGPLでは3×4×2×7=168通りの時間表現が存在し，あらゆる場面に対して表現することが可能である．
 
 ## Passive voice
 

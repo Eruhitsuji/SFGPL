@@ -21,6 +21,9 @@ SFGPLでは以下の図のような動詞の時制が存在する．
 
 特に```{phrase_past}```と```{phrase_future}```では，文章自体に付属し形容する．
 
+また，②の現在形は，何も付属しないことで，通常は現在のことを表す．
+しかし，本来は不定時制であり，特に時制を必要としない場合にも使われる．
+
 ### 動詞の拡張時制
 
 前項で説明した動詞は，一番基本的な動詞の時制の表し方である．
@@ -121,6 +124,22 @@ SFGPLでは，以下の図のような，英語と同等な完了形が存在す
 |③未来完了形|I will have lived in Tokyo.|{I_will_have_lived_in_Tokyo}|
 
 完了形を表す```{verb_perfective}```では，動詞自体に付属し，修飾する．
+
+## SFGPLの時間表現のまとめ
+
+SFGPLの時間表現に関しては，次の表のようなものが存在する．
+
+|基本時制|拡張時制|完了相|完結相|
+|:-:|:-:|:-:|:-:|
+|-|-|-|-|
+|{phrase_past}|{determinerV_past}|{verb_perfective}|{verb_start}|
+|{phrase_future}|{determinerV_present}||{verb_condition}|
+||{determinerV_future}||{verb_complete}|
+||||{verb_continue}|
+||||{verb_end}|
+||||{verb_progressive}|
+
+このように，SFGPLでは3×4×2×7=168通りの時間表現が存在し，あらゆる場面に対して表現することが可能である．
 
 ## 受動態
 

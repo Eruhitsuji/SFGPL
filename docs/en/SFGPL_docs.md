@@ -654,6 +654,7 @@ For example, the word 'language' from any language can be borrowed into the SFGP
 |Esperanto|lingvo|fa 'lingvo'|
 
 Thus, it can borrow from a variety of languages.
+In addition, the borrowed words in this material are basically borrowed from the English language.
 
 ## About unique words
 
@@ -774,6 +775,9 @@ Example sentences using the tenses are shown in the following table.
 
 In particular, ```di``` and ```du``` are attached to the sentence itself.
 
+The present tense in ②, with nothing attached, usually denotes the present.
+However, it is essentially an indefinite tense and is also used when no particular tense is required.
+
 ### Extended verb tenses
 
 The verbs described in the previous section are the most basic way of expressing verb tenses.
@@ -874,6 +878,22 @@ Examples of the perfect tense for the three tenses are as follows.
 |③Future Perfect Tense|I will have lived in Tokyo.|du ta ga nu na sa 'live' li pun fa 'Tokyo'|
 
 In ```nu```, the perfective form is attached to and modifies the verb itself.
+
+## Summary of time expressions in the SFGPL
+
+The following table exists with regard to the time expressions of the SFGPL.
+
+|Base tense|Extended tense|Perfect tense|Progressive form|
+|:-:|:-:|:-:|:-:|
+|-|-|-|-|
+|di|bak|nu|tak|
+|du|bik||tek|
+||bok||tik|
+||||tuk|
+||||tok|
+||||ni|
+
+このように，SFGPLでは3×4×2×7=168通りの時間表現が存在し，あらゆる場面に対して表現することが可能である．
 
 ## Passive voice
 
@@ -1561,4 +1581,5 @@ The content of updates due to changes in version names is based on the following
 |5.0.7|Add and modify to documents|
 |5.0.8|Add and modify to documents|
 |5.0.9|Add and modify to documents|
+|5.0.10|Add and modify to documents|
 

@@ -45,6 +45,7 @@ For example, the word 'language' from any language can be borrowed into the SFGP
 |Esperanto|lingvo|{language_eo}|
 
 Thus, it can borrow from a variety of languages.
+In addition, the borrowed words in this material are basically borrowed from the English language.
 
 ## About unique words
 
