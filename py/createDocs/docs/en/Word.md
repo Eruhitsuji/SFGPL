@@ -27,6 +27,25 @@ Examples using these words are shown below.
 |I open a door.|{I_open_a_door}|
 |I am tall.|{I_am_tall}|
 
+### Borrowed words and the language from which they are borrowed
+
+Borrowing words can be from any language.
+However, it is preferable to choose words that are understood by both speakers.
+
+For example, the word 'language' from any language can be borrowed into the SFGPL as shown in the table below.
+
+|Language|Raw Word|SFGPL|
+|:-:|:-:|:-:|
+|English|language|{language_en}|
+|Japanese|言語|{language_ja}|
+|Spanish|idioma|{language_es}|
+|French|langue|{language_fr}|
+|Russian|язык|{language_ru}|
+|Portuguese|linguagem|{language_pt}|
+|Esperanto|lingvo|{language_eo}|
+
+Thus, it can borrow from a variety of languages.
+
 ## About unique words
 
 The SFGPL provides several unique words for verbs and modifiers.
@@ -47,6 +66,11 @@ Examples using these words are shown below.
 |:-:|:-:|
 |I create a door.|{I_create_a_door}|
 |The apple is big.|{the_apple_is_big}|
+
+### Unique word rules
+
+There is uniqueness with respect to the SFGPL's unique words: words with different meanings have different pronunciations.
+The syllable structure is one word and one syllable (CV or CVC).
 
 ## About the determiners
 

@@ -48,7 +48,7 @@ SFGPLの語順はSVOであるが，文頭に文の構造を決定する機能語
 |-|A has B|{noun_have}|Noun.have|A,V,B|AがBを所有している|
 |-|A belongs to B|{noun_belong}|Noun.belong|A,V,B|AがBに所属している|
 |-|A is more B than C|{noun_gt}|Noun.gt|A,V,B,C|AがCよりBである|
-|-|According to C, A V B|{noun_hearSay}|Noun.hearSay|A,V,B,C|Bという内容をCという<br>情報源から，AはFする|
+|-|According to C, A V B|{noun_hearSay}|Noun.hearSay|A,V,B,C|<div class="long_td">Bという内容をCという<br>情報源から，AはFする</div>|
 
 ## SFGPLの発音
 

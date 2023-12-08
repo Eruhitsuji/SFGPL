@@ -21,7 +21,7 @@ SFGPLでは以下の表のような文型が存在し，それらの文の組み
 |-|A has B|mi|Noun.have|A,V,B|AがBを所有している|
 |-|A belongs to B|mu|Noun.belong|A,V,B|AがBに所属している|
 |-|A is more B than C|mo|Noun.gt|A,V,B,C|AがCよりBである|
-|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|Bという内容をCという<br>情報源から，AはFする|
+|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|<div class="long_td">Bという内容をCという<br>情報源から，AはFする</div>|
 
 ## Noun.do
 

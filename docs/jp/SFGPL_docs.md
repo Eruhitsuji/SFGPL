@@ -1,7 +1,7 @@
 ---
 title: SFGPL入門
 author: Eruhitsuji
-date: 2023-12-07
+date: 2023-12-08
 ---
 
 # 1. SFGPLについて
@@ -54,7 +54,7 @@ SFGPLの語順はSVOであるが，文頭に文の構造を決定する機能語
 |-|A has B|mi|Noun.have|A,V,B|AがBを所有している|
 |-|A belongs to B|mu|Noun.belong|A,V,B|AがBに所属している|
 |-|A is more B than C|mo|Noun.gt|A,V,B,C|AがCよりBである|
-|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|Bという内容をCという<br>情報源から，AはFする|
+|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|<div class="long_td">Bという内容をCという<br>情報源から，AはFする</div>|
 
 ## SFGPLの発音
 
@@ -169,7 +169,7 @@ SFGPLでは以下の表のような文型が存在し，それらの文の組み
 |-|A has B|mi|Noun.have|A,V,B|AがBを所有している|
 |-|A belongs to B|mu|Noun.belong|A,V,B|AがBに所属している|
 |-|A is more B than C|mo|Noun.gt|A,V,B,C|AがCよりBである|
-|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|Bという内容をCという<br>情報源から，AはFする|
+|-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|<div class="long_td">Bという内容をCという<br>情報源から，AはFする</div>|
 
 ## Noun.do
 
@@ -636,6 +636,25 @@ SFGPLは基礎単語以外は借用語にて代用する．
 |I open a door.|te ga sa 'open' fa 'door'|
 |I am tall.|me ga so la 'tall'|
 
+### 借用語と借用元の言語
+
+借用語はあらゆる言語より借用することが可能である．
+ただし，話者間双方で理解できる単語を選ぶことが望ましい．
+
+例えば，あらゆる言語の「言語」という単語をSFGPLに借用するには次の表のようにする．
+
+|Language|Raw Word|SFGPL|
+|:-:|:-:|:-:|
+|English|language|fa 'language'|
+|Japanese|言語|fa '言語'|
+|Spanish|idioma|fa 'idioma'|
+|French|langue|fa 'langue'|
+|Russian|язык|fa 'язык'|
+|Portuguese|linguagem|fa 'linguagem'|
+|Esperanto|lingvo|fa 'lingvo'|
+
+このように，様々な言語から借用することができる．
+
 ## 固有単語について
 
 SFGPLでは，動詞と修飾語については，いくつかの固有単語が用意されている．
@@ -656,6 +675,11 @@ WordV，WordMクラスでは，SFGPLに固有に存在する単語群である�
 |:-:|:-:|
 |I create a door.|te ga kan fa 'door'|
 |The apple is big.|me fa 'apple' so wan|
+
+### 固有単語のルール
+
+SFGPLの固有単語に関しては一意性があり，異なる意味の単語は異なる発音となる．
+また音節構造は，一単語一音節（CVまたはCVC）である．
 
 ## 限定詞について
 
@@ -1485,9 +1509,9 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 
 |Version|Update|Contents|
 |:-:|:-:|:-:|
-**A**|メインアップデート|単語やプログラム等の大きな変更がある場合|
-**B**|マイナーアップデート|単語やプログラム等の少量の変更がある場合|
-**C**|パッチアップデート|プログラムのバグ修正等による少量の変更や<br>ドキュメントの変更がある場合|
+|**A**|メインアップデート|単語やプログラム等の大きな変更がある場合|
+|**B**|マイナーアップデート|単語やプログラム等の少量の変更がある場合|
+|**C**|パッチアップデート|<div class="long_td">プログラムのバグ修正等による少量の変更や<br>ドキュメントの変更がある場合</div>|
 
 ## バージョン更新内容について
 
@@ -1536,4 +1560,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.0.6|ドキュメントの追加・修正|
 |5.0.7|ドキュメントの追加・修正|
 |5.0.8|ドキュメントの追加・修正|
+|5.0.9|ドキュメントの追加・修正|
 

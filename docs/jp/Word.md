@@ -31,6 +31,25 @@ SFGPLは基礎単語以外は借用語にて代用する．
 |I open a door.|te ga sa 'open' fa 'door'|
 |I am tall.|me ga so la 'tall'|
 
+### 借用語と借用元の言語
+
+借用語はあらゆる言語より借用することが可能である．
+ただし，話者間双方で理解できる単語を選ぶことが望ましい．
+
+例えば，あらゆる言語の「言語」という単語をSFGPLに借用するには次の表のようにする．
+
+|Language|Raw Word|SFGPL|
+|:-:|:-:|:-:|
+|English|language|fa 'language'|
+|Japanese|言語|fa '言語'|
+|Spanish|idioma|fa 'idioma'|
+|French|langue|fa 'langue'|
+|Russian|язык|fa 'язык'|
+|Portuguese|linguagem|fa 'linguagem'|
+|Esperanto|lingvo|fa 'lingvo'|
+
+このように，様々な言語から借用することができる．
+
 ## 固有単語について
 
 SFGPLでは，動詞と修飾語については，いくつかの固有単語が用意されている．
@@ -51,6 +70,11 @@ WordV，WordMクラスでは，SFGPLに固有に存在する単語群である�
 |:-:|:-:|
 |I create a door.|te ga kan fa 'door'|
 |The apple is big.|me fa 'apple' so wan|
+
+### 固有単語のルール
+
+SFGPLの固有単語に関しては一意性があり，異なる意味の単語は異なる発音となる．
+また音節構造は，一単語一音節（CVまたはCVC）である．
 
 ## 限定詞について
 

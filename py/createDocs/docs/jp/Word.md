@@ -27,6 +27,25 @@ SFGPLは基礎単語以外は借用語にて代用する．
 |I open a door.|{I_open_a_door}|
 |I am tall.|{I_am_tall}|
 
+### 借用語と借用元の言語
+
+借用語はあらゆる言語より借用することが可能である．
+ただし，話者間双方で理解できる単語を選ぶことが望ましい．
+
+例えば，あらゆる言語の「言語」という単語をSFGPLに借用するには次の表のようにする．
+
+|Language|Raw Word|SFGPL|
+|:-:|:-:|:-:|
+|English|language|{language_en}|
+|Japanese|言語|{language_ja}|
+|Spanish|idioma|{language_es}|
+|French|langue|{language_fr}|
+|Russian|язык|{language_ru}|
+|Portuguese|linguagem|{language_pt}|
+|Esperanto|lingvo|{language_eo}|
+
+このように，様々な言語から借用することができる．
+
 ## 固有単語について
 
 SFGPLでは，動詞と修飾語については，いくつかの固有単語が用意されている．
@@ -47,6 +66,11 @@ WordV，WordMクラスでは，SFGPLに固有に存在する単語群である�
 |:-:|:-:|
 |I create a door.|{I_create_a_door}|
 |The apple is big.|{the_apple_is_big}|
+
+### 固有単語のルール
+
+SFGPLの固有単語に関しては一意性があり，異なる意味の単語は異なる発音となる．
+また音節構造は，一単語一音節（CVまたはCVC）である．
 
 ## 限定詞について
 
