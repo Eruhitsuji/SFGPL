@@ -63,6 +63,42 @@ Or, to express "I went grocery shopping while my kids were sleeping." in the SFG
 {I_went_grocery_shopping_while_my_kids_were_sleeping}
 ```
 
+## Modification of nouns by nouns
+
+When Y modifies X in a noun X and Y, it is expressed as "YのX" in Japanese and "Y X" or "X of Y" in English, but the SFGPL uses three main types of usage.
+In the SFGPL, as mentioned earlier, modifications are often made in subordinate clauses, and the case of nouns modifying nouns with nouns is no exception.
+Therefore, nouns can be modified in different ways: ```{noun_eq}```, ```{noun_have}``` and ```{noun_belong}```.
+
+### Noun.eq
+
+First, ```{noun_eq}``` is mainly used when the modifier and the moderated are equivalent.
+For example, to express "This pen is big." in SFGPL as follows.
+
+```SFGPL
+{this_pen_is_big}
+```
+
+In this case, "this" and "pen" are equivalent.
+Therefore, ```{noun_eq}``` is used.
+
+### Noun.have
+
+Next, ```{noun_have}``` is mainly used when something has something.
+To express "My pen is big." in the SFGPL, use the following.
+
+```SFGPL
+{my_pen_is_big}
+```
+
+### Noun.belong
+
+Also, ```{noun_belong}``` is mainly used when something belongs to something.
+To express "My school is big." in the SFGPL, use the following.
+
+```SFGPL
+{my_school_is_big}
+```
+
 ## Wordbook
 
 |English|SFGPL|
@@ -82,3 +118,6 @@ Or, to express "I went grocery shopping while my kids were sleeping." in the SFG
 |grocery|{grocery}|
 |kid|{kid}|
 |sleep|{sleep}|
+|this|{this}|
+|pen|{pen}|
+|school|{school}|

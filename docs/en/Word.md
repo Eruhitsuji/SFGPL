@@ -104,7 +104,7 @@ Examples using these words are shown below.
 
 There is a [verb determiner](DeterminerV.md) in the SFGPL.
 These are special words that modify verbs.
-These include words used as verb tenses and phases, and words that add meaning to the verb in an auxiliary verb-like manner.
+These include words used as verb tenses and aspects, and words that add meaning to the verb in an auxiliary verb-like manner.
 
 ## About meaningless words
 

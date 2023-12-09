@@ -63,6 +63,42 @@ SFGPLで"I ate sushi, when I went to Tokyo."を表すには次のようにする
 {I_went_grocery_shopping_while_my_kids_were_sleeping}
 ```
 
+## 名詞による名詞の修飾
+
+ある名詞XとYにおいて，YがXを修飾するとき，日本語では"YのX"，英語では"Y X"または"X of Y"と表されるがSFGPLでは，主に3種類の用法を使い分けて使用する．
+SFGPLでは，先述のように，従属節で修飾をすることが多いが，名詞を名詞で修飾する場合も例外ではない．
+そのため名詞の修飾方法は，```{noun_eq}```，```{noun_have}```と```{noun_belong}```で使い分けられる．
+
+### Noun.eq
+
+まず，```{noun_eq}```では，主に修飾語と被修飾語が同等のもののときに使われる．
+例えば"This pen is big."をSFGPLで表すには次のようにする．
+
+```SFGPL
+{this_pen_is_big}
+```
+
+このとき，"this"と"pen"は同等のものを指している．
+そのため，```{noun_eq}```が使われる．
+
+### Noun.have
+
+次に，```{noun_have}```では，主に何かが何かを持ているときに使われる．
+SFGPLで"My pen is big."を表すには次のようにする．
+
+```SFGPL
+{my_pen_is_big}
+```
+
+### Noun.belong
+
+また，```{noun_belong}```では，主に何かがなにかに所属しているときに使われる．
+SFGPLで"My school is big."を表すには次のようにする．
+
+```SFGPL
+{my_school_is_big}
+```
+
 ## 単語集
 
 |English|SFGPL|
@@ -82,3 +118,6 @@ SFGPLで"I ate sushi, when I went to Tokyo."を表すには次のようにする
 |grocery|{grocery}|
 |kid|{kid}|
 |sleep|{sleep}|
+|this|{this}|
+|pen|{pen}|
+|school|{school}|

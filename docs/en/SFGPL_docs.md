@@ -14,6 +14,8 @@ The language was designed to make sentence structure and meaning easily interpre
 In particular, long and complex sentences containing conjunctions and relative pronouns are often difficult to interpret.
 The language was created by me as a hobby and has not been rigorously tested, so there may be flaws.
 
+The project then makes the materials and programmes available on GitHub[https://github.com/Eruhitsuji/SFGPL](https://github.com/Eruhitsuji/SFGPL).
+
 ## Background and purpose of creating the SFGPL
 
 In the grammars of many natural languages, there are many exceptions and many cases that annoy the learner.
@@ -489,6 +491,42 @@ Or, to express "I went grocery shopping while my kids were sleeping." in the SFG
 di ta ga na sa 'go' ba li ma fi ni sa 'shop' so fa 'grocery' li ta mi ga so san don fa 'kid' ni sa 'sleep'
 ```
 
+## Modification of nouns by nouns
+
+When Y modifies X in a noun X and Y, it is expressed as "YのX" in Japanese and "Y X" or "X of Y" in English, but the SFGPL uses three main types of usage.
+In the SFGPL, as mentioned earlier, modifications are often made in subordinate clauses, and the case of nouns modifying nouns with nouns is no exception.
+Therefore, nouns can be modified in different ways: ```ma```, ```mi``` and ```mu```.
+
+### Noun.eq
+
+First, ```ma``` is mainly used when the modifier and the moderated are equivalent.
+For example, to express "This pen is big." in SFGPL as follows.
+
+```SFGPL
+me ma gu so san fa 'pen' so wan
+```
+
+In this case, "this" and "pen" are equivalent.
+Therefore, ```ma``` is used.
+
+### Noun.have
+
+Next, ```mi``` is mainly used when something has something.
+To express "My pen is big." in the SFGPL, use the following.
+
+```SFGPL
+me mi ga so san fa 'pen' so wan
+```
+
+### Noun.belong
+
+Also, ```mu``` is mainly used when something belongs to something.
+To express "My school is big." in the SFGPL, use the following.
+
+```SFGPL
+me mu ga so san fa 'school' so wan
+```
+
 ## Wordbook
 
 |English|SFGPL|
@@ -508,11 +546,14 @@ di ta ga na sa 'go' ba li ma fi ni sa 'shop' so fa 'grocery' li ta mi ga so san 
 |grocery|fa 'grocery'|
 |kid|fa 'kid'|
 |sleep|sa 'sleep'|
+|this|gu|
+|pen|fa 'pen'|
+|school|fa 'school'|
 
 # 7. Verb Conjugation
 <div id="tex_section_label_7"></div>
 
-The SFGPL has words that modify verbs, such as tense, phase and auxiliary verbs.
+The SFGPL has words that modify verbs, such as tense, aspect and auxiliary verbs.
 These words are mainly attached directly to the verb and modify it, while others modify the whole sentence.
 
 ## Verb tenses
@@ -567,26 +608,30 @@ In ```A/B```, A denotes the base tense and B the extended tense.
 |**Present Tense**|di/bik|-/bik|du/bik|
 |**Future Tense**|di/bok|-/bok|du/bok|
 
-## Phases
+## Aspect on the time axis of operation
 
-In SFGPL, there are six phases as shown in the figure below: ①start phase, ②transitional phase, ③completion phase, ④continuation phase, ⑤finish phase, and ⑥progression phase.
+In SFGPL, there are six aspects as shown in the figure below: ①start aspect, ②transitional aspect, ③completion aspect, ④continuation aspect, ⑤finish aspect, and ⑥progression aspect.
 
 ![ProgressiveForm](../img/ProgressiveForm.jpg)
 
-The following table shows example sentences in each phase for ```te ga sa 'wear' fa 'dress'``` meaning "I wear dress".
+The following table shows example sentences in each aspect for ```te ga sa 'wear' fa 'dress'``` meaning "I wear dress".
 
-|Phase|Word|English|SFGPL|
+|Aspect|Word|English|SFGPL|
 |:-:|:-:|:-:|:-:|
-|①Start Phase|tak|I begin wear a dress.|te ga tak sa 'wear' fa 'dress'|
-|②Transitional Phase|tek|I am (in the process of) wearing a dress.|te ga tek sa 'wear' fa 'dress'|
-|③Completion Phase|tik|I wear a dress. (I just finished wearing it.)|te ga tik sa 'wear' fa 'dress'|
-|④Continuation Phase|tuk|I am wearing a dress. (The state in which it is worn.)|te ga tuk sa 'wear' fa 'dress'|
-|⑤Finish Phase|tok|I finish wear a dress. (I stopped wearing it.)|te ga tok sa 'wear' fa 'dress'|
-|⑥Progression Phase|ni|I am wearing a dress.|te ga ni sa 'wear' fa 'dress'|
+|①Start Aspect|tak|I begin wear a dress.|te ga tak sa 'wear' fa 'dress'|
+|②Transitional Aspect|tek|I am (in the process of) wearing a dress.|te ga tek sa 'wear' fa 'dress'|
+|③Completion Aspect|tik|I wear a dress. (I just finished wearing it.)|te ga tik sa 'wear' fa 'dress'|
+|④Continuation Aspect|tuk|I am wearing a dress. (The state in which it is worn.)|te ga tuk sa 'wear' fa 'dress'|
+|⑤Finish Aspect|tok|I finish wear a dress. (I stopped wearing it.)|te ga tok sa 'wear' fa 'dress'|
+|⑥Progression Aspect|ni|I am wearing a dress.|te ga ni sa 'wear' fa 'dress'|
 
-These phases can be in the past or future tense in addition to the present tense.
-⑥ Progressive phase includes ② transitional phase and ④ continuation phase.
-There are also cases where ③ the completion phase and ⑤ the finish phase are the same.
+The ① start aspect, ③ completion aspect and ⑤ finish aspect represent only one point in time for a certain action.
+
+The ② transitional aspect, ④ continuation aspect and ⑥ progression aspect represent a period of time for a certain action.
+⑥ Progression aspect represents an indistinct period that includes ② transitional aspect and ④ continuation aspect.
+Also, with action verbs, the interval between ① start aspect and ③ completion aspect may be instantaneous and almost indistinguishable.
+
+These aspects can be in the past or future tense in addition to the present tense.
 "I begin wear a dress." in the past and future tenses is as follows.
 
 ```SFGPL
@@ -594,8 +639,8 @@ di te ga tak sa 'wear' fa 'dress'
 du te ga tak sa 'wear' fa 'dress'
 ```
 
-As a rule, a phase alone does not indicate a range of time, but only the moment in which it occurs.
-When expressing a range of time, the perfect tense is added.
+As a rule, these aspects by themselves express an action focused on a certain point in time.
+In particular, in order to emphasise cases where the action has continued past the point in time, the perfect tense is used in addition to these aspects.
 The progressive form plus the perfect form to express "I have been wearing a dress.".
 
 ```SFGPL
@@ -604,7 +649,7 @@ te ga nu ni sa 'wear' fa 'dress'
 
 ### General progressive form
 
-In SFGPL, we can make a simple progressive form as in ⑥ without considering the phases ① to ⑤ in the previous section.
+In SFGPL, we can make a simple progressive form as in ⑥ without considering the aspects ① to ⑤ in the previous section.
 The SFGPL can be expressed in the progressive form meaning "I am wearing the dress." as follows.
 
 ```SFGPL
@@ -897,7 +942,7 @@ Examples using these words are shown below.
 
 There is a [verb determiner](#15-determinerv) in the SFGPL.
 These are special words that modify verbs.
-These include words used as verb tenses and phases, and words that add meaning to the verb in an auxiliary verb-like manner.
+These include words used as verb tenses and aspects, and words that add meaning to the verb in an auxiliary verb-like manner.
 
 ## About meaningless words
 
@@ -1610,4 +1655,5 @@ The content of updates due to changes in version names is based on the following
 |5.0.9|Add and modify to documents|
 |5.0.10|Add and modify to documents|
 |5.0.11|Add and modify to documents|
+|5.0.12|Add and modify to documents|
 

@@ -1,6 +1,6 @@
 {page_header}
 
-The SFGPL has words that modify verbs, such as tense, phase and auxiliary verbs.
+The SFGPL has words that modify verbs, such as tense, aspect and auxiliary verbs.
 These words are mainly attached directly to the verb and modify it, while others modify the whole sentence.
 
 ## Verb tenses
@@ -55,26 +55,30 @@ In ```A/B```, A denotes the base tense and B the extended tense.
 |**Present Tense**|{phrase_past}/{determinerV_present}|-/{determinerV_present}|{phrase_future}/{determinerV_present}|
 |**Future Tense**|{phrase_past}/{determinerV_future}|-/{determinerV_future}|{phrase_future}/{determinerV_future}|
 
-## Phases
+## Aspect on the time axis of operation
 
-In SFGPL, there are six phases as shown in the figure below: ①start phase, ②transitional phase, ③completion phase, ④continuation phase, ⑤finish phase, and ⑥progression phase.
+In SFGPL, there are six aspects as shown in the figure below: ①start aspect, ②transitional aspect, ③completion aspect, ④continuation aspect, ⑤finish aspect, and ⑥progression aspect.
 
 ![ProgressiveForm](../img/ProgressiveForm.jpg)
 
-The following table shows example sentences in each phase for ```{I_wear_a_dress}``` meaning "I wear dress".
+The following table shows example sentences in each aspect for ```{I_wear_a_dress}``` meaning "I wear dress".
 
-|Phase|Word|English|SFGPL|
+|Aspect|Word|English|SFGPL|
 |:-:|:-:|:-:|:-:|
-|①Start Phase|{verb_start}|I begin wear a dress.|{I_begin_wear_a_dress}|
-|②Transitional Phase|{verb_condition}|I am (in the process of) wearing a dress.|{I_am_in_the_process_of_wearing_a_dress}|
-|③Completion Phase|{verb_complete}|I wear a dress. (I just finished wearing it.)|{I_wear_a_dress_complete}|
-|④Continuation Phase|{verb_continue}|I am wearing a dress. (The state in which it is worn.)|{I_am_wearing_a_dress_continue}|
-|⑤Finish Phase|{verb_end}|I finish wear a dress. (I stopped wearing it.)|{I_finish_wear_a_dress}|
-|⑥Progression Phase|{verb_progressive}|I am wearing a dress.|{I_am_wearing_a_dress}|
+|①Start Aspect|{verb_start}|I begin wear a dress.|{I_begin_wear_a_dress}|
+|②Transitional Aspect|{verb_condition}|I am (in the process of) wearing a dress.|{I_am_in_the_process_of_wearing_a_dress}|
+|③Completion Aspect|{verb_complete}|I wear a dress. (I just finished wearing it.)|{I_wear_a_dress_complete}|
+|④Continuation Aspect|{verb_continue}|I am wearing a dress. (The state in which it is worn.)|{I_am_wearing_a_dress_continue}|
+|⑤Finish Aspect|{verb_end}|I finish wear a dress. (I stopped wearing it.)|{I_finish_wear_a_dress}|
+|⑥Progression Aspect|{verb_progressive}|I am wearing a dress.|{I_am_wearing_a_dress}|
 
-These phases can be in the past or future tense in addition to the present tense.
-⑥ Progressive phase includes ② transitional phase and ④ continuation phase.
-There are also cases where ③ the completion phase and ⑤ the finish phase are the same.
+The ① start aspect, ③ completion aspect and ⑤ finish aspect represent only one point in time for a certain action.
+
+The ② transitional aspect, ④ continuation aspect and ⑥ progression aspect represent a period of time for a certain action.
+⑥ Progression aspect represents an indistinct period that includes ② transitional aspect and ④ continuation aspect.
+Also, with action verbs, the interval between ① start aspect and ③ completion aspect may be instantaneous and almost indistinguishable.
+
+These aspects can be in the past or future tense in addition to the present tense.
 "I begin wear a dress." in the past and future tenses is as follows.
 
 ```SFGPL
@@ -82,8 +86,8 @@ There are also cases where ③ the completion phase and ⑤ the finish phase are
 {I_began_will_begin_a_dress}
 ```
 
-As a rule, a phase alone does not indicate a range of time, but only the moment in which it occurs.
-When expressing a range of time, the perfect tense is added.
+As a rule, these aspects by themselves express an action focused on a certain point in time.
+In particular, in order to emphasise cases where the action has continued past the point in time, the perfect tense is used in addition to these aspects.
 The progressive form plus the perfect form to express "I have been wearing a dress.".
 
 ```SFGPL
@@ -92,7 +96,7 @@ The progressive form plus the perfect form to express "I have been wearing a dre
 
 ### General progressive form
 
-In SFGPL, we can make a simple progressive form as in ⑥ without considering the phases ① to ⑤ in the previous section.
+In SFGPL, we can make a simple progressive form as in ⑥ without considering the aspects ① to ⑤ in the previous section.
 The SFGPL can be expressed in the progressive form meaning "I am wearing the dress." as follows.
 
 ```SFGPL

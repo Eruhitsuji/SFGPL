@@ -67,6 +67,42 @@ Or, to express "I went grocery shopping while my kids were sleeping." in the SFG
 di ta ga na sa 'go' ba li ma fi ni sa 'shop' so fa 'grocery' li ta mi ga so san don fa 'kid' ni sa 'sleep'
 ```
 
+## Modification of nouns by nouns
+
+When Y modifies X in a noun X and Y, it is expressed as "YのX" in Japanese and "Y X" or "X of Y" in English, but the SFGPL uses three main types of usage.
+In the SFGPL, as mentioned earlier, modifications are often made in subordinate clauses, and the case of nouns modifying nouns with nouns is no exception.
+Therefore, nouns can be modified in different ways: ```ma```, ```mi``` and ```mu```.
+
+### Noun.eq
+
+First, ```ma``` is mainly used when the modifier and the moderated are equivalent.
+For example, to express "This pen is big." in SFGPL as follows.
+
+```SFGPL
+me ma gu so san fa 'pen' so wan
+```
+
+In this case, "this" and "pen" are equivalent.
+Therefore, ```ma``` is used.
+
+### Noun.have
+
+Next, ```mi``` is mainly used when something has something.
+To express "My pen is big." in the SFGPL, use the following.
+
+```SFGPL
+me mi ga so san fa 'pen' so wan
+```
+
+### Noun.belong
+
+Also, ```mu``` is mainly used when something belongs to something.
+To express "My school is big." in the SFGPL, use the following.
+
+```SFGPL
+me mu ga so san fa 'school' so wan
+```
+
 ## Wordbook
 
 |English|SFGPL|
@@ -86,3 +122,6 @@ di ta ga na sa 'go' ba li ma fi ni sa 'shop' so fa 'grocery' li ta mi ga so san 
 |grocery|fa 'grocery'|
 |kid|fa 'kid'|
 |sleep|sa 'sleep'|
+|this|gu|
+|pen|fa 'pen'|
+|school|fa 'school'|

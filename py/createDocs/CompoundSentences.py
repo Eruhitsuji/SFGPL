@@ -35,6 +35,17 @@ format_str_list={
     "kid":Noun("kid"),
     "sleep":Verb("sleep"),
 
+    "noun_eq":LangObj._getKeyOfDict("Noun.eq"),
+    "noun_have":LangObj._getKeyOfDict("Noun.have"),
+    "noun_belong":LangObj._getKeyOfDict("Noun.belong"),
+
+    "this_pen_is_big":Noun.haveP(Noun.eq(Pronoun.proximal(),Verb.none(),DeterminerN.stressed(Noun("pen"))),Verb.none(),WordM.big()),
+    "this":Pronoun.proximal(),
+    "pen":Noun("pen"),
+    "my_pen_is_big":Noun.haveP(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("pen"))),Verb.none(),WordM.big()),
+    "my_school_is_big":Noun.haveP(Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("school"))),Verb.none(),WordM.big()),
+    "school":Noun("school"),
+
 }
 
 createDocs(name=NAME,format_str_list=format_str_list,lang_mode="JP",md_mode=True,out_flag=True,all_docs_flag=True)

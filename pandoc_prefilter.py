@@ -4,6 +4,8 @@ import os
 import sys
 import re
 
+GITHUB_REPOSITORY="https://github.com/Eruhitsuji/SFGPL/blob/main/"
+
 def imgLinkReplace(path_str):
     return re.sub(r"(../)+img/","./",path_str)
 
@@ -15,6 +17,16 @@ def inPageLinkReplace(s):
         link_str=pli[2]
         raw_str="[{dw}](#{ln}-{ls})".format(dw=display_word,ln=link_num,ls=link_str)
         rp_str="\\hyperref[sec:sec_num_{label}]{{{text}}}".format(label=link_num,text=display_word)
+        s=s.replace(raw_str,rp_str)
+    return s
+
+def inFileLinkReplace(s):
+    pl=re.findall(r"\[(.+)\]\(../../(.+)\)",s)
+    for pli in pl:
+        display_word=pli[0]
+        link=pli[1]
+        raw_str="[{dw}](../../{link})".format(dw=display_word,link=link)
+        rp_str="[{dw}]({dir}{link})".format(dw=display_word,dir=GITHUB_REPOSITORY,link=link)
         s=s.replace(raw_str,rp_str)
     return s
 
@@ -73,6 +85,7 @@ if __name__ == "__main__":
         for line in l:
             line=imgLinkReplace(line)
             line=inPageLinkReplace(line)
+            line=inFileLinkReplace(line)
             line=texPartReplace(line)
             line=texSectionLabelReplace(line)
             line=tdNewLineReplace(line)

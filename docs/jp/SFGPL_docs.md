@@ -14,6 +14,8 @@ SFGPLは"Simple Functional General Purpose Language"の略で，自然言語を�
 
 また，この言語は私が趣味で作成したものであり，厳密に検証を行っていないため不備等がある可能性がある．
 
+そして，このプロジェクトでは，GitHub[https://github.com/Eruhitsuji/SFGPL](https://github.com/Eruhitsuji/SFGPL)において，資料やプログラムを公開している．
+
 ## SFGPL作成の背景と目的
 
 多くの自然言語の文法では，多くの例外や存在し，学習者を悩ませることが多い．
@@ -489,6 +491,42 @@ di te ga na sa 'eat' li ta ga na sa 'go' li pun fa 'Tokyo' fa 'sushi'
 di ta ga na sa 'go' ba li ma fi ni sa 'shop' so fa 'grocery' li ta mi ga so san don fa 'kid' ni sa 'sleep'
 ```
 
+## 名詞による名詞の修飾
+
+ある名詞XとYにおいて，YがXを修飾するとき，日本語では"YのX"，英語では"Y X"または"X of Y"と表されるがSFGPLでは，主に3種類の用法を使い分けて使用する．
+SFGPLでは，先述のように，従属節で修飾をすることが多いが，名詞を名詞で修飾する場合も例外ではない．
+そのため名詞の修飾方法は，```ma```，```mi```と```mu```で使い分けられる．
+
+### Noun.eq
+
+まず，```ma```では，主に修飾語と被修飾語が同等のもののときに使われる．
+例えば"This pen is big."をSFGPLで表すには次のようにする．
+
+```SFGPL
+me ma gu so san fa 'pen' so wan
+```
+
+このとき，"this"と"pen"は同等のものを指している．
+そのため，```ma```が使われる．
+
+### Noun.have
+
+次に，```mi```では，主に何かが何かを持ているときに使われる．
+SFGPLで"My pen is big."を表すには次のようにする．
+
+```SFGPL
+me mi ga so san fa 'pen' so wan
+```
+
+### Noun.belong
+
+また，```mu```では，主に何かがなにかに所属しているときに使われる．
+SFGPLで"My school is big."を表すには次のようにする．
+
+```SFGPL
+me mu ga so san fa 'school' so wan
+```
+
 ## 単語集
 
 |English|SFGPL|
@@ -508,6 +546,9 @@ di ta ga na sa 'go' ba li ma fi ni sa 'shop' so fa 'grocery' li ta mi ga so san 
 |grocery|fa 'grocery'|
 |kid|fa 'kid'|
 |sleep|sa 'sleep'|
+|this|gu|
+|pen|fa 'pen'|
+|school|fa 'school'|
 
 # 7. 動詞の活用方法
 <div id="tex_section_label_7"></div>
@@ -567,7 +608,7 @@ du ta ga na bak sa 'live' li pun fa 'Tokyo'
 |**Present Tense**|di/bik|-/bik|du/bik|
 |**Future Tense**|di/bok|-/bok|du/bok|
 
-## 相
+## 動作の時間軸に関する相
 
 SFGPLでは下の図のように，①起動相，②経過相，③完結相，④継続相，⑤終了相，⑥進行相の6つが存在する．
 
@@ -584,9 +625,13 @@ SFGPLでは下の図のように，①起動相，②経過相，③完結相，
 |⑤終了相|tok|I finish wear a dress. (I stopped wearing it.)|te ga tok sa 'wear' fa 'dress'|
 |⑥進行相|ni|I am wearing a dress.|te ga ni sa 'wear' fa 'dress'|
 
+①起動相，③完結相，⑤終了相では，ある動作に対しての瞬間の一点だけを表す．
+
+②経過相，④継続相，⑥進行相は，ある動作に対しての期間を表す．
+⑥進行相は②経過相と④継続相が含まれた，不明瞭な期間を表す．
+また，動作動詞では，①起動相から③完結相との間が一瞬であり，ほとんど区別できない場合がある．
+
 これらの相は，現在形以外にも，過去形，未来形にできる．
-⑥進行相は②経過相と④継続相が含まれている．
-また③完結相と⑤終了相が同じである場合もある．
 "I begin wear a dress."を過去形，未来形にすると次のようになる．
 
 ```SFGPL
@@ -594,8 +639,8 @@ di te ga tak sa 'wear' fa 'dress'
 du te ga tak sa 'wear' fa 'dress'
 ```
 
-また，原則として相単体では，時間の幅はなく，その瞬間だけを表す．
-時間の幅を表す場合は，完了形を付け加える．
+また，原則としてこれらの相単体では，ある時点にフォーカスをした動作を表している．
+特に，その時点より過去からその動作が続いている場合を強調して示すためには，それらの相に加えて完了形を使用し表現する．
 進行形に完了形を加えた"I have been wearing a dress."を表すには，次のようになる．
 
 ```SFGPL
@@ -1610,4 +1655,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.0.9|ドキュメントの追加・修正|
 |5.0.10|ドキュメントの追加・修正|
 |5.0.11|ドキュメントの追加・修正|
+|5.0.12|ドキュメントの追加・修正|
 

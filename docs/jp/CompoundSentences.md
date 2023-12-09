@@ -67,6 +67,42 @@ di te ga na sa 'eat' li ta ga na sa 'go' li pun fa 'Tokyo' fa 'sushi'
 di ta ga na sa 'go' ba li ma fi ni sa 'shop' so fa 'grocery' li ta mi ga so san don fa 'kid' ni sa 'sleep'
 ```
 
+## 名詞による名詞の修飾
+
+ある名詞XとYにおいて，YがXを修飾するとき，日本語では"YのX"，英語では"Y X"または"X of Y"と表されるがSFGPLでは，主に3種類の用法を使い分けて使用する．
+SFGPLでは，先述のように，従属節で修飾をすることが多いが，名詞を名詞で修飾する場合も例外ではない．
+そのため名詞の修飾方法は，```ma```，```mi```と```mu```で使い分けられる．
+
+### Noun.eq
+
+まず，```ma```では，主に修飾語と被修飾語が同等のもののときに使われる．
+例えば"This pen is big."をSFGPLで表すには次のようにする．
+
+```SFGPL
+me ma gu so san fa 'pen' so wan
+```
+
+このとき，"this"と"pen"は同等のものを指している．
+そのため，```ma```が使われる．
+
+### Noun.have
+
+次に，```mi```では，主に何かが何かを持ているときに使われる．
+SFGPLで"My pen is big."を表すには次のようにする．
+
+```SFGPL
+me mi ga so san fa 'pen' so wan
+```
+
+### Noun.belong
+
+また，```mu```では，主に何かがなにかに所属しているときに使われる．
+SFGPLで"My school is big."を表すには次のようにする．
+
+```SFGPL
+me mu ga so san fa 'school' so wan
+```
+
 ## 単語集
 
 |English|SFGPL|
@@ -86,3 +122,6 @@ di ta ga na sa 'go' ba li ma fi ni sa 'shop' so fa 'grocery' li ta mi ga so san 
 |grocery|fa 'grocery'|
 |kid|fa 'kid'|
 |sleep|sa 'sleep'|
+|this|gu|
+|pen|fa 'pen'|
+|school|fa 'school'|

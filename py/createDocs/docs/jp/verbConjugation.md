@@ -55,7 +55,7 @@ SFGPLでは以下の図のような動詞の時制が存在する．
 |**Present Tense**|{phrase_past}/{determinerV_present}|-/{determinerV_present}|{phrase_future}/{determinerV_present}|
 |**Future Tense**|{phrase_past}/{determinerV_future}|-/{determinerV_future}|{phrase_future}/{determinerV_future}|
 
-## 相
+## 動作の時間軸に関する相
 
 SFGPLでは下の図のように，①起動相，②経過相，③完結相，④継続相，⑤終了相，⑥進行相の6つが存在する．
 
@@ -72,9 +72,13 @@ SFGPLでは下の図のように，①起動相，②経過相，③完結相，
 |⑤終了相|{verb_end}|I finish wear a dress. (I stopped wearing it.)|{I_finish_wear_a_dress}|
 |⑥進行相|{verb_progressive}|I am wearing a dress.|{I_am_wearing_a_dress}|
 
+①起動相，③完結相，⑤終了相では，ある動作に対しての瞬間の一点だけを表す．
+
+②経過相，④継続相，⑥進行相は，ある動作に対しての期間を表す．
+⑥進行相は②経過相と④継続相が含まれた，不明瞭な期間を表す．
+また，動作動詞では，①起動相から③完結相との間が一瞬であり，ほとんど区別できない場合がある．
+
 これらの相は，現在形以外にも，過去形，未来形にできる．
-⑥進行相は②経過相と④継続相が含まれている．
-また③完結相と⑤終了相が同じである場合もある．
 "I begin wear a dress."を過去形，未来形にすると次のようになる．
 
 ```SFGPL
@@ -82,8 +86,8 @@ SFGPLでは下の図のように，①起動相，②経過相，③完結相，
 {I_began_will_begin_a_dress}
 ```
 
-また，原則として相単体では，時間の幅はなく，その瞬間だけを表す．
-時間の幅を表す場合は，完了形を付け加える．
+また，原則としてこれらの相単体では，ある時点にフォーカスをした動作を表している．
+特に，その時点より過去からその動作が続いている場合を強調して示すためには，それらの相に加えて完了形を使用し表現する．
 進行形に完了形を加えた"I have been wearing a dress."を表すには，次のようになる．
 
 ```SFGPL
