@@ -56,6 +56,19 @@ format_str_list={
     "my_bag_is_as_big_as_his":Noun.haveP(Noun.AND(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("big"))),DeterminerN.possessive(DeterminerN.male(Pronoun.he()))),Verb.none(),Modifier.add(WordM.big(),WordM.near())),
     "his_possessive":DeterminerN.possessive(DeterminerN.male(Pronoun.he())),
 
+    "I_cook_every_day":Noun.do(Pronoun.I(),Verb.add(Verb("cook"),Modifier.N2M(DeterminerN.time(Noun.haveP(Noun("day"),Verb.none(),Modifier("every")))))),
+    "cook":Verb("cook"),
+    "every_day":Noun.haveP(Noun("day"),Verb.none(),Modifier("every")),
+
+    "the_earth_revolves_around_the_sun":Noun.do(Noun("Earth"),Verb.add(Verb("revolve"),Modifier.N2M(DeterminerN.move(DeterminerN.near(Noun("Sun")))))),
+    "the_earth":Noun("Earth"),
+    "revolve":Verb("revolve"),
+    "the_sun":Noun("Sun"),
+
+    "English_is_spoken_all_over_the_world":Noun.do(Noun("English"),Verb.add(Verb.passive(Verb("speak")),Modifier.N2M(DeterminerN.In(DeterminerN.all(Noun("world")))))),
+    "English":Noun("English"),
+    "speak":Verb("speak"),
+    "all_over_the_world":Modifier.N2M(DeterminerN.In(DeterminerN.all(Noun("world")))),
 }
 
 createDocs(name=NAME,format_str_list=format_str_list,lang_mode="JP",md_mode=True,out_flag=True,all_docs_flag=True)

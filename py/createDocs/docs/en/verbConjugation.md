@@ -76,7 +76,7 @@ The ① start aspect, ③ completion aspect and ⑤ finish aspect represent only
 
 The ② transitional aspect, ④ continuation aspect and ⑥ progression aspect represent a period of time for a certain action.
 ⑥ Progression aspect represents an indistinct period that includes ② transitional aspect and ④ continuation aspect.
-Also, with action verbs, the interval between ① start aspect and ③ completion aspect may be instantaneous and almost indistinguishable.
+For some verbs, the interval between aspect with each may be momentary and almost indistinguishable.
 
 These aspects can be in the past or future tense in addition to the present tense.
 "I begin wear a dress." in the past and future tenses is as follows.

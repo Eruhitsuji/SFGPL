@@ -95,6 +95,28 @@ me ba A C V ka B wen
 me ba mi ga so san fa 'big' sen lan gi so ka wan wen
 ```
 
+## 通時的な文
+
+習慣や周期的な事柄，不変の事実などの恒常的な事柄や事実を表すには，現在と同様に時制をつけないことで表現する．
+
+SFGPLで"I cook every day."を表すには次のようにする．
+
+```SFGPL
+ta ga na sa 'cook' li pin me fa 'day' so la 'every'
+```
+
+また，SFGPLで"The Earth revolves around the Sun."を表すには次のようにする．
+
+```SFGPL
+ta fa 'Earth' na sa 'revolve' li tun tin fa 'Sun'
+```
+
+そして，SFGPLで"English is spoken all over the world."を表すには次のようにする．
+
+```SFGPL
+ta fa 'English' na ne sa 'speak' li fun dan fa 'world'
+```
+
 ## 単語集
 
 |English|SFGPL|
@@ -107,3 +129,11 @@ me ba mi ga so san fa 'big' sen lan gi so ka wan wen
 |yours(possessive)|sen ge|
 |my class|mu ga so san fa 'class'|
 |his(possessive)|sen lan gi|
+|cook|sa 'cook'|
+|every day|me fa 'day' so la 'every'|
+|the Earth|fa 'Earth'|
+|revolve|sa 'revolve'|
+|the Sun|fa 'Sun'|
+|English|fa 'English'|
+|speak|sa 'speak'|
+|all over the world|li fun dan fa 'world'|

@@ -11,7 +11,7 @@ The language was designed to make sentence structure and meaning easily interpre
 In particular, long and complex sentences containing conjunctions and relative pronouns are often difficult to interpret.
 The language was created by me as a hobby and has not been rigorously tested, so there may be flaws.
 
-The project then makes the materials and programmes available on GitHub[https://github.com/Eruhitsuji/SFGPL](https://github.com/Eruhitsuji/SFGPL).
+The project then makes the materials and programmes available on GitHub:[https://github.com/Eruhitsuji/SFGPL](https://github.com/Eruhitsuji/SFGPL).
 
 ## Background and purpose of creating the SFGPL
 

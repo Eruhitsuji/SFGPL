@@ -14,7 +14,7 @@ SFGPLは"Simple Functional General Purpose Language"の略で，自然言語を�
 
 また，この言語は私が趣味で作成したものであり，厳密に検証を行っていないため不備等がある可能性がある．
 
-そして，このプロジェクトでは，GitHub[https://github.com/Eruhitsuji/SFGPL](https://github.com/Eruhitsuji/SFGPL)において，資料やプログラムを公開している．
+そして，このプロジェクトでは，GitHub:[https://github.com/Eruhitsuji/SFGPL](https://github.com/Eruhitsuji/SFGPL)において，資料やプログラムを公開している．
 
 ## SFGPL作成の背景と目的
 
@@ -629,7 +629,7 @@ SFGPLでは下の図のように，①起動相，②経過相，③完結相，
 
 ②経過相，④継続相，⑥進行相は，ある動作に対しての期間を表す．
 ⑥進行相は②経過相と④継続相が含まれた，不明瞭な期間を表す．
-また，動作動詞では，①起動相から③完結相との間が一瞬であり，ほとんど区別できない場合がある．
+また，一部の動詞では，それぞれとの相との間が一瞬であり，ほとんど区別できない場合がある．
 
 これらの相は，現在形以外にも，過去形，未来形にできる．
 "I begin wear a dress."を過去形，未来形にすると次のようになる．
@@ -824,6 +824,28 @@ me ba A C V ka B wen
 me ba mi ga so san fa 'big' sen lan gi so ka wan wen
 ```
 
+## 通時的な文
+
+習慣や周期的な事柄，不変の事実などの恒常的な事柄や事実を表すには，現在と同様に時制をつけないことで表現する．
+
+SFGPLで"I cook every day."を表すには次のようにする．
+
+```SFGPL
+ta ga na sa 'cook' li pin me fa 'day' so la 'every'
+```
+
+また，SFGPLで"The Earth revolves around the Sun."を表すには次のようにする．
+
+```SFGPL
+ta fa 'Earth' na sa 'revolve' li tun tin fa 'Sun'
+```
+
+そして，SFGPLで"English is spoken all over the world."を表すには次のようにする．
+
+```SFGPL
+ta fa 'English' na ne sa 'speak' li fun dan fa 'world'
+```
+
 ## 単語集
 
 |English|SFGPL|
@@ -836,6 +858,14 @@ me ba mi ga so san fa 'big' sen lan gi so ka wan wen
 |yours(possessive)|sen ge|
 |my class|mu ga so san fa 'class'|
 |his(possessive)|sen lan gi|
+|cook|sa 'cook'|
+|every day|me fa 'day' so la 'every'|
+|the Earth|fa 'Earth'|
+|revolve|sa 'revolve'|
+|the Sun|fa 'Sun'|
+|English|fa 'English'|
+|speak|sa 'speak'|
+|all over the world|li fun dan fa 'world'|
 
 <div class="tex_part" text="SFGPLの単語"></div>
 
@@ -1656,4 +1686,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.0.10|ドキュメントの追加・修正|
 |5.0.11|ドキュメントの追加・修正|
 |5.0.12|ドキュメントの追加・修正|
+|5.0.13|ドキュメントの追加・修正|
 

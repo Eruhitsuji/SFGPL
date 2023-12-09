@@ -14,7 +14,7 @@ The language was designed to make sentence structure and meaning easily interpre
 In particular, long and complex sentences containing conjunctions and relative pronouns are often difficult to interpret.
 The language was created by me as a hobby and has not been rigorously tested, so there may be flaws.
 
-The project then makes the materials and programmes available on GitHub[https://github.com/Eruhitsuji/SFGPL](https://github.com/Eruhitsuji/SFGPL).
+The project then makes the materials and programmes available on GitHub:[https://github.com/Eruhitsuji/SFGPL](https://github.com/Eruhitsuji/SFGPL).
 
 ## Background and purpose of creating the SFGPL
 
@@ -629,7 +629,7 @@ The ① start aspect, ③ completion aspect and ⑤ finish aspect represent only
 
 The ② transitional aspect, ④ continuation aspect and ⑥ progression aspect represent a period of time for a certain action.
 ⑥ Progression aspect represents an indistinct period that includes ② transitional aspect and ④ continuation aspect.
-Also, with action verbs, the interval between ① start aspect and ③ completion aspect may be instantaneous and almost indistinguishable.
+For some verbs, the interval between aspect with each may be momentary and almost indistinguishable.
 
 These aspects can be in the past or future tense in addition to the present tense.
 "I begin wear a dress." in the past and future tenses is as follows.
@@ -824,6 +824,28 @@ me ba A C V ka B wen
 me ba mi ga so san fa 'big' sen lan gi so ka wan wen
 ```
 
+## Diachronic sentences
+
+Constant matters and facts, such as customs, periodic matters and unchanging facts, are expressed by not adding a tense, as is the case with the present.
+
+To express "I cook every day." in SFGPL, use the following.
+
+```SFGPL
+ta ga na sa 'cook' li pin me fa 'day' so la 'every'
+```
+
+"The Earth revolves around the Sun." in the SFGPL can be expressed as follows.
+
+```SFGPL
+ta fa 'Earth' na sa 'revolve' li tun tin fa 'Sun'
+```
+
+And to express "English is spoken all over the world." in the SFGPL as follows.
+
+```SFGPL
+ta fa 'English' na ne sa 'speak' li fun dan fa 'world'
+```
+
 ## Wordbook
 
 |English|SFGPL|
@@ -836,6 +858,14 @@ me ba mi ga so san fa 'big' sen lan gi so ka wan wen
 |yours(possessive)|sen ge|
 |my class|mu ga so san fa 'class'|
 |his(possessive)|sen lan gi|
+|cook|sa 'cook'|
+|every day|me fa 'day' so la 'every'|
+|the Earth|fa 'Earth'|
+|revolve|sa 'revolve'|
+|the Sun|fa 'Sun'|
+|English|fa 'English'|
+|speak|sa 'speak'|
+|all over the world|li fun dan fa 'world'|
 
 <div class="tex_part" text="SFGPL Word"></div>
 
@@ -1656,4 +1686,5 @@ The content of updates due to changes in version names is based on the following
 |5.0.10|Add and modify to documents|
 |5.0.11|Add and modify to documents|
 |5.0.12|Add and modify to documents|
+|5.0.13|Add and modify to documents|
 

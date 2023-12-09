@@ -11,7 +11,7 @@ SFGPLは"Simple Functional General Purpose Language"の略で，自然言語を�
 
 また，この言語は私が趣味で作成したものであり，厳密に検証を行っていないため不備等がある可能性がある．
 
-そして，このプロジェクトでは，GitHub[https://github.com/Eruhitsuji/SFGPL](https://github.com/Eruhitsuji/SFGPL)において，資料やプログラムを公開している．
+そして，このプロジェクトでは，GitHub:[https://github.com/Eruhitsuji/SFGPL](https://github.com/Eruhitsuji/SFGPL)において，資料やプログラムを公開している．
 
 ## SFGPL作成の背景と目的
 

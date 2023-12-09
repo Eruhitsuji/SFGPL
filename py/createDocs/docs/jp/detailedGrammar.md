@@ -91,6 +91,28 @@ SFGPLでは，英語における比較級を使った比較表現は，```{noun_
 {my_bag_is_as_big_as_his}
 ```
 
+## 通時的な文
+
+習慣や周期的な事柄，不変の事実などの恒常的な事柄や事実を表すには，現在と同様に時制をつけないことで表現する．
+
+SFGPLで"I cook every day."を表すには次のようにする．
+
+```SFGPL
+{I_cook_every_day}
+```
+
+また，SFGPLで"The Earth revolves around the Sun."を表すには次のようにする．
+
+```SFGPL
+{the_earth_revolves_around_the_sun}
+```
+
+そして，SFGPLで"English is spoken all over the world."を表すには次のようにする．
+
+```SFGPL
+{English_is_spoken_all_over_the_world}
+```
+
 ## 単語集
 
 |English|SFGPL|
@@ -103,3 +125,11 @@ SFGPLでは，英語における比較級を使った比較表現は，```{noun_
 |yours(possessive)|{yours_possessive}|
 |my class|{my_class}|
 |his(possessive)|{his_possessive}|
+|cook|{cook}|
+|every day|{every_day}|
+|the Earth|{the_earth}|
+|revolve|{revolve}|
+|the Sun|{the_sun}|
+|English|{English}|
+|speak|{speak}|
+|all over the world|{all_over_the_world}|

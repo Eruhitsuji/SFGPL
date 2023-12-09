@@ -91,6 +91,28 @@ In this case, use ```{wordM_near}``` to mean "similar".
 {my_bag_is_as_big_as_his}
 ```
 
+## Diachronic sentences
+
+Constant matters and facts, such as customs, periodic matters and unchanging facts, are expressed by not adding a tense, as is the case with the present.
+
+To express "I cook every day." in SFGPL, use the following.
+
+```SFGPL
+{I_cook_every_day}
+```
+
+"The Earth revolves around the Sun." in the SFGPL can be expressed as follows.
+
+```SFGPL
+{the_earth_revolves_around_the_sun}
+```
+
+And to express "English is spoken all over the world." in the SFGPL as follows.
+
+```SFGPL
+{English_is_spoken_all_over_the_world}
+```
+
 ## Wordbook
 
 |English|SFGPL|
@@ -103,3 +125,11 @@ In this case, use ```{wordM_near}``` to mean "similar".
 |yours(possessive)|{yours_possessive}|
 |my class|{my_class}|
 |his(possessive)|{his_possessive}|
+|cook|{cook}|
+|every day|{every_day}|
+|the Earth|{the_earth}|
+|revolve|{revolve}|
+|the Sun|{the_sun}|
+|English|{English}|
+|speak|{speak}|
+|all over the world|{all_over_the_world}|

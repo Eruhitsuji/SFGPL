@@ -95,6 +95,28 @@ me ba A C V ka B wen
 me ba mi ga so san fa 'big' sen lan gi so ka wan wen
 ```
 
+## Diachronic sentences
+
+Constant matters and facts, such as customs, periodic matters and unchanging facts, are expressed by not adding a tense, as is the case with the present.
+
+To express "I cook every day." in SFGPL, use the following.
+
+```SFGPL
+ta ga na sa 'cook' li pin me fa 'day' so la 'every'
+```
+
+"The Earth revolves around the Sun." in the SFGPL can be expressed as follows.
+
+```SFGPL
+ta fa 'Earth' na sa 'revolve' li tun tin fa 'Sun'
+```
+
+And to express "English is spoken all over the world." in the SFGPL as follows.
+
+```SFGPL
+ta fa 'English' na ne sa 'speak' li fun dan fa 'world'
+```
+
 ## Wordbook
 
 |English|SFGPL|
@@ -107,3 +129,11 @@ me ba mi ga so san fa 'big' sen lan gi so ka wan wen
 |yours(possessive)|sen ge|
 |my class|mu ga so san fa 'class'|
 |his(possessive)|sen lan gi|
+|cook|sa 'cook'|
+|every day|me fa 'day' so la 'every'|
+|the Earth|fa 'Earth'|
+|revolve|sa 'revolve'|
+|the Sun|fa 'Sun'|
+|English|fa 'English'|
+|speak|sa 'speak'|
+|all over the world|li fun dan fa 'world'|
