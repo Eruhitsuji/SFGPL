@@ -1,4 +1,4 @@
-# 2. 文型
+# 3. 文型
 
 [TOP](../../readme.md)
 /
@@ -23,7 +23,7 @@ SFGPLでは以下の表のような文型が存在し，それらの文の組み
 |-|A is more B than C|mo|Noun.gt|A,V,B,C|AがCよりBである|
 |-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|<div class="long_td">Bという内容をCという<br>情報源から，AはFする</div>|
 
-## Noun.do
+## Noun.do (ta)
 
 Noun.do ```ta```では，特に，英語の第一文型と同じ形のSが主語，Vが動詞で，主語が何かの動作をするという．単純な文章を表すことができる．
 "I run."をSFGPLで表すには，次のようになる．
@@ -32,7 +32,7 @@ Noun.do ```ta```では，特に，英語の第一文型と同じ形のSが主語
 ta ga sa 'run'
 ```
 
-## Noun.eq
+## Noun.eq (ma)
 
 Noun.eq ```ma```では，特に，英語の第二文型である"S is C"に相当し，その中でも，補語Cが名詞であるものを表す表すことができる．
 また，この構文ではSとCが等価であることも示している．
@@ -49,7 +49,7 @@ ma gu so fa 'table'
 ma ge sa 'become' fa 'teacher'
 ```
 
-## Noun.haveP
+## Noun.haveP (me)
 
 Noun.haveP ```me```では，特に，英語の第二文型である"S is C"に相当し，その中でも，補語Cが修飾語であるものを表すことができる．
 また，この構文ではSがCという性質や状態であるということを表す．
@@ -66,7 +66,7 @@ me fa 'table' so la 'red'
 me ge sa 'look' la 'sad'
 ```
 
-## Noun.doT
+## Noun.doT (te)
 
 Noun.doT ```te```では，特に，英語の第三文型に相当し，Sが主語，Vが動詞，Oが目的語である．
 "I study English."をSFGPLで表すには，次のようになる．
@@ -75,7 +75,7 @@ Noun.doT ```te```では，特に，英語の第三文型に相当し，Sが主�
 te ga sa 'study' fa 'English'
 ```
 
-## Noun.give
+## Noun.give (ti)
 
 Noun.give ```ti```では，特に，英語の第四文型に相当し，Sが主語，Vが動詞，O1とO2が目的語である．特に，この構文では，SがO1にO2をVするという意味となる．
 Vが英語で"give"に相当する場合，動詞として```so```を使用する．
@@ -85,7 +85,7 @@ Vが英語で"give"に相当する場合，動詞として```so```を使用す�
 ti ga so ge fa 'table'
 ```
 
-## Noun.makeNとNoun.makeM
+## Noun.makeN (tu)とNoun.makeM (to)
 
 Noun.makeN ```tu```とNoun.makeM ```to```では，特に，英語の第五文型に相当し，Sが主語，Vが動詞，Oが目的語，Cが補語である．
 Noun.makeNはCが名詞，Noun.makeMはCが修飾語のときに使用する．
@@ -104,7 +104,7 @@ tu ga so ge fa 'teacher'
 to ga so ge la 'sad'
 ```
 
-## Noun.have
+## Noun.have (mi)
 
 Noun.have ```mi```は"AがBを所有している"という意味になる．
 Vが英語で"have"に相当する場合，動詞として```so```を使用する．
@@ -114,7 +114,7 @@ Vが英語で"have"に相当する場合，動詞として```so```を使用す�
 mi ga so fa 'table'
 ```
 
-## Noun.belong
+## Noun.belong (mu)
 
 Noun.belong ```mu```は"AがBに所属している"という意味になる．
 Vが英語で"belong to"に相当する場合，動詞として```so```を使用する．
@@ -124,7 +124,7 @@ Vが英語で"belong to"に相当する場合，動詞として```so```を使用
 mu ga so fa 'school'
 ```
 
-## Noun.gt
+## Noun.gt (mo)
 
 Noun.gt ```mo```は"AはCよりBである"という意味になる．
 このときAとBが比較対象の名詞，Cは修飾語である．
@@ -135,7 +135,7 @@ Vが英語でbe動詞に相当する場合，動詞として```so```を使用す
 mo fa 'bed' so wan sen ge
 ```
 
-## Noun.hearSay
+## Noun.hearSay (moa)
 
 Noun.hearSay ```moa```は"Bという内容をCという情報源から，AはVする"という意味になる．
 このとき，Aは情報を受け取った人や物，Vは動詞，Bは情報の内容，Cは情報源の人や物である．

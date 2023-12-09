@@ -1,8 +1,10 @@
 ---
 title: SFGPL入門
 author: Eruhitsuji
-date: 2023-12-09
+date: 2023-12-10
 ---
+
+<div class="tex_part" text="SFGPLの概要と基礎的な文法"></div>
 
 # 1. SFGPLについて
 <div id="tex_section_label_1"></div>
@@ -43,7 +45,7 @@ SFGPLでは，文構造それぞれに関数が割り振られているため，
 SFGPLの語順はSVOであるが，文頭に文の構造を決定する機能語が付属する．
 また，SFGPLでは固有語によって，文構造が厳密に定義されている．
 以下の表は，SFGPLで表現できる文構造の表である．
-また使用方法等の詳細は，[文型](#2-文型)に記述してある．
+また使用方法等の詳細は，[文型](#3-文型)に記述してある．
 
 |||単語|関数|引数|補足|
 |:-:|:-:|:-:|:-:|:-:|:-:|
@@ -91,12 +93,13 @@ SFGPLの固有語は，数少ない単語を除いて二重母音は存在しな
 |i|/i/|
 |u|/u/|
 |o|/o/|
+|ua|/ua/|
 
 また，借用語は借用語固有の発音で読む．
 
 ## SFGPLの単語
 
-SFGPLの[単語](#9-単語)は主に，SFGPLの固有の単語と借用語に分かれる．
+SFGPLの[単語](#10-単語)は主に，SFGPLの固有の単語と借用語に分かれる．
 
 固有単語は，主に文構造に必要な機能語と，動詞と修飾語の基礎単語が存在する．
 またそれ以外は，借用語が使用される．
@@ -153,10 +156,136 @@ PythonでSFGPLを使用するためには，[SFGPL.py](../../SFGPL/SFGPL.py)を�
 使用例は[samples](../../py/samples)のPythonファイルに記載されている．
 また，PythonでのSFGPLライブラリの詳細な実行方法は，[How_to_Use_SFGPL_in_Python.ipynb](../../How_to_Use_SFGPL_in_Python.ipynb)に記載されている．
 
+# 2. 基本文法
+<div id="tex_section_label_2"></div>
+
+この資料では，SFGPLを学ぶための基本的知識や文法を説明する．
+また前提として[aboutSFGPL](#1-sfgplについて)を読んでおくことを推奨する．
+
+## SFGPL文構造の特徴について
+
+SFGPLでは英語と同様に，SOV型で語の役割が位置で決まる言語である．
+また，SFGPLの最大の特徴として，[文型](#3-文型)が重視されていることが挙げられる．
+この文型は，それぞれどのような引数（どのような品詞の単語）を何個とるかが定義されている．
+そのため，文の意味が一意に決まる．
+また，この文型を決定する機能語が文（句）の先頭に付属する．
+そして，この文（句）全体では，名詞としてみなされ，入れ子的に文を作ることができる（[複文](#7-複文)）．
+
+## SFGPLの文型の具体例
+
+### taによる構文
+
+まず，```ta```を使用した例を提示する．
+この```ta```では，2つの引数を持ち，第一引数が文の主語，第二引数が文の動詞を表す．
+つまり，```ta```では，英語の第一文型SVと同等の文を作ることができる．
+
+例としてSFGPLで"I run."を表すには次のようにする．
+
+```SFGPL
+ta ga sa 'run'
+```
+
+このとき，```ta```は，文型が"SV"のときに付ける語である．
+
+また，```ga```は，一人称代名詞"I"を表す．
+
+そして，```sa 'run'```は，動詞"run"を表す．
+この```sa 'run'```は2単語から構成されている．
+このような借用語などでは，品詞を表す語（この場合は動詞を表す，```sa```）が付いている．
+このような品詞を表す語は，次の3つが存在する．
+
+||SFGPL|
+|:-:|:-:|
+|名詞|fa|
+|動詞|sa|
+|修飾語|la|
+
+### maによる構文
+
+次に，```ma```を使用した例を提示する．
+この```ma```は3つの引数を持ち，第一引数が文の主語，第二引数が文の動詞，第三引数が主語に対する補語を表す．
+また，第三引数の補語は名詞でないといけない．
+つまり```ma```では，英語の第二文型SVCと同等の文を作ることができる．
+
+例としてSFGPLで"I am a student."を表すには次のようにする．
+
+```SFGPL
+ma ga so fa 'student'
+```
+
+このとき，```ma```は，文型が"SVC"のときに付ける語である．
+
+また，```ga```は，一人称代名詞"I"を表す．
+
+次に，```so```は，動詞が無意味であることを示す単語である．
+この```so```では，場所によって意味が変わる．
+このとき例文のときは，英語のbe動詞と同等の意味となる．
+
+そして，```fa 'student'```は，名詞"student"を表す．
+このとき，英語などにある冠詞はSFGPLでは存在しないため，何もつけなくても良い．
+
+### meによる構文
+
+次に，```me```を使用した例を提示する．
+この```me```は3つの引数を持ち，第一引数が文の主語，第二引数が文の動詞，第三引数が主語に対する補語を表す．
+また，第三引数の補語は修飾語でないといけない．
+つまり```me```では，英語の第二文型SVCと同等の文を作ることができる．
+
+例としてSFGPLで"I am happy."を表すには次のようにする．
+
+```SFGPL
+me ga so la 'happy'
+```
+
+このとき，```me```は，文型が"SVC"のときに付ける語である．
+
+また，```ga```は，一人称代名詞"I"を表す．
+
+次に，```so```は，動詞が無意味であることを示す単語である．
+この```so```では，場所によって意味が変わる．
+このとき例文のときは，英語のbe動詞と同等の意味となる．
+
+そして，```la 'happy'```は，修飾語"happy"を表す．
+
+### teによる構文
+
+そして，```te```を使用した例を提示する．
+この```te```は3つの引数を持ち，第一引数が文の主語，第二引数が文の動詞，第三引数が目的語を表す．
+つまり，```te```では，英語の第三文型のSVOと同等の文を作ることができる．
+
+例としてSFGPLで"I open the door."を表すには次のようにする．
+
+```SFGPL
+te ga sa 'open' fa 'door'
+```
+
+このとき，```te```は，文型が"SVO"のときに付ける語である．
+
+また，```ga```は，一人称代名詞"I"を表す．
+
+次に，```sa 'open'```は，動詞"open"を表す．
+
+そして，```fa 'door'```は，名詞"door"を表す．
+
+### その他の構文
+
+その他の構文は，[文型](#3-文型)で示されている．
+
+## 単語集
+
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|run|sa 'run'|
+|student|fa 'student'|
+|happy|la 'happy'|
+|open|sa 'open'|
+|door|fa 'door'|
+
 <div class="tex_part" text="SFGPLの構文"></div>
 
-# 2. 文型
-<div id="tex_section_label_2"></div>
+# 3. 文型
+<div id="tex_section_label_3"></div>
 
 ## SFGPLの文型の一覧
 
@@ -177,7 +306,7 @@ SFGPLでは以下の表のような文型が存在し，それらの文の組み
 |-|A is more B than C|mo|Noun.gt|A,V,B,C|AがCよりBである|
 |-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|<div class="long_td">Bという内容をCという<br>情報源から，AはFする</div>|
 
-## Noun.do
+## Noun.do (ta)
 
 Noun.do ```ta```では，特に，英語の第一文型と同じ形のSが主語，Vが動詞で，主語が何かの動作をするという．単純な文章を表すことができる．
 "I run."をSFGPLで表すには，次のようになる．
@@ -186,7 +315,7 @@ Noun.do ```ta```では，特に，英語の第一文型と同じ形のSが主語
 ta ga sa 'run'
 ```
 
-## Noun.eq
+## Noun.eq (ma)
 
 Noun.eq ```ma```では，特に，英語の第二文型である"S is C"に相当し，その中でも，補語Cが名詞であるものを表す表すことができる．
 また，この構文ではSとCが等価であることも示している．
@@ -203,7 +332,7 @@ ma gu so fa 'table'
 ma ge sa 'become' fa 'teacher'
 ```
 
-## Noun.haveP
+## Noun.haveP (me)
 
 Noun.haveP ```me```では，特に，英語の第二文型である"S is C"に相当し，その中でも，補語Cが修飾語であるものを表すことができる．
 また，この構文ではSがCという性質や状態であるということを表す．
@@ -220,7 +349,7 @@ me fa 'table' so la 'red'
 me ge sa 'look' la 'sad'
 ```
 
-## Noun.doT
+## Noun.doT (te)
 
 Noun.doT ```te```では，特に，英語の第三文型に相当し，Sが主語，Vが動詞，Oが目的語である．
 "I study English."をSFGPLで表すには，次のようになる．
@@ -229,7 +358,7 @@ Noun.doT ```te```では，特に，英語の第三文型に相当し，Sが主�
 te ga sa 'study' fa 'English'
 ```
 
-## Noun.give
+## Noun.give (ti)
 
 Noun.give ```ti```では，特に，英語の第四文型に相当し，Sが主語，Vが動詞，O1とO2が目的語である．特に，この構文では，SがO1にO2をVするという意味となる．
 Vが英語で"give"に相当する場合，動詞として```so```を使用する．
@@ -239,7 +368,7 @@ Vが英語で"give"に相当する場合，動詞として```so```を使用す�
 ti ga so ge fa 'table'
 ```
 
-## Noun.makeNとNoun.makeM
+## Noun.makeN (tu)とNoun.makeM (to)
 
 Noun.makeN ```tu```とNoun.makeM ```to```では，特に，英語の第五文型に相当し，Sが主語，Vが動詞，Oが目的語，Cが補語である．
 Noun.makeNはCが名詞，Noun.makeMはCが修飾語のときに使用する．
@@ -258,7 +387,7 @@ tu ga so ge fa 'teacher'
 to ga so ge la 'sad'
 ```
 
-## Noun.have
+## Noun.have (mi)
 
 Noun.have ```mi```は"AがBを所有している"という意味になる．
 Vが英語で"have"に相当する場合，動詞として```so```を使用する．
@@ -268,7 +397,7 @@ Vが英語で"have"に相当する場合，動詞として```so```を使用す�
 mi ga so fa 'table'
 ```
 
-## Noun.belong
+## Noun.belong (mu)
 
 Noun.belong ```mu```は"AがBに所属している"という意味になる．
 Vが英語で"belong to"に相当する場合，動詞として```so```を使用する．
@@ -278,7 +407,7 @@ Vが英語で"belong to"に相当する場合，動詞として```so```を使用
 mu ga so fa 'school'
 ```
 
-## Noun.gt
+## Noun.gt (mo)
 
 Noun.gt ```mo```は"AはCよりBである"という意味になる．
 このときAとBが比較対象の名詞，Cは修飾語である．
@@ -289,7 +418,7 @@ Vが英語でbe動詞に相当する場合，動詞として```so```を使用す
 mo fa 'bed' so wan sen ge
 ```
 
-## Noun.hearSay
+## Noun.hearSay (moa)
 
 Noun.hearSay ```moa```は"Bという内容をCという情報源から，AはVする"という意味になる．
 このとき，Aは情報を受け取った人や物，Vは動詞，Bは情報の内容，Cは情報源の人や物である．
@@ -351,8 +480,8 @@ me mi ge so san fa 'table' so la 'red'
 |Japan|fa 'Japan'|
 |in East Asia|li fun pun me fa 'Asia' so la 'east'|
 
-# 3. 否定文
-<div id="tex_section_label_3"></div>
+# 4. 否定文
+<div id="tex_section_label_4"></div>
 
 否定文を作成するためには```pa```を使用する．
 この語は，文章に付属することで否定文を作る．
@@ -370,8 +499,8 @@ pa mi ga so fa 'table'
 |I|ga|
 |table|fa 'table'|
 
-# 4. 疑問文
-<div id="tex_section_label_4"></div>
+# 5. 疑問文
+<div id="tex_section_label_5"></div>
 
 疑問文を作成するためには```da```を使用する．
 この単語を文につけると疑問文になる．
@@ -405,8 +534,8 @@ da mi ge so pen wa
 |who|ben wa|
 |what|pen wa|
 
-# 5. 命令文
-<div id="tex_section_label_5"></div>
+# 6. 命令文
+<div id="tex_section_label_6"></div>
 
 命令文を作成するためには```de```を使用する．
 この単語を文につけると命令文になる．
@@ -425,14 +554,14 @@ de te ge sa 'buy' fa 'table'
 |buy|sa 'buy'|
 |table|fa 'table'|
 
-# 6. 複文
-<div id="tex_section_label_6"></div>
+# 7. 複文
+<div id="tex_section_label_7"></div>
 
 SFGPLでは1つの文の中に，複数のを組み合わせて表す文を作成することができる．
 
 ## 並列節
 
-2つ以上の文を並列に接続するためには，[接続詞](#12-接続詞)が使用される．
+2つ以上の文を並列に接続するためには，[接続詞](#13-接続詞)が使用される．
 
 SFGPLで，"I went to Tokyo and I was shopping there."を表すには次のようにする．
 
@@ -497,7 +626,7 @@ di ta ga na sa 'go' ba li ma fi ni sa 'shop' so fa 'grocery' li ta mi ga so san 
 SFGPLでは，先述のように，従属節で修飾をすることが多いが，名詞を名詞で修飾する場合も例外ではない．
 そのため名詞の修飾方法は，```ma```，```mi```と```mu```で使い分けられる．
 
-### Noun.eq
+### Noun.eq (ma)
 
 まず，```ma```では，主に修飾語と被修飾語が同等のもののときに使われる．
 例えば"This pen is big."をSFGPLで表すには次のようにする．
@@ -509,7 +638,7 @@ me ma gu so san fa 'pen' so wan
 このとき，"this"と"pen"は同等のものを指している．
 そのため，```ma```が使われる．
 
-### Noun.have
+### Noun.have (mi)
 
 次に，```mi```では，主に何かが何かを持ているときに使われる．
 SFGPLで"My pen is big."を表すには次のようにする．
@@ -518,7 +647,7 @@ SFGPLで"My pen is big."を表すには次のようにする．
 me mi ga so san fa 'pen' so wan
 ```
 
-### Noun.belong
+### Noun.belong (mu)
 
 また，```mu```では，主に何かがなにかに所属しているときに使われる．
 SFGPLで"My school is big."を表すには次のようにする．
@@ -550,8 +679,8 @@ me mu ga so san fa 'school' so wan
 |pen|fa 'pen'|
 |school|fa 'school'|
 
-# 7. 動詞の活用方法
-<div id="tex_section_label_7"></div>
+# 8. 動詞の活用方法
+<div id="tex_section_label_8"></div>
 
 SFGPLでは，時制や相，助動詞などの動詞を修飾する語が備わっている．
 これらの語は，主に，動詞に直接付属し修飾するものと，文全体に修飾するものが存在する．
@@ -717,7 +846,7 @@ du ta fa 'dress' ne sa 'wear'
 
 ## その他の動詞の修飾
 
-[DeterminerV](#15-動詞限定詞)クラス内の関数では，その他の動詞の修飾をすることができる．
+[DeterminerV](#16-動詞限定詞)クラス内の関数では，その他の動詞の修飾をすることができる．
 また，それらは，英語の助動詞と似ている．
 
 ## 単語集
@@ -730,10 +859,10 @@ du ta fa 'dress' ne sa 'wear'
 |wear|sa 'wear'|
 |dress|fa 'dress'|
 
-# 8. 詳細な文法
-<div id="tex_section_label_8"></div>
+# 9. 詳細な文法
+<div id="tex_section_label_9"></div>
 
-SFGPLは基本的に，[文型](#2-文型)に記されているような文法は厳守する必要があるが，その他はユーザ側である程度決めてよい．
+SFGPLは基本的に，[文型](#3-文型)に記されているような文法は厳守する必要があるが，その他はユーザ側である程度決めてよい．
 しかし，模範的な文法を本章で記述しておく．
 
 ## 文章を修飾する方法
@@ -754,7 +883,7 @@ me ta ga sa 'go' so li pun fa 'Tokyo'
 
 ### 英語における前置詞的な用法
 
-特に，英語における前置詞のように動詞を修飾する場合，```li```と[DeterminerN](#14-名詞限定詞)を使用して表現する．
+特に，英語における前置詞のように動詞を修飾する場合，```li```と[DeterminerN](#15-名詞限定詞)を使用して表現する．
 英語の前置詞とSFGPLの一例を次の表に示す．
 
 |English|Meaning|SFGPL|
@@ -869,8 +998,8 @@ ta fa 'English' na ne sa 'speak' li fun dan fa 'world'
 
 <div class="tex_part" text="SFGPLの単語"></div>
 
-# 9. 単語
-<div id="tex_section_label_9"></div>
+# 10. 単語
+<div id="tex_section_label_10"></div>
 
 SFGPLの単語は，基本的に使い方が定まっている．
 例えば，借用語を使用する方法などが決まっている．
@@ -878,7 +1007,7 @@ SFGPLの単語は，基本的に使い方が定まっている．
 また，単語の詳細は[dict.csv](../../dict.csv)に記述されている．
 
 また，SFGPLの単語では，基本的に，冠詞，数，性，格などによる変形は行われない．
-数や性を示したいときには，[名詞限定詞](#14-名詞限定詞)を使用する．
+数や性を示したいときには，[名詞限定詞](#15-名詞限定詞)を使用する．
 
 ## 借用語について
 
@@ -952,7 +1081,7 @@ SFGPLの固有単語に関しては一意性があり，異なる意味の単語
 
 ### 名詞限定詞
 
-SFGPLには[名詞限定詞](#14-名詞限定詞)が存在する．
+SFGPLには[名詞限定詞](#15-名詞限定詞)が存在する．
 これは，元々名詞を修飾する特別な語である．
 しかし，限定詞自体の意味をそのまま名詞にすることもできる．
 そのためには，```fo```を使用する．
@@ -970,7 +1099,7 @@ SFGPLには[名詞限定詞](#14-名詞限定詞)が存在する．
 
 ### 動詞限定詞
 
-SFGPLには[動詞限定詞](#15-動詞限定詞)が存在する．
+SFGPLには[動詞限定詞](#16-動詞限定詞)が存在する．
 これは，動詞を修飾する特別な語である．
 そしてこれらは，動詞の時制や相として使われる語や，助動詞的に動詞の意味を付加するものが存在している．
 
@@ -985,8 +1114,8 @@ SFGPLには，意味を付加しない単語が存在する．
 |Verb|so|
 |Modifier|lo|
 
-はじめに，無意味名詞の```fo```では，[名詞限定詞](#14-名詞限定詞)をそのままの意味で表すときによく使われる．
-また，無意味動詞の```so```は，特に[文型](#2-文型)で，動詞が必要ない場合など使われる．
+はじめに，無意味名詞の```fo```では，[名詞限定詞](#15-名詞限定詞)をそのままの意味で表すときによく使われる．
+また，無意味動詞の```so```は，特に[文型](#3-文型)で，動詞が必要ない場合など使われる．
 一方，無意味修飾詞```lo```は，あまり使われない．
 これらの例を次に表す．
 
@@ -997,7 +1126,7 @@ SFGPLには，意味を付加しない単語が存在する．
 
 ## 代名詞について
 
-SFGPLでは[代名詞](#13-代名詞)が存在する．
+SFGPLでは[代名詞](#14-代名詞)が存在する．
 代名詞は次の表のようなものがある．
 
 ||English|SFGPL|
@@ -1012,11 +1141,11 @@ SFGPLでは[代名詞](#13-代名詞)が存在する．
 
 ## 数値や論理的に使われる語
 
-SFGPLには，[数値的な単語](#19-数字の表現方法)や[真偽値に関する単語](#16-bool関連クラス)，[リストに関する単語](#17-langlist)，[関数に関する単語](#18-langfunc)が存在している．
+SFGPLには，[数値的な単語](#20-数字の表現方法)や[真偽値に関する単語](#17-bool関連クラス)，[リストに関する単語](#18-langlist)，[関数に関する単語](#19-langfunc)が存在している．
 これらの単語は，一般的な文ではあまり使われないが，論理的なことを示す際に使われる．
 
-# 10. 修飾語
-<div id="tex_section_label_10"></div>
+# 11. 修飾語
+<div id="tex_section_label_11"></div>
 
 ## 修飾語について
 
@@ -1049,7 +1178,7 @@ mo mi ga so san fa 'table' so wan sen ge
 ## 修飾語の応用
 
 修飾語では，英語の前置詞と名詞含む句を修飾語として代用する事ができる．
-このとき，名詞を修飾語に変換する```li```と，[名詞限定詞](#14-名詞限定詞)がよく組み合わされて表現される．
+このとき，名詞を修飾語に変換する```li```と，[名詞限定詞](#15-名詞限定詞)がよく組み合わされて表現される．
 例えば，"I live in Tokyo."と表す場合は，次のように表せる．
 
 ```SFGPL
@@ -1068,8 +1197,8 @@ ta ga na sa 'live' li pun fa 'Tokyo'
 |live|sa 'live'|
 |in Tokyo|li pun fa 'Tokyo'|
 
-# 11. 品詞変換
-<div id="tex_section_label_11"></div>
+# 12. 品詞変換
+<div id="tex_section_label_12"></div>
 
 SFGPLでは，名詞，動詞，修飾語の相互の品詞を変換することができる．
 以下の表はSFGPLで品詞変換する語の一覧である．
@@ -1093,12 +1222,12 @@ SFGPLでは，名詞，動詞，修飾語の相互の品詞を変換すること
 ma gu so fi sa 'build'
 ```
 
-また元の単語の動詞は[動詞の活用](#7-動詞の活用方法)に従って事前に活用させることも可能である．
+また元の単語の動詞は[動詞の活用](#8-動詞の活用方法)に従って事前に活用させることも可能である．
 
 ## 名詞から修飾語
 
 名詞から修飾語は，英語の前置詞と名詞が組み合わされた句と同等の意味を作成するときに使われる．
-またそのときは，```li```と限定詞([DeterminerN](#14-名詞限定詞))が組み合わされて使用する．
+またそのときは，```li```と限定詞([DeterminerN](#15-名詞限定詞))が組み合わされて使用する．
 "I live in Tokyo."をSFGPLにすると次のようになる．
 このとき，```pun```は場所を表す限定詞である．
 
@@ -1116,7 +1245,7 @@ mi mi ga so san fa 'daughter' so me me fa 'toy' so lu ne sa 'stuff' so li son fa
 ## 動詞から修飾語
 
 動詞から修飾語に変換すると，印欧語族に多く見られる分詞に相当する用法を使用できる．
-また元の単語の動詞は[動詞の活用](#7-動詞の活用方法)に従って事前に活用させることも可能である．
+また元の単語の動詞は[動詞の活用](#8-動詞の活用方法)に従って事前に活用させることも可能である．
 
 "There is a sleeping boy."をSFGPLで表すには次のようにする．
 
@@ -1149,8 +1278,8 @@ di ta ga na sa 'live' li pun ma go so san me fi sa 'build' so lu ne sa 'destroy'
 |that|go|
 |destroy|sa 'destroy'|
 
-# 12. 接続詞
-<div id="tex_section_label_12"></div>
+# 13. 接続詞
+<div id="tex_section_label_13"></div>
 
 SFGPLは，文と文や単語と単語を繋ぐものとして接続詞が存在する．
 SFGPLの主な接続詞として次のようなものがある．
@@ -1177,8 +1306,8 @@ SFGPLの主な接続詞として次のようなものがある．
 |store|fa 'store'|
 |library|fa 'library'|
 
-# 13. 代名詞
-<div id="tex_section_label_13"></div>
+# 14. 代名詞
+<div id="tex_section_label_14"></div>
 
 ## 代名詞一覧
 
@@ -1198,7 +1327,7 @@ SFGPLの主な接続詞として次のようなものがある．
 
 SFGPLの代名詞は原則として人，生物，物，概念，場所，時間，理由，方法等の区別はされない．
 そして，性別や，数による区別も存在しない．
-これらの区別をする場合は，[名詞限定詞](#14-名詞限定詞)を使用することで限定できる．
+これらの区別をする場合は，[名詞限定詞](#15-名詞限定詞)を使用することで限定できる．
 
 
 疑問詞に対する名詞限定詞の使用方法は次の表となる．
@@ -1233,8 +1362,8 @@ SFGPLでは性の区別が存在しない．
 |所有代名詞|mine|sen ga|
 |再帰代名詞|myself|sin ga|
 
-# 14. 名詞限定詞
-<div id="tex_section_label_14"></div>
+# 15. 名詞限定詞
+<div id="tex_section_label_15"></div>
 
 名詞限定詞は，名詞を修飾するための最も単純なものである．
 また，代名詞と使われたり，名詞から修飾語に変換するときに使用する```li```と一緒に使われることが多い．
@@ -1264,8 +1393,8 @@ SFGPLでは性の区別が存在しない．
 |Tokyo|fa 'Tokyo'|
 |today|fa 'today'|
 
-# 15. 動詞限定詞
-<div id="tex_section_label_15"></div>
+# 16. 動詞限定詞
+<div id="tex_section_label_16"></div>
 
 動詞限定詞は，動詞を修飾するための最も単純なものである．
 これらは，英語の助動詞に相当する．
@@ -1280,7 +1409,7 @@ SFGPLでは性の区別が存在しない．
 |lak|duty|I must swim.|ta ga lak sa 'swim'|
 |lik|want to|I want to swim.|ta ga lik sa 'swim'|
 
-また，相などの，[動詞の活用](#7-動詞の活用方法)をすることもできる．
+また，相などの，[動詞の活用](#8-動詞の活用方法)をすることもできる．
 
 ## 単語集
 
@@ -1291,8 +1420,8 @@ SFGPLでは性の区別が存在しない．
 |sea|fa 'sea'|
 |swim|sa 'swim'|
 
-# 16. Bool関連クラス
-<div id="tex_section_label_16"></div>
+# 17. Bool関連クラス
+<div id="tex_section_label_17"></div>
 
 SFGPLにはBoolに関連したクラス，Bool型と，BoolList型が存在する．
 これらのクラスは，真偽値や，数値などを表すために使われる．
@@ -1358,8 +1487,8 @@ fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos 
 |:-:|:-:|
 |I am a student|ma ga so fa 'student'|
 
-# 17. LangList
-<div id="tex_section_label_17"></div>
+# 18. LangList
+<div id="tex_section_label_18"></div>
 
 SFGPLでは基本的なデータ構造型として，LangList型が存在する．
 LangListには，以下の関数が存在している．
@@ -1380,7 +1509,7 @@ fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
 ```
 
 また，このLangListから最初の値を取得するには次のようにする．
-このとき```fis fas pas```は[BoolList](#16-bool関連クラス)における0を表している．
+このとき```fis fas pas```は[BoolList](#17-bool関連クラス)における0を表している．
 
 ```SFGPL
 fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student' fis fas pas
@@ -1396,8 +1525,8 @@ fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
 |happy|la 'happy'|
 |I am a student|ma ga so fa 'student'|
 
-# 18. LangFunc
-<div id="tex_section_label_18"></div>
+# 19. LangFunc
+<div id="tex_section_label_19"></div>
 
 SFGPLでは基本的な関数型として，LangFunc型が存在する．
 LangFuncには，以下の関数が存在している．
@@ -1426,8 +1555,8 @@ pat fa 'xor' fit fat bu bu fet pit mas pas pas bu fet pit mas pas pas fet pit ma
 pot fa 'xor' fit fit fat pas pas
 ```
 
-# 19. 数字の表現方法
-<div id="tex_section_label_19"></div>
+# 20. 数字の表現方法
+<div id="tex_section_label_20"></div>
 
 SFGPLでは10進数の数値を表すために，NumberとNumberListクラスが存在する．
 
@@ -1522,8 +1651,8 @@ mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil b
 
 <div class="tex_part" text="付録"></div>
 
-# 20. 例文
-<div id="tex_section_label_20"></div>
+# 21. 例文
+<div id="tex_section_label_21"></div>
 
 以下の表は，SFGPLの例文を示す．
 
@@ -1612,8 +1741,8 @@ mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil b
 |di moa ge so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.you(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, you heard that he create a table.|
 
 
-# 21. バージョンについて
-<div id="tex_section_label_21"></div>
+# 22. バージョンについて
+<div id="tex_section_label_22"></div>
 
 このプロジェクトのバージョンは[\_\_version\_\_.py](../../SFGPL/__version__.py)に記載されている．
 特に，Pythonで実行する場合は，以下のコードを実行することで確認できる．
@@ -1687,4 +1816,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.0.11|ドキュメントの追加・修正|
 |5.0.12|ドキュメントの追加・修正|
 |5.0.13|ドキュメントの追加・修正|
+|5.0.14|ドキュメントの追加・修正|
 

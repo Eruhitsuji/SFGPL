@@ -1,4 +1,4 @@
-# 6. 複文
+# 7. 複文
 
 [TOP](../../readme.md)
 /
@@ -73,7 +73,7 @@ di ta ga na sa 'go' ba li ma fi ni sa 'shop' so fa 'grocery' li ta mi ga so san 
 SFGPLでは，先述のように，従属節で修飾をすることが多いが，名詞を名詞で修飾する場合も例外ではない．
 そのため名詞の修飾方法は，```ma```，```mi```と```mu```で使い分けられる．
 
-### Noun.eq
+### Noun.eq (ma)
 
 まず，```ma```では，主に修飾語と被修飾語が同等のもののときに使われる．
 例えば"This pen is big."をSFGPLで表すには次のようにする．
@@ -85,7 +85,7 @@ me ma gu so san fa 'pen' so wan
 このとき，"this"と"pen"は同等のものを指している．
 そのため，```ma```が使われる．
 
-### Noun.have
+### Noun.have (mi)
 
 次に，```mi```では，主に何かが何かを持ているときに使われる．
 SFGPLで"My pen is big."を表すには次のようにする．
@@ -94,7 +94,7 @@ SFGPLで"My pen is big."を表すには次のようにする．
 me mi ga so san fa 'pen' so wan
 ```
 
-### Noun.belong
+### Noun.belong (mu)
 
 また，```mu```では，主に何かがなにかに所属しているときに使われる．
 SFGPLで"My school is big."を表すには次のようにする．

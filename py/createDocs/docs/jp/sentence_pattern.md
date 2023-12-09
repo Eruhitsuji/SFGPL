@@ -19,7 +19,7 @@ SFGPLでは以下の表のような文型が存在し，それらの文の組み
 |-|A is more B than C|{noun_gt}|Noun.gt|A,V,B,C|AがCよりBである|
 |-|According to C, A V B|{noun_hearSay}|Noun.hearSay|A,V,B,C|<div class="long_td">Bという内容をCという<br>情報源から，AはFする</div>|
 
-## Noun.do
+## Noun.do ({noun_do})
 
 Noun.do ```{noun_do}```では，特に，英語の第一文型と同じ形のSが主語，Vが動詞で，主語が何かの動作をするという．単純な文章を表すことができる．
 "I run."をSFGPLで表すには，次のようになる．
@@ -28,7 +28,7 @@ Noun.do ```{noun_do}```では，特に，英語の第一文型と同じ形のS�
 {I_run}
 ```
 
-## Noun.eq
+## Noun.eq ({noun_eq})
 
 Noun.eq ```{noun_eq}```では，特に，英語の第二文型である"S is C"に相当し，その中でも，補語Cが名詞であるものを表す表すことができる．
 また，この構文ではSとCが等価であることも示している．
@@ -45,7 +45,7 @@ Vが英語でbe動詞に相当する場合，動詞として```{verb_none}```を
 {you_become_a_teacher}
 ```
 
-## Noun.haveP
+## Noun.haveP ({noun_haveP})
 
 Noun.haveP ```{noun_haveP}```では，特に，英語の第二文型である"S is C"に相当し，その中でも，補語Cが修飾語であるものを表すことができる．
 また，この構文ではSがCという性質や状態であるということを表す．
@@ -62,7 +62,7 @@ Vが英語でbe動詞に相当する場合，動詞として```{verb_none}```を
 {you_look_sad}
 ```
 
-## Noun.doT
+## Noun.doT ({noun_doT})
 
 Noun.doT ```{noun_doT}```では，特に，英語の第三文型に相当し，Sが主語，Vが動詞，Oが目的語である．
 "I study English."をSFGPLで表すには，次のようになる．
@@ -71,7 +71,7 @@ Noun.doT ```{noun_doT}```では，特に，英語の第三文型に相当し，S
 {I_study_English}
 ```
 
-## Noun.give
+## Noun.give ({noun_give})
 
 Noun.give ```{noun_give}```では，特に，英語の第四文型に相当し，Sが主語，Vが動詞，O1とO2が目的語である．特に，この構文では，SがO1にO2をVするという意味となる．
 Vが英語で"give"に相当する場合，動詞として```{verb_none}```を使用する．
@@ -81,7 +81,7 @@ Vが英語で"give"に相当する場合，動詞として```{verb_none}```を�
 {I_give_you_a_table}
 ```
 
-## Noun.makeNとNoun.makeM
+## Noun.makeN ({noun_makeN})とNoun.makeM ({noun_makeM})
 
 Noun.makeN ```{noun_makeN}```とNoun.makeM ```{noun_makeM}```では，特に，英語の第五文型に相当し，Sが主語，Vが動詞，Oが目的語，Cが補語である．
 Noun.makeNはCが名詞，Noun.makeMはCが修飾語のときに使用する．
@@ -100,7 +100,7 @@ Vが英語で"make"に相当する場合，動詞として```{verb_none}```を�
 {I_make_you_sad}
 ```
 
-## Noun.have
+## Noun.have ({noun_have})
 
 Noun.have ```{noun_have}```は"AがBを所有している"という意味になる．
 Vが英語で"have"に相当する場合，動詞として```{verb_none}```を使用する．
@@ -110,7 +110,7 @@ Vが英語で"have"に相当する場合，動詞として```{verb_none}```を�
 {I_have_a_table}
 ```
 
-## Noun.belong
+## Noun.belong ({noun_belong})
 
 Noun.belong ```{noun_belong}```は"AがBに所属している"という意味になる．
 Vが英語で"belong to"に相当する場合，動詞として```{verb_none}```を使用する．
@@ -120,7 +120,7 @@ Vが英語で"belong to"に相当する場合，動詞として```{verb_none}```
 {I_belong_to_a_school}
 ```
 
-## Noun.gt
+## Noun.gt ({noun_gt})
 
 Noun.gt ```{noun_gt}```は"AはCよりBである"という意味になる．
 このときAとBが比較対象の名詞，Cは修飾語である．
@@ -131,7 +131,7 @@ Vが英語でbe動詞に相当する場合，動詞として```{verb_none}```を
 {The_bed_is_bigger_than_yours}
 ```
 
-## Noun.hearSay
+## Noun.hearSay ({noun_hearSay})
 
 Noun.hearSay ```{noun_hearSay}```は"Bという内容をCという情報源から，AはVする"という意味になる．
 このとき，Aは情報を受け取った人や物，Vは動詞，Bは情報の内容，Cは情報源の人や物である．

@@ -15,9 +15,19 @@
             "md_filename":"aboutSFGPL.md",
             "py_filename":"aboutSFGPL.py",
             "EN_title":"About SFGPL",
-            "JP_title":"SFGPLについて"
+            "JP_title":"SFGPLについて",
+            "part_add":{
+                "EN":"Overview and basic grammar of the SFGPL",
+                "JP":"SFGPLの概要と基礎的な文法"
+            }
         },
-
+        {
+            "name":"BasicGrammar",
+            "md_filename":"BasicGrammar.md",
+            "py_filename":"BasicGrammar.py",
+            "EN_title":"Basic Grammar",
+            "JP_title":"基本文法"
+        },
         {
             "name":"sentence_pattern",
             "md_filename":"sentence_pattern.md",

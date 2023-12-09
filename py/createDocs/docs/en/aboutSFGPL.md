@@ -84,6 +84,7 @@ SFGPL unique words do not have double vowels, except in a few words.
 |i|/i/|
 |u|/u/|
 |o|/o/|
+|ua|/ua/|
 
 Borrowed words are read with the pronunciation specific to the borrowed words.
 

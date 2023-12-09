@@ -69,7 +69,7 @@ When Y modifies X in a noun X and Y, it is expressed as "YのX" in Japanese and 
 In the SFGPL, as mentioned earlier, modifications are often made in subordinate clauses, and the case of nouns modifying nouns with nouns is no exception.
 Therefore, nouns can be modified in different ways: ```{noun_eq}```, ```{noun_have}``` and ```{noun_belong}```.
 
-### Noun.eq
+### Noun.eq ({noun_eq})
 
 First, ```{noun_eq}``` is mainly used when the modifier and the moderated are equivalent.
 For example, to express "This pen is big." in SFGPL as follows.
@@ -81,7 +81,7 @@ For example, to express "This pen is big." in SFGPL as follows.
 In this case, "this" and "pen" are equivalent.
 Therefore, ```{noun_eq}``` is used.
 
-### Noun.have
+### Noun.have ({noun_have})
 
 Next, ```{noun_have}``` is mainly used when something has something.
 To express "My pen is big." in the SFGPL, use the following.
@@ -90,7 +90,7 @@ To express "My pen is big." in the SFGPL, use the following.
 {my_pen_is_big}
 ```
 
-### Noun.belong
+### Noun.belong ({noun_belong})
 
 Also, ```{noun_belong}``` is mainly used when something belongs to something.
 To express "My school is big." in the SFGPL, use the following.

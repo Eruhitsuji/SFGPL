@@ -1,4 +1,4 @@
-# 2. Sentence Pattern
+# 3. Sentence Pattern
 
 [TOP](../../readme.md)
 /
@@ -23,7 +23,7 @@ In the SFGPL, there are sentence types as shown in the table below, and the sent
 |-|A is more B than C|mo|Noun.gt|A,V,B,C||
 |-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|A(Subject) V(Verb) that B(Content) according to C(Source)|
 
-## Noun.do
+## Noun.do (ta)
 
 In Noun.do ```ta```, in particular, S is the subject and V is the verb in the same form as the English first sentence form, and the subject is said to perform some action. It can express simple sentences.
 "I run." can be expressed in SFGPL as follows.
@@ -32,7 +32,7 @@ In Noun.do ```ta```, in particular, S is the subject and V is the verb in the sa
 ta ga sa 'run'
 ```
 
-## Noun.eq
+## Noun.eq (ma)
 
 Noun.eq ```ma``` corresponds to the English second sentence pattern "S is C", in which the complement C is a noun.
 This construction also shows that S and C are equivalent.
@@ -49,7 +49,7 @@ ma gu so fa 'table'
 ma ge sa 'become' fa 'teacher'
 ```
 
-## Noun.haveP
+## Noun.haveP (me)
 
 Noun.haveP ```me``` corresponds to the English second sentence pattern "S is C", in which the complement C can be used as a modifier.
 In this construction, S is the property or state of C.
@@ -66,7 +66,7 @@ me fa 'table' so la 'red'
 me ge sa 'look' la 'sad'
 ```
 
-## Noun.doT
+## Noun.doT (te)
 
 Noun.doT ```te```, in particular, corresponds to the third sentence pattern in English, where S is the subject, V is the verb, and O is the object.
 "I study English." can be expressed in SFGPL as follows.
@@ -75,7 +75,7 @@ Noun.doT ```te```, in particular, corresponds to the third sentence pattern in E
 te ga sa 'study' fa 'English'
 ```
 
-## Noun.give
+## Noun.give (ti)
 
 In Noun.give ```ti```, in particular, it corresponds to the English fourth sentence pattern, where S is the subject, V is the verb, and O1 and O2 are the objects. In particular, this construction means "S gives O1 O2".
 If V corresponds to "give" in English, use ```so``` as the verb.
@@ -85,7 +85,7 @@ If V corresponds to "give" in English, use ```so``` as the verb.
 ti ga so ge fa 'table'
 ```
 
-## Noun.makeN and Noun.makeM
+## Noun.makeN (tu) and Noun.makeM (to)
 
 Noun.makeN ```tu``` and Noun.makeM ```to```, in particular, correspond to the English fifth sentence pattern, where S is the subject, V is the verb, O is the object and C is the complement.
 Noun.makeN is used when C is a noun and Noun.makeM when C is a modifier.
@@ -104,7 +104,7 @@ tu ga so ge fa 'teacher'
 to ga so ge la 'sad'
 ```
 
-## Noun.have
+## Noun.have (mi)
 
 Noun.have ```mi``` means "A owns B".
 If V corresponds to "have" in English, use ```so``` as the verb.
@@ -114,7 +114,7 @@ If V corresponds to "have" in English, use ```so``` as the verb.
 mi ga so fa 'table'
 ```
 
-## Noun.belong
+## Noun.belong (mu)
 
 Noun.belong ```mu``` means "A belongs to B".
 If V corresponds to "belong to" in English, use ```so``` as the verb.
@@ -124,7 +124,7 @@ If V corresponds to "belong to" in English, use ```so``` as the verb.
 mu ga so fa 'school'
 ```
 
-## Noun.gt
+## Noun.gt (mo)
 
 Noun.gt ```mo``` means "A is more B than C".
 In this case, A and B are the nouns being compared and C is a modifier.
@@ -135,7 +135,7 @@ If V corresponds to a be verb in English, use ```so``` as the verb.
 mo fa 'bed' so wan sen ge
 ```
 
-## Noun.hearSay
+## Noun.hearSay (moa)
 
 Noun.hearSay ```moa``` means "A(Subject) V(Verb) that B(Content) according to C(Source)".
 In this case, A is the person or thing receiving the information, V is the verb, B is the content of the information and C is the source person or thing.

@@ -1,8 +1,10 @@
 ---
 title: Introduction to the SFGPL
 author: Eruhitsuji
-date: 2023-12-09
+date: 2023-12-10
 ---
+
+<div class="tex_part" text="Overview and basic grammar of the SFGPL"></div>
 
 # 1. About SFGPL
 <div id="tex_section_label_1"></div>
@@ -43,7 +45,7 @@ In addition, complex sentences can be created by combining sentence structures.
 The word order of the SFGPL is SVO, but a function word that determines the structure of the sentence is attached to the beginning of the sentence.
 Also, the sentence structure of the SFGPL is strictly defined by proper words.
 The following table shows the sentence structures that can be expressed in the SFGPL.
-The details of how to use them are described in [Sentence Pattern](#2-sentence-pattern).
+The details of how to use them are described in [Sentence Pattern](#3-sentence-pattern).
 
 |||word|function|arguments|supplement|
 |:-:|:-:|:-:|:-:|:-:|:-:|
@@ -91,12 +93,13 @@ SFGPL unique words do not have double vowels, except in a few words.
 |i|/i/|
 |u|/u/|
 |o|/o/|
+|ua|/ua/|
 
 Borrowed words are read with the pronunciation specific to the borrowed words.
 
 ## SFGPL Words
 
-The SFGPL [word](#9-word) is mainly divided into SFGPL-specific words and loan words.
+The SFGPL [word](#10-word) is mainly divided into SFGPL-specific words and loan words.
 
 The unique words are mainly function words necessary for sentence structure, and basic words for verbs and modifiers.
 The rest of the words are loan words.
@@ -153,10 +156,136 @@ To use the SFGPL in Python, use [SFGPL.py](../../SFGPL/SFGPL.py) can be used by 
 Examples of use are [samples](../../py/samples) in the Python files.
 Also, for detailed instructions on how to run the SFGPL library in Python, see [How_to_Use_SFGPL_in_Python.ipynb](../../How_to_Use_SFGPL_in_Python.ipynb).
 
+# 2. Basic Grammar
+<div id="tex_section_label_2"></div>
+
+This document describes the basic knowledge and grammar for learning the SFGPL.
+It is also recommended to read [aboutSFGPL](#1-about-sfgpl) as a prerequisite.
+
+## About the features of the SFGPL sentence structure
+
+Like English, SFGPL is an SOV-type language in which the role of a word is determined by its position.
+One of the most important features of the SFGPL is its emphasis on [sentence pattern](#3-sentence-pattern).
+Each of these sentence patterns defines what arguments (words of what part of speech) and how many to take.
+The meaning of the sentence is therefore uniquely determined.
+The function word that determines this sentence type is attached to the beginning of the sentence (clause).
+The whole sentence (clause) is considered as a noun and can be nested ([Compound Sentences](#7-compound-sentences)).
+
+## Specific examples of SFGPL sentence patterns
+
+### Syntax with ta
+
+First, we present an example using ```ta```.
+This ```ta``` has two arguments, where the first argument is the subject of the sentence and the second argument is the verb of the sentence.
+In other words, ```ta``` can produce sentences equivalent to the English first sentence type SV.
+
+For example, to express "I run." in SFGPL, use the following.
+
+```SFGPL
+ta ga sa 'run'
+```
+
+In this case, ```ta``` is the word to be added when the sentence type is "SV".
+
+The ```ga``` denotes the first person pronoun "I".
+
+And ```sa 'run'``` denotes the verb "run".
+This ```sa 'run'``` consists of two words.
+In loan words such as these, a part-of-speech indicator (in this case, ```sa```) is attached to the word.
+There are three words that represent such parts of speech.
+
+||SFGPL|
+|:-:|:-:|
+|Noun|fa|
+|Verb|sa|
+|Modifier|la|
+
+### Syntax with ma
+
+Next, we present an example using ```ma```.
+This ```ma``` has three arguments: the first is the subject of the sentence, the second is the verb of the sentence and the third is the complement of the subject.
+Also, the complement of the third argument must be a noun.
+In other words, ```ma``` can produce sentences equivalent to the English second sentence type SVC.
+
+As an example, to express "I am a student." in the SFGPL, use the following.
+
+```SFGPL
+ma ga so fa 'student'
+```
+
+In this case, ```ma``` is the word to be added when the sentence type is "SVC".
+
+The ```ga``` denotes the first person pronoun "I".
+
+Next, ```so``` is a word indicating that the verb is nonsense.
+In ```so```, the meaning changes depending on the location.
+In the example sentence, the meaning is equivalent to that of the English verb "be".
+
+And ```fa 'student'``` denotes the noun "student".
+In this case, the article that exists in English and other languages does not exist in the SFGPL, so there is no need to add any article.
+
+### Syntax with me
+
+Next, we present an example using ```me```.
+This ```me``` has three arguments: the first is the subject of the sentence, the second is the verb of the sentence and the third is the complement of the subject.
+Also, the complement of the third argument must be a modifier.
+In other words, ```me``` can produce sentences equivalent to the English second sentence type SVC.
+
+As an example, to express "I am happy." in the SFGPL, do the following.
+
+```SFGPL
+me ga so la 'happy'
+```
+
+In this case, ```me``` is the word to be added when the sentence type is "SVC".
+
+The ```ga``` denotes the first person pronoun "I".
+
+Next, ```so``` is a word indicating that the verb is nonsense.
+In ```so```, the meaning changes depending on the location.
+In the example sentence, the meaning is equivalent to that of the English verb "be".
+
+And ```la 'happy'``` denotes the modifier "happy".
+
+### Syntax with te
+
+We then present an example using ```te```.
+This ```te``` has three arguments, the first representing the subject of the sentence, the second the verb of the sentence and the third the object.
+In other words, ```te``` can produce sentences equivalent to SVO, the third sentence type in English.
+
+For example, to express "I open the door." in SFGPL, use the following.
+
+```SFGPL
+te ga sa 'open' fa 'door'
+```
+
+In this case, ```te``` is the word to be added when the sentence type is "SVO".
+
+The ```ga``` denotes the first person pronoun "I".
+
+Next, ```sa 'open'``` denotes the verb "open".
+
+Next, ```fa 'door'``` denotes the noun "door".
+
+### Other syntaxes
+
+Other syntaxes are indicated by [sentence pattern](#3-sentence-pattern).
+
+## Wordbook
+
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|run|sa 'run'|
+|student|fa 'student'|
+|happy|la 'happy'|
+|open|sa 'open'|
+|door|fa 'door'|
+
 <div class="tex_part" text="Syntax of the SFGPL"></div>
 
-# 2. Sentence Pattern
-<div id="tex_section_label_2"></div>
+# 3. Sentence Pattern
+<div id="tex_section_label_3"></div>
 
 ## List of SFGPL sentence patterns
 
@@ -177,7 +306,7 @@ In the SFGPL, there are sentence types as shown in the table below, and the sent
 |-|A is more B than C|mo|Noun.gt|A,V,B,C||
 |-|According to C, A V B|moa|Noun.hearSay|A,V,B,C|A(Subject) V(Verb) that B(Content) according to C(Source)|
 
-## Noun.do
+## Noun.do (ta)
 
 In Noun.do ```ta```, in particular, S is the subject and V is the verb in the same form as the English first sentence form, and the subject is said to perform some action. It can express simple sentences.
 "I run." can be expressed in SFGPL as follows.
@@ -186,7 +315,7 @@ In Noun.do ```ta```, in particular, S is the subject and V is the verb in the sa
 ta ga sa 'run'
 ```
 
-## Noun.eq
+## Noun.eq (ma)
 
 Noun.eq ```ma``` corresponds to the English second sentence pattern "S is C", in which the complement C is a noun.
 This construction also shows that S and C are equivalent.
@@ -203,7 +332,7 @@ ma gu so fa 'table'
 ma ge sa 'become' fa 'teacher'
 ```
 
-## Noun.haveP
+## Noun.haveP (me)
 
 Noun.haveP ```me``` corresponds to the English second sentence pattern "S is C", in which the complement C can be used as a modifier.
 In this construction, S is the property or state of C.
@@ -220,7 +349,7 @@ me fa 'table' so la 'red'
 me ge sa 'look' la 'sad'
 ```
 
-## Noun.doT
+## Noun.doT (te)
 
 Noun.doT ```te```, in particular, corresponds to the third sentence pattern in English, where S is the subject, V is the verb, and O is the object.
 "I study English." can be expressed in SFGPL as follows.
@@ -229,7 +358,7 @@ Noun.doT ```te```, in particular, corresponds to the third sentence pattern in E
 te ga sa 'study' fa 'English'
 ```
 
-## Noun.give
+## Noun.give (ti)
 
 In Noun.give ```ti```, in particular, it corresponds to the English fourth sentence pattern, where S is the subject, V is the verb, and O1 and O2 are the objects. In particular, this construction means "S gives O1 O2".
 If V corresponds to "give" in English, use ```so``` as the verb.
@@ -239,7 +368,7 @@ If V corresponds to "give" in English, use ```so``` as the verb.
 ti ga so ge fa 'table'
 ```
 
-## Noun.makeN and Noun.makeM
+## Noun.makeN (tu) and Noun.makeM (to)
 
 Noun.makeN ```tu``` and Noun.makeM ```to```, in particular, correspond to the English fifth sentence pattern, where S is the subject, V is the verb, O is the object and C is the complement.
 Noun.makeN is used when C is a noun and Noun.makeM when C is a modifier.
@@ -258,7 +387,7 @@ tu ga so ge fa 'teacher'
 to ga so ge la 'sad'
 ```
 
-## Noun.have
+## Noun.have (mi)
 
 Noun.have ```mi``` means "A owns B".
 If V corresponds to "have" in English, use ```so``` as the verb.
@@ -268,7 +397,7 @@ If V corresponds to "have" in English, use ```so``` as the verb.
 mi ga so fa 'table'
 ```
 
-## Noun.belong
+## Noun.belong (mu)
 
 Noun.belong ```mu``` means "A belongs to B".
 If V corresponds to "belong to" in English, use ```so``` as the verb.
@@ -278,7 +407,7 @@ If V corresponds to "belong to" in English, use ```so``` as the verb.
 mu ga so fa 'school'
 ```
 
-## Noun.gt
+## Noun.gt (mo)
 
 Noun.gt ```mo``` means "A is more B than C".
 In this case, A and B are the nouns being compared and C is a modifier.
@@ -289,7 +418,7 @@ If V corresponds to a be verb in English, use ```so``` as the verb.
 mo fa 'bed' so wan sen ge
 ```
 
-## Noun.hearSay
+## Noun.hearSay (moa)
 
 Noun.hearSay ```moa``` means "A(Subject) V(Verb) that B(Content) according to C(Source)".
 In this case, A is the person or thing receiving the information, V is the verb, B is the content of the information and C is the source person or thing.
@@ -351,8 +480,8 @@ me mi ge so san fa 'table' so la 'red'
 |Japan|fa 'Japan'|
 |in East Asia|li fun pun me fa 'Asia' so la 'east'|
 
-# 3. Negative Sentence
-<div id="tex_section_label_3"></div>
+# 4. Negative Sentence
+<div id="tex_section_label_4"></div>
 
 Use ```pa``` to create a negative sentence.
 This word is attached to a sentence to make a negative sentence.
@@ -370,8 +499,8 @@ pa mi ga so fa 'table'
 |I|ga|
 |table|fa 'table'|
 
-# 4. Interrogative Sentence
-<div id="tex_section_label_4"></div>
+# 5. Interrogative Sentence
+<div id="tex_section_label_5"></div>
 
 Use ```da``` to create interrogative sentences.
 When this word is added to a sentence, it becomes a interrogative sentence.
@@ -405,8 +534,8 @@ da mi ge so pen wa
 |who|ben wa|
 |what|pen wa|
 
-# 5. Imperative Sentence
-<div id="tex_section_label_5"></div>
+# 6. Imperative Sentence
+<div id="tex_section_label_6"></div>
 
 Use ```de``` to create imperative sentences.
 This word is added to a sentence to make it an imperative sentence.
@@ -425,14 +554,14 @@ de te ge sa 'buy' fa 'table'
 |buy|sa 'buy'|
 |table|fa 'table'|
 
-# 6. Compound sentences
-<div id="tex_section_label_6"></div>
+# 7. Compound sentences
+<div id="tex_section_label_7"></div>
 
 The SFGPL allows you to create sentences that combine several within a single sentence.
 
 ## Parallel clauses
 
-A [conjunction](#12-conjunction) is used to connect two or more sentences in parallel.
+A [conjunction](#13-conjunction) is used to connect two or more sentences in parallel.
 
 In the SFGPL, "I went to Tokyo and I was shopping there." can be expressed as follows.
 
@@ -497,7 +626,7 @@ When Y modifies X in a noun X and Y, it is expressed as "YのX" in Japanese and 
 In the SFGPL, as mentioned earlier, modifications are often made in subordinate clauses, and the case of nouns modifying nouns with nouns is no exception.
 Therefore, nouns can be modified in different ways: ```ma```, ```mi``` and ```mu```.
 
-### Noun.eq
+### Noun.eq (ma)
 
 First, ```ma``` is mainly used when the modifier and the moderated are equivalent.
 For example, to express "This pen is big." in SFGPL as follows.
@@ -509,7 +638,7 @@ me ma gu so san fa 'pen' so wan
 In this case, "this" and "pen" are equivalent.
 Therefore, ```ma``` is used.
 
-### Noun.have
+### Noun.have (mi)
 
 Next, ```mi``` is mainly used when something has something.
 To express "My pen is big." in the SFGPL, use the following.
@@ -518,7 +647,7 @@ To express "My pen is big." in the SFGPL, use the following.
 me mi ga so san fa 'pen' so wan
 ```
 
-### Noun.belong
+### Noun.belong (mu)
 
 Also, ```mu``` is mainly used when something belongs to something.
 To express "My school is big." in the SFGPL, use the following.
@@ -550,8 +679,8 @@ me mu ga so san fa 'school' so wan
 |pen|fa 'pen'|
 |school|fa 'school'|
 
-# 7. Verb Conjugation
-<div id="tex_section_label_7"></div>
+# 8. Verb Conjugation
+<div id="tex_section_label_8"></div>
 
 The SFGPL has words that modify verbs, such as tense, aspect and auxiliary verbs.
 These words are mainly attached directly to the verb and modify it, while others modify the whole sentence.
@@ -717,7 +846,7 @@ du ta fa 'dress' ne sa 'wear'
 
 ## Other verb modifiers
 
-Functions in the [DeterminerV](#15-determinerv) class can modify other verbs.
+Functions in the [DeterminerV](#16-determinerv) class can modify other verbs.
 They are similar to English auxiliary verbs.
 
 ## Wordbook
@@ -730,10 +859,10 @@ They are similar to English auxiliary verbs.
 |wear|sa 'wear'|
 |dress|fa 'dress'|
 
-# 8. Detailed Grammar
-<div id="tex_section_label_8"></div>
+# 9. Detailed Grammar
+<div id="tex_section_label_9"></div>
 
-Basically, the SFGPL must adhere strictly to the grammar as described in [sentence pattern](#2-sentence-pattern), but the rest may be decided to some extent by the user.
+Basically, the SFGPL must adhere strictly to the grammar as described in [sentence pattern](#3-sentence-pattern), but the rest may be decided to some extent by the user.
 However, an exemplary grammar is described in this chapter.
 
 ## How to qualify a sentence
@@ -754,7 +883,7 @@ me ta ga sa 'go' so li pun fa 'Tokyo'
 
 ### Prepositional usage in English
 
-In particular, when modifying verbs, like prepositions in English, they are expressed using ```li``` and [DeterminerN](#14-determinern).
+In particular, when modifying verbs, like prepositions in English, they are expressed using ```li``` and [DeterminerN](#15-determinern).
 Examples of English prepositions and SFGPLs are given in the following table.
 
 |English|Meaning|SFGPL|
@@ -869,8 +998,8 @@ ta fa 'English' na ne sa 'speak' li fun dan fa 'world'
 
 <div class="tex_part" text="SFGPL Word"></div>
 
-# 9. Word
-<div id="tex_section_label_9"></div>
+# 10. Word
+<div id="tex_section_label_10"></div>
 
 The SFGPL words have a basic set of usages.
 For example, the way in which loan words are used is defined.
@@ -878,7 +1007,7 @@ This chapter describes the types of these words and how they are used.
 The details of the words are also available in [dict.csv](../../dict.csv).
 
 In general, SFGPL words are not transformed by articles, number, gender or case.
-If you want to indicate number or gender, use [noun determiner](#14-determinern).
+If you want to indicate number or gender, use [noun determiner](#15-determinern).
 
 ## Borrowed Words
 
@@ -952,7 +1081,7 @@ There are two types of determiners: noun determiners, which limit nouns, and ver
 
 ### DeterminerN
 
-The SFGPL has a [noun determiner](#14-determinern).
+The SFGPL has a [noun determiner](#15-determinern).
 This is a special word that originally modifies a noun.
 However, they can also be used as nouns in the same sense as the determiners themselves.
 To do so, use ```fo```.
@@ -970,7 +1099,7 @@ Examples using these words are shown below.
 
 ### DeterminerV
 
-There is a [verb determiner](#15-determinerv) in the SFGPL.
+There is a [verb determiner](#16-determinerv) in the SFGPL.
 These are special words that modify verbs.
 These include words used as verb tenses and aspects, and words that add meaning to the verb in an auxiliary verb-like manner.
 
@@ -979,8 +1108,8 @@ These include words used as verb tenses and aspects, and words that add meaning 
 There are words in the SFGPL that do not add meaning.
 These words exist for each part of speech and are used when grammatically necessary.
 
-First, ```fo``` of meaningless noun is often used to express [noun determiners](#14-determinern) as they are.
-Also, ```so``` of meaningless verb is used when a verb is not needed, especially in [sentence pattern](#2-sentence-pattern).
+First, ```fo``` of meaningless noun is often used to express [noun determiners](#15-determinern) as they are.
+Also, ```so``` of meaningless verb is used when a verb is not needed, especially in [sentence pattern](#3-sentence-pattern).
 On the other hand, ```lo``` of meaningless modifier is rarely used.
 Examples of these are given below.
 
@@ -997,7 +1126,7 @@ Examples of these are given below.
 
 ## About pronouns
 
-[Pronouns](#13-pronoun) exist in SFGPL.
+[Pronouns](#14-pronoun) exist in SFGPL.
 Pronouns are listed in the following table.
 
 ||English|SFGPL|
@@ -1012,11 +1141,11 @@ Pronouns are listed in the following table.
 
 ## Words used numerically and logically
 
-There are [numerical words](#19-how-numbers-are-expressed), [words for boolean values](#16-bool-related-classes), [words for lists](#17-langlist) and [words for functions](#18-langfunc) in the SFGPL.
+There are [numerical words](#20-how-numbers-are-expressed), [words for boolean values](#17-bool-related-classes), [words for lists](#18-langlist) and [words for functions](#19-langfunc) in the SFGPL.
 These words are not often used in general sentences, but are used to indicate logic.
 
-# 10. Modifier
-<div id="tex_section_label_10"></div>
+# 11. Modifier
+<div id="tex_section_label_11"></div>
 
 ## About modifiers
 
@@ -1049,7 +1178,7 @@ To simply modify each part of speech with a modifier, the following table is use
 ## Applications of modifiers
 
 Modifiers allow us to substitute English prepositions and noun phrases as modifiers.
-In this case, the ```li```, which converts nouns to modifiers, and [noun determiners](#14-determinern) are often combined to form expressions.
+In this case, the ```li```, which converts nouns to modifiers, and [noun determiners](#15-determinern) are often combined to form expressions.
 For example, "I live in Tokyo.".
 
 ```SFGPL
@@ -1068,8 +1197,8 @@ The ```pun``` is a determiner of place.
 |live|sa 'live'|
 |in Tokyo|li pun fa 'Tokyo'|
 
-# 11. Part of Speech Conversion
-<div id="tex_section_label_11"></div>
+# 12. Part of Speech Conversion
+<div id="tex_section_label_12"></div>
 
 The SFGPL can convert nouns, verbs, and modifiers into each other's parts of speech.
 The following table lists the words converted to parts-of-speech by the SFGPL.
@@ -1093,12 +1222,12 @@ Verb to noun is used as in "This is building.".
 ma gu so fi sa 'build'
 ```
 
-The verb of the original word can also be pre-conjugated according to [verb conjugation](#7-verb-conjugation).
+The verb of the original word can also be pre-conjugated according to [verb conjugation](#8-verb-conjugation).
 
 ## Noun to Modifier
 
 Noun to modifier is used to create the equivalent meaning of a phrase that combines an English preposition and a noun.
-In such cases, ```li``` and [DeterminerN](#14-determinern) are used in combination.
+In such cases, ```li``` and [DeterminerN](#15-determinern) are used in combination.
 "I live in Tokyo." in SFGPL becomes the following.
 In this case, ```pun``` is a determiner of location.
 
@@ -1116,7 +1245,7 @@ mi mi ga so san fa 'daughter' so me me fa 'toy' so lu ne sa 'stuff' so li son fa
 ## Verb to Modifier
 
 Verb to modifier conversion allows for the use of the participle equivalent, which is common in the Indo-European language family.
-The verb of the original word can also be pre-conjugated according to [verb conjugation](#7-verb-conjugation).
+The verb of the original word can also be pre-conjugated according to [verb conjugation](#8-verb-conjugation).
 
 "There is a sleeping boy." can be expressed in the SFGPL as follows.
 
@@ -1149,8 +1278,8 @@ di ta ga na sa 'live' li pun ma go so san me fi sa 'build' so lu ne sa 'destroy'
 |that|go|
 |destroy|sa 'destroy'|
 
-# 12. Conjunction
-<div id="tex_section_label_12"></div>
+# 13. Conjunction
+<div id="tex_section_label_13"></div>
 
 In the SFGPL, conjunctions exist as connections between sentences and between words.
 The main conjunctions of the SFGPL are as follows.
@@ -1177,8 +1306,8 @@ You can also connect words together, such as ```ba fa 'store' fa 'library'``` or
 |store|fa 'store'|
 |library|fa 'library'|
 
-# 13. Pronoun
-<div id="tex_section_label_13"></div>
+# 14. Pronoun
+<div id="tex_section_label_14"></div>
 
 ## List of pronouns
 
@@ -1198,7 +1327,7 @@ Pronouns are listed in the following table.
 
 As a rule, SFGPL pronouns do not distinguish between people, organisms, objects, concepts, places, times, reasons, methods, etc.
 There is no distinction based on gender or number.
-These distinctions can be made by using [noun determiner](#14-determinern).
+These distinctions can be made by using [noun determiner](#15-determinern).
 
 
 The following table shows the use of noun determiners for interrogatives.
@@ -1233,8 +1362,8 @@ The following table shows the possessive and reflexive pronouns for first person
 |Possessive Pronoun|mine|sen ga|
 |Reflexive Pronoun|myself|sin ga|
 
-# 14. DeterminerN
-<div id="tex_section_label_14"></div>
+# 15. DeterminerN
+<div id="tex_section_label_15"></div>
 
 DeterminerN are the simplest of all noun modifiers.
 They are also often used with pronouns or with ```li```, which is used to convert a noun to a modifier.
@@ -1264,8 +1393,8 @@ In general, in the case of the DeterminerN A, B and the noun N, the clause ```A 
 |Tokyo|fa 'Tokyo'|
 |today|fa 'today'|
 
-# 15. DeterminerV
-<div id="tex_section_label_15"></div>
+# 16. DeterminerV
+<div id="tex_section_label_16"></div>
 
 Verb DeterminerV are the simplest to modify verbs.
 They are the equivalent of English auxiliary verbs.
@@ -1280,7 +1409,7 @@ The following table shows some examples of Verb DeterminerV.
 |lak|duty|I must swim.|ta ga lak sa 'swim'|
 |lik|want to|I want to swim.|ta ga lik sa 'swim'|
 
-We can also do [verb conjugation](#7-verb-conjugation), such as aspect.
+We can also do [verb conjugation](#8-verb-conjugation), such as aspect.
 
 ## Wordbook
 
@@ -1291,8 +1420,8 @@ We can also do [verb conjugation](#7-verb-conjugation), such as aspect.
 |sea|fa 'sea'|
 |swim|sa 'swim'|
 
-# 16. Bool related classes
-<div id="tex_section_label_16"></div>
+# 17. Bool related classes
+<div id="tex_section_label_17"></div>
 
 SFGPL has classes related to Bool, Bool type and BoolList type.
 These classes are used to represent boolean values, numerical values, and so on.
@@ -1358,8 +1487,8 @@ It can also be used as a number by doing the following.
 |:-:|:-:|
 |I am a student|ma ga so fa 'student'|
 
-# 17. LangList
-<div id="tex_section_label_17"></div>
+# 18. LangList
+<div id="tex_section_label_18"></div>
 
 The LangList type exists as a basic data structure type in SFGPL.
 The following functions exist in LangList.
@@ -1380,7 +1509,7 @@ fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
 ```
 
 To retrieve the first value from this LangList, do the following.
-In this case ```fis fas pas``` represents 0 in [BoolList](#16-bool-related-classes).
+In this case ```fis fas pas``` represents 0 in [BoolList](#17-bool-related-classes).
 
 ```SFGPL
 fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student' fis fas pas
@@ -1396,8 +1525,8 @@ fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
 |happy|la 'happy'|
 |I am a student|ma ga so fa 'student'|
 
-# 18. LangFunc
-<div id="tex_section_label_18"></div>
+# 19. LangFunc
+<div id="tex_section_label_19"></div>
 
 The LangFunc type exists as a basic function type in SFGPL.
 The following functions exist in LangFunc.
@@ -1426,8 +1555,8 @@ When (false,false) is given to the function, do the following.
 pot fa 'xor' fit fit fat pas pas
 ```
 
-# 19. How numbers are expressed
-<div id="tex_section_label_19"></div>
+# 20. How numbers are expressed
+<div id="tex_section_label_20"></div>
 
 The Number and NumberList classes exist in SFGPL to represent decimal numbers.
 
@@ -1522,8 +1651,8 @@ In addition, there are functions that convert integer BoolList and NumberList in
 
 <div class="tex_part" text="Appendix"></div>
 
-# 20. Example Sentence
-<div id="tex_section_label_20"></div>
+# 21. Example Sentence
+<div id="tex_section_label_21"></div>
 
 The following table shows example sentences from the SFGPL.
 
@@ -1612,8 +1741,8 @@ The following table shows example sentences from the SFGPL.
 |di moa ge so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.you(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, you heard that he create a table.|
 
 
-# 21. About version
-<div id="tex_section_label_21"></div>
+# 22. About version
+<div id="tex_section_label_22"></div>
 
 The version of this project is [\_\_version\_\_.py](../../SFGPL/__version__.py).
 In particular, if you want to run it in Python, you can check it by executing the following code.
@@ -1687,4 +1816,5 @@ The content of updates due to changes in version names is based on the following
 |5.0.11|Add and modify to documents|
 |5.0.12|Add and modify to documents|
 |5.0.13|Add and modify to documents|
+|5.0.14|Add and modify to documents|
 
