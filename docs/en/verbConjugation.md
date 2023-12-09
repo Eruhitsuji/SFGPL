@@ -1,4 +1,4 @@
-# 9. Verb Conjugation
+# 7. Verb Conjugation
 
 [TOP](../../readme.md)
 /

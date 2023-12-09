@@ -1,4 +1,4 @@
-# 7. Detailed Grammar
+# 8. Detailed Grammar
 
 [TOP](../../readme.md)
 /

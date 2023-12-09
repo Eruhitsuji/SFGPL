@@ -3,17 +3,36 @@
 import os
 import sys
 import re
-from subprocess import Popen, PIPE, call
-
-from pandocfilters import toJSONFilter, Link, Str
-
-PRE_MODE="pre"
-PANDOC_FILTER_MODE="pandoc_filter"
-
-MODE=PRE_MODE
 
 def imgLinkReplace(path_str):
     return re.sub(r"(../)+img/","./",path_str)
+
+def inPageLinkReplace(s):
+    pl=re.findall(r"\[(\w+)\]\(#(\d+)-(\w+)\)",s)
+    for pli in pl:
+        display_word=pli[0]
+        link_num=pli[1]
+        link_str=pli[2]
+        raw_str="[{dw}](#{ln}-{ls})".format(dw=display_word,ln=link_num,ls=link_str)
+        rp_str="\\hyperref[sec:sec_num_{label}]{{{text}}}".format(label=link_num,text=display_word)
+        s=s.replace(raw_str,rp_str)
+    return s
+
+def texPartReplace(s):
+    l=re.findall(r"<div class=\"tex_part\" text=\"(.+)\"></div>",s)
+    for li in l:
+        raw_str="<div class=\"tex_part\" text=\"{}\"></div>".format(li)
+        rp_str="\\part{{{}}}".format(li)
+        s=s.replace(raw_str,rp_str)
+    return s
+
+def texSectionLabelReplace(s):
+    l=re.findall(r"<div id=\"tex_section_label_(\d+)\"></div>",s)
+    for li in l:
+        raw_str="<div id=\"tex_section_label_{}\"></div>".format(li)
+        rp_str="\\label{{sec:sec_num_{}}}".format(li)
+        s=s.replace(raw_str,rp_str)
+    return s
 
 def tdNewLineReplace(td_str):
     replace_str_config=[
@@ -44,26 +63,18 @@ def tdNewLineReplace(td_str):
             td_str=re.sub(config["key"],config[R_MODE],td_str)
     return td_str
 
-def myfilter(key,value,format_,meta):
-    if(key=="Link"):
-        value[1][0]=imgLinkReplace(value[1][0])
-        return Link(*value)
-    elif(key=="Str"):
-        value=imgLinkReplace(value)
-        return Str(*value)
-    
 if __name__ == "__main__":
-    if(MODE==PRE_MODE):
-        path=sys.argv[1]
+    path=sys.argv[1]
 
-        with open(path,mode="r",encoding="utf-8") as f:
-            l=f.readlines()
+    with open(path,mode="r",encoding="utf-8") as f:
+        l=f.readlines()
 
-        with open(path,mode="w",encoding="utf-8") as f:
-            for line in l:
-                line=imgLinkReplace(line)
-                line=tdNewLineReplace(line)
-                f.write(line)
-    
-    elif(MODE==PANDOC_FILTER_MODE):
-        toJSONFilter(myfilter)
+    with open(path,mode="w",encoding="utf-8") as f:
+        for line in l:
+            line=imgLinkReplace(line)
+            line=inPageLinkReplace(line)
+            line=texPartReplace(line)
+            line=texSectionLabelReplace(line)
+            line=tdNewLineReplace(line)
+            f.write(line)
+

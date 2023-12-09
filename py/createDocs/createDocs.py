@@ -52,10 +52,13 @@ def removeFile(p:str):
 #import config json file
 CONFIG_PATH=THIS_BASE+"docs_config.json"
 
-DEFAULT_TITLE_MODE="d"
-DEFAULT_ALL_DOCS_TITLE_MODE="g"
+DEF_TITLE_DEFAULT_MODE="d"
+DEF_TITLE_GITHUB_MODE="g"
+
 GITHUB_PRJ_DOCS_URL="https://github.com/Eruhitsuji/SFGPL/blob/main/docs/"
 
+DEFAULT_TITLE_MODE=DEF_TITLE_DEFAULT_MODE
+DEFAULT_ALL_DOCS_TITLE_MODE=DEF_TITLE_DEFAULT_MODE#DEF_TITLE_GITHUB_MODE
 
 def readConfig(path=CONFIG_PATH):
     with open(path,mode="r",encoding="utf-8") as f:
@@ -76,6 +79,7 @@ def preProcessConfig(data):
             "format_key":format_key,
             "EN_github_link":GITHUB_PRJ_DOCS_URL+"en/"+di["md_filename"],
             "JP_github_link":GITHUB_PRJ_DOCS_URL+"jp/"+di["md_filename"],
+            "index":i+1,
         }
         
         r_list_dict={**di,**tmp_dict}
@@ -117,12 +121,12 @@ def getTitleKey(lang_mode:str,md_mode:bool,title_mode:str=DEFAULT_TITLE_MODE):
     if(md_mode):
         data_key="md_filename"
     else:
-        if(title_mode=="d"):
+        if(title_mode==DEF_TITLE_DEFAULT_MODE):
             if(lang_mode=="EN"):
                 data_key="EN_title_md"
             elif(lang_mode=="JP"):
                 data_key="JP_title_md"
-        elif(title_mode=="g"):
+        elif(title_mode==DEF_TITLE_GITHUB_MODE):
             if(lang_mode=="EN"):
                 data_key="EN_github_link"
             elif(lang_mode=="JP"):
@@ -138,7 +142,7 @@ def getFormatkeyDict(lang_mode:str,md_mode:bool,title_mode:str,base_str:str="",d
     r_dict={}
     for di in data["docs_config"]:
         tmp=base_str+di[data_key]
-        if(not md_mode and title_mode=="d"):
+        if(not md_mode and title_mode==DEF_TITLE_DEFAULT_MODE):
             tmp=mdLinkString(tmp)
             
         r_dict[di["format_key"]]=tmp
@@ -153,9 +157,14 @@ def getDataOfName(name:str,data=CONFIG_DATA):
 def createHeader(name:str,lang_mode:str,md_mode:bool,data=CONFIG_DATA):
     n_data=getDataOfName(name,data)
 
-    data_key=getTitleKey(lang_mode,False,"d")
+    data_key=getTitleKey(lang_mode,False,DEF_TITLE_DEFAULT_MODE)
 
-    r_str="# {}".format(n_data[data_key])
+    r_str=""
+
+    if(not md_mode and "part_add" in n_data):
+        r_str+="<div class=\"tex_part\" text=\"{}\"></div>\n\n".format(n_data["part_add"][lang_mode])
+
+    r_str+="# {}".format(n_data[data_key])
 
     if(md_mode):
         top_md="../../readme.md"
@@ -170,6 +179,8 @@ def createHeader(name:str,lang_mode:str,md_mode:bool,data=CONFIG_DATA):
             lang_md="../en/"+n_data["md_filename"]
 
         r_str+="\n\n[TOP]({top_md})\n/\n[{lang}]({lang_md})".format(top_md=top_md,lang=lang,lang_md=lang_md)
+    else:
+        r_str+="\n<div id=\"tex_section_label_{id_str}\"></div>".format(id_str=n_data["index"])
 
     return r_str
 

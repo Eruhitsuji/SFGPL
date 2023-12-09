@@ -1,10 +1,11 @@
 ---
 title: SFGPL入門
 author: Eruhitsuji
-date: 2023-12-08
+date: 2023-12-09
 ---
 
 # 1. SFGPLについて
+<div id="tex_section_label_1"></div>
 
 ## はじめに
 
@@ -40,7 +41,7 @@ SFGPLでは，文構造それぞれに関数が割り振られているため，
 SFGPLの語順はSVOであるが，文頭に文の構造を決定する機能語が付属する．
 また，SFGPLでは固有語によって，文構造が厳密に定義されている．
 以下の表は，SFGPLで表現できる文構造の表である．
-また使用方法等の詳細は，[文型](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/sentence_pattern.md)に記述してある．
+また使用方法等の詳細は，[文型](#2-文型)に記述してある．
 
 |||単語|関数|引数|補足|
 |:-:|:-:|:-:|:-:|:-:|:-:|
@@ -93,7 +94,7 @@ SFGPLの固有語は，数少ない単語を除いて二重母音は存在しな
 
 ## SFGPLの単語
 
-SFGPLの[単語](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/Word.md)は主に，SFGPLの固有の単語と借用語に分かれる．
+SFGPLの[単語](#9-単語)は主に，SFGPLの固有の単語と借用語に分かれる．
 
 固有単語は，主に文構造に必要な機能語と，動詞と修飾語の基礎単語が存在する．
 またそれ以外は，借用語が使用される．
@@ -150,7 +151,10 @@ PythonでSFGPLを使用するためには，[SFGPL.py](../../SFGPL/SFGPL.py)を�
 使用例は[samples](../../py/samples)のPythonファイルに記載されている．
 また，PythonでのSFGPLライブラリの詳細な実行方法は，[How_to_Use_SFGPL_in_Python.ipynb](../../How_to_Use_SFGPL_in_Python.ipynb)に記載されている．
 
+<div class="tex_part" text="SFGPLの構文"></div>
+
 # 2. 文型
+<div id="tex_section_label_2"></div>
 
 ## SFGPLの文型の一覧
 
@@ -346,6 +350,7 @@ me mi ge so san fa 'table' so la 'red'
 |in East Asia|li fun pun me fa 'Asia' so la 'east'|
 
 # 3. 否定文
+<div id="tex_section_label_3"></div>
 
 否定文を作成するためには```pa```を使用する．
 この語は，文章に付属することで否定文を作る．
@@ -364,6 +369,7 @@ pa mi ga so fa 'table'
 |table|fa 'table'|
 
 # 4. 疑問文
+<div id="tex_section_label_4"></div>
 
 疑問文を作成するためには```da```を使用する．
 この単語を文につけると疑問文になる．
@@ -398,6 +404,7 @@ da mi ge so pen wa
 |what|pen wa|
 
 # 5. 命令文
+<div id="tex_section_label_5"></div>
 
 命令文を作成するためには```de```を使用する．
 この単語を文につけると命令文になる．
@@ -417,12 +424,13 @@ de te ge sa 'buy' fa 'table'
 |table|fa 'table'|
 
 # 6. 複文
+<div id="tex_section_label_6"></div>
 
 SFGPLでは1つの文の中に，複数のを組み合わせて表す文を作成することができる．
 
 ## 並列節
 
-2つ以上の文を並列に接続するためには，[接続詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/Conjunction.md)が使用される．
+2つ以上の文を並列に接続するためには，[接続詞](#12-接続詞)が使用される．
 
 SFGPLで，"I went to Tokyo and I was shopping there."を表すには次のようにする．
 
@@ -501,258 +509,8 @@ di ta ga na sa 'go' ba li ma fi ni sa 'shop' so fa 'grocery' li ta mi ga so san 
 |kid|fa 'kid'|
 |sleep|sa 'sleep'|
 
-# 7. 詳細な文法
-
-SFGPLは基本的に，[文型](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/sentence_pattern.md)に記されているような文法は厳守する必要があるが，その他はユーザ側である程度決めてよい．
-しかし，模範的な文法を本章で記述しておく．
-
-## 文章を修飾する方法
-
-文章全体に対して修飾するためには，基本的にその文内の動詞を```na```を使用することで修飾する．
-例えば，"I go to Tokyo."という例文では，"to Tokyo"の部分が修飾語となる．
-その際SFGPLでは次のように表現する．
-
-```SFGPL
-ta ga na sa 'go' li pun fa 'Tokyo'
-```
-
-また，別の方法として，```me```を使う方法もある．
-
-```SFGPL
-me ta ga sa 'go' so li pun fa 'Tokyo'
-```
-
-### 英語における前置詞的な用法
-
-特に，英語における前置詞のように動詞を修飾する場合，```li```と[DeterminerN](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerN.md)を使用して表現する．
-英語の前置詞とSFGPLの一例を次の表に示す．
-
-|English|Meaning|SFGPL|
-|:-:|:-:|:-:|
-|at/in/on/to/from|Time|li pin|
-|at/in/on/to/from|Place|li pun|
-|for|Reason|li pon|
-|for|Way/Means|li ban|
-|from|Start|li fan|
-|to|End|li fen|
-|between/among|Section|li fin|
-|in|In|li fun|
-|into|Into|li tun fun|
-|out|Out|li fon|
-|up/over|Move&Above|li tun man|
-|above|Above|li man|
-|down|Move&Below|li tun men|
-|under|On&Below|li min men|
-|below|Below|li men|
-|on|On|li min|
-|right|Right|li mun|
-|left|Left|li mon|
-|near|Near|li tin|
-|by/about|By/About|li tan tin|
-|with|With|li ten tin|
-
-## 比較表現の文法
-
-SFGPLでは，英語における比較級を使った比較表現は，```mo```によって定義されているが，最上級や同級による比較は定義されていない．
-このような文は次のように表すことを推奨する．
-
-### 比較級
-
-"A is B(-er) than C"のような比較表現は，```mo```によって表現する．
-"My bag is bigger than yours."は，次のように表現する．
-
-```SFGPL
-mo mi ga so san fa 'big' so wan sen ge
-```
-
-### 最上級
-
-"A is the B(-est) in/of C"のような比較表現は，次のような構文で表現する．
-
-```SFGPL
-me A V ka B li fun C
-```
-
-"My bag is the biggest in my class."は，次のように表現する．
-
-```SFGPL
-me mi ga so san fa 'big' so ka wan li fun mu ga so san fa 'class'
-```
-
-### 同級
-
-"A is as B as C"のような比較表現は，次のような構文で表現する．
-このとき，"似ている"という意味の```wen```を使って表現する．
-
-```SFGPL
-me ba A C V ka B wen
-```
-
-"My bag is as big as his."は，次のように表現する．
-
-```SFGPL
-me ba mi ga so san fa 'big' sen lan gi so ka wan wen
-```
-
-## 単語集
-
-|English|SFGPL|
-|:-:|:-:|
-|I|ga|
-|go|sa 'go'|
-|to Tokyo|li pun fa 'Tokyo'|
-|bag|fa 'bag'|
-|big|wan|
-|yours(possessive)|sen ge|
-|my class|mu ga so san fa 'class'|
-|his(possessive)|sen lan gi|
-
-# 8. 単語
-
-SFGPLの単語は，基本的に使い方が定まっている．
-例えば，借用語を使用する方法などが決まっている．
-本章ではこれら単語の種類と使用方法について記載する．
-また，単語の詳細は[dict.csv](../../dict.csv)に記述されている．
-
-また，SFGPLの単語では，基本的に，冠詞，数，性，格などによる変形は行われない．
-数や性を示したいときには，[名詞限定詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerN.md)を使用する．
-
-## 借用語について
-
-SFGPLは基礎単語以外は借用語にて代用する．
-名詞，動詞，修飾語にて，借用語を使用するためには，次の表のように表す．
-
-|元の語|品詞|SFGPL|
-|:-:|:-:|:-:|
-|apple|名詞|fa 'apple'|
-|open|動詞|sa 'open'|
-|tall|修飾語|la 'tall'|
-
-これらの単語を使った例を次に表す．
-
-|English|SFGPL|
-|:-:|:-:|
-|I have an apple.|mi ga so fa 'apple'|
-|I open a door.|te ga sa 'open' fa 'door'|
-|I am tall.|me ga so la 'tall'|
-
-### 借用語と借用元の言語
-
-借用語はあらゆる言語より借用することが可能である．
-ただし，話者間双方で理解できる単語を選ぶことが望ましい．
-
-例えば，あらゆる言語の「言語」という単語をSFGPLに借用するには次の表のようにする．
-
-|Language|Raw Word|SFGPL|
-|:-:|:-:|:-:|
-|English|language|fa 'language'|
-|Japanese|言語|fa '言語'|
-|Spanish|idioma|fa 'idioma'|
-|French|langue|fa 'langue'|
-|Russian|язык|fa 'язык'|
-|Portuguese|linguagem|fa 'linguagem'|
-|Esperanto|lingvo|fa 'lingvo'|
-
-このように，様々な言語から借用することができる．
-また，この資料では基本的に借用語は英語から借用している．
-
-## 固有単語について
-
-SFGPLでは，動詞と修飾語については，いくつかの固有単語が用意されている．
-WordV，WordMクラスでは，SFGPLに固有に存在する単語群である．
-
-これらの単語群は，品詞が既に決定していおり，また広い意味を持っているため汎用性は高いが，意味の詳細の特定はしにくいものである．
-
-次の表は，固有単語の例である．
-
-|English|SFGPL|
-|:-:|:-:|
-|create|kan|
-|big|wan|
-
-これらの単語を使った例を次に表す．
-
-|English|SFGPL|
-|:-:|:-:|
-|I create a door.|te ga kan fa 'door'|
-|The apple is big.|me fa 'apple' so wan|
-
-### 固有単語のルール
-
-SFGPLの固有単語に関しては一意性があり，異なる意味の単語は異なる発音となる．
-また音節構造は，一単語一音節（CVまたはCVC）である．
-
-## 限定詞について
-
-文法上の機能として，単語を単純に修飾する語である限定詞が存在する．
-限定詞には，名詞を限定する名詞限定詞と，動詞を限定する動詞限定詞が存在する．
-
-### 名詞限定詞
-
-SFGPLには[名詞限定詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerN.md)が存在する．
-これは，元々名詞を修飾する特別な語である．
-しかし，限定詞自体の意味をそのまま名詞にすることもできる．
-そのためには，```fo```を使用する．
-使用例を次の表に表す．
-
-|English|SFGPL|
-|:-:|:-:|
-|human|ben fo|
-
-これらの単語を使った例を次に表す．
-
-|English|SFGPL|
-|:-:|:-:|
-|I am human.|ma ga so ben fo|
-
-### 動詞限定詞
-
-SFGPLには[動詞限定詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerV.md)が存在する．
-これは，動詞を修飾する特別な語である．
-そしてこれらは，動詞の時制や相として使われる語や，助動詞的に動詞の意味を付加するものが存在している．
-
-## 無意味単語について
-
-SFGPLには，意味を付加しない単語が存在する．
-これらの単語は，品詞ごとに存在し，文法上必要なときに使われる．
-
-||SFGPL|
-|:-:|:-:|
-|Noun|fo|
-|Verb|so|
-|Modifier|lo|
-
-はじめに，無意味名詞の```fo```では，[名詞限定詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerN.md)をそのままの意味で表すときによく使われる．
-また，無意味動詞の```so```は，特に[文型](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/sentence_pattern.md)で，動詞が必要ない場合など使われる．
-一方，無意味修飾詞```lo```は，あまり使われない．
-これらの例を次に表す．
-
-|English|SFGPL|
-|:-:|:-:|
-|I am human.|ma ga so ben fo|
-|I have an apple.|mi ga so fa 'apple'|
-
-## 代名詞について
-
-SFGPLでは[代名詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/pronoun.md)が存在する．
-代名詞は次の表のようなものがある．
-
-||English|SFGPL|
-|:-:|:-:|:-:|
-|一人称代名詞|I|ga|
-|二人称代名詞|you|ge|
-|三人称代名詞|he/she/it|gi|
-|近称代名詞|this|gu|
-|遠称代名詞|that|go|
-|疑問代名詞|what|wa|
-|不定代名詞|something|we|
-
-## 数値や論理的に使われる語
-
-SFGPLには，[数値的な単語](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/Number.md)や[真偽値に関する単語](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/Bool.md)，[リストに関する単語](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/LangList.md)，[関数に関する単語](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/LangFunc.md)が存在している．
-これらの単語は，一般的な文ではあまり使われないが，論理的なことを示す際に使われる．
-
-# 9. 動詞の活用
+# 7. 動詞の活用方法
+<div id="tex_section_label_7"></div>
 
 SFGPLでは，時制や相，助動詞などの動詞を修飾する語が備わっている．
 これらの語は，主に，動詞に直接付属し修飾するものと，文全体に修飾するものが存在する．
@@ -914,7 +672,7 @@ du ta fa 'dress' ne sa 'wear'
 
 ## その他の動詞の修飾
 
-[DeterminerV](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerV.md)クラス内の関数では，その他の動詞の修飾をすることができる．
+[DeterminerV](#15-動詞限定詞)クラス内の関数では，その他の動詞の修飾をすることができる．
 また，それらは，英語の助動詞と似ている．
 
 ## 単語集
@@ -927,7 +685,263 @@ du ta fa 'dress' ne sa 'wear'
 |wear|sa 'wear'|
 |dress|fa 'dress'|
 
+# 8. 詳細な文法
+<div id="tex_section_label_8"></div>
+
+SFGPLは基本的に，[文型](#2-文型)に記されているような文法は厳守する必要があるが，その他はユーザ側である程度決めてよい．
+しかし，模範的な文法を本章で記述しておく．
+
+## 文章を修飾する方法
+
+文章全体に対して修飾するためには，基本的にその文内の動詞を```na```を使用することで修飾する．
+例えば，"I go to Tokyo."という例文では，"to Tokyo"の部分が修飾語となる．
+その際SFGPLでは次のように表現する．
+
+```SFGPL
+ta ga na sa 'go' li pun fa 'Tokyo'
+```
+
+また，別の方法として，```me```を使う方法もある．
+
+```SFGPL
+me ta ga sa 'go' so li pun fa 'Tokyo'
+```
+
+### 英語における前置詞的な用法
+
+特に，英語における前置詞のように動詞を修飾する場合，```li```と[DeterminerN](#14-名詞限定詞)を使用して表現する．
+英語の前置詞とSFGPLの一例を次の表に示す．
+
+|English|Meaning|SFGPL|
+|:-:|:-:|:-:|
+|at/in/on/to/from|Time|li pin|
+|at/in/on/to/from|Place|li pun|
+|for|Reason|li pon|
+|for|Way/Means|li ban|
+|from|Start|li fan|
+|to|End|li fen|
+|between/among|Section|li fin|
+|in|In|li fun|
+|into|Into|li tun fun|
+|out|Out|li fon|
+|up/over|Move&Above|li tun man|
+|above|Above|li man|
+|down|Move&Below|li tun men|
+|under|On&Below|li min men|
+|below|Below|li men|
+|on|On|li min|
+|right|Right|li mun|
+|left|Left|li mon|
+|near|Near|li tin|
+|by/about|By/About|li tan tin|
+|with|With|li ten tin|
+
+## 比較表現の文法
+
+SFGPLでは，英語における比較級を使った比較表現は，```mo```によって定義されているが，最上級や同級による比較は定義されていない．
+このような文は次のように表すことを推奨する．
+
+### 比較級
+
+"A is B(-er) than C"のような比較表現は，```mo```によって表現する．
+"My bag is bigger than yours."は，次のように表現する．
+
+```SFGPL
+mo mi ga so san fa 'big' so wan sen ge
+```
+
+### 最上級
+
+"A is the B(-est) in/of C"のような比較表現は，次のような構文で表現する．
+
+```SFGPL
+me A V ka B li fun C
+```
+
+"My bag is the biggest in my class."は，次のように表現する．
+
+```SFGPL
+me mi ga so san fa 'big' so ka wan li fun mu ga so san fa 'class'
+```
+
+### 同級
+
+"A is as B as C"のような比較表現は，次のような構文で表現する．
+このとき，"似ている"という意味の```wen```を使って表現する．
+
+```SFGPL
+me ba A C V ka B wen
+```
+
+"My bag is as big as his."は，次のように表現する．
+
+```SFGPL
+me ba mi ga so san fa 'big' sen lan gi so ka wan wen
+```
+
+## 単語集
+
+|English|SFGPL|
+|:-:|:-:|
+|I|ga|
+|go|sa 'go'|
+|to Tokyo|li pun fa 'Tokyo'|
+|bag|fa 'bag'|
+|big|wan|
+|yours(possessive)|sen ge|
+|my class|mu ga so san fa 'class'|
+|his(possessive)|sen lan gi|
+
+<div class="tex_part" text="SFGPLの単語"></div>
+
+# 9. 単語
+<div id="tex_section_label_9"></div>
+
+SFGPLの単語は，基本的に使い方が定まっている．
+例えば，借用語を使用する方法などが決まっている．
+本章ではこれら単語の種類と使用方法について記載する．
+また，単語の詳細は[dict.csv](../../dict.csv)に記述されている．
+
+また，SFGPLの単語では，基本的に，冠詞，数，性，格などによる変形は行われない．
+数や性を示したいときには，[名詞限定詞](#14-名詞限定詞)を使用する．
+
+## 借用語について
+
+SFGPLは基礎単語以外は借用語にて代用する．
+名詞，動詞，修飾語にて，借用語を使用するためには，次の表のように表す．
+
+|元の語|品詞|SFGPL|
+|:-:|:-:|:-:|
+|apple|名詞|fa 'apple'|
+|open|動詞|sa 'open'|
+|tall|修飾語|la 'tall'|
+
+これらの単語を使った例を次に表す．
+
+|English|SFGPL|
+|:-:|:-:|
+|I have an apple.|mi ga so fa 'apple'|
+|I open a door.|te ga sa 'open' fa 'door'|
+|I am tall.|me ga so la 'tall'|
+
+### 借用語と借用元の言語
+
+借用語はあらゆる言語より借用することが可能である．
+ただし，話者間双方で理解できる単語を選ぶことが望ましい．
+
+例えば，あらゆる言語の「言語」という単語をSFGPLに借用するには次の表のようにする．
+
+|Language|Raw Word|SFGPL|
+|:-:|:-:|:-:|
+|English|language|fa 'language'|
+|Japanese|言語|fa '言語'|
+|Spanish|idioma|fa 'idioma'|
+|French|langue|fa 'langue'|
+|Russian|язык|fa 'язык'|
+|Portuguese|linguagem|fa 'linguagem'|
+|Esperanto|lingvo|fa 'lingvo'|
+
+このように，様々な言語から借用することができる．
+また，この資料では基本的に借用語は英語から借用している．
+
+## 固有単語について
+
+SFGPLでは，動詞と修飾語については，いくつかの固有単語が用意されている．
+WordV，WordMクラスでは，SFGPLに固有に存在する単語群である．
+
+これらの単語群は，品詞が既に決定していおり，また広い意味を持っているため汎用性は高いが，意味の詳細の特定はしにくいものである．
+
+次の表は，固有単語の例である．
+
+|English|SFGPL|
+|:-:|:-:|
+|create|kan|
+|big|wan|
+
+これらの単語を使った例を次に表す．
+
+|English|SFGPL|
+|:-:|:-:|
+|I create a door.|te ga kan fa 'door'|
+|The apple is big.|me fa 'apple' so wan|
+
+### 固有単語のルール
+
+SFGPLの固有単語に関しては一意性があり，異なる意味の単語は異なる発音となる．
+また音節構造は，一単語一音節（CVまたはCVC）である．
+
+## 限定詞について
+
+文法上の機能として，単語を単純に修飾する語である限定詞が存在する．
+限定詞には，名詞を限定する名詞限定詞と，動詞を限定する動詞限定詞が存在する．
+
+### 名詞限定詞
+
+SFGPLには[名詞限定詞](#14-名詞限定詞)が存在する．
+これは，元々名詞を修飾する特別な語である．
+しかし，限定詞自体の意味をそのまま名詞にすることもできる．
+そのためには，```fo```を使用する．
+使用例を次の表に表す．
+
+|English|SFGPL|
+|:-:|:-:|
+|human|ben fo|
+
+これらの単語を使った例を次に表す．
+
+|English|SFGPL|
+|:-:|:-:|
+|I am human.|ma ga so ben fo|
+
+### 動詞限定詞
+
+SFGPLには[動詞限定詞](#15-動詞限定詞)が存在する．
+これは，動詞を修飾する特別な語である．
+そしてこれらは，動詞の時制や相として使われる語や，助動詞的に動詞の意味を付加するものが存在している．
+
+## 無意味単語について
+
+SFGPLには，意味を付加しない単語が存在する．
+これらの単語は，品詞ごとに存在し，文法上必要なときに使われる．
+
+||SFGPL|
+|:-:|:-:|
+|Noun|fo|
+|Verb|so|
+|Modifier|lo|
+
+はじめに，無意味名詞の```fo```では，[名詞限定詞](#14-名詞限定詞)をそのままの意味で表すときによく使われる．
+また，無意味動詞の```so```は，特に[文型](#2-文型)で，動詞が必要ない場合など使われる．
+一方，無意味修飾詞```lo```は，あまり使われない．
+これらの例を次に表す．
+
+|English|SFGPL|
+|:-:|:-:|
+|I am human.|ma ga so ben fo|
+|I have an apple.|mi ga so fa 'apple'|
+
+## 代名詞について
+
+SFGPLでは[代名詞](#13-代名詞)が存在する．
+代名詞は次の表のようなものがある．
+
+||English|SFGPL|
+|:-:|:-:|:-:|
+|一人称代名詞|I|ga|
+|二人称代名詞|you|ge|
+|三人称代名詞|he/she/it|gi|
+|近称代名詞|this|gu|
+|遠称代名詞|that|go|
+|疑問代名詞|what|wa|
+|不定代名詞|something|we|
+
+## 数値や論理的に使われる語
+
+SFGPLには，[数値的な単語](#19-数字の表現方法)や[真偽値に関する単語](#16-bool関連クラス)，[リストに関する単語](#17-langlist)，[関数に関する単語](#18-langfunc)が存在している．
+これらの単語は，一般的な文ではあまり使われないが，論理的なことを示す際に使われる．
+
 # 10. 修飾語
+<div id="tex_section_label_10"></div>
 
 ## 修飾語について
 
@@ -960,7 +974,7 @@ mo mi ga so san fa 'table' so wan sen ge
 ## 修飾語の応用
 
 修飾語では，英語の前置詞と名詞含む句を修飾語として代用する事ができる．
-このとき，名詞を修飾語に変換する```li```と，[名詞限定詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerN.md)がよく組み合わされて表現される．
+このとき，名詞を修飾語に変換する```li```と，[名詞限定詞](#14-名詞限定詞)がよく組み合わされて表現される．
 例えば，"I live in Tokyo."と表す場合は，次のように表せる．
 
 ```SFGPL
@@ -980,6 +994,7 @@ ta ga na sa 'live' li pun fa 'Tokyo'
 |in Tokyo|li pun fa 'Tokyo'|
 
 # 11. 品詞変換
+<div id="tex_section_label_11"></div>
 
 SFGPLでは，名詞，動詞，修飾語の相互の品詞を変換することができる．
 以下の表はSFGPLで品詞変換する語の一覧である．
@@ -1003,12 +1018,12 @@ SFGPLでは，名詞，動詞，修飾語の相互の品詞を変換すること
 ma gu so fi sa 'build'
 ```
 
-また元の単語の動詞は[動詞の活用](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/verbConjugation.md)に従って事前に活用させることも可能である．
+また元の単語の動詞は[動詞の活用](#7-動詞の活用方法)に従って事前に活用させることも可能である．
 
 ## 名詞から修飾語
 
 名詞から修飾語は，英語の前置詞と名詞が組み合わされた句と同等の意味を作成するときに使われる．
-またそのときは，```li```と限定詞([DeterminerN](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerN.md))が組み合わされて使用する．
+またそのときは，```li```と限定詞([DeterminerN](#14-名詞限定詞))が組み合わされて使用する．
 "I live in Tokyo."をSFGPLにすると次のようになる．
 このとき，```pun```は場所を表す限定詞である．
 
@@ -1026,7 +1041,7 @@ mi mi ga so san fa 'daughter' so me me fa 'toy' so lu ne sa 'stuff' so li son fa
 ## 動詞から修飾語
 
 動詞から修飾語に変換すると，印欧語族に多く見られる分詞に相当する用法を使用できる．
-また元の単語の動詞は[動詞の活用](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/verbConjugation.md)に従って事前に活用させることも可能である．
+また元の単語の動詞は[動詞の活用](#7-動詞の活用方法)に従って事前に活用させることも可能である．
 
 "There is a sleeping boy."をSFGPLで表すには次のようにする．
 
@@ -1060,6 +1075,7 @@ di ta ga na sa 'live' li pun ma go so san me fi sa 'build' so lu ne sa 'destroy'
 |destroy|sa 'destroy'|
 
 # 12. 接続詞
+<div id="tex_section_label_12"></div>
 
 SFGPLは，文と文や単語と単語を繋ぐものとして接続詞が存在する．
 SFGPLの主な接続詞として次のようなものがある．
@@ -1087,6 +1103,7 @@ SFGPLの主な接続詞として次のようなものがある．
 |library|fa 'library'|
 
 # 13. 代名詞
+<div id="tex_section_label_13"></div>
 
 ## 代名詞一覧
 
@@ -1106,7 +1123,7 @@ SFGPLの主な接続詞として次のようなものがある．
 
 SFGPLの代名詞は原則として人，生物，物，概念，場所，時間，理由，方法等の区別はされない．
 そして，性別や，数による区別も存在しない．
-これらの区別をする場合は，[名詞限定詞](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/DeterminerN.md)を使用することで限定できる．
+これらの区別をする場合は，[名詞限定詞](#14-名詞限定詞)を使用することで限定できる．
 
 
 疑問詞に対する名詞限定詞の使用方法は次の表となる．
@@ -1142,6 +1159,7 @@ SFGPLでは性の区別が存在しない．
 |再帰代名詞|myself|sin ga|
 
 # 14. 名詞限定詞
+<div id="tex_section_label_14"></div>
 
 名詞限定詞は，名詞を修飾するための最も単純なものである．
 また，代名詞と使われたり，名詞から修飾語に変換するときに使用する```li```と一緒に使われることが多い．
@@ -1172,6 +1190,7 @@ SFGPLでは性の区別が存在しない．
 |today|fa 'today'|
 
 # 15. 動詞限定詞
+<div id="tex_section_label_15"></div>
 
 動詞限定詞は，動詞を修飾するための最も単純なものである．
 これらは，英語の助動詞に相当する．
@@ -1186,7 +1205,7 @@ SFGPLでは性の区別が存在しない．
 |lak|duty|I must swim.|ta ga lak sa 'swim'|
 |lik|want to|I want to swim.|ta ga lik sa 'swim'|
 
-また，相などの，[動詞の活用](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/verbConjugation.md)をすることもできる．
+また，相などの，[動詞の活用](#7-動詞の活用方法)をすることもできる．
 
 ## 単語集
 
@@ -1198,6 +1217,7 @@ SFGPLでは性の区別が存在しない．
 |swim|sa 'swim'|
 
 # 16. Bool関連クラス
+<div id="tex_section_label_16"></div>
 
 SFGPLにはBoolに関連したクラス，Bool型と，BoolList型が存在する．
 これらのクラスは，真偽値や，数値などを表すために使われる．
@@ -1264,6 +1284,7 @@ fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos 
 |I am a student|ma ga so fa 'student'|
 
 # 17. LangList
+<div id="tex_section_label_17"></div>
 
 SFGPLでは基本的なデータ構造型として，LangList型が存在する．
 LangListには，以下の関数が存在している．
@@ -1284,7 +1305,7 @@ fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
 ```
 
 また，このLangListから最初の値を取得するには次のようにする．
-このとき```fis fas pas```は[BoolList](https://github.com/Eruhitsuji/SFGPL/blob/main/docs/jp/Bool.md)における0を表している．
+このとき```fis fas pas```は[BoolList](#16-bool関連クラス)における0を表している．
 
 ```SFGPL
 fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student' fis fas pas
@@ -1301,6 +1322,7 @@ fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
 |I am a student|ma ga so fa 'student'|
 
 # 18. LangFunc
+<div id="tex_section_label_18"></div>
 
 SFGPLでは基本的な関数型として，LangFunc型が存在する．
 LangFuncには，以下の関数が存在している．
@@ -1330,6 +1352,7 @@ pot fa 'xor' fit fit fat pas pas
 ```
 
 # 19. 数字の表現方法
+<div id="tex_section_label_19"></div>
 
 SFGPLでは10進数の数値を表すために，NumberとNumberListクラスが存在する．
 
@@ -1422,7 +1445,10 @@ mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil b
 |Japan|fa 'Japan'|
 |people|fa 'people'|
 
+<div class="tex_part" text="付録"></div>
+
 # 20. 例文
+<div id="tex_section_label_20"></div>
 
 以下の表は，SFGPLの例文を示す．
 
@@ -1512,6 +1538,7 @@ mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil b
 
 
 # 21. バージョンについて
+<div id="tex_section_label_21"></div>
 
 このプロジェクトのバージョンは[\_\_version\_\_.py](../../SFGPL/__version__.py)に記載されている．
 特に，Pythonで実行する場合は，以下のコードを実行することで確認できる．
@@ -1582,4 +1609,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.0.8|ドキュメントの追加・修正|
 |5.0.9|ドキュメントの追加・修正|
 |5.0.10|ドキュメントの追加・修正|
+|5.0.11|ドキュメントの追加・修正|
 

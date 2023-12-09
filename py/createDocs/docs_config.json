@@ -14,7 +14,7 @@
             "name":"aboutSFGPL",
             "md_filename":"aboutSFGPL.md",
             "py_filename":"aboutSFGPL.py",
-            "EN_title":"about SFGPL",
+            "EN_title":"About SFGPL",
             "JP_title":"SFGPLについて"
         },
 
@@ -23,7 +23,11 @@
             "md_filename":"sentence_pattern.md",
             "py_filename":"sentence_pattern.py",
             "EN_title":"Sentence Pattern",
-            "JP_title":"文型"
+            "JP_title":"文型",
+            "part_add":{
+                "EN":"Syntax of the SFGPL",
+                "JP":"SFGPLの構文"
+            }
         },
         {
             "name":"negativeSentence",
@@ -54,6 +58,13 @@
             "JP_title":"複文"
         },
         {
+            "name":"verbConjugation",
+            "md_filename":"verbConjugation.md",
+            "py_filename":"verbConjugation.py",
+            "EN_title":"Verb Conjugation",
+            "JP_title":"動詞の活用方法"
+        },
+        {
             "name":"detailedGrammar",
             "md_filename":"detailedGrammar.md",
             "py_filename":"detailedGrammar.py",
@@ -66,14 +77,11 @@
             "md_filename":"Word.md",
             "py_filename":"Word.py",
             "EN_title":"Word",
-            "JP_title":"単語"
-        },
-        {
-            "name":"verbConjugation",
-            "md_filename":"verbConjugation.md",
-            "py_filename":"verbConjugation.py",
-            "EN_title":"Verb Conjugation",
-            "JP_title":"動詞の活用"
+            "JP_title":"単語",
+            "part_add":{
+                "EN":"SFGPL Word",
+                "JP":"SFGPLの単語"
+            }
         },
         {
             "name":"Modifier",
@@ -145,15 +153,17 @@
             "EN_title":"How numbers are expressed",
             "JP_title":"数字の表現方法"
         },
-
         {
             "name":"exampleSentence",
             "md_filename":"exampleSentence.md",
             "py_filename":"exampleSentence.py",
             "EN_title":"Example Sentence",
-            "JP_title":"例文"
+            "JP_title":"例文",
+            "part_add":{
+                "EN":"Appendix",
+                "JP":"付録"
+            }
         },
-
         {
             "name":"version",
             "md_filename":"version.md",
