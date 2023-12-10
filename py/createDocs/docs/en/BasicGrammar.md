@@ -1,10 +1,10 @@
 {page_header}
 
-This document describes the basic knowledge and grammar for learning the SFGPL.
-In particular, this chapter describes the basic sentences of the affirmative form of the present tense.
+This chapter explains the basic knowledge and grammar for learning the SFGPL.
+In particular, it describes the basic sentences in the affirmative form of the present tense.
 
 It is also recommended to read [aboutSFGPL]({docs_aboutSFGPL}) as a prerequisite.
-Furthermore, it is desirable to know a little English, as the example sentences etc. are based on English.
+Furthermore, as a whole this material is based on English, e.g. example sentences, so it is desirable to know a little English.
 
 ## About the features of the SFGPL sentence structure
 

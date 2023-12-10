@@ -159,11 +159,11 @@ Also, for detailed instructions on how to run the SFGPL library in Python, see [
 # 2. Basic Grammar
 <div id="tex_section_label_2"></div>
 
-This document describes the basic knowledge and grammar for learning the SFGPL.
-In particular, this chapter describes the basic sentences of the affirmative form of the present tense.
+This chapter explains the basic knowledge and grammar for learning the SFGPL.
+In particular, it describes the basic sentences in the affirmative form of the present tense.
 
 It is also recommended to read [aboutSFGPL](#1-about-sfgpl) as a prerequisite.
-Furthermore, it is desirable to know a little English, as the example sentences etc. are based on English.
+Furthermore, as a whole this material is based on English, e.g. example sentences, so it is desirable to know a little English.
 
 ## About the features of the SFGPL sentence structure
 
@@ -693,8 +693,10 @@ me mi ge so san fa 'table' so la 'red'
 |Japan|fa 'Japan'|
 |in East Asia|li fun pun me fa 'Asia' so la 'east'|
 
-# 4. Negative Sentence
+# 4. Negative sentences and Negative expressions
 <div id="tex_section_label_4"></div>
+
+## Negative statement
 
 Use ```pa``` to create a negative sentence.
 This word is attached to a sentence to make a negative sentence.
@@ -705,12 +707,25 @@ To make it mean "I don't have a table.", it can be expressed as follows in the S
 pa mi ga so fa 'table'
 ```
 
+## Negative forms of modifiers
+
+In a modifier, the suffix ```ke``` can be used to indicate a synonym of the modifier.
+
+For example, the synonym "small" for ```wan```, which means "big", can be expressed by adding ```ke wan```.
+
+"My table is small." can be expressed in SFGPL as follows.
+
+```SFGPL
+me mi ga so san fa 'table' so ke wan
+```
+
 ## Wordbook
 
 |English|SFGPL|
 |:-:|:-:|
 |I|ga|
 |table|fa 'table'|
+|big|wan|
 
 # 5. Interrogative Sentence
 <div id="tex_section_label_5"></div>
@@ -2031,4 +2046,5 @@ The content of updates due to changes in version names is based on the following
 |5.0.13|Add and modify to documents|
 |5.0.14|Add and modify to documents|
 |5.0.15|Add and modify to documents|
+|5.0.16|Add and modify to documents|
 

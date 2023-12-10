@@ -159,11 +159,11 @@ PythonでSFGPLを使用するためには，[SFGPL.py](../../SFGPL/SFGPL.py)を�
 # 2. 基本文法
 <div id="tex_section_label_2"></div>
 
-この資料では，SFGPLを学ぶための基本的知識や文法を説明する．
-特にこの章では，現在形の肯定形の基本的な文について説明する．
+この章では，SFGPLを学ぶための基本的知識や文法を説明する．
+特に，現在形の肯定形の基本的な文について説明する．
 
 また前提として[aboutSFGPL](#1-sfgplについて)を読んでおくことを推奨する．
-さらに，例文等は英語を元に作成しているため，少し英語が分かること（中学卒業程度）が望ましい．
+さらにこの資料の全体として，例文等は英語を元に作成しているため，少し英語が分かること（中学卒業程度）が望ましい．
 
 ## SFGPL文構造の特徴について
 
@@ -693,8 +693,10 @@ me mi ge so san fa 'table' so la 'red'
 |Japan|fa 'Japan'|
 |in East Asia|li fun pun me fa 'Asia' so la 'east'|
 
-# 4. 否定文
+# 4. 否定文と否定表現
 <div id="tex_section_label_4"></div>
+
+## 否定文
 
 否定文を作成するためには```pa```を使用する．
 この語は，文章に付属することで否定文を作る．
@@ -705,12 +707,25 @@ me mi ge so san fa 'table' so la 'red'
 pa mi ga so fa 'table'
 ```
 
+## 修飾語の否定形
+
+ある修飾語において，```ke```を付けることによって，その修飾語の対義語を表すことができる．
+
+例えば，"big"という意味の```wan```に対する対義語の"small"を表す場合，```ke wan```とすることで表すことができる．
+
+"My table is small."をSFGPLで表すと次のようになる．
+
+```SFGPL
+me mi ga so san fa 'table' so ke wan
+```
+
 ## 単語集
 
 |English|SFGPL|
 |:-:|:-:|
 |I|ga|
 |table|fa 'table'|
+|big|wan|
 
 # 5. 疑問文
 <div id="tex_section_label_5"></div>
@@ -2031,4 +2046,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.0.13|ドキュメントの追加・修正|
 |5.0.14|ドキュメントの追加・修正|
 |5.0.15|ドキュメントの追加・修正|
+|5.0.16|ドキュメントの追加・修正|
 

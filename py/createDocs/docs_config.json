@@ -43,8 +43,8 @@
             "name":"negativeSentence",
             "md_filename":"negativeSentence.md",
             "py_filename":"negativeSentence.py",
-            "EN_title":"Negative Sentence",
-            "JP_title":"否定文"
+            "EN_title":"Negative sentences and Negative expressions",
+            "JP_title":"否定文と否定表現"
         },
         {
             "name":"interrogativeSentence",
