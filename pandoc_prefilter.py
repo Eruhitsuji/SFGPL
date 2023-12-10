@@ -10,7 +10,7 @@ def imgLinkReplace(path_str):
     return re.sub(r"(../)+img/","./",path_str)
 
 def inPageLinkReplace(s):
-    pl=re.findall(r"\[(\w+)\]\(#(\d+)-(\w+)\)",s)
+    pl=re.findall(r"\[([\w ]+)\]\(#(\d+)-([\w-]+)\)",s)
     for pli in pl:
         display_word=pli[0]
         link_num=pli[1]

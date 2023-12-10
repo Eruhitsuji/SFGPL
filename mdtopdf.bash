@@ -26,6 +26,7 @@ docker run --rm -v $(pwd):/data frozenbonito/pandoc-eisvogel-ja:plantuml \
     --listings \
     -N \
     --toc \
+    --toc-depth=4 \
     -V linkcolor=blue \
     -V table-use-row-colors=true \
     -V titlepage=true \
