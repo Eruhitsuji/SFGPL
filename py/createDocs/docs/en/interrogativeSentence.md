@@ -1,5 +1,7 @@
 {page_header}
 
+## Yes–no question
+
 Use ```{phrase_interrogative}``` to create interrogative sentences.
 When this word is added to a sentence, it becomes a interrogative sentence.
 "You have a table." is ```{you_have_a_table}``` under the SFGPL.
@@ -9,7 +11,10 @@ To make it mean "Do you have a table?", it can be expressed as follows in the SF
 {do_you_have_a_table}
 ```
 
+## wh-questions
+
 In the case of interrogative sentences containing interrogatives, the indefinite is expressed by replacing the indefinite with an interrogative.
+Interrogatives are represented by a combination of the interrogative pronoun ```{pronoun_interrogative}``` and [noun determiner]({docs_DeterminerN}).
 
 "Who has a table?" is expressed as follows.
 

@@ -1,7 +1,7 @@
 ---
 title: Introduction to the SFGPL
 author: Eruhitsuji
-date: 2023-12-10
+date: 2023-12-11
 ---
 
 <div class="tex_part" text="Overview and basic grammar of the SFGPL"></div>
@@ -93,7 +93,7 @@ SFGPL unique words do not have double vowels, except in a few words.
 |i|/i/|
 |u|/u/|
 |o|/o/|
-|ua|/ua/|
+|oa|/oa/|
 
 Borrowed words are read with the pronunciation specific to the borrowed words.
 
@@ -730,6 +730,8 @@ me mi ga so san fa 'table' so ke wan
 # 5. Interrogative Sentence
 <div id="tex_section_label_5"></div>
 
+## Yes–no question
+
 Use ```da``` to create interrogative sentences.
 When this word is added to a sentence, it becomes a interrogative sentence.
 "You have a table." is ```mi ge so fa 'table'``` under the SFGPL.
@@ -739,7 +741,10 @@ To make it mean "Do you have a table?", it can be expressed as follows in the SF
 da mi ge so fa 'table'
 ```
 
+## wh-questions
+
 In the case of interrogative sentences containing interrogatives, the indefinite is expressed by replacing the indefinite with an interrogative.
+Interrogatives are represented by a combination of the interrogative pronoun ```wa``` and [noun determiner](#15-determinern).
 
 "Who has a table?" is expressed as follows.
 
@@ -1557,6 +1562,7 @@ As a rule, SFGPL pronouns do not distinguish between people, organisms, objects,
 There is no distinction based on gender or number.
 These distinctions can be made by using [noun determiner](#15-determinern).
 
+### Interrogative word
 
 The following table shows the use of noun determiners for interrogatives.
 
@@ -1569,8 +1575,12 @@ The following table shows the use of noun determiners for interrogatives.
 |why|pon wa|
 |how|ban wa|
 
+### Plural pronouns
+
 To indicate plurals, use ```don```.
 For example, ```don ga``` is used to denote "We".
+
+### Examples of conjugation of third person pronouns
 
 Gender distinctions do not exist in the SFGPL.
 Nor is there a distinction between persons and things.
@@ -1581,6 +1591,8 @@ For example, to make explicit the third person pronouns masculine, feminine and 
 |male|he|lan gi|
 |female|she|len gi|
 |thing|it|pen gi|
+
+### Possessive and Recursive pronouns
 
 In addition, you can create possessive and reflexive pronouns using ```sen``` and ```sin```.
 The following table shows the possessive and reflexive pronouns for first person pronouns.
@@ -1879,8 +1891,29 @@ In addition, there are functions that convert integer BoolList and NumberList in
 
 <div class="tex_part" text="Appendix"></div>
 
-# 21. Example Sentence
+# 21. Example of a case where the borrowed word is Japanese
 <div id="tex_section_label_21"></div>
+
+In this chapter, examples of usage for Japanese are presented.
+In particular, examples are given for cases where the loanword is Japanese.
+
+Basically, the same usage as in English can be used.
+However, the word order cannot be changed, so it differs from natural Japanese.
+
+For example, to form the sentence "私はりんごを持っている", use the following.
+
+```SFGPL
+mi ga so fa 'りんご'
+```
+
+The sentence "私の鞄は赤い", which [Compound Sentences](#7-compound-sentences) contains, should be as follows.
+
+```SFGPL
+me mi ga so san fa '鞄' so la '赤い'
+```
+
+# 22. Example Sentence
+<div id="tex_section_label_22"></div>
 
 The following table shows example sentences from the SFGPL.
 
@@ -1969,8 +2002,8 @@ The following table shows example sentences from the SFGPL.
 |di moa ge so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.you(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, you heard that he create a table.|
 
 
-# 22. About version
-<div id="tex_section_label_22"></div>
+# 23. About version
+<div id="tex_section_label_23"></div>
 
 The version of this project is [\_\_version\_\_.py](../../SFGPL/__version__.py).
 In particular, if you want to run it in Python, you can check it by executing the following code.
@@ -2048,4 +2081,5 @@ The content of updates due to changes in version names is based on the following
 |5.0.15|Add and modify to documents|
 |5.0.16|Add and modify to documents|
 |5.0.17|Add and modify to documents|
+|5.0.18|Add and modify to documents|
 

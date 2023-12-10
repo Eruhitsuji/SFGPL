@@ -1,7 +1,7 @@
 ---
 title: SFGPL入門
 author: Eruhitsuji
-date: 2023-12-10
+date: 2023-12-11
 ---
 
 <div class="tex_part" text="SFGPLの概要と基礎的な文法"></div>
@@ -93,7 +93,7 @@ SFGPLの固有語は，数少ない単語を除いて二重母音は存在しな
 |i|/i/|
 |u|/u/|
 |o|/o/|
-|ua|/ua/|
+|oa|/oa/|
 
 また，借用語は借用語固有の発音で読む．
 
@@ -730,6 +730,8 @@ me mi ga so san fa 'table' so ke wan
 # 5. 疑問文
 <div id="tex_section_label_5"></div>
 
+## 諾否疑問文
+
 疑問文を作成するためには```da```を使用する．
 この単語を文につけると疑問文になる．
 "You have a table."はSFGPLでは```mi ge so fa 'table'```である．
@@ -739,7 +741,10 @@ me mi ga so san fa 'table' so ke wan
 da mi ge so fa 'table'
 ```
 
+## 疑問詞疑問文
+
 また，疑問詞を含む疑問文の場合，不定のところを疑問詞に置き換えることで表す．
+疑問詞は疑問代名詞```wa```と[名詞限定詞](#15-名詞限定詞)を組み合わせて表す．
 
 "Who has a table?"は次のように表す．
 
@@ -1557,6 +1562,7 @@ SFGPLの代名詞は原則として人，生物，物，概念，場所，時間
 そして，性別や，数による区別も存在しない．
 これらの区別をする場合は，[名詞限定詞](#15-名詞限定詞)を使用することで限定できる．
 
+### 疑問詞
 
 疑問詞に対する名詞限定詞の使用方法は次の表となる．
 
@@ -1569,8 +1575,12 @@ SFGPLの代名詞は原則として人，生物，物，概念，場所，時間
 |why|pon wa|
 |how|ban wa|
 
+### 代名詞の複数形
+
 また，複数形を明示するためには```don```を使用する．
 例えば，"We"を表すには```don ga```とする．
+
+### 三人称代名詞の活用例
 
 SFGPLでは性の区別が存在しない．
 また，人と物の区別も存在しない．
@@ -1581,6 +1591,8 @@ SFGPLでは性の区別が存在しない．
 |男性|he|lan gi|
 |女性|she|len gi|
 |事物|it|pen gi|
+
+### 所有代名詞と再帰代名詞
 
 さらに，所有代名詞，再帰代名詞を作成するには```sen```や```sin```を使用する．
 次の表は，一人称代名詞の所有代名詞，再帰代名詞である．
@@ -1879,8 +1891,29 @@ mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil b
 
 <div class="tex_part" text="付録"></div>
 
-# 21. 例文
+# 21. 借用語が日本語の場合の例
 <div id="tex_section_label_21"></div>
+
+この章では，日本語向けの使用例を提示する．
+特に，借用語が日本語の場合の例を挙げる．
+
+基本的には，英語の場合と同様の使い方でよい．
+しかし，語順は変えられないため，自然な日本語とは異なる．
+
+例えば，「私はりんごを持っている」という文を作るには次のようにする．
+
+```SFGPL
+mi ga so fa 'りんご'
+```
+
+また，[複文](#7-複文)が含んでいる文「私の鞄は赤い」という文は次のようにする．
+
+```SFGPL
+me mi ga so san fa '鞄' so la '赤い'
+```
+
+# 22. 例文
+<div id="tex_section_label_22"></div>
 
 以下の表は，SFGPLの例文を示す．
 
@@ -1969,8 +2002,8 @@ mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil b
 |di moa ge so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.you(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, you heard that he create a table.|
 
 
-# 22. バージョンについて
-<div id="tex_section_label_22"></div>
+# 23. バージョンについて
+<div id="tex_section_label_23"></div>
 
 このプロジェクトのバージョンは[\_\_version\_\_.py](../../SFGPL/__version__.py)に記載されている．
 特に，Pythonで実行する場合は，以下のコードを実行することで確認できる．
@@ -2048,4 +2081,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.0.15|ドキュメントの追加・修正|
 |5.0.16|ドキュメントの追加・修正|
 |5.0.17|ドキュメントの追加・修正|
+|5.0.18|ドキュメントの追加・修正|
 

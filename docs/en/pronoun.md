@@ -24,6 +24,7 @@ As a rule, SFGPL pronouns do not distinguish between people, organisms, objects,
 There is no distinction based on gender or number.
 These distinctions can be made by using [noun determiner](DeterminerN.md).
 
+### Interrogative word
 
 The following table shows the use of noun determiners for interrogatives.
 
@@ -36,8 +37,12 @@ The following table shows the use of noun determiners for interrogatives.
 |why|pon wa|
 |how|ban wa|
 
+### Plural pronouns
+
 To indicate plurals, use ```don```.
 For example, ```don ga``` is used to denote "We".
+
+### Examples of conjugation of third person pronouns
 
 Gender distinctions do not exist in the SFGPL.
 Nor is there a distinction between persons and things.
@@ -48,6 +53,8 @@ For example, to make explicit the third person pronouns masculine, feminine and 
 |male|he|lan gi|
 |female|she|len gi|
 |thing|it|pen gi|
+
+### Possessive and Recursive pronouns
 
 In addition, you can create possessive and reflexive pronouns using ```sen``` and ```sin```.
 The following table shows the possessive and reflexive pronouns for first person pronouns.

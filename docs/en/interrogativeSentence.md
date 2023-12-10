@@ -4,6 +4,8 @@
 /
 [JP](../jp/interrogativeSentence.md)
 
+## Yes–no question
+
 Use ```da``` to create interrogative sentences.
 When this word is added to a sentence, it becomes a interrogative sentence.
 "You have a table." is ```mi ge so fa 'table'``` under the SFGPL.
@@ -13,7 +15,10 @@ To make it mean "Do you have a table?", it can be expressed as follows in the SF
 da mi ge so fa 'table'
 ```
 
+## wh-questions
+
 In the case of interrogative sentences containing interrogatives, the indefinite is expressed by replacing the indefinite with an interrogative.
+Interrogatives are represented by a combination of the interrogative pronoun ```wa``` and [noun determiner](DeterminerN.md).
 
 "Who has a table?" is expressed as follows.
 

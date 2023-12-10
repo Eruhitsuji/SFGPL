@@ -8,6 +8,8 @@ format_str_list={
     "do_you_have_a_table":Phrase.interrogative(Noun.have(Pronoun.you(),Verb.none(),Noun("table"))),
     "you":Pronoun.you(),
     "table":Noun("table"),
+    
+    "pronoun_interrogative":LangObj._getKeyOfDict("Pronoun.interrogative"),
     "who_has_a_table":Phrase.interrogative(Noun.have(DeterminerN.human(Pronoun.interrogative()),Verb.none(),Noun("table"))),
     "what_do_you_have":Phrase.interrogative(Noun.have(Pronoun.you(),Verb.none(),DeterminerN.thing(Pronoun.interrogative()))),
     "who":DeterminerN.human(Pronoun.interrogative()),

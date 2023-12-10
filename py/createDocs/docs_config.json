@@ -164,15 +164,22 @@
             "JP_title":"数字の表現方法"
         },
         {
-            "name":"exampleSentence",
-            "md_filename":"exampleSentence.md",
-            "py_filename":"exampleSentence.py",
-            "EN_title":"Example Sentence",
-            "JP_title":"例文",
+            "name":"JP",
+            "md_filename":"JP.md",
+            "py_filename":"JP.py",
+            "EN_title":"Example of a case where the borrowed word is Japanese",
+            "JP_title":"借用語が日本語の場合の例",
             "part_add":{
                 "EN":"Appendix",
                 "JP":"付録"
             }
+        },
+        {
+            "name":"exampleSentence",
+            "md_filename":"exampleSentence.md",
+            "py_filename":"exampleSentence.py",
+            "EN_title":"Example Sentence",
+            "JP_title":"例文"
         },
         {
             "name":"version",
