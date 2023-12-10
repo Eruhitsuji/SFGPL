@@ -46,6 +46,16 @@ def texSectionLabelReplace(s):
         s=s.replace(raw_str,rp_str)
     return s
 
+def sectionNameReplace(s):
+    l=re.findall(r"# (\d+)\. (.+)",s)
+    for li in l:
+        s_num=li[0]
+        s_str=li[1]
+        raw_str="# {}. {}".format(s_num,s_str)
+        rp_str="# {}".format(s_str)
+        s=s.replace(raw_str,rp_str)
+    return s
+
 def tdNewLineReplace(td_str):
     replace_str_config=[
         {
@@ -88,6 +98,7 @@ if __name__ == "__main__":
             line=inFileLinkReplace(line)
             line=texPartReplace(line)
             line=texSectionLabelReplace(line)
+            line=sectionNameReplace(line)
             line=tdNewLineReplace(line)
             f.write(line)
 
