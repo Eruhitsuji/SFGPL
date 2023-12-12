@@ -81,6 +81,7 @@ Consonants of the SFGPL are listed in the table below.
 |l|/l/|
 |k|/k/|
 |g|/g/|
+|j|/j/|
 |w|/w/|
 
 On the other hand, the vowels in the SFGPL are as shown in the table below.
@@ -2082,4 +2083,5 @@ The content of updates due to changes in version names is based on the following
 |5.0.16|Add and modify to documents|
 |5.0.17|Add and modify to documents|
 |5.0.18|Add and modify to documents|
+|5.1.0|Add LangObj.logicIFELSE() and NumberList.isPN()|
 

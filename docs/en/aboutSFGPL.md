@@ -76,6 +76,7 @@ Consonants of the SFGPL are listed in the table below.
 |l|/l/|
 |k|/k/|
 |g|/g/|
+|j|/j/|
 |w|/w/|
 
 On the other hand, the vowels in the SFGPL are as shown in the table below.

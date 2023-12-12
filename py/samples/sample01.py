@@ -2317,6 +2317,69 @@ sc.setCorpus(
     "This bag is very small."
 )
 
+I_have_a_pen=Noun.have(Pronoun.I(),Verb.none(),Noun("pen"))
+
+sc.setCorpus(
+    LangObj.logicIFELSE(Bool.true(),I_have_a_pen,Phrase.NOT(I_have_a_pen)),
+    "if true, I have a pen."
+)
+
+sc.setCorpus(
+    LangObj.logicIFELSE(Bool.false(),I_have_a_pen,Phrase.NOT(I_have_a_pen)),
+    "if false, I don't have a pen."
+)
+
+sc.setCorpus(
+    Bool.B2N(Noun("true"),NumberList.isPN(NumberList.calcSub(num_16,num_9))),
+    "If 16 and 9, 16 is greater."
+)
+
+sc.setCorpus(
+    Bool.B2N(Noun("false"),NumberList.isPN(NumberList.calcSub(num_9,num_16))),
+    "If 16 and 9, 16 is greater."
+)
+
+
+sc.setCorpus(
+    Bool.B2N(Noun("false"),NumberList.isPN(NumberList.calcSub(num_9,num_16))),
+    "If 16 and 9, 16 is greater."
+)
+
+def loopFunc(s:str,fin_num:NumberList,num_str:str,count_num:NumberList,count_str:str):
+    num_0=NumberList.digit1(Number.zero())
+    num_1=NumberList.digit1(Number.one())
+
+    l_0=LangList.get(LangFunc.arg(),NumberList.IntNL2BL(num_0))
+    l_1=LangList.get(LangFunc.arg(),NumberList.IntNL2BL(num_1))
+
+    c_func_str="condition_func_"+s
+    p_func_str="process_func_"+s
+
+    sc.setCorpus(
+        LangFunc.setFunc(Noun(c_func_str),LangList.append(LangList(),NumberList.isPN(NumberList.calcSub(fin_num,l_0)))),
+        "Define a function for a condition as True if {} or less.".format(num_str)
+    )
+
+    sc.setCorpus(
+        LangFunc.setFunc(Noun(p_func_str),LangList.append(LangList.append(LangList(),NumberList.calcAdd(l_0,num_1)),NumberList.calcAdd(l_1,count_num))),
+        "Define the function for processing as [i+1,i+{}].".format(count_str)
+    )
+    
+    a=LangList.append(LangList.append(LangList.append(LangList(),num_0),num_0),num_1)
+
+    sc.setCorpus(
+        a,
+        "Define the initial value as [0,0]."
+    )
+
+    sc.setCorpus(
+        LangList.While(a,Noun(c_func_str),Noun(p_func_str)),
+        "Loop processing is performed with [0,0] as the initial value, {X} as the function for the condition and {Y} as the function for processing.".format(X=c_func_str,Y=p_func_str)
+    )
+
+loopFunc("01",NumberList.digit1(Number.two()),"2",NumberList.digit1(Number.two()),"2")
+loopFunc("02",NumberList.digit1(Number.two()),"4",NumberList.digit2(Number.one(),Number.zero()),"10")
+
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)
 

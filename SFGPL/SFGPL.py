@@ -56,6 +56,15 @@ class LangObj():
         self._bool_value=bool_value
         self._func_mode=func_mode
 
+    def copy(self,arg=None,bool_value=None,func_mode=None):
+        if(arg==None):
+            arg=self.words
+        if(bool_value==None):
+            bool_value=self._bool_value
+        if(func_mode==None):
+            func_mode=self._func_mode
+        return (type(self))(arg=arg,bool_value=bool_value,func_mode=func_mode)
+
     #Set and Objectification words
     def _setWords(self,new_obj_str,arg):
         if(isinstance(arg,list)):
@@ -231,6 +240,21 @@ class LangObj():
         elif(LangObj._checkTypeOf2obj(a,b)):
             bool_value=Bool.defNOR(a.getBool(),b.getBool())
             return (type(a))(arg,bool_value=bool_value)
+        else:
+            LangObj.printTypeError(arg)
+
+    def logicIFELSE(a,b,c):
+        func_str="LangObj.logicIFELSE"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b,c]
+
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return (type(b))(arg,func_mode=True)
+        elif(isinstance(a,Bool) and isinstance(b,LangObj) and isinstance(c,LangObj)):
+            if(a.getBool()):
+                return b.copy(arg=arg)
+            else:
+                return c.copy(arg=arg)
         else:
             LangObj.printTypeError(arg)
 
@@ -1825,6 +1849,18 @@ class _BaseList(Noun):
         self._func_mode=func_mode
         self._lang_list=lang_list
 
+    def copy(self,arg=None,lang_list=None,bool_value=None,func_mode=None):
+        if(arg==None):
+            arg=self.words
+        if(lang_list==None):
+            lang_list=self._lang_list
+        if(bool_value==None):
+            bool_value=self._bool_value
+        if(func_mode==None):
+            func_mode=self._func_mode
+
+        return (type(self))(arg=arg,lang_list=lang_list,bool_value=bool_value,func_mode=func_mode)
+
     def _ListLen(self):
         return len(self._lang_list)
 
@@ -1846,6 +1882,20 @@ class BoolList(_BaseList):
     def __init__(self,arg=None,lang_list=[],bool_value=None,class_type=None,func_mode=False):
         super().__init__(arg=arg,lang_list=lang_list,bool_value=bool_value,func_mode=func_mode,func_str="BoolList")
         self.__class_type=class_type
+
+    def copy(self,arg=None,lang_list=None,bool_value=None,class_type=None,func_mode=None):
+        if(arg==None):
+            arg=self.words
+        if(lang_list==None):
+            lang_list=self._lang_list
+        if(bool_value==None):
+            bool_value=self._bool_value
+        if(class_type==None):
+            class_type=self.__class_type
+        if(func_mode==None):
+            func_mode=self._func_mode
+
+        return (type(self))(arg=arg,lang_list=lang_list,bool_value=bool_value,class_type=class_type,func_mode=func_mode)
 
     def boolLen(self):
         return self._ListLen()
@@ -2184,7 +2234,7 @@ class LangFunc(Noun):
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return LangList(arg,func_mode=True)
-        
+
     def runFunc(a,b):
         func_str="LangFunc.runFunc"
         key=LangObj._getKeyOfDict(func_str)
@@ -2230,6 +2280,8 @@ class LangList(_BaseList):
                 r_obj=LangList(arg,bool_value=tmp_obj.getBool(),lang_list=tmp_obj.getLangList())
             elif(isinstance(tmp_obj,BoolList)):
                 r_obj=BoolList(arg,bool_value=tmp_obj.getBool(),lang_list=tmp_obj.getBoolList())
+            elif(isinstance(tmp_obj,NumberList)):
+                r_obj=NumberList(arg,bool_value=tmp_obj.getBool(),lang_list=tmp_obj.getNumberList(),number=tmp_obj.getNumber())
             else:
                 r_obj=type(tmp_obj)(arg,bool_value=tmp_obj.getBool())
             
@@ -2276,6 +2328,26 @@ class LangList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    def While(a,b,c):
+        func_str="LangList.While"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b,c]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return LangList(arg,func_mode=True)
+        elif(isinstance(a,LangList) and isinstance(b,Noun) and isinstance(c,Noun)):
+            x=a
+            condition=LangFunc.runFunc(b,x)
+            i=0
+            while(condition.getLangList()[0].getBool()):
+                if(False):
+                    print(i)
+                x=LangFunc.runFunc(c,x)
+                condition=LangFunc.runFunc(b,x)
+                i+=1
+            return x.copy(arg=arg)
+        else:
+            LangObj.printTypeError(arg)
 
 #Class for Number in SFGPL
 class Number(LangObj):
@@ -2286,6 +2358,18 @@ class Number(LangObj):
     def __init__(self,arg,num:int,bool_value=None,func_mode=False):
         super().__init__(arg,bool_value=bool_value,func_mode=func_mode)
         self.__num=num
+
+    def copy(self,arg=None,num=None,bool_value=None,func_mode=None):
+        if(arg==None):
+            arg=self.words
+        if(num==None):
+            num=self.__num
+        if(bool_value==None):
+            bool_value=self._bool_value
+        if(func_mode==None):
+            func_mode=self._func_mode
+
+        return (type(self))(arg=arg,num=num,bool_value=bool_value,func_mode=func_mode)
 
     def getNumber(self):
         return self.__num
@@ -2378,6 +2462,20 @@ class NumberList(_BaseList):
         self._list_flag=(self._lang_list!=[] or self._number==None)
         if(self._number==None):
             self._number=NumberList._calcNumberObjList(self._lang_list)
+
+    def copy(self,arg=None,lang_list=None,number=None,bool_value=None,func_mode=None):
+        if(arg==None):
+            arg=self.words
+        if(lang_list==None):
+            lang_list=self._lang_list
+        if(number==None):
+            number=self._number
+        if(bool_value==None):
+            bool_value=self._bool_value
+        if(func_mode==None):
+            func_mode=self._func_mode
+
+        return (type(self))(arg=arg,lang_list=lang_list,number=number,bool_value=bool_value,func_mode=func_mode)
         
     def NumberListLen(self):
         return self._ListLen()
@@ -2603,6 +2701,20 @@ class NumberList(_BaseList):
                 return BoolList(arg=arg,lang_list=lang_list)
             else:
                 print(SFGPLError.NUMBERLIST_IntNL2BL_FLOAT_ERROR(arg))
+        else:
+            LangObj.printTypeError(arg)
+
+    def isPN(a):
+        func_str="NumberList.isPN"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Bool(arg,func_mode=True)
+        elif(isinstance(a,NumberList)):
+            number=a.getNumber()
+            return Bool(arg=arg,bool_value=number>=0)
+        
         else:
             LangObj.printTypeError(arg)
 
