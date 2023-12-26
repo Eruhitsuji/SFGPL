@@ -1,7 +1,7 @@
 ---
 title: Introduction to the SFGPL
 author: Eruhitsuji
-date: 2023-12-11
+date: 2023-12-27
 ---
 
 <div class="tex_part" text="Overview and basic grammar of the SFGPL"></div>
@@ -1892,25 +1892,41 @@ In addition, there are functions that convert integer BoolList and NumberList in
 
 <div class="tex_part" text="Appendix"></div>
 
-# 21. Example of a case where the borrowed word is Japanese
+# 21. Examples of the use of loan words other than those of English origin
 <div id="tex_section_label_21"></div>
 
-In this chapter, examples of usage for Japanese are presented.
-In particular, examples are given for cases where the loanword is Japanese.
+The SFGPL also allows the use of loanwords that are not of English origin.
+In such cases, the usage is basically the same as for English.
+However, the word order cannot be changed, so it may differ from the word order of the original language.
 
-Basically, the same usage as in English can be used.
-However, the word order cannot be changed, so it differs from natural Japanese.
+## Borrowed words of Japanese origin
 
-For example, to form the sentence "私はりんごを持っている", use the following.
+For example, to form the sentence "私はりんごを持っている。", use the following.
 
 ```SFGPL
 mi ga so fa 'りんご'
 ```
 
-The sentence "私の鞄は赤い", which [Compound Sentences](#7-compound-sentences) contains, should be as follows.
+The sentence "私の鞄は赤い。", which [Compound Sentences](#7-compound-sentences) contains, should be as follows.
 
 ```SFGPL
 me mi ga so san fa '鞄' so la '赤い'
+```
+
+## Borrowed words of Esperanto origin
+
+When using Esperanto words as loan words, it is recommended that, as a rule, the form without the part-of-speech suffix should be used.
+
+For example, to form the sentence "Mi havas pomon." do the following.
+
+```SFGPL
+mi ga so fa 'pom'
+```
+
+For example, to form the sentence "Mia sako estas ruĝa." do the following.
+
+```SFGPL
+me mi ga so san fa 'sak' so la 'ruĝ'
 ```
 
 # 22. Example Sentence
@@ -2084,4 +2100,5 @@ The content of updates due to changes in version names is based on the following
 |5.0.17|Add and modify to documents|
 |5.0.18|Add and modify to documents|
 |5.1.0|Add LangObj.logicIFELSE() and NumberList.isPN()|
+|5.1.1|Add and modify to documents|
 

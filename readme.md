@@ -25,7 +25,7 @@ However, I may be wrong because Japanese is my native language and English is tr
 - [18. LangList](docs/en/LangList.md)
 - [19. LangFunc](docs/en/LangFunc.md)
 - [20. How numbers are expressed](docs/en/Number.md)
-- [21. Example of a case where the borrowed word is Japanese](docs/en/JP.md)
+- [21. Examples of the use of loan words other than those of English origin](docs/en/otherLang.md)
 - [22. Example Sentence](docs/en/exampleSentence.md)
 - [23. About version](docs/en/version.md)
 
@@ -51,7 +51,7 @@ However, I may be wrong because Japanese is my native language and English is tr
 - [18. LangList](docs/jp/LangList.md)
 - [19. LangFunc](docs/jp/LangFunc.md)
 - [20. 数字の表現方法](docs/jp/Number.md)
-- [21. 借用語が日本語の場合の例](docs/jp/JP.md)
+- [21. 英語由来以外の借用語を使う例](docs/jp/otherLang.md)
 - [22. 例文](docs/jp/exampleSentence.md)
 - [23. バージョンについて](docs/jp/version.md)
 

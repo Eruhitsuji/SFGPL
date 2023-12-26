@@ -164,11 +164,11 @@
             "JP_title":"数字の表現方法"
         },
         {
-            "name":"JP",
-            "md_filename":"JP.md",
-            "py_filename":"JP.py",
-            "EN_title":"Example of a case where the borrowed word is Japanese",
-            "JP_title":"借用語が日本語の場合の例",
+            "name":"otherLang",
+            "md_filename":"otherLang.md",
+            "py_filename":"otherLang.py",
+            "EN_title":"Examples of the use of loan words other than those of English origin",
+            "JP_title":"英語由来以外の借用語を使う例",
             "part_add":{
                 "EN":"Appendix",
                 "JP":"付録"
