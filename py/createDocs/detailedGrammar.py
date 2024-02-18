@@ -47,13 +47,15 @@ format_str_list={
     "big":WordM.big(),
     "yours_possessive":DeterminerN.possessive(Pronoun.you()),
 
-    "superlative_exp":multiWord([LangObj._getKeyOfDict("Noun.haveP"),"A","V",LangObj._getKeyOfDict("Modifier.add"),"B",LangObj._getKeyOfDict("Modifier.N2M"),LangObj._getKeyOfDict("DeterminerN.In"),"C"]),
-    "my_bag_is_the_biggest_in_my_class":Noun.haveP(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("big"))),Verb.none(),Modifier.add(WordM.big(),Modifier.N2M(DeterminerN.In(Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("class"))))))),
+    "superlative_exp":multiWord([LangObj._getKeyOfDict("Noun.haveP"),"A","V",LangObj._getKeyOfDict("Modifier.add"),LangObj._getKeyOfDict("Modifier.Very"),"B",LangObj._getKeyOfDict("Modifier.N2M"),LangObj._getKeyOfDict("DeterminerN.In"),"C"]),
+    "my_bag_is_the_biggest_in_my_class":appendixGrammar.Superlative(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("bag"))),Verb.none(),WordM.big(),Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("class")))),
+    "my_bag_is_the_2nd_biggest_in_my_class":appendixGrammar.Superlative(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("bag"))),Verb.none(),Modifier.add(WordM.big(),Modifier.N2M(NumberList.digit1(Number.two()))),Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("class")))),
+
     "my_class":Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("class"))),
 
     "wordM_near":LangObj._getKeyOfDict("WordM.near"),
     "equivalent_classes_exp":multiWord([LangObj._getKeyOfDict("Noun.haveP"),LangObj._getKeyOfDict("LangObj.AND"),"A","C","V",LangObj._getKeyOfDict("Modifier.add"),"B",LangObj._getKeyOfDict("WordM.near")]),
-    "my_bag_is_as_big_as_his":Noun.haveP(Noun.AND(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("big"))),DeterminerN.possessive(DeterminerN.male(Pronoun.he()))),Verb.none(),Modifier.add(WordM.big(),WordM.near())),
+    "my_bag_is_as_big_as_his":appendixGrammar.EquivalentClass(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("bag"))),Verb.none(),WordM.big(),DeterminerN.possessive(DeterminerN.male(Pronoun.he()))),
     "his_possessive":DeterminerN.possessive(DeterminerN.male(Pronoun.he())),
 
     "I_cook_every_day":Noun.do(Pronoun.I(),Verb.add(Verb("cook"),Modifier.N2M(DeterminerN.time(Noun.haveP(Noun("day"),Verb.none(),Modifier("every")))))),

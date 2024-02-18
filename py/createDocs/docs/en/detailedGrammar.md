@@ -76,6 +76,12 @@ Comparative expressions such as "A is the B(-est) in/of C" are expressed with th
 {my_bag_is_the_biggest_in_my_class}
 ```
 
+"My bag is the second biggest in my class." using ordinal numbers is expressed as follows.
+
+```SFGPL
+{my_bag_is_the_2nd_biggest_in_my_class}
+```
+
 ### Equivalent classes
 
 Comparative expressions such as "A is as B as C" are expressed with the following syntax.

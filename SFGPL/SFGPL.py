@@ -2719,6 +2719,13 @@ class NumberList(_BaseList):
             LangObj.printTypeError(arg)
 
 
+class appendixGrammar():
+    def Superlative(a:Noun,v:Verb,b:Modifier,c:Noun):
+        return Noun.haveP(a,v,Modifier.add(Modifier.Very(b),Modifier.N2M(DeterminerN.In(c))))
+    
+    def EquivalentClass(a:Noun,v:Verb,b:Modifier,c:Noun):
+        return Noun.haveP(Noun.AND(a,c),v,Modifier.add(b,WordM.near()))
+
 class myLib():
     def isInt(n):
         ni=int(n)

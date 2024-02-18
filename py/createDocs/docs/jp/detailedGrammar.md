@@ -76,6 +76,12 @@ SFGPLでは，英語における比較級を使った比較表現は，```{noun_
 {my_bag_is_the_biggest_in_my_class}
 ```
 
+また序数を使用した"My bag is the second biggest in my class."は次のように表現する．
+
+```SFGPL
+{my_bag_is_the_2nd_biggest_in_my_class}
+```
+
 ### 同級
 
 "A is as B as C"のような比較表現は，次のような構文で表現する．

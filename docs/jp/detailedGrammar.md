@@ -71,13 +71,19 @@ mo mi ga so san fa 'big' so wan sen ge
 "A is the B(-est) in/of C"のような比較表現は，次のような構文で表現する．
 
 ```SFGPL
-me A V ka B li fun C
+me A V ka ki B li fun C
 ```
 
 "My bag is the biggest in my class."は，次のように表現する．
 
 ```SFGPL
-me mi ga so san fa 'big' so ka wan li fun mu ga so san fa 'class'
+me mi ga so san fa 'bag' so ka ki wan li fun mu ga so san fa 'class'
+```
+
+また序数を使用した"My bag is the second biggest in my class."は次のように表現する．
+
+```SFGPL
+me mi ga so san fa 'bag' so ka ki ka wan li mal pil li fun mu ga so san fa 'class'
 ```
 
 ### 同級
@@ -92,7 +98,7 @@ me ba A C V ka B wen
 "My bag is as big as his."は，次のように表現する．
 
 ```SFGPL
-me ba mi ga so san fa 'big' sen lan gi so ka wan wen
+me ba mi ga so san fa 'bag' sen lan gi so ka wan wen
 ```
 
 ## 通時的な文

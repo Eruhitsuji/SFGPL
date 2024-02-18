@@ -2386,7 +2386,22 @@ sc.setCorpus(
 
 sc.setCorpus(
     Phrase.future(Noun.doT(Pronoun.I(),Verb("buy"),Noun("computer"))),
-    "I'm going to buy a computer. "
+    "I'm going to buy a computer."
+)
+
+sc.setCorpus(
+    Noun.gt(Noun("Tokyo_Sky_Tree"),Verb.none(),Modifier("tall"),Noun("Tokyo_Tower")),
+    "The Tokyo Sky Tree is taller than the Tokyo Tower."
+)
+
+sc.setCorpus(
+    appendixGrammar.Superlative(Noun("Tokyo_Sky_Tree"),Verb.none(),Modifier("tall"),Noun.AND(Noun.eq(Noun("tower"),Verb.none(),Noun("ratio")),Noun("the_world"))),
+    "The Tokyo Sky Tree is the tallest radio tower in the world."
+)
+
+sc.setCorpus(
+    appendixGrammar.EquivalentClass(Noun("Azabudai_Hills_Mori_JP_Tower"),Verb.none(),Modifier("tall"),Noun("Tokyo_Tower")),
+    "The Azabudai Hills Mori JP Tower is as tall as the Tokyo Tower."
 )
 
 tmp_str=sc.toStringSFGPL(opt_str="\n")

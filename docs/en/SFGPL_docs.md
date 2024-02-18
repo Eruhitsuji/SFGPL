@@ -1163,13 +1163,19 @@ mo mi ga so san fa 'big' so wan sen ge
 Comparative expressions such as "A is the B(-est) in/of C" are expressed with the following syntax.
 
 ```SFGPL
-me A V ka B li fun C
+me A V ka ki B li fun C
 ```
 
 "My bag is the biggest in my class." is expressed as follows.
 
 ```SFGPL
-me mi ga so san fa 'big' so ka wan li fun mu ga so san fa 'class'
+me mi ga so san fa 'bag' so ka ki wan li fun mu ga so san fa 'class'
+```
+
+"My bag is the second biggest in my class." using ordinal numbers is expressed as follows.
+
+```SFGPL
+me mi ga so san fa 'bag' so ka ki ka wan li mal pil li fun mu ga so san fa 'class'
 ```
 
 ### Equivalent classes
@@ -1184,7 +1190,7 @@ me ba A C V ka B wen
 "My bag is as big as his." is expressed as follows.
 
 ```SFGPL
-me ba mi ga so san fa 'big' sen lan gi so ka wan wen
+me ba mi ga so san fa 'bag' sen lan gi so ka wan wen
 ```
 
 ## Diachronic sentences
@@ -2102,4 +2108,5 @@ The content of updates due to changes in version names is based on the following
 |5.1.0|Add LangObj.logicIFELSE() and NumberList.isPN()|
 |5.1.1|Add and modify to documents|
 |5.1.2|Add and modify to documents|
+|5.1.3|Add and modify to documents|
 
