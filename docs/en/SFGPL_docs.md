@@ -1,7 +1,7 @@
 ---
 title: Introduction to the SFGPL
 author: Eruhitsuji
-date: 2023-12-27
+date: 2024-02-18
 ---
 
 <div class="tex_part" text="Overview and basic grammar of the SFGPL"></div>
@@ -2101,4 +2101,5 @@ The content of updates due to changes in version names is based on the following
 |5.0.18|Add and modify to documents|
 |5.1.0|Add LangObj.logicIFELSE() and NumberList.isPN()|
 |5.1.1|Add and modify to documents|
+|5.1.2|Add and modify to documents|
 

@@ -83,3 +83,4 @@ The content of updates due to changes in version names is based on the following
 |5.0.18|Add and modify to documents|
 |5.1.0|Add LangObj.logicIFELSE() and NumberList.isPN()|
 |5.1.1|Add and modify to documents|
+|5.1.2|Add and modify to documents|

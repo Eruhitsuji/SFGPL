@@ -2339,7 +2339,6 @@ sc.setCorpus(
     "If 16 and 9, 16 is greater."
 )
 
-
 sc.setCorpus(
     Bool.B2N(Noun("false"),NumberList.isPN(NumberList.calcSub(num_9,num_16))),
     "If 16 and 9, 16 is greater."
@@ -2379,6 +2378,16 @@ def loopFunc(s:str,fin_num:NumberList,num_str:str,count_num:NumberList,count_str
 
 loopFunc("01",NumberList.digit1(Number.two()),"2",NumberList.digit1(Number.two()),"2")
 loopFunc("02",NumberList.digit1(Number.two()),"4",NumberList.digit2(Number.one(),Number.zero()),"10")
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(Pronoun.I(),Verb("see"),Noun.do(DeterminerN.male(Pronoun.he()),Verb.add(Verb("go"),Modifier.N2M(DeterminerN.place(Noun.belong(DeterminerN.male(Pronoun.he()),Verb.none(),DeterminerN.stressed(Noun("school"))))))))),
+    "I saw him go to his school."
+)
+
+sc.setCorpus(
+    Phrase.future(Noun.doT(Pronoun.I(),Verb("buy"),Noun("computer"))),
+    "I'm going to buy a computer. "
+)
 
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)

@@ -1,7 +1,7 @@
 ---
 title: SFGPL入門
 author: Eruhitsuji
-date: 2023-12-27
+date: 2024-02-18
 ---
 
 <div class="tex_part" text="SFGPLの概要と基礎的な文法"></div>
@@ -2101,4 +2101,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.0.18|ドキュメントの追加・修正|
 |5.1.0|LangObj.logicIFELSE()とNumberList.isPN()を追加|
 |5.1.1|ドキュメントの追加・修正|
+|5.1.2|ドキュメントの追加・修正|
 
