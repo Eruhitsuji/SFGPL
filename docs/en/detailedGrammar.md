@@ -80,6 +80,7 @@ me A V ka ki B li fun C
 me mi ga so san fa 'bag' so ka ki wan li fun mu ga so san fa 'class'
 ```
 
+When expressing "the N-th X(-est)", a numerical value is added to the modifier, as in ```ka X li N```.
 "My bag is the second biggest in my class." using ordinal numbers is expressed as follows.
 
 ```SFGPL

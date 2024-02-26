@@ -1,7 +1,7 @@
 ---
 title: SFGPL入門
 author: Eruhitsuji
-date: 2024-02-18
+date: 2024-02-26
 ---
 
 <div class="tex_part" text="SFGPLの概要と基礎的な文法"></div>
@@ -699,14 +699,43 @@ me mi ge so san fa 'table' so la 'red'
 
 ## 否定文
 
-否定文を作成するためには```pa```を使用する．
+通常の否定文を作成するためには```pa```を使用する．
 この語は，文章に付属することで否定文を作る．
 "I have a table."はSFGPLでは```mi ga so fa 'table'```である．
-それを否定文の"I don't have a table."という意味にする場合，SFGPLでは次のように表現できる．
+この文の全体を否定し，否定文の"I don't have a table."という意味にする場合，SFGPLでは次のように表現できる．
 
 ```SFGPL
 pa mi ga so fa 'table'
 ```
+
+## 動詞の否定
+
+SFGPLでは，文章全体を否定する以外に動詞だけを否定することもできる．
+文章全体を否定する場合と動詞だけを否定する場合は，意味が異なる場合がある．
+特に英語などの衛星枠付け言語では，それぞれの意味の解釈が異なる場合がある．
+
+例えば，次のように"I don't make a table."という場合は，文全体の否定と動詞のみの否定の意味がほとんど同義である．
+
+|||
+|:-:|:-:|
+|文全体|pa te ga sa 'make' fa 'table'|
+|動詞のみ|te ga pa sa 'make' fa 'table'|
+
+また，次のように"I didn't run to my school."では，文全体の否定と動詞のみの否定の意味が異なる．
+
+|||
+|:-:|:-:|
+|文全体|di pa ta ga na sa 'run' li pun mu ga so san fa 'school'|
+|動詞のみ|di ta ga na pa sa 'run' li pun mu ga so san fa 'school'|
+
+文章全体の否定の場合では，「私は学校に走って行った」以外の事象すべてを表している，
+つまり，「私は学校に歩いて行った」や「私は学校に行かなかった」などの意味も含意している．
+
+しかし，動詞のみの否定の場合では，「私は学校に行く」事象の中で「走る」以外の行動をしたという意味になる．
+つまり，「私は学校に歩いて行った」などの他の手段である場合は含意するが，「私は学校に行かなかった」は含意しない．
+
+一方で日本語などの動詞枠付け言語では，「走って行く」などの複合動詞によって表現するため，このような意味の差異がなくなる傾向がある．
+このときの「走って行く」という複合動詞では，英語と違い「走る」という動作の手法と「行く」という動作の結果が含まれている．
 
 ## 修飾語の否定形
 
@@ -726,6 +755,9 @@ me mi ga so san fa 'table' so ke wan
 |:-:|:-:|
 |I|ga|
 |table|fa 'table'|
+|make|sa 'make'|
+|run|sa 'run'|
+|my school|mu ga so san fa 'school'|
 |big|wan|
 
 # 5. 疑問文
@@ -1172,7 +1204,8 @@ me A V ka ki B li fun C
 me mi ga so san fa 'bag' so ka ki wan li fun mu ga so san fa 'class'
 ```
 
-また序数を使用した"My bag is the second biggest in my class."は次のように表現する．
+また，「N番目にXな」を表現するとき，修飾語に数値を付与して```ka X li N```のように表す．
+序数を使用した"My bag is the second biggest in my class."は次のように表現する．
 
 ```SFGPL
 me mi ga so san fa 'bag' so ka ki ka wan li mal pil li fun mu ga so san fa 'class'
@@ -2109,4 +2142,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.1.1|ドキュメントの追加・修正|
 |5.1.2|ドキュメントの追加・修正|
 |5.1.3|ドキュメントの追加・修正|
+|5.1.4|ドキュメントの追加・修正|
 

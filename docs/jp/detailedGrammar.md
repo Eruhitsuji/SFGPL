@@ -80,7 +80,8 @@ me A V ka ki B li fun C
 me mi ga so san fa 'bag' so ka ki wan li fun mu ga so san fa 'class'
 ```
 
-また序数を使用した"My bag is the second biggest in my class."は次のように表現する．
+また，「N番目にXな」を表現するとき，修飾語に数値を付与して```ka X li N```のように表す．
+序数を使用した"My bag is the second biggest in my class."は次のように表現する．
 
 ```SFGPL
 me mi ga so san fa 'bag' so ka ki ka wan li mal pil li fun mu ga so san fa 'class'

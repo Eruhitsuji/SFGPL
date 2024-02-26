@@ -49,6 +49,8 @@ format_str_list={
 
     "superlative_exp":multiWord([LangObj._getKeyOfDict("Noun.haveP"),"A","V",LangObj._getKeyOfDict("Modifier.add"),LangObj._getKeyOfDict("Modifier.Very"),"B",LangObj._getKeyOfDict("Modifier.N2M"),LangObj._getKeyOfDict("DeterminerN.In"),"C"]),
     "my_bag_is_the_biggest_in_my_class":appendixGrammar.Superlative(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("bag"))),Verb.none(),WordM.big(),Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("class")))),
+    
+    "superlative_number":multiWord([LangObj._getKeyOfDict("Modifier.add"),"X",LangObj._getKeyOfDict("Modifier.N2M"),"N"]),
     "my_bag_is_the_2nd_biggest_in_my_class":appendixGrammar.Superlative(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("bag"))),Verb.none(),Modifier.add(WordM.big(),Modifier.N2M(NumberList.digit1(Number.two()))),Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("class")))),
 
     "my_class":Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("class"))),

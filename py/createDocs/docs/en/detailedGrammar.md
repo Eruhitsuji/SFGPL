@@ -76,6 +76,7 @@ Comparative expressions such as "A is the B(-est) in/of C" are expressed with th
 {my_bag_is_the_biggest_in_my_class}
 ```
 
+When expressing "the N-th X(-est)", a numerical value is added to the modifier, as in ```{superlative_number}```.
 "My bag is the second biggest in my class." using ordinal numbers is expressed as follows.
 
 ```SFGPL

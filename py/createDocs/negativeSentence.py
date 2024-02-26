@@ -9,6 +9,15 @@ format_str_list={
     "I":Pronoun.I(),
     "table":Noun("table"),
 
+    "a_I_don't_make_a_table":Phrase.NOT(Noun.doT(Pronoun.I(),Verb("make"),Noun("table"))),
+    "v_I_don't_make_a_table":Noun.doT(Pronoun.I(),Verb.NOT(Verb("make")),Noun("table")),
+    "make":Verb("make"),
+
+    "a_I_didn't_ran_my_school":Phrase.past(Phrase.NOT(Noun.do(Pronoun.I(),Verb.add(Verb("run"),Modifier.N2M(DeterminerN.place(Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("school"))))))))),
+    "v_I_didn't_ran_my_school":Phrase.past(Noun.do(Pronoun.I(),Verb.add(Verb.NOT(Verb("run")),Modifier.N2M(DeterminerN.place(Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("school")))))))),
+    "run":Verb("run"),
+    "my_school":Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("school"))),
+
     "modifier_neg":LangObj._getKeyOfDict("Modifier.Neg"),
     "big":WordM.big(),
     "neg_big":Modifier.Neg(WordM.big()),

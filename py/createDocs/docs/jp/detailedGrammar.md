@@ -76,7 +76,8 @@ SFGPLでは，英語における比較級を使った比較表現は，```{noun_
 {my_bag_is_the_biggest_in_my_class}
 ```
 
-また序数を使用した"My bag is the second biggest in my class."は次のように表現する．
+また，「N番目にXな」を表現するとき，修飾語に数値を付与して```{superlative_number}```のように表す．
+序数を使用した"My bag is the second biggest in my class."は次のように表現する．
 
 ```SFGPL
 {my_bag_is_the_2nd_biggest_in_my_class}
