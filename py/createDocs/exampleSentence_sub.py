@@ -28,17 +28,17 @@ sc.setCorpus(
 
 sc.setCorpus(
     sentence_01_func(DeterminerN.plural(Pronoun.I())),
-    "We are an office worker.",
+    "We are office workers.",
 )
 
 sc.setCorpus(
     sentence_01_func(DeterminerN.plural(Pronoun.you())),
-    "You are an office worker.",
+    "You are office workers.",
 )
 
 sc.setCorpus(
     sentence_01_func(DeterminerN.plural(Pronoun.he())),
-    "They are an office worker.",
+    "They are office workers.",
 )
 
 sc.setCorpus(

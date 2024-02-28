@@ -2390,6 +2390,11 @@ sc.setCorpus(
 )
 
 sc.setCorpus(
+    Phrase.past(Noun.do(Noun.eq(Noun("name"),Verb.none(),Noun.eq(Noun("era"),Verb.none(),Noun("Japan"))),Verb.add(Verb("change"),Modifier.AND(Modifier.AND(Modifier.N2M(DeterminerN.start(Noun("Heisei"))),Modifier.N2M(DeterminerN.end(Noun("Reiwa")))),Modifier.N2M(DeterminerN.time(Noun("2019"))))))),
+    "Japan's era name changed from Heisei to Reiwa in 2019."
+)
+
+sc.setCorpus(
     Noun.gt(Noun("Tokyo_Sky_Tree"),Verb.none(),Modifier("tall"),Noun("Tokyo_Tower")),
     "The Tokyo Sky Tree is taller than the Tokyo Tower."
 )
