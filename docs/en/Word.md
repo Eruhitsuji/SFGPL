@@ -15,6 +15,9 @@ If you want to indicate number or gender, use [noun determiner](DeterminerN.md).
 ## Borrowed Words
 
 The SFGPL uses loan words for all but the basic words.
+However, half-width double quotation marks (") and half-width spaces ( ) cannot be used.
+The single quotation mark (') is a symbol to indicate a loanword, so care must be taken if you wish to add it to the beginning or end of a word.
+
 To use loan words for nouns, verbs, and modifiers, use the following table.
 
 |Root Word|Part of Speech|SFGPL|
