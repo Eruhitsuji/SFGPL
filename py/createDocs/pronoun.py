@@ -12,6 +12,11 @@ format_str_list={
     "pronoun_indefinite":Pronoun.indefinite(),
     "determinerN_plural":LangObj._getKeyOfDict("DeterminerN.plural"),
     
+    "clusivity_II":DeterminerN.plural(Pronoun.AND(Pronoun.you(),Pronoun.I())),
+    "clusivity_IE":DeterminerN.plural(Pronoun.AND(Pronoun.I(),Pronoun.he())),
+    "clusivity_EI":DeterminerN.plural(Pronoun.you()),
+    "clusivity_EE":DeterminerN.plural(Pronoun.he()),
+
     "pronoun_we":DeterminerN.plural(Pronoun.I()),
     "pronoun_what":DeterminerN.thing(Pronoun.interrogative()),
     "pronoun_who":DeterminerN.human(Pronoun.interrogative()),

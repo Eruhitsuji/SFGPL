@@ -38,6 +38,16 @@ The following table shows the use of noun determiners for interrogatives.
 To indicate plurals, use ```{determinerN_plural}```.
 For example, ```{pronoun_we}``` is used to denote "We".
 
+#### Clusivity of person pronoun
+
+In particular, the plural of first-person pronouns may be distinguished based on whether they include the speaker or the addressee.
+The SFGPL cannot directly distinguish between these, but it can do so by doing the following.
+
+||Include the addressee|Exclude the addressee|
+|:-:|:-:|:-:|
+|Include the Speaker|```{clusivity_II}```|```{clusivity_IE}```|
+|Exclude the Speaker|```{clusivity_EI}```|```{clusivity_EE}```|
+
 ### Examples of conjugation of third person pronouns
 
 Gender distinctions do not exist in the SFGPL.

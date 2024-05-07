@@ -1,7 +1,7 @@
 ---
 title: Introduction to the SFGPL
 author: Eruhitsuji
-date: 2024-02-28
+date: 2024-05-07
 ---
 
 <div class="tex_part" text="Overview and basic grammar of the SFGPL"></div>
@@ -1619,6 +1619,16 @@ The following table shows the use of noun determiners for interrogatives.
 
 To indicate plurals, use ```don```.
 For example, ```don ga``` is used to denote "We".
+
+#### Clusivity of person pronoun
+
+In particular, the plural of first-person pronouns may be distinguished based on whether they include the speaker or the addressee.
+The SFGPL cannot directly distinguish between these, but it can do so by doing the following.
+
+||Include the addressee|Exclude the addressee|
+|:-:|:-:|:-:|
+|Include the Speaker|```don ba ge ga```|```don ba ga gi```|
+|Exclude the Speaker|```don ge```|```don gi```|
 
 ### Examples of conjugation of third person pronouns
 
