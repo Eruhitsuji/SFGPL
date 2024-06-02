@@ -30,7 +30,6 @@ def readDictCSV(dict_path=DICT_PATH,extract_keys=EXTRACT_KEYS):
         csvreader=csv.reader(f)
         header=next(csvreader)
         content=[row for row in csvreader]
-    content.insert(0,header)
 
     dictionary_str=""
 

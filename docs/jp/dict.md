@@ -8,7 +8,6 @@
 
 |ID|word|func|How to use|Japanese|English|
 |:--:|:--:|:--:|:--:|:--:|:--:|
-|ID|word|func|How to use|Japanese|English|
 |0|pa|LangObj. NOT|pa A|Aでない|not A|
 |1|pe|LangObj. Because|pe A B|AなぜならばB|A because B|
 |2|pi|LangObj. IF|pi A B|もしAならばBである|if A, B|
