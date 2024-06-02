@@ -182,6 +182,13 @@
             "JP_title":"例文"
         },
         {
+            "name":"dict",
+            "md_filename":"dict.md",
+            "py_filename":"dict.py",
+            "EN_title":"Dictionary",
+            "JP_title":"辞書"
+        },
+        {
             "name":"version",
             "md_filename":"version.md",
             "py_filename":"version.py",

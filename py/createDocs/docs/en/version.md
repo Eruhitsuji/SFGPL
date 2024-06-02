@@ -84,3 +84,6 @@ The content of updates due to changes in version names is based on the following
 |5.1.4|Add and modify to documents|
 |5.1.5|Add and modify to documents|
 |5.1.6|Add and modify to documents|
+|5.1.7|Add and modify to documents|
+|5.1.7|Add and modify to documents|
+|5.2.0|Add dictionary to documentation|

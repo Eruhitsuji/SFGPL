@@ -27,7 +27,8 @@ However, I may be wrong because Japanese is my native language and English is tr
 - [20. How numbers are expressed](docs/en/Number.md)
 - [21. Examples of the use of loan words other than those of English origin](docs/en/otherLang.md)
 - [22. Example Sentence](docs/en/exampleSentence.md)
-- [23. About version](docs/en/version.md)
+- [23. Dictionary](docs/en/dict.md)
+- [24. About version](docs/en/version.md)
 
 ## 目次
 
@@ -53,7 +54,8 @@ However, I may be wrong because Japanese is my native language and English is tr
 - [20. 数字の表現方法](docs/jp/Number.md)
 - [21. 英語由来以外の借用語を使う例](docs/jp/otherLang.md)
 - [22. 例文](docs/jp/exampleSentence.md)
-- [23. バージョンについて](docs/jp/version.md)
+- [23. 辞書](docs/jp/dict.md)
+- [24. バージョンについて](docs/jp/version.md)
 
 ## SFGPL grammar book / SFGPL文法書
 
