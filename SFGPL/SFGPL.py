@@ -2824,6 +2824,19 @@ class SFGPLLib():
                 robj.append(SFGPLLib.str2CMD(s,toObj=toObj,result_str_config=result_str_config))
         return robj
 
+    #The function that checks for grammatical errors (i.e., whether the right part of speech is placed in the right place).
+    def checkType(arg):
+        if(isinstance(arg,str)):
+            try:
+                return True,SFGPLLib.str2CMD(arg)
+            except Exception as e:
+                return False,e
+        elif(isinstance(arg,LangObj)):
+            return True,arg
+        else:
+            return None,None
+    
+
 #Class for SFGPL Corpus
 class SFGPLCorpus():
     
