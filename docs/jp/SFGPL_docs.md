@@ -1,7 +1,7 @@
 ---
 title: SFGPL入門
 author: Eruhitsuji
-date: 2024-06-02
+date: 2024-08-18
 ---
 
 <div class="tex_part" text="SFGPLの概要と基礎的な文法"></div>
@@ -1248,6 +1248,33 @@ ta fa 'Earth' na sa 'revolve' li tun tin fa 'Sun'
 ta fa 'English' na ne sa 'speak' li fun dan fa 'world'
 ```
 
+## 主題優勢言語的な文法
+
+日本語や中国語，朝鮮語，インドネシア語などの主に東アジアの言語によく見られる，主題優勢言語のような文を作成することができる．
+主題優勢言語は，通常の主語の他に，文の主題を提示できるような文法が存在する言語である．
+これにより，主題と主語の両方を含む文を容易に表現できる．
+SFGPLでは，東アジア諸言語のような明確な方法ではないが，簡易的に主題を含む文を作成できる．
+
+### 主題もしくは主語の片方を含む文
+
+主題もしくは主語の片方を含む文は，[文型](#3-文型)と同様に文を構築する．
+
+### 主題と主語の両方を含む文
+
+主題と主語の両方を含む文は，次のように表現する．
+このときの"T"は主題，"C"はコメント（主題を説明する文や単語等）で構成される．
+
+```SFGPL
+ma T so C
+```
+
+例として，日本語の「象は鼻が長い」をSFGPLで表現するには次のようになる．
+
+```SFGPL
+ma fa '象' so me fa '鼻' so la '長い'
+ma fa 'elephant' so me fa 'nose' so la 'long'
+```
+
 ## 単語集
 
 |English|SFGPL|
@@ -1268,6 +1295,12 @@ ta fa 'English' na ne sa 'speak' li fun dan fa 'world'
 |English|fa 'English'|
 |speak|sa 'speak'|
 |all over the world|li fun dan fa 'world'|
+|象|fa '象'|
+|鼻|fa '鼻'|
+|長い|fa '長い'|
+|elephant|fa 'elephant'|
+|nose|fa 'nose'|
+|long|la 'long'|
 
 <div class="tex_part" text="SFGPLの単語"></div>
 
@@ -2366,4 +2399,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.2.0|ドキュメントに辞書を追加|
 |5.2.1|ドキュメントの追加・修正|
 |5.3.0|SFGPLLib.checkType()の追加|
+|5.3.1|ドキュメントの追加・修正|
 

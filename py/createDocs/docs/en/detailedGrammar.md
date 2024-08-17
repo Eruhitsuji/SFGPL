@@ -120,6 +120,33 @@ And to express "English is spoken all over the world." in the SFGPL as follows.
 {English_is_spoken_all_over_the_world}
 ```
 
+## Topic-prominent linguistic grammar
+
+It is possible to produce sentences like those in topic-prominent languages, which are common in East Asian languages such as Japanese, Chinese, Korean, and Indonesian.
+A topic-prominent language is a language in which, in addition to the usual subject, there is a grammar that allows the subject of the sentence to be presented.
+This makes it easy to produce sentences that contain both a topic and a subject.
+The SFGPL allows for the production of sentences containing topics in a simplified manner, though not in the explicit manner of the East Asian languages.
+
+### Sentences containing a subject or one of the topic or subject
+
+Sentences containing a topic or subject fragment are constructed in the same way as [sentence type]({docs_sentence_pattern}).
+
+### Sentences containing both a topic and a subject
+
+A sentence containing both a topic and a subject is expressed as follows.
+In this case, “T” is the topic, and “C” consists of comments (sentences, words, etc. that explain the topic).
+
+```SFGPL
+{include_topic_and_subject_exp}
+```
+
+As an example, the Japanese phrase "象は鼻が長い"(“Elephants have long noses” [topic: elephant, subject: nose]) can be expressed in SFGPL as follows.
+
+```SFGPL
+{Elephants_have_long_noses}
+{Elephants_have_long_noses_en}
+```
+
 ## Wordbook
 
 |English|SFGPL|
@@ -140,3 +167,9 @@ And to express "English is spoken all over the world." in the SFGPL as follows.
 |English|{English}|
 |speak|{speak}|
 |all over the world|{all_over_the_world}|
+|象(elephant)|{象}|
+|鼻(nose)|{鼻}|
+|長い(long)|{長い}|
+|elephant|{elephant}|
+|nose|{nose}|
+|long|{long}|

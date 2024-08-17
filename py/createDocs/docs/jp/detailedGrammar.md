@@ -120,6 +120,33 @@ SFGPLで"I cook every day."を表すには次のようにする．
 {English_is_spoken_all_over_the_world}
 ```
 
+## 主題優勢言語的な文法
+
+日本語や中国語，朝鮮語，インドネシア語などの主に東アジアの言語によく見られる，主題優勢言語のような文を作成することができる．
+主題優勢言語は，通常の主語の他に，文の主題を提示できるような文法が存在する言語である．
+これにより，主題と主語の両方を含む文を容易に表現できる．
+SFGPLでは，東アジア諸言語のような明確な方法ではないが，簡易的に主題を含む文を作成できる．
+
+### 主題もしくは主語の片方を含む文
+
+主題もしくは主語の片方を含む文は，[文型]({docs_sentence_pattern})と同様に文を構築する．
+
+### 主題と主語の両方を含む文
+
+主題と主語の両方を含む文は，次のように表現する．
+このときの"T"は主題，"C"はコメント（主題を説明する文や単語等）で構成される．
+
+```SFGPL
+{include_topic_and_subject_exp}
+```
+
+例として，日本語の「象は鼻が長い」をSFGPLで表現するには次のようになる．
+
+```SFGPL
+{Elephants_have_long_noses}
+{Elephants_have_long_noses_en}
+```
+
 ## 単語集
 
 |English|SFGPL|
@@ -140,3 +167,9 @@ SFGPLで"I cook every day."を表すには次のようにする．
 |English|{English}|
 |speak|{speak}|
 |all over the world|{all_over_the_world}|
+|象|{象}|
+|鼻|{鼻}|
+|長い|{長い}|
+|elephant|{elephant}|
+|nose|{nose}|
+|long|{long}|

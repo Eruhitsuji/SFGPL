@@ -1,7 +1,7 @@
 ---
 title: Introduction to the SFGPL
 author: Eruhitsuji
-date: 2024-06-02
+date: 2024-08-18
 ---
 
 <div class="tex_part" text="Overview and basic grammar of the SFGPL"></div>
@@ -1245,6 +1245,33 @@ And to express "English is spoken all over the world." in the SFGPL as follows.
 ta fa 'English' na ne sa 'speak' li fun dan fa 'world'
 ```
 
+## Topic-prominent linguistic grammar
+
+It is possible to produce sentences like those in topic-prominent languages, which are common in East Asian languages such as Japanese, Chinese, Korean, and Indonesian.
+A topic-prominent language is a language in which, in addition to the usual subject, there is a grammar that allows the subject of the sentence to be presented.
+This makes it easy to produce sentences that contain both a topic and a subject.
+The SFGPL allows for the production of sentences containing topics in a simplified manner, though not in the explicit manner of the East Asian languages.
+
+### Sentences containing a subject or one of the topic or subject
+
+Sentences containing a topic or subject fragment are constructed in the same way as [sentence type](#3-sentence-pattern).
+
+### Sentences containing both a topic and a subject
+
+A sentence containing both a topic and a subject is expressed as follows.
+In this case, “T” is the topic, and “C” consists of comments (sentences, words, etc. that explain the topic).
+
+```SFGPL
+ma T so C
+```
+
+As an example, the Japanese phrase "象は鼻が長い"(“Elephants have long noses” [topic: elephant, subject: nose]) can be expressed in SFGPL as follows.
+
+```SFGPL
+ma fa '象' so me fa '鼻' so la '長い'
+ma fa 'elephant' so me fa 'nose' so la 'long'
+```
+
 ## Wordbook
 
 |English|SFGPL|
@@ -1265,6 +1292,12 @@ ta fa 'English' na ne sa 'speak' li fun dan fa 'world'
 |English|fa 'English'|
 |speak|sa 'speak'|
 |all over the world|li fun dan fa 'world'|
+|象(elephant)|fa '象'|
+|鼻(nose)|fa '鼻'|
+|長い(long)|fa '長い'|
+|elephant|fa 'elephant'|
+|nose|fa 'nose'|
+|long|la 'long'|
 
 <div class="tex_part" text="SFGPL Word"></div>
 
@@ -2364,4 +2397,5 @@ The content of updates due to changes in version names is based on the following
 |5.2.0|Add dictionary to documentation|
 |5.2.1|Add and modify to documents|
 |5.3.0|Add SFGPLLib.checkType()|
+|5.3.1|Add and modify to documents|
 

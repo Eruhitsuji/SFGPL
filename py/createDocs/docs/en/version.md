@@ -89,3 +89,4 @@ The content of updates due to changes in version names is based on the following
 |5.2.0|Add dictionary to documentation|
 |5.2.1|Add and modify to documents|
 |5.3.0|Add SFGPLLib.checkType()|
+|5.3.1|Add and modify to documents|

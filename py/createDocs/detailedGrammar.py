@@ -73,6 +73,17 @@ format_str_list={
     "English":Noun("English"),
     "speak":Verb("speak"),
     "all_over_the_world":Modifier.N2M(DeterminerN.In(DeterminerN.all(Noun("world")))),
+
+    "include_topic_and_subject_exp":multiWord([LangObj._getKeyOfDict("Noun.eq"),"T",LangObj._getKeyOfDict("Verb.none"),"C"]),
+    "Elephants_have_long_noses":Noun.eq(Noun("象"),Verb.none(),Noun.haveP(Noun("鼻"),Verb.none(),Modifier("長い"))),
+    "Elephants_have_long_noses_en":Noun.eq(Noun("elephant"),Verb.none(),Noun.haveP(Noun("nose"),Verb.none(),Modifier("long"))),
+    "象":Noun("象"),
+    "鼻":Noun("鼻"),
+    "長い":Noun("長い"),
+    "elephant":Noun("elephant"),
+    "nose":Noun("nose"),
+    "long":Modifier("long")
+
 }
 
 createDocs(name=NAME,format_str_list=format_str_list,lang_mode="JP",md_mode=True,out_flag=True,all_docs_flag=True)
