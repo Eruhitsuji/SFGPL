@@ -24,11 +24,12 @@ However, I may be wrong because Japanese is my native language and English is tr
 - [17. Bool related classes](docs/en/Bool.md)
 - [18. LangList](docs/en/LangList.md)
 - [19. LangFunc](docs/en/LangFunc.md)
-- [20. How numbers are expressed](docs/en/Number.md)
-- [21. Examples of the use of loan words other than those of English origin](docs/en/otherLang.md)
-- [22. Example Sentence](docs/en/exampleSentence.md)
-- [23. Dictionary](docs/en/dict.md)
-- [24. About version](docs/en/version.md)
+- [20. LangVar](docs/en/LangVar.md)
+- [21. How numbers are expressed](docs/en/Number.md)
+- [22. Examples of the use of loan words other than those of English origin](docs/en/otherLang.md)
+- [23. Example Sentence](docs/en/exampleSentence.md)
+- [24. Dictionary](docs/en/dict.md)
+- [25. About version](docs/en/version.md)
 
 ## 目次
 
@@ -51,11 +52,12 @@ However, I may be wrong because Japanese is my native language and English is tr
 - [17. Bool関連クラス](docs/jp/Bool.md)
 - [18. LangList](docs/jp/LangList.md)
 - [19. LangFunc](docs/jp/LangFunc.md)
-- [20. 数字の表現方法](docs/jp/Number.md)
-- [21. 英語由来以外の借用語を使う例](docs/jp/otherLang.md)
-- [22. 例文](docs/jp/exampleSentence.md)
-- [23. 辞書](docs/jp/dict.md)
-- [24. バージョンについて](docs/jp/version.md)
+- [20. LangVar](docs/jp/LangVar.md)
+- [21. 数字の表現方法](docs/jp/Number.md)
+- [22. 英語由来以外の借用語を使う例](docs/jp/otherLang.md)
+- [23. 例文](docs/jp/exampleSentence.md)
+- [24. 辞書](docs/jp/dict.md)
+- [25. バージョンについて](docs/jp/version.md)
 
 ## SFGPL grammar book / SFGPL文法書
 

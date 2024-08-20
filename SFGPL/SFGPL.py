@@ -27,9 +27,12 @@ class SFGPLError():
     BOOLLIST_FLOAT_ERROR=lambda arg : "[Error 201] : "+"The argument \"a\" of BoolList. Float function must be of type BoolList and must have a length of 32"+SFGPLError.ARG_STRING(arg)
     
     FUNC_NAME_ERROR_DUPLICATION=lambda arg :"[Error 301] : "+"This function name already exists and cannot be defined."+SFGPLError.ARG_STRING(arg)
+    FUNC_NAME_ERROR_UNDEFINED=lambda arg:"[Error 302] : "+"This function name is undefined."+SFGPLError.ARG_STRING(arg)
 
-    NUMBERLIST_CONTROL_LIST_ERROR=lambda arg:"[Error 401] : "+"After performing arithmetic operations etc., list-related operations cannot be performed."+SFGPLError.ARG_STRING(arg)
-    NUMBERLIST_IntNL2BL_FLOAT_ERROR=lambda arg:"[Error 402] : "+"This function (NumberList.IntNL2BL) requires the argument NumberList to be an integer."+SFGPLError.ARG_STRING(arg)
+    VAR_NAME_ERROR_UNDEFINED=lambda arg:"[Error 401] : "+"This variable name is undefined."+SFGPLError.ARG_STRING(arg)
+
+    NUMBERLIST_CONTROL_LIST_ERROR=lambda arg:"[Error 501] : "+"After performing arithmetic operations etc., list-related operations cannot be performed."+SFGPLError.ARG_STRING(arg)
+    NUMBERLIST_IntNL2BL_FLOAT_ERROR=lambda arg:"[Error 502] : "+"This function (NumberList.IntNL2BL) requires the argument NumberList to be an integer."+SFGPLError.ARG_STRING(arg)
 
 #Class for generic SFGPL word
 class LangObj():
@@ -2245,11 +2248,58 @@ class LangFunc(Noun):
         elif(isinstance(a,Noun) and isinstance(b,LangList)):
             a_str=str(a)
             b_str=str(b)
-            func_result=LangFunc.__createFuncObjAtRuntime(a_str,b_str)
-            return LangList(arg,bool_value=func_result.getBool(),lang_list=func_result.getLangList())
+            if(a_str not in LangFunc._FUNC_LIST):
+                print(SFGPLError.FUNC_NAME_ERROR_UNDEFINED(arg))
+            else:
+                func_result=LangFunc.__createFuncObjAtRuntime(a_str,b_str)
+                return LangList(arg,bool_value=func_result.getBool(),lang_list=func_result.getLangList())
         else:
             LangObj.printTypeError(arg)
 
+#Class for LangVar in SFGPL
+class LangVar(Noun):
+
+    _VAR_LIST={}
+
+    def _getSelfClass():
+        return {"self":LangVar,"self_name":"LangVar","base":Noun}
+
+    def clearDict():
+        LangVar._VAR_LIST={}
+    
+    def __init__(self,arg,bool_value=None,func_mode=False):
+        super().__init__(arg,bool_value=bool_value,func_mode=func_mode)
+    
+    def set(a,b):
+        func_str="LangVar.set"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return LangList(arg,func_mode=True)
+        elif(isinstance(a,Noun) and isinstance(b,LangList)):
+            a_str=str(a)
+            LangVar._VAR_LIST[a_str]=b.copy()
+            return LangVar(arg)
+        else:
+            LangObj.printTypeError(arg)
+
+    def get(a):
+        func_str="LangVar.get"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return LangList(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
+            a_str=str(a)
+            if(a_str not in LangVar._VAR_LIST):
+                print(SFGPLError.VAR_NAME_ERROR_UNDEFINED(arg))
+            else:
+                var_val=LangVar._VAR_LIST[a_str]
+                return LangList(arg,bool_value=var_val.getBool(),lang_list=var_val.getLangList())
+        else:
+            LangObj.printTypeError(arg)
 
 #Class for LangList in SFGPL
 class LangList(_BaseList):
@@ -2336,7 +2386,7 @@ class LangList(_BaseList):
         if(LangObj._isFuncModeOfArgs(arg)):
             return LangList(arg,func_mode=True)
         elif(isinstance(a,LangList) and isinstance(b,Noun) and isinstance(c,Noun)):
-            x=a
+            x=a.copy()
             condition=LangFunc.runFunc(b,x)
             i=0
             while(condition.getLangList()[0].getBool()):

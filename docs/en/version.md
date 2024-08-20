@@ -1,4 +1,4 @@
-# 24. About version
+# 25. About version
 
 [TOP](../../readme.md)
 /
@@ -94,3 +94,4 @@ The content of updates due to changes in version names is based on the following
 |5.2.1|Add and modify to documents|
 |5.3.0|Add SFGPLLib.checkType()|
 |5.3.1|Add and modify to documents|
+|6.0.0|Add LangVar|

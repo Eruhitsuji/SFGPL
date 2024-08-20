@@ -1,7 +1,7 @@
 ---
 title: Introduction to the SFGPL
 author: Eruhitsuji
-date: 2024-08-18
+date: 2024-08-20
 ---
 
 <div class="tex_part" text="Overview and basic grammar of the SFGPL"></div>
@@ -1447,7 +1447,7 @@ Pronouns are listed in the following table.
 
 ## Words used numerically and logically
 
-There are [numerical words](#20-how-numbers-are-expressed), [words for boolean values](#17-bool-related-classes), [words for lists](#18-langlist) and [words for functions](#19-langfunc) in the SFGPL.
+There are [numerical words](#21-how-numbers-are-expressed), [words for boolean values](#17-bool-related-classes), [words for lists](#18-langlist) and [words for functions](#19-langfunc) in the SFGPL.
 These words are not often used in general sentences, but are used to indicate logic.
 
 # 11. Modifier
@@ -1823,6 +1823,7 @@ The following functions exist in LangList.
 |fit A B|Add one LangObj (B) to the end of the LangList (A)|
 |fut A B C|Get the B-th through C-th lists for a LangList (A)|
 |fot A B|Combine two LangLists|
+|tat A B C|Function for iteration using LangList|
 
 LangList can store all classes that inherit from LangObj.
 The following is an example of LangList creation.
@@ -1837,6 +1838,42 @@ In this case ```fis fas pas``` represents 0 in [BoolList](#17-bool-related-class
 ```SFGPL
 fet fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student' fis fas pas
 ```
+
+## Iteration in LangList
+
+LangList can be iterated using ```tat``` to iterate through LangList.
+The *x*s below are all the same LangList variables used in the While function.
+
+The first argument A sets the initial value of the loop.
+The value of A is first assigned to *x*.
+
+The second argument B sets the name of the predefined LangFunc.
+The function named B is a conditional statement on the loop, and *x* is assigned to the argument of this function.
+The zeroth element of the function's return value, LangList, is of type Bool, indicating whether the condition is satisfied, and if this value is True, the loop continues.
+
+The third argument C is set to the name of a predefined LangFunc.
+The function named C is the content of the iterative process, and *x* is assigned to the argument of this function.
+The function then sets the updated *x* as the return value.
+
+At the end of the loop, the final *x* result is output.
+
+The following is an example using ````tat`` .
+
+```SFGPL
+pat fa 'condition_func' fit fat sal tel mal pol fet pit tol mal pal
+pat fa 'process_func' fit fit fit fat tal fet pit tol mal pal mal pel tal fet pit tol mal pel mel pel pal til fet pit tol mal pil mal pil
+tat fit fit fit fat mal pal mal pal mal pel fa 'condition_func' fa 'process_func'
+```
+
+The first line sets up the function of the conditional statement.
+The function of the conditional statement is defined as “condition_func”, which executes a loop while ```4-x[0]>=0``` is True.
+
+In the second line, the function of the processing statement is set.
+The function of this processing statement is “process_func” and updates each element.
+The contents to be updated are set to ```[x[0]+1,x[1]+10,x[2]*2]```.
+
+The third line actually executes the iteration.
+In this case, ```[0,0,1]``` is given as the initial value.
 
 ## Wordbook
 
@@ -1878,8 +1915,30 @@ When (false,false) is given to the function, do the following.
 pot fa 'xor' fit fit fat pas pas
 ```
 
-# 20. How numbers are expressed
+# 20. LangVar
 <div id="tex_section_label_20"></div>
+
+In SFGPL, a variable that stores [LangList](#18-langlist) can be created.
+
+|Word|Explanation|
+|:-:|:-:|
+|bat A B|Assign LangList B to the variable named A|
+|bot A|Get a variable named A|
+
+To store LangList```["apple","banana"]``` in a variable named var1, do the following.
+
+```SFGPL
+bat fa 'var1' fit fit fat fa 'apple' fa 'banana'
+```
+
+To obtain var1, do the following.
+
+```SFGPL
+bot fa 'var1'
+```
+
+# 21. How numbers are expressed
+<div id="tex_section_label_21"></div>
 
 The Number and NumberList classes exist in SFGPL to represent decimal numbers.
 
@@ -1974,8 +2033,8 @@ In addition, there are functions that convert integer BoolList and NumberList in
 
 <div class="tex_part" text="Appendix"></div>
 
-# 21. Examples of the use of loan words other than those of English origin
-<div id="tex_section_label_21"></div>
+# 22. Examples of the use of loan words other than those of English origin
+<div id="tex_section_label_22"></div>
 
 The SFGPL also allows the use of loanwords that are not of English origin.
 In such cases, the usage is basically the same as for English.
@@ -2011,8 +2070,8 @@ For example, to form the sentence "Mia sako estas ruĝa." do the following.
 me mi ga so san fa 'sak' so la 'ruĝ'
 ```
 
-# 22. Example Sentence
-<div id="tex_section_label_22"></div>
+# 23. Example Sentence
+<div id="tex_section_label_23"></div>
 
 The following table shows example sentences from the SFGPL.
 
@@ -2101,8 +2160,8 @@ The following table shows example sentences from the SFGPL.
 |di moa ge so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.you(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, you heard that he create a table.|
 
 
-# 23. Dictionary
-<div id="tex_section_label_23"></div>
+# 24. Dictionary
+<div id="tex_section_label_24"></div>
 
 See [dict.csv](https://github.com/Eruhitsuji/SFGPL/blob/main/dict.csv) for details.
 
@@ -2271,42 +2330,44 @@ See [dict.csv](https://github.com/Eruhitsuji/SFGPL/blob/main/dict.csv) for detai
 |160|pat|LangFunc. setFunc|pat A B|あるLangListを引数とするAという名前のBを返す関数を設定する|Set up a function that returns B named A with a certain LangList as an argument.|
 |161|pit|LangFunc. arg|pit|LangFunc.setFunc()の引数用に使用する|Used for LangFunc.setFunc() arguments|
 |162|pot|LangFunc. runFunc|pot A B|設定したAという名前のLangFuncを引数Bとして実行する|Execute the configured LangFunc named A with argument B|
-|163|fat|LangList|fat|LangObjのリストLangListを作成する|Create a list of LangObj (LangList)|
-|164|fet|LangList. get|fet A B|LangList(A)のB番目の値を取得する|Gets the B-th value of LangList(A)|
-|165|fit|LangList. append|fit A B|LangListに1つのLangObjを末尾に加える|Add one LangObj to the end of the LangList|
-|166|fut|LangList. slice|fut A B C|AというLangListに対して，B番目からC番目までのリストを取得する|Get the B-th through C-th lists for a LangList (A).|
-|167|fot|LangList. add|fot A B|2つのLangListを結合する|Combine two LangLists|
-|168|tat|LangList. While|tat A B C|繰り返し処理を行う|Repeat processing|
-|169|pal|Number. zero|pal|0|0|
-|170|pel|Number. one|pel|1|1|
-|171|pil|Number. two|pil|2|2|
-|172|pul|Number. three|pul|3|3|
-|173|pol|Number. four|pol|4|4|
-|174|bal|Number. five|bal|5|5|
-|175|bel|Number. six|bel|6|6|
-|176|bil|Number. seven|bil|7|7|
-|177|bul|Number. eight|bul|8|8|
-|178|bol|Number. nine|bol|9|9|
-|179|fal|NumberList|fal|NumberのリストNumberListを作成する|Create a list of Number(NumberList)|
-|180|fel|NumberList. get|fel A B|NumberList(A)のB番目の値を取得する|Gets the B-th value of NumberList(A)|
-|181|fil|NumberList. append|fil A B|NumberListに1つのNumberを末尾に加える|Add one Number to the end of the NumberList|
-|182|ful|NumberList. slice|ful A B C|AというNumberListに対して，B番目からC番目までのリストを取得する|Get the B-th through C-th lists for a NumberList (A).|
-|183|fol|NumberList. add|fol A B|2つのNumberListを結合する|Combine two NumberLists|
-|184|mal|NumberList. digit1|mal A|10進数1桁からなるNumberListを作成する|Create a NumberList consisting of one decimal digit|
-|185|mel|NumberList. digit2|mel A B|10進数2桁からなるNumberListを作成する|Create a NumberList consisting of two decimal digit|
-|186|mil|NumberList. digit3|mil A B C|10進数3桁からなるNumberListを作成する|Create a NumberList consisting of three decimal digit|
-|187|mul|NumberList. digit4|mul A B C D|10進数4桁からなるNumberListを作成する|Create a NumberList consisting of four decimal digit|
-|188|mol|NumberList. digit5|mol A B C D E|10進数5桁からなるNumberListを作成する|Create a NumberList consisting of five decimal digit|
-|189|tal|NumberList. calcAdd|tal A B|2つのNumberListに対して加算をする|Perform addition on two NumberLists|
-|190|tel|NumberList. calcSub|tel A B|2つのNumberListに対して減算をする|Perform subtraction on two NumberLists|
-|191|til|NumberList. calcMul|til A B|2つのNumberListに対して乗算をする|Perform multiplication on two NumberLists|
-|192|tul|NumberList. calcDiv|tul A B|2つのNumberListに対して除算をする|Perform division on two NumberLists|
-|193|tol|NumberList. IntNL2BL|tol A|整数のNumberListをBoolListに変換する|Convert an integer NumberList to a BoolList|
-|194|sal|NumberList. isPN|sal A|正の数かを判定する|Determine if it is a positive number|
+|163|bat|LangVar. set|bat A B|グローバル変数としてAという名前の変数を定義し，LangList Bを代入する|Define a variable named A as a global variable and assign LangList B to it.|
+|164|bot|LangVar. get|bot A|定義されたAという名前のグローバル変数を取得する|Obtain the defined global variable named A|
+|165|fat|LangList|fat|LangObjのリストLangListを作成する|Create a list of LangObj (LangList)|
+|166|fet|LangList. get|fet A B|LangList(A)のB番目の値を取得する|Gets the B-th value of LangList(A)|
+|167|fit|LangList. append|fit A B|LangListに1つのLangObjを末尾に加える|Add one LangObj to the end of the LangList|
+|168|fut|LangList. slice|fut A B C|AというLangListに対して，B番目からC番目までのリストを取得する|Get the B-th through C-th lists for a LangList (A).|
+|169|fot|LangList. add|fot A B|2つのLangListを結合する|Combine two LangLists|
+|170|tat|LangList. While|tat A B C|繰り返し処理を行う|Repeat processing|
+|171|pal|Number. zero|pal|0|0|
+|172|pel|Number. one|pel|1|1|
+|173|pil|Number. two|pil|2|2|
+|174|pul|Number. three|pul|3|3|
+|175|pol|Number. four|pol|4|4|
+|176|bal|Number. five|bal|5|5|
+|177|bel|Number. six|bel|6|6|
+|178|bil|Number. seven|bil|7|7|
+|179|bul|Number. eight|bul|8|8|
+|180|bol|Number. nine|bol|9|9|
+|181|fal|NumberList|fal|NumberのリストNumberListを作成する|Create a list of Number(NumberList)|
+|182|fel|NumberList. get|fel A B|NumberList(A)のB番目の値を取得する|Gets the B-th value of NumberList(A)|
+|183|fil|NumberList. append|fil A B|NumberListに1つのNumberを末尾に加える|Add one Number to the end of the NumberList|
+|184|ful|NumberList. slice|ful A B C|AというNumberListに対して，B番目からC番目までのリストを取得する|Get the B-th through C-th lists for a NumberList (A).|
+|185|fol|NumberList. add|fol A B|2つのNumberListを結合する|Combine two NumberLists|
+|186|mal|NumberList. digit1|mal A|10進数1桁からなるNumberListを作成する|Create a NumberList consisting of one decimal digit|
+|187|mel|NumberList. digit2|mel A B|10進数2桁からなるNumberListを作成する|Create a NumberList consisting of two decimal digit|
+|188|mil|NumberList. digit3|mil A B C|10進数3桁からなるNumberListを作成する|Create a NumberList consisting of three decimal digit|
+|189|mul|NumberList. digit4|mul A B C D|10進数4桁からなるNumberListを作成する|Create a NumberList consisting of four decimal digit|
+|190|mol|NumberList. digit5|mol A B C D E|10進数5桁からなるNumberListを作成する|Create a NumberList consisting of five decimal digit|
+|191|tal|NumberList. calcAdd|tal A B|2つのNumberListに対して加算をする|Perform addition on two NumberLists|
+|192|tel|NumberList. calcSub|tel A B|2つのNumberListに対して減算をする|Perform subtraction on two NumberLists|
+|193|til|NumberList. calcMul|til A B|2つのNumberListに対して乗算をする|Perform multiplication on two NumberLists|
+|194|tul|NumberList. calcDiv|tul A B|2つのNumberListに対して除算をする|Perform division on two NumberLists|
+|195|tol|NumberList. IntNL2BL|tol A|整数のNumberListをBoolListに変換する|Convert an integer NumberList to a BoolList|
+|196|sal|NumberList. isPN|sal A|正の数かを判定する|Determine if it is a positive number|
 
 
-# 24. About version
-<div id="tex_section_label_24"></div>
+# 25. About version
+<div id="tex_section_label_25"></div>
 
 The version of this project is [\_\_version\_\_.py](../../SFGPL/__version__.py).
 In particular, if you want to run it in Python, you can check it by executing the following code.
@@ -2398,4 +2459,5 @@ The content of updates due to changes in version names is based on the following
 |5.2.1|Add and modify to documents|
 |5.3.0|Add SFGPLLib.checkType()|
 |5.3.1|Add and modify to documents|
+|6.0.0|Add LangVar|
 

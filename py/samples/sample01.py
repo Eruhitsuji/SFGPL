@@ -2409,6 +2409,30 @@ sc.setCorpus(
     "The Azabudai Hills Mori JP Tower is as tall as the Tokyo Tower."
 )
 
+var1_name=Noun("var1")
+lang_list_01=LangList.append(LangList.append(LangList(),Noun("a")),Noun("b"))
+
+sc.setCorpus(
+    lang_list_01,
+    "Define [\"a\",\"b\"]."
+)
+
+sc.setCorpus(
+    LangVar.set(var1_name,lang_list_01),
+    "Assign [\"a\", \"b\"] to the variable named \"var1\"."
+)
+
+sc.setCorpus(
+    LangVar.set(var1_name,LangList.append(LangVar.get(var1_name),Noun("c"))),
+    "Add \"c\" to the variable named \"var1\"."
+)
+
+sc.setCorpus(
+    LangVar.set(var1_name,LangList.append(LangVar.get(var1_name),Noun("d"))),
+    "Add \"d\" to the variable named \"var1\"."
+)
+
+
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)
 

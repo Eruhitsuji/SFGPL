@@ -157,6 +157,13 @@
             "JP_title":"LangFunc"
         },
         {
+            "name":"LangVar",
+            "md_filename":"LangVar.md",
+            "py_filename":"LangVar.py",
+            "EN_title":"LangVar",
+            "JP_title":"LangVar"
+        },
+        {
             "name":"Number",
             "md_filename":"Number.md",
             "py_filename":"Number.py",

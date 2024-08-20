@@ -1,4 +1,4 @@
-# 21. Examples of the use of loan words other than those of English origin
+# 22. Examples of the use of loan words other than those of English origin
 
 [TOP](../../readme.md)
 /

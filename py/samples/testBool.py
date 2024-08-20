@@ -1,3 +1,6 @@
+import sys
+sys.path.append("")
+
 from SFGPL import *
 
 b1=BoolList.byte(Bool.false(),Bool.true(),Bool.false(),Bool.false(),Bool.false(),Bool.false(),Bool.false(),Bool.true())

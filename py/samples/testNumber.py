@@ -1,3 +1,6 @@
+import sys
+sys.path.append("")
+
 from SFGPL import *
 
 x=NumberList()

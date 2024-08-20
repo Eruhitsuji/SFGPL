@@ -1,3 +1,6 @@
+import sys
+sys.path.append("")
+
 from SFGPL import *
 
 x1=LangList.append(LangList.append(LangList(),Noun("a")),Noun("b"))
