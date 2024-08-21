@@ -17,7 +17,7 @@ The following functions exist in LangList.
 |tat A B C|Function for iteration using LangList|
 
 LangList can store all classes that inherit from LangObj.
-The following is an example of LangList creation.
+The following is an example of creating a LangList using append.
 
 ```SFGPL
 fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'

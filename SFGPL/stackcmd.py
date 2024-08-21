@@ -11,7 +11,7 @@ class StackCMD():
         "zero_args_begin_and_end_flag":True,
     }
 
-
+    @staticmethod
     def stackCMD(cmdlist:dict,cmdline:str,result_str_config:dict={},splitstr:str=" "):
         for key in StackCMD.result_str_config_defalut:
             result_str_config.setdefault(key,StackCMD.result_str_config_defalut[key])
@@ -20,6 +20,7 @@ class StackCMD():
         pycmd=StackCMD._stackCMDFunc(cmdlist=cmdlist,cmdline_list=l,cmd_stack_list=[],result_str="",result_str_config=result_str_config)
         return pycmd
 
+    @staticmethod
     def _stackCMDFunc(cmdlist:dict,cmdline_list:list,cmd_stack_list:list,result_str:str,result_str_config:dict):
         if(len(cmdline_list)>0):
             head_s=cmdline_list[0]
@@ -63,6 +64,7 @@ class StackCMD():
         else:
             return result_str
         
+    @staticmethod
     def _endString(nowcmd,result_str,result_str_config,cmd_stack_list):
         while(nowcmd["arg_n"]==nowcmd["info"]["arg"]):
             result_str+=result_str_config["end"]

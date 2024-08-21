@@ -17,7 +17,7 @@ LangListには，以下の関数が存在している．
 |tat A B C|LangListを使用した繰り返し用の関数|
 
 LangListは，LangObjを継承しているすべてのクラスを格納することができる．
-次はLangListを作成する一例である．
+次はLangListをappendを使用して作成する一例である．
 
 ```SFGPL
 fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'

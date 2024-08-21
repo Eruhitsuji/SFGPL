@@ -92,3 +92,4 @@ The content of updates due to changes in version names is based on the following
 |5.3.1|Add and modify to documents|
 |6.0.0|Add LangVar|
 |6.1.0|Add functions related to the structuring of the SFGPL|
+|6.1.1|Adds and modifies documentation and SFGPL.py|

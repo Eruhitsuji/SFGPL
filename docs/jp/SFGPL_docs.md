@@ -1829,7 +1829,7 @@ LangListには，以下の関数が存在している．
 |tat A B C|LangListを使用した繰り返し用の関数|
 
 LangListは，LangObjを継承しているすべてのクラスを格納することができる．
-次はLangListを作成する一例である．
+次はLangListをappendを使用して作成する一例である．
 
 ```SFGPL
 fit fit fit fit fit fat ga fa 'pen' sa 'go' la 'happy' ma ga so fa 'student'
@@ -2463,4 +2463,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.3.1|ドキュメントの追加・修正|
 |6.0.0|LangVarの追加|
 |6.1.0|SFGPLの構造化に関連する関数の追加|
+|6.1.1|ドキュメントとSFGPL.pyの追加・修正|
 

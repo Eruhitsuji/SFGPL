@@ -44,6 +44,7 @@ class LangObj():
 
     AUTOCOMPLETION_FLAG=True
     
+    @staticmethod
     def _getSelfClass():
         return {"self":LangObj,"self_name":"LangObj","base":LangObj}
 
@@ -51,6 +52,7 @@ class LangObj():
     KEY_LIST=SFGPL.dict.SFGPL_DICT_DATA
 
     #Print type error in SFGPL syntax
+    @staticmethod
     def printTypeError(arg):
         print(SFGPLError.TYPE_ERROR_SYNTAX(arg))
 
@@ -98,12 +100,15 @@ class LangObj():
                 r_l.append(None)
         return r_l            
     
+    @staticmethod
     def _checkTypeOf2obj(a,b):
         return type(a)._getSelfClass()["base"] == type(b)._getSelfClass()["base"]
     
+    @staticmethod
     def _checkTypeOf3obj(a,b,c):
         return type(a)._getSelfClass()["base"] == type(b)._getSelfClass()["base"] and type(a)._getSelfClass()["base"] == type(c)._getSelfClass()["base"]
 
+    @staticmethod
     def _getKeyOfDict(func_str):
         for key in LangObj.KEY_LIST:
             if(LangObj.KEY_LIST[key]["func"]==func_str):
@@ -115,6 +120,7 @@ class LangObj():
     def _getFuncMode(self):
         return self._func_mode
     
+    @staticmethod
     def _isFuncModeOfArgs(arg):
         for ai in arg:
             if(isinstance(ai,LangObj)):
@@ -127,6 +133,7 @@ class LangObj():
         strwords=[str(d) for d in self.words]
         return LangObj.SPLIT_STR.join(strwords)
 
+    @staticmethod
     def NOT(a):
         func_str="LangObj.NOT"
         key=LangObj._getKeyOfDict(func_str)
@@ -134,6 +141,7 @@ class LangObj():
         bool_value=Bool.defNOT(a.getBool())
         return (type(a))(arg,bool_value=bool_value)
 
+    @staticmethod
     def Because(a,b):
         func_str="LangObj.Because"
         key=LangObj._getKeyOfDict(func_str)
@@ -146,6 +154,7 @@ class LangObj():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def IF(a,b):
         func_str="LangObj.IF"
         key=LangObj._getKeyOfDict(func_str)
@@ -158,6 +167,7 @@ class LangObj():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def So(a,b):
         func_str="LangObj.So"
         key=LangObj._getKeyOfDict(func_str)
@@ -170,6 +180,7 @@ class LangObj():
         else:
             LangObj.printTypeError(arg)
             
+    @staticmethod
     def But(a,b):
         func_str="LangObj.But"
         key=LangObj._getKeyOfDict(func_str)
@@ -182,6 +193,7 @@ class LangObj():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def AND(a,b):
         func_str="LangObj.AND"
         key=LangObj._getKeyOfDict(func_str)
@@ -195,6 +207,7 @@ class LangObj():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def OR(a,b):
         func_str="LangObj.OR"
         key=LangObj._getKeyOfDict(func_str)
@@ -208,6 +221,7 @@ class LangObj():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def IFELSE(a,b,c):
         func_str="LangObj.IFELSE"
         key=LangObj._getKeyOfDict(func_str)
@@ -220,6 +234,7 @@ class LangObj():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def NAND(a,b):
         func_str="LangObj.NAND"
         key=LangObj._getKeyOfDict(func_str)
@@ -233,6 +248,7 @@ class LangObj():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def NOR(a,b):
         func_str="LangObj.NOR"
         key=LangObj._getKeyOfDict(func_str)
@@ -246,6 +262,7 @@ class LangObj():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def logicIFELSE(a,b,c):
         func_str="LangObj.logicIFELSE"
         key=LangObj._getKeyOfDict(func_str)
@@ -265,6 +282,7 @@ class LangObj():
 #Class for nouns in SFGPL
 class Noun(LangObj):
     
+    @staticmethod
     def _getSelfClass():
         return {"self":Noun,"self_name":"Noun","base":Noun}
     
@@ -275,6 +293,7 @@ class Noun(LangObj):
         self._bool_value=bool_value
         self._func_mode=func_mode
         
+    @staticmethod
     def V2N(a):
         func_str="Noun.V2N"
         key=LangObj._getKeyOfDict(func_str)
@@ -287,6 +306,7 @@ class Noun(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def M2N(a):
         func_str="Noun.M2N"
         key=LangObj._getKeyOfDict(func_str)
@@ -299,12 +319,14 @@ class Noun(LangObj):
         else:
             LangObj.printTypeError(arg)
     
+    @staticmethod
     def none():
         func_str="Noun.none"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Noun(arg)
 
+    @staticmethod
     def eq(a,f,b):
         func_str="Noun.eq"
         key=LangObj._getKeyOfDict(func_str)
@@ -317,6 +339,7 @@ class Noun(LangObj):
         else:
             LangObj.printTypeError(arg)
     
+    @staticmethod
     def haveP(a,f,b):
         func_str="Noun.haveP"
         key=LangObj._getKeyOfDict(func_str)
@@ -329,6 +352,7 @@ class Noun(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def have(a,f,b):
         func_str="Noun.have"
         key=LangObj._getKeyOfDict(func_str)
@@ -341,6 +365,7 @@ class Noun(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def belong(a,f,b):
         func_str="Noun.belong"
         key=LangObj._getKeyOfDict(func_str)
@@ -353,6 +378,7 @@ class Noun(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def gt(a,f,b,c):
         func_str="Noun.gt"
         key=LangObj._getKeyOfDict(func_str)
@@ -365,6 +391,7 @@ class Noun(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def hearSay(a,f,b,c):
         func_str="Noun.hearSay"
         key=LangObj._getKeyOfDict(func_str)
@@ -377,6 +404,7 @@ class Noun(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def do(a,f):
         func_str="Noun.do"
         key=LangObj._getKeyOfDict(func_str)
@@ -389,6 +417,7 @@ class Noun(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def doT(a,f,b):
         func_str="Noun.doT"
         key=LangObj._getKeyOfDict(func_str)
@@ -401,6 +430,7 @@ class Noun(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def give(a,f,b,c):
         func_str="Noun.give"
         key=LangObj._getKeyOfDict(func_str)
@@ -413,6 +443,7 @@ class Noun(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def makeN(a,f,b,c):
         func_str="Noun.makeN"
         key=LangObj._getKeyOfDict(func_str)
@@ -425,6 +456,7 @@ class Noun(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def makeM(a,f,b,c):
         func_str="Noun.makeM"
         key=LangObj._getKeyOfDict(func_str)
@@ -441,12 +473,14 @@ class Noun(LangObj):
 #Class for phrases in SFGPL
 class Phrase(Noun):
     
+    @staticmethod
     def _getSelfClass():
         return {"self":Phrase,"self_name":"Phrase","base":Noun}
     
     def __init__(self,arg,bool_value=None,func_mode=False):
         super().__init__(arg,bool_value=bool_value,func_mode=func_mode)
 
+    @staticmethod
     def interrogative(a):
         func_str="Phrase.interrogative"
         key=LangObj._getKeyOfDict(func_str)
@@ -459,6 +493,7 @@ class Phrase(Noun):
         else:
             LangObj.printTypeError(arg)
     
+    @staticmethod
     def imperative(a):
         func_str="Phrase.imperative"
         key=LangObj._getKeyOfDict(func_str)
@@ -471,6 +506,7 @@ class Phrase(Noun):
         else:
             LangObj.printTypeError(arg)
     
+    @staticmethod
     def past(a):
         func_str="Phrase.past"
         key=LangObj._getKeyOfDict(func_str)
@@ -483,6 +519,7 @@ class Phrase(Noun):
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def future(a):
         func_str="Phrase.future"
         key=LangObj._getKeyOfDict(func_str)
@@ -499,6 +536,7 @@ class Phrase(Noun):
 #Class for verbs in SFGPL
 class Verb(LangObj):
     
+    @staticmethod
     def _getSelfClass():
         return {"self":Verb,"self_name":"Verb","base":Verb}
     
@@ -509,6 +547,7 @@ class Verb(LangObj):
         self._bool_value=bool_value
         self._func_mode=func_mode
         
+    @staticmethod
     def M2V(a):
         func_str="Verb.M2V"
         key=LangObj._getKeyOfDict(func_str)
@@ -521,6 +560,7 @@ class Verb(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def N2V(a):
         func_str="Verb.N2V"
         key=LangObj._getKeyOfDict(func_str)
@@ -533,12 +573,14 @@ class Verb(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def none():
         func_str="Verb.none"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Verb(arg)
     
+    @staticmethod
     def add(a,b):
         func_str="Verb.add"
         key=LangObj._getKeyOfDict(func_str)
@@ -551,6 +593,7 @@ class Verb(LangObj):
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def passive(a):
         func_str="Verb.passive"
         key=LangObj._getKeyOfDict(func_str)
@@ -563,6 +606,7 @@ class Verb(LangObj):
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def progressive(a):
         func_str="Verb.progressive"
         key=LangObj._getKeyOfDict(func_str)
@@ -575,6 +619,7 @@ class Verb(LangObj):
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def perfective(a):
         func_str="Verb.perfective"
         key=LangObj._getKeyOfDict(func_str)
@@ -591,6 +636,7 @@ class Verb(LangObj):
 #Class for modifiers in SFGPL
 class Modifier(LangObj):
     
+    @staticmethod
     def _getSelfClass():
         return {"self":Modifier,"self_name":"Modifier","base":Modifier}
     
@@ -601,6 +647,7 @@ class Modifier(LangObj):
         self._bool_value=bool_value
         self._func_mode=func_mode
         
+    @staticmethod
     def N2M(a):
         func_str="Modifier.N2M"
         key=LangObj._getKeyOfDict(func_str)
@@ -613,6 +660,7 @@ class Modifier(LangObj):
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def V2M(a):
         func_str="Modifier.V2M"
         key=LangObj._getKeyOfDict(func_str)
@@ -625,12 +673,14 @@ class Modifier(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def none():
         func_str="Modifier.none"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Modifier(arg)
     
+    @staticmethod
     def add(a,b):
         func_str="Modifier.add"
         key=LangObj._getKeyOfDict(func_str)
@@ -643,6 +693,7 @@ class Modifier(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def Neg(a):
         func_str="Modifier.Neg"
         key=LangObj._getKeyOfDict(func_str)
@@ -655,6 +706,7 @@ class Modifier(LangObj):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def Very(a):
         func_str="Modifier.Very"
         key=LangObj._getKeyOfDict(func_str)
@@ -671,9 +723,11 @@ class Modifier(LangObj):
 #Class for determiners of nouns in SFGPL
 class DeterminerN():
 
+    @staticmethod
     def _getSelfClass():
         return {"self":DeterminerN,"self_name":"DeterminerN"}
         
+    @staticmethod
     def biology(a):
         func_str="DeterminerN.biology"
         key=LangObj._getKeyOfDict(func_str)
@@ -686,6 +740,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def thing(a):
         func_str="DeterminerN.thing"
         key=LangObj._getKeyOfDict(func_str)
@@ -698,6 +753,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
             
+    @staticmethod
     def time(a):
         func_str="DeterminerN.time"
         key=LangObj._getKeyOfDict(func_str)
@@ -710,6 +766,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
             
+    @staticmethod
     def place(a):
         func_str="DeterminerN.place"
         key=LangObj._getKeyOfDict(func_str)
@@ -722,6 +779,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def reason(a):
         func_str="DeterminerN.reason"
         key=LangObj._getKeyOfDict(func_str)
@@ -734,6 +792,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def method(a):
         func_str="DeterminerN.method"
         key=LangObj._getKeyOfDict(func_str)
@@ -746,6 +805,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def human(a):
         func_str="DeterminerN.human"
         key=LangObj._getKeyOfDict(func_str)
@@ -758,6 +818,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def animal(a):
         func_str="DeterminerN.animal"
         key=LangObj._getKeyOfDict(func_str)
@@ -770,6 +831,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def plant(a):
         func_str="DeterminerN.plant"
         key=LangObj._getKeyOfDict(func_str)
@@ -782,6 +844,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def material(a):
         func_str="DeterminerN.material"
         key=LangObj._getKeyOfDict(func_str)
@@ -794,6 +857,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def start(a):
         func_str="DeterminerN.start"
         key=LangObj._getKeyOfDict(func_str)
@@ -806,6 +870,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def end(a):
         func_str="DeterminerN.end"
         key=LangObj._getKeyOfDict(func_str)
@@ -818,6 +883,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def section(a):
         func_str="DeterminerN.section"
         key=LangObj._getKeyOfDict(func_str)
@@ -830,6 +896,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def In(a):
         func_str="DeterminerN.In"
         key=LangObj._getKeyOfDict(func_str)
@@ -842,6 +909,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def Out(a):
         func_str="DeterminerN.Out"
         key=LangObj._getKeyOfDict(func_str)
@@ -854,6 +922,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def above(a):
         func_str="DeterminerN.above"
         key=LangObj._getKeyOfDict(func_str)
@@ -866,6 +935,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def below(a):
         func_str="DeterminerN.below"
         key=LangObj._getKeyOfDict(func_str)
@@ -878,6 +948,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def on(a):
         func_str="DeterminerN.on"
         key=LangObj._getKeyOfDict(func_str)
@@ -890,6 +961,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def right(a):
         func_str="DeterminerN.right"
         key=LangObj._getKeyOfDict(func_str)
@@ -902,6 +974,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def left(a):
         func_str="DeterminerN.left"
         key=LangObj._getKeyOfDict(func_str)
@@ -914,6 +987,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def affect(a):
         func_str="DeterminerN.affect"
         key=LangObj._getKeyOfDict(func_str)
@@ -926,6 +1000,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def affected(a):
         func_str="DeterminerN.affected"
         key=LangObj._getKeyOfDict(func_str)
@@ -938,6 +1013,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def near(a):
         func_str="DeterminerN.near"
         key=LangObj._getKeyOfDict(func_str)
@@ -950,6 +1026,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def move(a):
         func_str="DeterminerN.move"
         key=LangObj._getKeyOfDict(func_str)
@@ -962,6 +1039,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def stop(a):
         func_str="DeterminerN.stop"
         key=LangObj._getKeyOfDict(func_str)
@@ -974,6 +1052,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def all(a):
         func_str="DeterminerN.all"
         key=LangObj._getKeyOfDict(func_str)
@@ -986,6 +1065,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def many(a):
         func_str="DeterminerN.many"
         key=LangObj._getKeyOfDict(func_str)
@@ -998,6 +1078,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def some(a):
         func_str="DeterminerN.some"
         key=LangObj._getKeyOfDict(func_str)
@@ -1010,6 +1091,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
             
+    @staticmethod
     def one(a):
         func_str="DeterminerN.one"
         key=LangObj._getKeyOfDict(func_str)
@@ -1022,6 +1104,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def plural(a):
         func_str="DeterminerN.plural"
         key=LangObj._getKeyOfDict(func_str)
@@ -1034,6 +1117,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
             
+    @staticmethod
     def stressed(a):
         func_str="DeterminerN.stressed"
         key=LangObj._getKeyOfDict(func_str)
@@ -1046,6 +1130,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
             
+    @staticmethod
     def possessive(a):
         func_str="DeterminerN.possessive"
         key=LangObj._getKeyOfDict(func_str)
@@ -1058,6 +1143,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
             
+    @staticmethod
     def reflexive(a):
         func_str="DeterminerN.reflexive"
         key=LangObj._getKeyOfDict(func_str)
@@ -1070,6 +1156,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
             
+    @staticmethod
     def etc(a):
         func_str="DeterminerN.etc"
         key=LangObj._getKeyOfDict(func_str)
@@ -1082,6 +1169,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
             
+    @staticmethod
     def abstract(a):
         func_str="DeterminerN.abstract"
         key=LangObj._getKeyOfDict(func_str)
@@ -1094,6 +1182,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def front(a):
         func_str="DeterminerN.front"
         key=LangObj._getKeyOfDict(func_str)
@@ -1106,6 +1195,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def behind(a):
         func_str="DeterminerN.behind"
         key=LangObj._getKeyOfDict(func_str)
@@ -1118,6 +1208,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
             
+    @staticmethod
     def future(a):
         func_str="DeterminerN.future"
         key=LangObj._getKeyOfDict(func_str)
@@ -1130,6 +1221,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def past(a):
         func_str="DeterminerN.past"
         key=LangObj._getKeyOfDict(func_str)
@@ -1142,6 +1234,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def male(a):
         func_str="DeterminerN.male"
         key=LangObj._getKeyOfDict(func_str)
@@ -1154,6 +1247,7 @@ class DeterminerN():
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def female(a):
         func_str="DeterminerN.female"
         key=LangObj._getKeyOfDict(func_str)
@@ -1170,9 +1264,11 @@ class DeterminerN():
 #Class for determiners of verbs in SFGPL
 class DeterminerV():
 
+    @staticmethod
     def _getSelfClass():
         return {"self":DeterminerV,"self_name":"DeterminerV"}
         
+    @staticmethod
     def Estimation100(a):
         func_str="DeterminerV.Estimation100"
         key=LangObj._getKeyOfDict(func_str)
@@ -1185,6 +1281,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Estimation75(a):
         func_str="DeterminerV.Estimation75"
         key=LangObj._getKeyOfDict(func_str)
@@ -1197,6 +1294,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Estimation50(a):
         func_str="DeterminerV.Estimation50"
         key=LangObj._getKeyOfDict(func_str)
@@ -1209,6 +1307,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Estimation25(a):
         func_str="DeterminerV.Estimation25"
         key=LangObj._getKeyOfDict(func_str)
@@ -1221,6 +1320,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Estimation0(a):
         func_str="DeterminerV.Estimation0"
         key=LangObj._getKeyOfDict(func_str)
@@ -1233,6 +1333,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Frequency100(a):
         func_str="DeterminerV.Frequency100"
         key=LangObj._getKeyOfDict(func_str)
@@ -1245,6 +1346,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Frequency75(a):
         func_str="DeterminerV.Frequency75"
         key=LangObj._getKeyOfDict(func_str)
@@ -1257,6 +1359,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Frequency50(a):
         func_str="DeterminerV.Frequency50"
         key=LangObj._getKeyOfDict(func_str)
@@ -1269,6 +1372,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Frequency25(a):
         func_str="DeterminerV.Frequency25"
         key=LangObj._getKeyOfDict(func_str)
@@ -1281,6 +1385,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Frequency0(a):
         func_str="DeterminerV.Frequency0"
         key=LangObj._getKeyOfDict(func_str)
@@ -1293,6 +1398,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Start(a):
         func_str="DeterminerV.Start"
         key=LangObj._getKeyOfDict(func_str)
@@ -1305,6 +1411,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Condition(a):
         func_str="DeterminerV.Condition"
         key=LangObj._getKeyOfDict(func_str)
@@ -1317,6 +1424,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Complete(a):
         func_str="DeterminerV.Complete"
         key=LangObj._getKeyOfDict(func_str)
@@ -1329,6 +1437,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Continue(a):
         func_str="DeterminerV.Continue"
         key=LangObj._getKeyOfDict(func_str)
@@ -1341,6 +1450,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def End(a):
         func_str="DeterminerV.End"
         key=LangObj._getKeyOfDict(func_str)
@@ -1353,6 +1463,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def past(a):
         func_str="DeterminerV.past"
         key=LangObj._getKeyOfDict(func_str)
@@ -1365,6 +1476,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def present(a):
         func_str="DeterminerV.present"
         key=LangObj._getKeyOfDict(func_str)
@@ -1377,6 +1489,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def future(a):
         func_str="DeterminerV.future"
         key=LangObj._getKeyOfDict(func_str)
@@ -1389,6 +1502,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Possible(a):
         func_str="DeterminerV.Possible"
         key=LangObj._getKeyOfDict(func_str)
@@ -1401,6 +1515,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Ability(a):
         func_str="DeterminerV.Ability"
         key=LangObj._getKeyOfDict(func_str)
@@ -1413,6 +1528,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Will(a):
         func_str="DeterminerV.Will"
         key=LangObj._getKeyOfDict(func_str)
@@ -1425,6 +1541,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Obligation(a):
         func_str="DeterminerV.Obligation"
         key=LangObj._getKeyOfDict(func_str)
@@ -1437,6 +1554,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Necessary(a):
         func_str="DeterminerV.Necessary"
         key=LangObj._getKeyOfDict(func_str)
@@ -1449,6 +1567,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Duty(a):
         func_str="DeterminerV.Duty"
         key=LangObj._getKeyOfDict(func_str)
@@ -1461,6 +1580,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def forced(a):
         func_str="DeterminerV.forced"
         key=LangObj._getKeyOfDict(func_str)
@@ -1473,6 +1593,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def want(a):
         func_str="DeterminerV.want"
         key=LangObj._getKeyOfDict(func_str)
@@ -1485,6 +1606,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def dare(a):
         func_str="DeterminerV.dare"
         key=LangObj._getKeyOfDict(func_str)
@@ -1497,6 +1619,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def allow(a):
         func_str="DeterminerV.allow"
         key=LangObj._getKeyOfDict(func_str)
@@ -1509,6 +1632,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def easy(a):
         func_str="DeterminerV.easy"
         key=LangObj._getKeyOfDict(func_str)
@@ -1521,6 +1645,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def hard(a):
         func_str="DeterminerV.hard"
         key=LangObj._getKeyOfDict(func_str)
@@ -1533,6 +1658,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def habit(a):
         func_str="DeterminerV.habit"
         key=LangObj._getKeyOfDict(func_str)
@@ -1545,6 +1671,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Polite(a):
         func_str="DeterminerV.Polite"
         key=LangObj._getKeyOfDict(func_str)
@@ -1557,6 +1684,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Respect(a):
         func_str="DeterminerV.Respect"
         key=LangObj._getKeyOfDict(func_str)
@@ -1569,6 +1697,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def volitional(a):
         func_str="DeterminerV.volitional"
         key=LangObj._getKeyOfDict(func_str)
@@ -1581,6 +1710,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def nonVolitional(a):
         func_str="DeterminerV.nonVolitional"
         key=LangObj._getKeyOfDict(func_str)
@@ -1593,6 +1723,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Requests(a):
         func_str="DeterminerV.Requests"
         key=LangObj._getKeyOfDict(func_str)
@@ -1605,6 +1736,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Permission(a):
         func_str="DeterminerV.Permission"
         key=LangObj._getKeyOfDict(func_str)
@@ -1617,6 +1749,7 @@ class DeterminerV():
         else:
             LangObj.printTypeError(arg)
         
+    @staticmethod
     def Suggestion(a):
         func_str="DeterminerV.Suggestion"
         key=LangObj._getKeyOfDict(func_str)
@@ -1633,48 +1766,56 @@ class DeterminerV():
 #Class for pronouns in SFGPL
 class Pronoun(Noun):
     
+    @staticmethod
     def _getSelfClass():
         return {"self":Pronoun,"self_name":"Pronoun","base":Noun}
     
     def __init__(self,arg,bool_value=None,func_mode=False):
         super().__init__(arg,bool_value=bool_value,func_mode=func_mode)
 
+    @staticmethod
     def I():
         func_str="Pronoun.I"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Pronoun(arg)
 
+    @staticmethod
     def you():
         func_str="Pronoun.you"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Pronoun(arg)
     
+    @staticmethod
     def he():
         func_str="Pronoun.he"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Pronoun(arg)
     
+    @staticmethod
     def proximal():
         func_str="Pronoun.proximal"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Pronoun(arg)
     
+    @staticmethod
     def distal():
         func_str="Pronoun.distal"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Pronoun(arg)
     
+    @staticmethod
     def interrogative():
         func_str="Pronoun.interrogative"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Pronoun(arg)
     
+    @staticmethod
     def indefinite():
         func_str="Pronoun.indefinite"
         key=LangObj._getKeyOfDict(func_str)
@@ -1685,54 +1826,63 @@ class Pronoun(Noun):
 #Class for words of Verb in SFGPL
 class WordV():
 
+    @staticmethod
     def create():
         func_str="WordV.create"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Verb(arg)
 
+    @staticmethod
     def destroy():
         func_str="WordV.destroy"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Verb(arg)
 
+    @staticmethod
     def act():
         func_str="WordV.act"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Verb(arg)
 
+    @staticmethod
     def turn():
         func_str="WordV.turn"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Verb(arg)
 
+    @staticmethod
     def receive():
         func_str="WordV.receive"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Verb(arg)
 
+    @staticmethod
     def stimulate():
         func_str="WordV.stimulate"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Verb(arg)
 
+    @staticmethod
     def exist():
         func_str="WordV.exist"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Verb(arg)
 
+    @staticmethod
     def use():
         func_str="WordV.use"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Verb(arg)
 
+    @staticmethod
     def change():
         func_str="WordV.change"
         key=LangObj._getKeyOfDict(func_str)
@@ -1743,24 +1893,28 @@ class WordV():
 #Class for words of Modifier in SFGPL
 class WordM():
     
+    @staticmethod
     def big():
         func_str="WordM.big"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Modifier(arg)
     
+    @staticmethod
     def near():
         func_str="WordM.near"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Modifier(arg)
     
+    @staticmethod
     def good():
         func_str="WordM.good"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Modifier(arg)
     
+    @staticmethod
     def bright():
         func_str="WordM.bright"
         key=LangObj._getKeyOfDict(func_str)
@@ -1771,12 +1925,14 @@ class WordM():
 #Class for Bool in SFGPL
 class Bool(LangObj):
     
+    @staticmethod
     def _getSelfClass():
         return {"self":Bool,"self_name":"Bool","base":Bool}
     
     def __init__(self,arg,bool_value=None,func_mode=False):
         super().__init__(arg,bool_value=bool_value,func_mode=func_mode)
 
+    @staticmethod
     def defNAND(bool_a:bool,bool_b:bool):
         if((not isinstance(bool_a,bool)) or (not isinstance(bool_b,bool))):
             return None
@@ -1785,36 +1941,44 @@ class Bool(LangObj):
         else:
             return True
 
+    @staticmethod
     def defNOT(a:bool):
         return Bool.defNAND(a,a)
 
+    @staticmethod
     def defAND(a:bool,b:bool):
         return Bool.defNOT(Bool.defNAND(a,b))
 
+    @staticmethod
     def defOR(a:bool,b:bool):
         return Bool.defNAND(Bool.defNOT(a),Bool.defNOT(b))
 
+    @staticmethod
     def defNOR(a:bool,b:bool):
         return Bool.defNOT(Bool.defOR(a,b))
 
+    @staticmethod
     def _if_fanc(a:LangObj,b:LangObj,c:LangObj=LangObj([])):
         bool_a=a.getBool()
         bool_b=b.getBool()
         bool_c=c.getBool()
         return bool_b if bool_a else bool_c
 
+    @staticmethod
     def false():
         func_str="Bool.false"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Bool(arg,False)
 
+    @staticmethod
     def true():
         func_str="Bool.true"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Bool(arg,True)
 
+    @staticmethod
     def B2N(a,b):
         func_str="Bool.B2N"
         key=LangObj._getKeyOfDict(func_str)
@@ -1831,6 +1995,7 @@ class Bool(LangObj):
 #Base class for list-based classes in SFGPL
 class _BaseList(Noun):
 
+    @staticmethod
     def __getFuncObj(func_str):
         if(func_str=="BoolList"):
             return BoolList
@@ -1879,6 +2044,7 @@ class BoolList(_BaseList):
     CLASS_TYPE_ASCII="ASCII"
 
 
+    @staticmethod
     def _getSelfClass():
         return {"self":BoolList,"self_name":"BoolList","base":Noun}
     
@@ -1947,9 +2113,11 @@ class BoolList(_BaseList):
 
         return (-1 if sign else 1)*(1+bn_sum)*(2**(e_num-127))
     
+    @staticmethod
     def _binStr2BLList(bin_str:str):
         return [x=="1" for x in bin_str]
 
+    @staticmethod
     def _int2binStr(n:int):
         p=4
         while(True):
@@ -1962,10 +2130,12 @@ class BoolList(_BaseList):
         else:
             return "{:0b}".format(n & 2**p-1)
         
+    @staticmethod
     def _int2BLList(n:int):
         bin_str=BoolList._int2binStr(n)
         return BoolList._binStr2BLList(bin_str)
 
+    @staticmethod
     def binstr32ToBoolList(bin_str:str):
         if(len(bin_str)==32):
             counter=1
@@ -1984,6 +2154,7 @@ class BoolList(_BaseList):
         else:
             return None
     
+    @staticmethod
     def __hex2bin(num:int):
         r=[]
         while num>0:
@@ -2021,6 +2192,7 @@ class BoolList(_BaseList):
         elif(self.__class_type==BoolList.CLASS_TYPE_ASCII):
             return chr(self.getNaturalNumber())
 
+    @staticmethod
     def get(a,b):
         func_str="BoolList.get"
         key=LangObj._getKeyOfDict(func_str)
@@ -2034,6 +2206,7 @@ class BoolList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def append(a,b):
         func_str="BoolList.append"
         key=LangObj._getKeyOfDict(func_str)
@@ -2047,6 +2220,7 @@ class BoolList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def slice(a,b,c):
         func_str="BoolList.slice"
         key=LangObj._getKeyOfDict(func_str)
@@ -2060,6 +2234,7 @@ class BoolList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def add(a,b):
         func_str="BoolList.add"
         key=LangObj._getKeyOfDict(func_str)
@@ -2073,6 +2248,7 @@ class BoolList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def twoBit(a,b):
         func_str="BoolList.twoBit"
         key=LangObj._getKeyOfDict(func_str)
@@ -2086,6 +2262,7 @@ class BoolList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def fourBit(a,b,c,d):
         func_str="BoolList.fourBit"
         key=LangObj._getKeyOfDict(func_str)
@@ -2099,6 +2276,7 @@ class BoolList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def byte(x1,x2,x3,x4,x5,x6,x7,x8):
         func_str="BoolList.byte"
         key=LangObj._getKeyOfDict(func_str)
@@ -2112,6 +2290,7 @@ class BoolList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def NaturalNum(a):
         func_str="BoolList.NaturalNum"
         key=LangObj._getKeyOfDict(func_str)
@@ -2126,6 +2305,7 @@ class BoolList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def Int(a):
         func_str="BoolList.Int"
         key=LangObj._getKeyOfDict(func_str)
@@ -2140,6 +2320,7 @@ class BoolList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def Float(a):
         func_str="BoolList.Float"
         key=LangObj._getKeyOfDict(func_str)
@@ -2157,6 +2338,7 @@ class BoolList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def ASCII(a):
         func_str="BoolList.ASCII"
         key=LangObj._getKeyOfDict(func_str)
@@ -2171,6 +2353,7 @@ class BoolList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def IntBL2NL(a):
         func_str="BoolList.IntBL2NL"
         key=LangObj._getKeyOfDict(func_str)
@@ -2190,15 +2373,18 @@ class LangFunc(Noun):
 
     _FUNC_LIST={}
 
+    @staticmethod
     def _getSelfClass():
         return {"self":LangFunc,"self_name":"LangFunc","base":Noun}
 
+    @staticmethod
     def clearDict():
         LangFunc._FUNC_LIST={}
     
     def __init__(self,arg,bool_value=None,func_mode=False):
         super().__init__(arg,bool_value=bool_value,func_mode=func_mode)
 
+    @staticmethod
     def __createFuncObjAtRuntime(a_str:str,b_str:str):
         arg_str=LangObj._getKeyOfDict("LangFunc.arg")
         raw_str=LangFunc._FUNC_LIST[a_str]
@@ -2217,6 +2403,7 @@ class LangFunc(Noun):
         r_obj=SFGPLLib.str2CMD(func_str)
         return r_obj
 
+    @staticmethod
     def setFunc(a,b):
         func_str="LangFunc.setFunc"
         key=LangObj._getKeyOfDict(func_str)
@@ -2232,12 +2419,14 @@ class LangFunc(Noun):
         else:
             LangObj.printTypeError(arg)
     
+    @staticmethod
     def arg():
         func_str="LangFunc.arg"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return LangList(arg,func_mode=True)
 
+    @staticmethod
     def runFunc(a,b):
         func_str="LangFunc.runFunc"
         key=LangObj._getKeyOfDict(func_str)
@@ -2261,15 +2450,18 @@ class LangVar(Noun):
 
     _VAR_LIST={}
 
+    @staticmethod
     def _getSelfClass():
         return {"self":LangVar,"self_name":"LangVar","base":Noun}
 
+    @staticmethod
     def clearDict():
         LangVar._VAR_LIST={}
     
     def __init__(self,arg,bool_value=None,func_mode=False):
         super().__init__(arg,bool_value=bool_value,func_mode=func_mode)
     
+    @staticmethod
     def set(a,b):
         func_str="LangVar.set"
         key=LangObj._getKeyOfDict(func_str)
@@ -2284,6 +2476,7 @@ class LangVar(Noun):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def get(a):
         func_str="LangVar.get"
         key=LangObj._getKeyOfDict(func_str)
@@ -2304,6 +2497,7 @@ class LangVar(Noun):
 #Class for LangList in SFGPL
 class LangList(_BaseList):
 
+    @staticmethod
     def _getSelfClass():
         return {"self":LangList,"self_name":"LangList","base":Noun}
     
@@ -2316,6 +2510,7 @@ class LangList(_BaseList):
     def getLangList(self):
         return self._ListGet()
 
+    @staticmethod
     def get(a,b):
         func_str="LangList.get"
         key=LangObj._getKeyOfDict(func_str)
@@ -2339,6 +2534,7 @@ class LangList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def append(a,b):
         func_str="LangList.append"
         key=LangObj._getKeyOfDict(func_str)
@@ -2352,6 +2548,7 @@ class LangList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def slice(a,b,c):
         func_str="LangList.slice"
         key=LangObj._getKeyOfDict(func_str)
@@ -2365,6 +2562,7 @@ class LangList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def add(a,b):
         func_str="LangList.add"
         key=LangObj._getKeyOfDict(func_str)
@@ -2378,6 +2576,7 @@ class LangList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def While(a,b,c):
         func_str="LangList.While"
         key=LangObj._getKeyOfDict(func_str)
@@ -2402,6 +2601,7 @@ class LangList(_BaseList):
 #Class for Number in SFGPL
 class Number(LangObj):
 
+    @staticmethod
     def _getSelfClass():
         return {"self":Number,"self_name":"Number","base":Number}
     
@@ -2424,6 +2624,7 @@ class Number(LangObj):
     def getNumber(self):
         return self.__num
     
+    @staticmethod
     def _getNumberObjList():
         return [
             Number.zero(),
@@ -2438,60 +2639,70 @@ class Number(LangObj):
             Number.nine()
         ]
     
+    @staticmethod
     def zero():
         func_str="Number.zero"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Number(arg,0)
 
+    @staticmethod
     def one():
         func_str="Number.one"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Number(arg,1)
 
+    @staticmethod
     def two():
         func_str="Number.two"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Number(arg,2)
 
+    @staticmethod
     def three():
         func_str="Number.three"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Number(arg,3)
 
+    @staticmethod
     def four():
         func_str="Number.four"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Number(arg,4)
 
+    @staticmethod
     def five():
         func_str="Number.five"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Number(arg,5)
 
+    @staticmethod
     def six():
         func_str="Number.six"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Number(arg,6)
 
+    @staticmethod
     def seven():
         func_str="Number.seven"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Number(arg,7)
 
+    @staticmethod
     def eight():
         func_str="Number.eight"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key]
         return Number(arg,8)
 
+    @staticmethod
     def nine():
         func_str="Number.nine"
         key=LangObj._getKeyOfDict(func_str)
@@ -2502,6 +2713,7 @@ class Number(LangObj):
 #Class for NumberList in SFGPL
 class NumberList(_BaseList):
 
+    @staticmethod
     def _getSelfClass():
         return {"self":NumberList,"self_name":"NumberList","base":Noun}
     
@@ -2536,6 +2748,7 @@ class NumberList(_BaseList):
     def getNumber(self):
         return self._number
     
+    @staticmethod
     def _calcNumberObjList(nol:list):
         l_len=len(nol)
         sum=0
@@ -2546,10 +2759,12 @@ class NumberList(_BaseList):
                 return None
         return sum
 
+    @staticmethod
     def _intNumber2NumberObjList(i_num:int):
         number_obj_list=Number._getNumberObjList()
         return [number_obj_list[int(n)] for n in str(i_num)]
         
+    @staticmethod
     def get(a,b):
         func_str="NumberList.get"
         key=LangObj._getKeyOfDict(func_str)
@@ -2572,6 +2787,7 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def append(a,b):
         func_str="NumberList.append"
         key=LangObj._getKeyOfDict(func_str)
@@ -2588,6 +2804,7 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def slice(a,b,c):
         func_str="NumberList.slice"
         key=LangObj._getKeyOfDict(func_str)
@@ -2604,6 +2821,7 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def add(a,b):
         func_str="NumberList.add"
         key=LangObj._getKeyOfDict(func_str)
@@ -2620,6 +2838,7 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def digit1(a):
         func_str="NumberList.digit1"
         key=LangObj._getKeyOfDict(func_str)
@@ -2633,6 +2852,7 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def digit2(a,b):
         func_str="NumberList.digit2"
         key=LangObj._getKeyOfDict(func_str)
@@ -2646,6 +2866,7 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def digit3(a,b,c):
         func_str="NumberList.digit3"
         key=LangObj._getKeyOfDict(func_str)
@@ -2659,6 +2880,7 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def digit4(a,b,c,d):
         func_str="NumberList.digit4"
         key=LangObj._getKeyOfDict(func_str)
@@ -2672,6 +2894,7 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def digit5(a,b,c,d,e):
         func_str="NumberList.digit5"
         key=LangObj._getKeyOfDict(func_str)
@@ -2685,6 +2908,7 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def calcAdd(a,b):
         func_str="NumberList.calcAdd"
         key=LangObj._getKeyOfDict(func_str)
@@ -2698,6 +2922,7 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def calcSub(a,b):
         func_str="NumberList.calcSub"
         key=LangObj._getKeyOfDict(func_str)
@@ -2711,6 +2936,7 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def calcMul(a,b):
         func_str="NumberList.calcMul"
         key=LangObj._getKeyOfDict(func_str)
@@ -2724,6 +2950,7 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def calcDiv(a,b):
         func_str="NumberList.calcDiv"
         key=LangObj._getKeyOfDict(func_str)
@@ -2737,6 +2964,7 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def IntNL2BL(a):
         func_str="NumberList.IntNL2BL"
         key=LangObj._getKeyOfDict(func_str)
@@ -2754,6 +2982,7 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
     def isPN(a):
         func_str="NumberList.isPN"
         key=LangObj._getKeyOfDict(func_str)
@@ -2770,13 +2999,16 @@ class NumberList(_BaseList):
 
 
 class appendixGrammar():
+    @staticmethod
     def Superlative(a:Noun,v:Verb,b:Modifier,c:Noun):
         return Noun.haveP(a,v,Modifier.add(Modifier.Very(b),Modifier.N2M(DeterminerN.In(c))))
     
+    @staticmethod
     def EquivalentClass(a:Noun,v:Verb,b:Modifier,c:Noun):
         return Noun.haveP(Noun.AND(a,c),v,Modifier.add(b,WordM.near()))
 
 class myLib():
+    @staticmethod
     def isInt(n):
         ni=int(n)
         if(isinstance(n,int)):
@@ -2800,15 +3032,18 @@ class SFGPLLib():
 
 
     #Convert SFGPL strings to Python objects or commands
+    @staticmethod
     def str2CMD(str,toObj=True,result_str_config=stackcmd.StackCMD.result_str_config_defalut):
         cmdstr=stackcmd.StackCMD.stackCMD(cmdlist=LangObj.KEY_LIST,cmdline=str,result_str_config=result_str_config,splitstr=LangObj.SPLIT_STR)
         return  eval(cmdstr) if toObj else cmdstr
 
     #Output strings according to config
+    @staticmethod
     def FuncStr(obj:LangObj,result_str_config={}):
         return SFGPLLib.str2CMD(str(obj),toObj=False,result_str_config=result_str_config)
         
     #Output structured strings in SFGPL syntax in JSON format, and the return type is str when mode=="s", and dict when mode="o"
+    @staticmethod
     def structuredDict(obj:LangObj,mode:str="s"):
         s=SFGPLLib.FuncStr(obj,result_str_config=SFGPLLib.FUNC_STR_CONFIG_MAKE_DICT)
         if(mode=="s"):
@@ -2817,20 +3052,24 @@ class SFGPLLib():
             return dict(json.loads(s))
 
     #Output structured strings in SFGPL syntax in Markdown list format
+    @staticmethod
     def structuredStrMDList(obj:LangObj):
         return SFGPLLib.delSpaceLine(SFGPLLib.indentString(SFGPLLib.FuncStr(obj,result_str_config=SFGPLLib.FUNC_STR_CONFIG_A),config=SFGPLLib.INDENT_STRING_CONFIG_MD_OUT).replace("(","").replace(")",""))
         
     #Save structured strings in SFGPL syntax in Markdown list format
+    @staticmethod
     def SaveMDListFile(output_path:str,obj:LangObj):
         outstr=SFGPLLib.structuredStrMDList(obj)
         with open(output_path,mode='w',encoding="utf-8") as f:
             f.write(outstr)
         
     #Function to delete lines with only blank spaces
+    @staticmethod
     def delSpaceLine(in_str):
         return str(re.sub("(\n\s*\n)","\n",in_str)).strip()
 
     #Function for indenting a string
+    @staticmethod
     def indentString(input_str,config=INDENT_STRING_CONFIG_DEFAULT):
         indent=""
         result=""+config["before_char"]
@@ -2853,15 +3092,18 @@ class SFGPLLib():
         return SFGPLLib.delSpaceLine(result)
     
     #Function to check if SFPGL objects are equal
+    @staticmethod
     def eqSFGPL(obj1:LangObj,obj2:LangObj):
         return str(obj1)==str(obj2)
 
     #Functions for validating SFGPL objects
+    @staticmethod
     def checkObjOfSFGPL(obj:LangObj):
         converted_obj=SFGPLLib.str2CMD(str(obj))
         return (obj,converted_obj)
 
     #Convert Python objects to SFGPL strings of multi-lines
+    @staticmethod
     def toMultiLineString(*objs,opt_str=""):
         rstr=""
         for obj in objs:
@@ -2872,6 +3114,7 @@ class SFGPLLib():
         return rstr
     
     #Convert SFGPL strings of multi-lines to Python objects or commands
+    @staticmethod
     def multiLineStr2CMD(instr,toObj=True,result_str_config=stackcmd.StackCMD.result_str_config_defalut):
         instr=instr.strip()
         split_str_list=instr.split(LangObj.END_STR)
@@ -2884,6 +3127,7 @@ class SFGPLLib():
         return robj
 
     #The function that checks for grammatical errors (i.e., whether the right part of speech is placed in the right place).
+    @staticmethod
     def checkType(arg):
         if(isinstance(arg,str)):
             try:
@@ -2992,13 +3236,14 @@ class SFGPLCorpus():
             json.dump(self.getAll(mode="stv"),f,indent=indent)
 
     #Read json file of SFGPL
+    @staticmethod
     def readJson(path:str):
         with open(path,mode="r",encoding="utf-8") as f:
             json_data=json.load(f)
-            os=list(map(SFGPLLib.str2CMD,json_data["sfgpl_str_list"]))
-            ts=json_data["translation_str_list"]
+            obj_str=list(map(SFGPLLib.str2CMD,json_data["sfgpl_str_list"]))
+            trans_str=json_data["translation_str_list"]
 
-            return SFGPLCorpus(sfgpl_obj_list=os,translation_str_list=ts)
+            return SFGPLCorpus(sfgpl_obj_list=obj_str,translation_str_list=trans_str)
         
     #Save JSON file of structured SFGPL statements for confirmation.
     def saveStructureJSON(self,path:str,indent:int=4):
@@ -3034,6 +3279,7 @@ class SFGPLCorpus():
         sc_str=[li for li in sc_str if include_word_func(li)]
         return collections.Counter(sc_str)
     
+    @staticmethod
     def __pyCodeSpaceReplace(tmp_str:str):
         pre_space_chars=[]
         post_space_chars=["(","{","[",","]

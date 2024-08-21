@@ -13,7 +13,7 @@ The following functions exist in LangList.
 |{LangList_While} A B C|Function for iteration using LangList|
 
 LangList can store all classes that inherit from LangObj.
-The following is an example of LangList creation.
+The following is an example of creating a LangList using append.
 
 ```SFGPL
 {lang_list_01}
