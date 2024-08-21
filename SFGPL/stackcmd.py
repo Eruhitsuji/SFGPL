@@ -2,6 +2,7 @@ class StackCMD():
     result_str_config_defalut={
         "func":"func",
         "before_cmd":"",
+        "end_cmd":"",
         "begin":"(",
         "end":")",
         "split":",",
@@ -26,6 +27,8 @@ class StackCMD():
             #read command name
             if(head_s in cmdlist):
                 cmd_info=cmdlist[head_s]
+                cmd_block=result_str_config["before_cmd"]+cmd_info[result_str_config["func"]]+result_str_config["end_cmd"]
+
                 if(cmd_info["arg"]>0):
                     cmdsli={
                         "args":[],
@@ -33,10 +36,10 @@ class StackCMD():
                         "info":cmd_info
                     }
                     cmd_stack_list.append(cmdsli)
-                    result_str+=result_str_config["before_cmd"]+cmd_info[result_str_config["func"]]+result_str_config["begin"]
+                    result_str+=cmd_block+result_str_config["begin"]
                     return StackCMD._stackCMDFunc(cmdlist,cmdline_list[1:],cmd_stack_list,result_str,result_str_config)
                 elif(cmd_info["arg"]==0):
-                    result_str+=result_str_config["before_cmd"]+cmd_info[result_str_config["func"]]
+                    result_str+=cmd_block
                     if(result_str_config["zero_args_begin_and_end_flag"]):
                         result_str+=result_str_config["begin"]+result_str_config["end"]
                     

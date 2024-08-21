@@ -1,7 +1,7 @@
 ---
 title: SFGPL入門
 author: Eruhitsuji
-date: 2024-08-20
+date: 2024-08-21
 ---
 
 <div class="tex_part" text="SFGPLの概要と基礎的な文法"></div>
@@ -2462,4 +2462,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.3.0|SFGPLLib.checkType()の追加|
 |5.3.1|ドキュメントの追加・修正|
 |6.0.0|LangVarの追加|
+|6.1.0|SFGPLの構造化に関連する関数の追加|
 

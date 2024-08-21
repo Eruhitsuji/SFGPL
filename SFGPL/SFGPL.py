@@ -2791,7 +2791,8 @@ class myLib():
 class SFGPLLib():
 
     #Preset config for FuncStr
-    FUNC_STR_CONFIG_A={"func":"word","before_cmd":"","begin":"(","end":")","split":"\n","word_begin":"","word_end":"","zero_args_begin_and_end_flag":False}
+    FUNC_STR_CONFIG_A={"func":"word","before_cmd":"","end_cmd":"","begin":"(","end":")","split":"\n","word_begin":"","word_end":"","zero_args_begin_and_end_flag":False}
+    FUNC_STR_CONFIG_MAKE_DICT={"func":"word","before_cmd":"{\"","end_cmd":"\"","begin":":[","end":"]}","split":",","word_begin":"\"","word_end":"\"","zero_args_begin_and_end_flag":True}
 
     #Preset config for indentString
     INDENT_STRING_CONFIG_DEFAULT={"before_char":"","indent_base":" ","indent_num":2,"need_add_indent":["("],"need_del_indent":[")"]}
@@ -2807,6 +2808,14 @@ class SFGPLLib():
     def FuncStr(obj:LangObj,result_str_config={}):
         return SFGPLLib.str2CMD(str(obj),toObj=False,result_str_config=result_str_config)
         
+    #Output structured strings in SFGPL syntax in JSON format, and the return type is str when mode=="s", and dict when mode="o"
+    def structuredDict(obj:LangObj,mode:str="s"):
+        s=SFGPLLib.FuncStr(obj,result_str_config=SFGPLLib.FUNC_STR_CONFIG_MAKE_DICT)
+        if(mode=="s"):
+            return s
+        elif(mode=="o"):
+            return dict(json.loads(s))
+
     #Output structured strings in SFGPL syntax in Markdown list format
     def structuredStrMDList(obj:LangObj):
         return SFGPLLib.delSpaceLine(SFGPLLib.indentString(SFGPLLib.FuncStr(obj,result_str_config=SFGPLLib.FUNC_STR_CONFIG_A),config=SFGPLLib.INDENT_STRING_CONFIG_MD_OUT).replace("(","").replace(")",""))
@@ -2927,6 +2936,11 @@ class SFGPLCorpus():
         #object mode
         if("o" in mode):
             rlist["sfgpl_obj_list"]=self.sfgpl_obj_list
+
+        #structured dictionary mode
+        if("d" in mode):
+            dict_func=lambda x:SFGPLLib.structuredDict(x,mode="o")
+            rlist["sfgpl_structured_dict_list"]=list(map(dict_func,self.sfgpl_obj_list))
         
         #string mode
         if("s" in mode):
@@ -2986,6 +3000,11 @@ class SFGPLCorpus():
 
             return SFGPLCorpus(sfgpl_obj_list=os,translation_str_list=ts)
         
+    #Save JSON file of structured SFGPL statements for confirmation.
+    def saveStructureJSON(self,path:str,indent:int=4):
+        with open(path,mode="w",encoding="utf-8") as f:
+            json.dump(self.getAll(mode="d")["sfgpl_structured_dict_list"],f,indent=indent)
+    
     #Save csv file of SFGPL
     def saveCSV(self,path:str,split_str=",",newline_str="\n"):
         with open(path,mode="w",encoding="utf-8") as f:

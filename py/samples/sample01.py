@@ -2442,6 +2442,7 @@ sc.saveCSV(OUT_DIR+"sample01.csv")
 
 #Clear defined functions
 LangFunc.clearDict()
+LangVar.clearDict()
 
 json_obj=SFGPLCorpus.readJson(OUT_DIR+"sample01.json")
 #print(len(json_obj))
