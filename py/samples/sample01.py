@@ -2432,6 +2432,220 @@ sc.setCorpus(
     "Add \"d\" to the variable named \"var1\"."
 )
 
+sc.setCorpus(
+    Noun.eq(Pronoun.I(),Verb.none(),Noun.borrowed("student","English")),
+    "I am student."
+)
+
+sc.setCorpus(
+    Noun.eq(Pronoun.I(),Verb.none(),Noun.borrowed("学生","Japanese")),
+    "私は学生です。"
+)
+
+sc.setCorpus(
+    Noun.do(Pronoun.I(),Verb.add(Verb.borrowed("go","English"),Modifier.N2M(DeterminerN.place(Noun.borrowed("London","English"))))),
+    "I go to London."
+)
+
+sc.setCorpus(
+    Noun.do(Pronoun.I(),Verb.add(Verb.borrowed("行く","Japanese"),Modifier.N2M(DeterminerN.place(Noun.borrowed("東京","Japanese"))))),
+    "私は東京に行く。"
+)
+
+sc.setCorpus(
+    Noun.haveP(Noun.eq(Pronoun.proximal(),Verb.none(),DeterminerN.stressed(Noun.borrowed("apple","English"))),Verb.none(),Modifier.borrowed("big","English")),
+    "This apple is big."
+)
+
+sc.setCorpus(
+    Noun.haveP(Noun.eq(Pronoun.proximal(),Verb.none(),DeterminerN.stressed(Noun.borrowed("りんご","Japanese"))),Verb.none(),Modifier.borrowed("大きい","Japanese")),
+    "このりんごは大きい。"
+)
+
+num_10=NumberList.digit2(Number.one(),Number.zero())
+num_minus_10=NumberList.minus(num_10)
+
+sc.setCorpus(
+    Bool.B2N(Noun("false"),NumberList.isPN(num_minus_10)),
+    "-10 isn't positive number."
+)
+
+sc.setCorpus(
+    Bool.B2N(Noun("true"),NumberList.isPN(NumberList.abs(num_minus_10))),
+    "abs(-10) is positive number."
+)
+
+num_1000=NumberList.digit4(Number.one(),Number.zero(),Number.zero(),Number.zero())
+
+num_1_024=NumberList.calcDiv(num_1024,num_1000)
+num_minus_1_024=NumberList.minus(num_1_024)
+
+sc.setCorpus(
+    Bool.B2N(Noun("false"),NumberList.isPN(num_minus_1_024)),
+    "-1.024 isn't positive number."
+)
+
+sc.setCorpus(
+    Bool.B2N(Noun("true"),NumberList.isPN(NumberList.abs(num_minus_1_024))),
+    "abs(-1.024) is positive number."
+)
+
+sc.setCorpus(
+    NumberList.calcAdd(num_10,num_minus_1_024),
+    "10+(-1.024)=8.976"
+)
+
+sc.setCorpus(
+    NumberList.calcSub(num_10,num_minus_1_024),
+    "10-(-1.024)=11.024"
+)
+
+num_32_768=NumberList.calcDiv(num_32768,num_1000)
+num_minus_32_768=NumberList.minus(num_32_768)
+
+sc.setCorpus(
+    NumberList.calcAdd(num_32_768,num_minus_1_024),
+    "32.786+(-1.024)=31.762"
+)
+
+sc.setCorpus(
+    NumberList.calcSub(num_32_768,num_minus_1_024),
+    "32.786-(-1.024)=33.81"
+)
+
+sc.setCorpus(
+    NumberList.calcAdd(num_minus_32_768,num_minus_1_024),
+    "-32.786+(-1.024)=-33.81"
+)
+
+sc.setCorpus(
+    NumberList.calcSub(num_minus_32_768,num_minus_1_024),
+    "-32.786-(-1.024)=-31.762"
+)
+
+py_list01=[i*13 for i in range(13)]
+sc.setCorpus(
+    SFGPLLib.LangListLib.pyList2LangList(py_list01,func=BoolList.NaturalNum),
+    f"Python list {py_list01} converted to LangList."
+)
+
+py_list02=[i*19 for i in range(19)]
+sc.setCorpus(
+    SFGPLLib.LangListLib.pyList2LangList(py_list02,func=BoolList.NaturalNum),
+    f"Python list {py_list02} converted to LangList."
+)
+
+py_str01="abc"
+sc.setCorpus(
+    SFGPLLib.LangListLib.str2LangList(py_str01),
+    f"String '{py_str01}' converted to LangList."
+)
+
+py_str02="I am student."
+sc.setCorpus(
+    SFGPLLib.LangListLib.str2LangList(py_str02),
+    f"String '{py_str02}' converted to LangList."
+)
+
+sc.setCorpus(
+    Noun.doT(DeterminerN.female(Pronoun.he()),Verb.borrowed("love","English"),Noun.V2N(Verb.borrowed("read","English"))),
+    "She loves to read."
+)
+
+sc.setCorpus(
+    Noun.do(Noun.borrowed("The_sun","English"),Verb.progressive(Verb.borrowed("shine","English"))),
+    "The sun is shining."
+)
+
+sc.setCorpus(
+    Noun.doT(Pronoun.I(),DeterminerV.Necessary(Verb.none()),DeterminerN.some(Noun.borrowed("help","English"))),
+    "I need some help."
+)
+
+sc.setCorpus(
+    Noun.doT(DeterminerN.male(Pronoun.he()),Verb.add(Verb.borrowed("speak","English"),Modifier.borrowed("fluently","English")),Noun.borrowed("French","English")),
+    "He speaks French fluently."
+)
+
+sc.setCorpus(
+    Noun.eq(DeterminerN.plural(Pronoun.I()),Verb.add(Verb.none(),Modifier("forever")),Noun("friend")),
+    "We are friends forever."
+)
+
+sc.setCorpus(
+    Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.add(Verb("play"),Modifier.N2M(DeterminerN.every(Noun("weekend")))),Noun("soccer")),
+    "They play soccer every weekend."
+)
+
+sc.setCorpus(
+    Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.add(Verb("play"),Modifier.N2M(DeterminerN.every(Noun("weekend")))),Noun.AND(Noun("soccer"),Noun("tennis"))),
+    "They play soccer and tennis every weekend."
+)
+
+sc.setCorpus(
+    Phrase.interrogative(Noun.have(Pronoun.you(),Verb.none(),Noun("table"))),
+    "Do you have a table?"
+)
+
+sc.setCorpus(
+    Bool.B2N(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.thing(Pronoun.he())),Bool.true()),
+    "Yes, I have it."
+)
+
+sc.setCorpus(
+    Bool.B2N(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.thing(Pronoun.he())),Bool.false()),
+    "No, I don't have it."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(DeterminerN.every(Noun("student")),Verb("pass"),Noun.eq(DeterminerN.thing(Pronoun.he()),Verb.none(),DeterminerN.stressed(Noun("exam"))))),
+    "Every student passed the exam."
+)
+
+sc.setCorpus(
+    Noun.doT(DeterminerN.female(Pronoun.he()),Verb.add(Verb("visit"),Modifier.N2M(DeterminerN.every(Noun("month")))),Noun.have(DeterminerN.female(Pronoun.he()),Verb.none(),DeterminerN.plural(Noun("grandparent")))),
+    "She visits her grandparents every month."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(DeterminerN.each(Noun("child")),Verb("receive"),Noun("gift"))),
+    "Each child received a gift."
+)
+
+sc.setCorpus(
+    Phrase.past(Pronoun.give(Noun.eq(Pronoun.he(),Verb.none(),Noun("teacher")),Verb.none(),DeterminerN.each(Noun("student")),Noun("book"))),
+    "The teacher gave each student a book."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.do(DeterminerN.female(Pronoun.he()),Verb.add(Verb("look"),Modifier.N2M(DeterminerN.place(DeterminerN.other(Noun.haveP(Noun("side"),Verb.none(),Modifier.N2M(DeterminerN.place(Noun("street")))))))))),
+    "She looked at the other side of the street."
+)
+
+sc.setCorpus(
+    Noun.do(DeterminerN.other(DeterminerN.method(Noun.doT(DeterminerN.plural(Pronoun.I()),Verb("solve"),Noun.eq(Pronoun.proximal(),Verb.none(),Noun("problem"))))),WordV.exist()),
+    "There are other ways to solve this problem."
+)
+
+sc.setCorpus(
+    Noun.do(Noun("book"),Verb.add(WordV.exist(),Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.proximal(),Verb.none(),Noun("table")))))),
+    "There is a book on this table."
+)
+
+sc.setCorpus(
+    Noun.do(DeterminerN.plural(Noun("book")),Verb.add(WordV.exist(),Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.proximal(),Verb.none(),Noun("table")))))),
+    "There are books on this table."
+)
+
+sc.setCorpus(
+    Noun.do(DeterminerN.many(DeterminerN.human(Noun.none())),Verb.add(WordV.exist(),Modifier.N2M(DeterminerN.place(Noun("park"))))),
+    "There are many people in the park."
+)
+
+sc.setCorpus(
+    Noun.haveP(Pronoun.I(),Verb.none(),Modifier.add(WordM.good(),Modifier.V2M(Verb("run")))),
+    "I am good at running."
+)
 
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)

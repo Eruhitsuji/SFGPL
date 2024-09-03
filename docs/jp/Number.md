@@ -70,6 +70,8 @@ mi ga so ma fa 'apple' so mel pel bal
 mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil bil
 ```
 
+### 四則演算
+
 そして，次の表のようにNumberListでは四則演算を行う関数が存在する．
 
 ||SFGPL|
@@ -78,6 +80,17 @@ mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil b
 |Subtraction|tel|
 |Multiplication|til|
 |Division|tul|
+
+### 実数の扱い方
+
+実数を扱うには除算を利用する．
+例えば3.14を表すには次のようにする．
+
+```SFGPL
+tul mil pul pel pol mil pel pal pal
+```
+
+### BoolListとNumberListの相互変換
 
 加えて，次の表のように整数のBoolListとNumberListを相互に変換する関数が存在する．
 

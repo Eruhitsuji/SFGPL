@@ -15,6 +15,7 @@ False and True of type Bool are represented as follows.
 
 You can also use ```{Bool_B2N}``` to connect a Bool type to a noun to indicate the truth or falsehood of a noun.
 The following statement is an example.
+In such a statement, the whole is inherited as True.
 
 ```SFGPL
 {It_is_true_that_I_am_a_student}
@@ -22,6 +23,20 @@ The following statement is an example.
 
 Bool types can also use NOT ```{LangObj_NOT}```, OR ```{LangObj_OR}```, AND ```{LangObj_AND}```, NOR ```{LangObj_NOR}``` and NAND ```{LangObj_NAND}```, which are provided in LangObj. 
 They can then perform logic operations.
+
+For example, to represent ```True OR False```, the following is used.
+
+```SFGPL
+{true_or_false}
+```
+
+Besides the usual IFELSE ```{LangObj_IFELSE}```, LangObj has a logicIFELSE ```{LangObj_logicIFELSE}```.
+This word allows you to change the sentence (word) to be executed internally depending on whether or not the condition is met.
+"If true, I am a student." can be expressed as follows.
+
+```SFGPL
+{If_true_I_am_a_student}
+```
 
 ## About BoolList class
 

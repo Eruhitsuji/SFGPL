@@ -74,6 +74,11 @@ format_str_list={
     "speak":Verb("speak"),
     "all_over_the_world":Modifier.N2M(DeterminerN.In(DeterminerN.all(Noun("world")))),
 
+    "WordV_exist":LangObj._getKeyOfDict("WordV.exist"),
+    "there_is_a_book_on_this_table":Noun.do(Noun("book"),Verb.add(WordV.exist(),Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.proximal(),Verb.none(),Noun("table")))))),
+    "book":Noun("book"),
+    "on_this_table":Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.proximal(),Verb.none(),Noun("table")))),
+
     "include_topic_and_subject_exp":multiWord([LangObj._getKeyOfDict("Noun.eq"),"T",LangObj._getKeyOfDict("Verb.none"),"C"]),
     "Elephants_have_long_noses":Noun.eq(Noun("象"),Verb.none(),Noun.haveP(Noun("鼻"),Verb.none(),Modifier("長い"))),
     "Elephants_have_long_noses_en":Noun.eq(Noun("elephant"),Verb.none(),Noun.haveP(Noun("nose"),Verb.none(),Modifier("long"))),

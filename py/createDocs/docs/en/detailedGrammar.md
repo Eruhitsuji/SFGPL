@@ -120,6 +120,16 @@ And to express "English is spoken all over the world." in the SFGPL as follows.
 {English_is_spoken_all_over_the_world}
 ```
 
+## Syntax for expressing existence
+
+When creating a sentence that simply states that something exists, use ```{WordV_exist}```.
+This has the same meaning as the English There is/are construction.
+For example, "There is a book on this table.".
+
+```SFGPL
+{there_is_a_book_on_this_table}
+```
+
 ## Topic-prominent linguistic grammar
 
 It is possible to produce sentences like those in topic-prominent languages, which are common in East Asian languages such as Japanese, Chinese, Korean, and Indonesian.
@@ -167,6 +177,8 @@ As an example, the Japanese phrase "象は鼻が長い"(“Elephants have long n
 |English|{English}|
 |speak|{speak}|
 |all over the world|{all_over_the_world}|
+|book|{book}|
+|on this table|{on_this_table}|
 |象(elephant)|{象}|
 |鼻(nose)|{鼻}|
 |長い(long)|{長い}|

@@ -19,6 +19,7 @@ False and True of type Bool are represented as follows.
 
 You can also use ```pis``` to connect a Bool type to a noun to indicate the truth or falsehood of a noun.
 The following statement is an example.
+In such a statement, the whole is inherited as True.
 
 ```SFGPL
 pis ma ga so fa 'student' pos
@@ -26,6 +27,20 @@ pis ma ga so fa 'student' pos
 
 Bool types can also use NOT ```pa```, OR ```be```, AND ```ba```, NOR ```bo``` and NAND ```bu```, which are provided in LangObj. 
 They can then perform logic operations.
+
+For example, to represent ```True OR False```, the following is used.
+
+```SFGPL
+be pos pas
+```
+
+Besides the usual IFELSE ```bi```, LangObj has a logicIFELSE ```ja```.
+This word allows you to change the sentence (word) to be executed internally depending on whether or not the condition is met.
+"If true, I am a student." can be expressed as follows.
+
+```SFGPL
+ja pos ma ga so fa 'student' pa ma ga so fa 'student'
+```
 
 ## About BoolList class
 

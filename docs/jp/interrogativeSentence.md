@@ -15,6 +15,13 @@
 da mi ge so fa 'table'
 ```
 
+このような疑問文を返答する場合は次のように，Bool.B2N```pis```を使用して命題が正か偽かを示すことで表す．
+
+```SFGPL
+pis mi ga so pen gi pos
+pis mi ga so pen gi pas
+```
+
 ## 疑問詞疑問文
 
 また，疑問詞を含む疑問文の場合，不定のところを疑問詞に置き換えることで表す．
@@ -38,5 +45,7 @@ da mi ge so pen wa
 |:-:|:-:|
 |you|ge|
 |table|fa 'table'|
+|true|pos|
+|false|pas|
 |who|ben wa|
 |what|pen wa|

@@ -101,7 +101,7 @@ And in the sentence structure of the SFGPL, the position of the part of speech i
 ### Parts of speech in the SFGPL
 
 There are three parts of speech in the SFGPL: Noun, Verb and Modifier.
-Phrase, Pronoun, BoolList, LangList, LangFunc and NumberList exist as subclasses of Noun.
+Phrase, Pronoun, BoolList, LangList, LangFunc, LangVar and NumberList exist as subclasses of Noun.
 
 BoolList, LangList, and LangFunc are used to create logical statements in addition to general statements.
 Then, there is a Bool type that represents true/false.
@@ -121,6 +121,8 @@ Verbs are words that describe any action, action, state, being, etc. Modifiers a
 Modifiers are words that modify other words; the SFGPL makes no distinction between adjectives and adverbs.
 
 In the Python library SFGPL, there are classes for each part of speech.
+LangObj is the basic structure of a word and _BaseList defines the basic structure for a List.
+In addition, DeterminerN and DeterminerV are words that are only used to add meaning to words and are represented in Python as just static functions.
 
 ![PartOfSpeach](../img/PartOfSpeach.jpg)
 

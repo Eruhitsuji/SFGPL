@@ -40,6 +40,8 @@ format_str_list={
     "NumberList_calcMul":LangObj._getKeyOfDict("NumberList.calcMul"),
     "NumberList_calcDiv":LangObj._getKeyOfDict("NumberList.calcDiv"),
 
+    "real_number_3_14":NumberList.calcDiv(NumberList.digit3(Number.three(),Number.one(),Number.four()),NumberList.digit3(Number.one(),Number.zero(),Number.zero())),
+
     "NumberList_IntNL2BL":LangObj._getKeyOfDict("NumberList.IntNL2BL"),
     "BoolList_IntBL2NL":LangObj._getKeyOfDict("BoolList.IntBL2NL"),
 

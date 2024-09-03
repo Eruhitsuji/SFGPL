@@ -50,6 +50,40 @@ SFGPLは基礎単語以外は借用語にて代用する．
 このように，様々な言語から借用することができる．
 また，この資料では基本的に借用語は英語から借用している．
 
+### 借用語の明示方法
+
+借用語がどこの言語から借用されたかを明示するために次のような単語が存在する．
+
+|Type|Word|
+|:-:|:-:|
+|Noun|{Noun_borrowed}|
+|Verb|{Verb_borrowed}|
+|Modifier|{Modifier_borrowed}|
+
+#### 名詞
+
+英語の"language"という名詞の単語を借用するには次のようにする．
+
+```SFGPL
+{language_English_borrowed}
+```
+
+#### 動詞
+
+英語の"go"という動詞の単語を借用するには次のようにする．
+
+```SFGPL
+{go_English_borrowed}
+```
+
+#### 修飾語
+
+英語の"big"という修飾語の単語を借用するには次のようにする．
+
+```SFGPL
+{big_English_borrowed}
+```
+
 ## 固有単語について
 
 SFGPLでは，動詞と修飾語については，いくつかの固有単語が用意されている．
@@ -143,5 +177,5 @@ SFGPLでは[代名詞]({docs_pronoun})が存在する．
 
 ## 数値や論理的に使われる語
 
-SFGPLには，[数値的な単語]({docs_Number})や[真偽値に関する単語]({docs_Bool})，[リストに関する単語]({docs_LangList})，[関数に関する単語]({docs_LangFunc})が存在している．
+SFGPLには，[数値的な単語]({docs_Number})や[真偽値に関する単語]({docs_Bool})，[リストに関する単語]({docs_LangList})，[関数に関する単語]({docs_LangFunc}), [変数に関する単語]({docs_LangVar})が存在している．
 これらの単語は，一般的な文ではあまり使われないが，論理的なことを示す際に使われる．

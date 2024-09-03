@@ -19,6 +19,7 @@ Bool型のFalseとTrueは次のように表される．
 
 また，```pis```を使用して，Bool型と名詞を次のように接続することで，ある名詞に対する真偽を表すことができる．
 次の文は"It is true that I am a student."という例を表す．
+このような文では，全体がTrueとして継承される．
 
 ```SFGPL
 pis ma ga so fa 'student' pos
@@ -26,6 +27,20 @@ pis ma ga so fa 'student' pos
 
 そして，Bool型では，LangObjに備わっている，NOT ```pa```，OR ```be```，AND ```ba```，NOR ```bo```とNAND ```bu```を使用することもできる．
 そして，それら関数は論理演算をすることができる．
+
+たとえば，```True OR False```を表すには次のようになる．
+
+```SFGPL
+be pos pas
+```
+
+LangObjには通常のIFELSE```bi```の他に，logicIFELSE```ja```が存在する．
+この単語により，条件を満たすかどうかで内部的に実行する文章（単語）を変えることができる．
+"If true, I am a student."を表すには次のようにする．
+
+```SFGPL
+ja pos ma ga so fa 'student' pa ma ga so fa 'student'
+```
 
 ## BoolList型について
 

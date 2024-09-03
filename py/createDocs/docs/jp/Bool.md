@@ -15,6 +15,7 @@ Bool型のFalseとTrueは次のように表される．
 
 また，```{Bool_B2N}```を使用して，Bool型と名詞を次のように接続することで，ある名詞に対する真偽を表すことができる．
 次の文は"It is true that I am a student."という例を表す．
+このような文では，全体がTrueとして継承される．
 
 ```SFGPL
 {It_is_true_that_I_am_a_student}
@@ -22,6 +23,20 @@ Bool型のFalseとTrueは次のように表される．
 
 そして，Bool型では，LangObjに備わっている，NOT ```{LangObj_NOT}```，OR ```{LangObj_OR}```，AND ```{LangObj_AND}```，NOR ```{LangObj_NOR}```とNAND ```{LangObj_NAND}```を使用することもできる．
 そして，それら関数は論理演算をすることができる．
+
+たとえば，```True OR False```を表すには次のようになる．
+
+```SFGPL
+{true_or_false}
+```
+
+LangObjには通常のIFELSE```{LangObj_IFELSE}```の他に，logicIFELSE```{LangObj_logicIFELSE}```が存在する．
+この単語により，条件を満たすかどうかで内部的に実行する文章（単語）を変えることができる．
+"If true, I am a student."を表すには次のようにする．
+
+```SFGPL
+{If_true_I_am_a_student}
+```
 
 ## BoolList型について
 

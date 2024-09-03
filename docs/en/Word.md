@@ -54,6 +54,40 @@ For example, the word 'language' from any language can be borrowed into the SFGP
 Thus, it can borrow from a variety of languages.
 In addition, the borrowed words in this material are basically borrowed from the English language.
 
+### How to make borrowed words explicit
+
+The following words exist to make it clear from which language a loanword has been borrowed.
+
+|Type|Word|
+|:-:|:-:|
+|Noun|foa|
+|Verb|soa|
+|Modifier|loa|
+
+#### Noun
+
+To borrow the English noun word "language", do the following.
+
+```SFGPL
+foa 'language' 'English'
+```
+
+#### Verb
+
+To borrow the English verb word "go", do the following.
+
+```SFGPL
+soa 'go' 'English'
+```
+
+#### Modifier
+
+To borrow the English modifier word "big", do the following.
+
+```SFGPL
+loa 'big' 'English'
+```
+
 ## About unique words
 
 The SFGPL provides several unique words for verbs and modifiers.
@@ -147,5 +181,5 @@ Pronouns are listed in the following table.
 
 ## Words used numerically and logically
 
-There are [numerical words](Number.md), [words for boolean values](Bool.md), [words for lists](LangList.md) and [words for functions](LangFunc.md) in the SFGPL.
+There are [numerical words](Number.md), [words for boolean values](Bool.md), [words for lists](LangList.md), [words for functions](LangFunc.md) and [words for variable](LangVar.md) in the SFGPL.
 These words are not often used in general sentences, but are used to indicate logic.

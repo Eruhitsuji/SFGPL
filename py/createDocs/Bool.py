@@ -25,6 +25,12 @@ format_str_list={
     "LangObj_NOR":LangObj._getKeyOfDict("LangObj.NOR"),
     "LangObj_NAND":LangObj._getKeyOfDict("LangObj.NAND"),
 
+    "true_or_false":Bool.OR(Bool.true(),Bool.false()),
+
+    "LangObj_IFELSE":LangObj._getKeyOfDict("LangObj.IFELSE"),
+    "LangObj_logicIFELSE":LangObj._getKeyOfDict("LangObj.logicIFELSE"),
+    "If_true_I_am_a_student":LangObj.logicIFELSE(Bool.true(),I_am_a_student,Phrase.NOT(I_am_a_student)),
+
     "BoolList":LangObj._getKeyOfDict("BoolList"), 
     "BoolList_get":LangObj._getKeyOfDict("BoolList.get"), 
     "BoolList_append":LangObj._getKeyOfDict("BoolList.append"), 

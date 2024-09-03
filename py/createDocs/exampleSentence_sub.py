@@ -416,3 +416,48 @@ sc.setCorpus(
     Phrase.past(Noun.hearSay(Pronoun.you(),Verb.none(),Noun.doT(DeterminerN.male(Pronoun.he()),Verb("create"),Noun("table")),Noun("John"))),
     "According to John, you heard that he create a table."
 )
+
+sc.setCorpus(
+    Phrase.past(Phrase.NOT(Noun.doT(Pronoun.I(),Verb("know"),Phrase.past(Noun.doT(DeterminerN.human(Pronoun.indefinite()),Verb.progressive(Verb("call")),Pronoun.I()))))),
+    "I didn't know that someone was calling me."
+)
+
+sc.setCorpus(
+    Phrase.Because(Phrase.past(Phrase.NOT(Noun.do(Pronoun.I(),Verb.add(DeterminerV.Possible(Verb("go")),Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.distal(),Verb.none(),DeterminerN.stressed(Noun("event"))))))))),Phrase.NOT(Noun.have(Pronoun.I(),Verb.none(),Noun("car")))),
+    "I could not go to that event because I do not have a car."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.makeM(Pronoun.you(),Verb.add(Verb.none(),Modifier.N2M(DeterminerN.reason(Phrase.past(Noun.doT(Pronoun.you(),Verb.borrowed("eat","English"),Noun.doT(Pronoun.I(),Verb.borrowed("make","English"),DeterminerN.stressed(Noun.borrowed("cake","English")))))))),Noun("Mary"),Modifier.borrowed("sad","English"))),
+    "You made Mary sad, for you ate the cake I made."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(Pronoun.I(),Verb.add(Verb.borrowed("meet","English"),Modifier.N2M(DeterminerN.time(Phrase.past(Noun.doT(Pronoun.I(),Verb.borrowed("go","English"),Noun.V2N(Verb.borrowed("shop","English"))))))),Noun("Mary"))),
+    "I met Mary when I went shopping."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(Pronoun.I(),Verb.add(Verb.borrowed("meet","English"),Modifier.N2M(DeterminerN.time(Phrase.past(Noun.doT(Pronoun.I(),Verb.borrowed("go","English"),Noun.V2N(Verb.borrowed("shop","English"))))))),Noun("Mary"))),
+    "I met Mary when I went shopping."
+)
+
+sc.setCorpus(
+    Noun.do(Noun("apple"),Verb.add(WordV.exist(),Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.proximal(),Verb.none(),Noun("table")))))),
+    "There is an apple on this table."
+)
+
+sc.setCorpus(
+    Noun.do(DeterminerN.plural(Noun("apple")),Verb.add(WordV.exist(),Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.proximal(),Verb.none(),Noun("table")))))),
+    "There are apples on this table."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.give(Pronoun.I(),Verb.none(),Noun.have(Pronoun.I(),Verb.none(),DeterminerN.plural(Noun("student"))),DeterminerN.plural(Noun("apple")))),
+    "I gave my students apples."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(DeterminerN.human(Pronoun.indefinite()),Verb("eat"),Noun("apple"))),
+    "Someone ate an apple."
+)

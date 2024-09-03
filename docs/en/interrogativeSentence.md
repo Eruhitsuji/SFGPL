@@ -15,6 +15,13 @@ To make it mean "Do you have a table?", it can be expressed as follows in the SF
 da mi ge so fa 'table'
 ```
 
+Such a question reply is expressed by using Bool.B2N```pis``` to indicate whether the proposition is true or false, as follows.
+
+```SFGPL
+pis mi ga so pen gi pos
+pis mi ga so pen gi pas
+```
+
 ## wh-questions
 
 In the case of interrogative sentences containing interrogatives, the indefinite is expressed by replacing the indefinite with an interrogative.

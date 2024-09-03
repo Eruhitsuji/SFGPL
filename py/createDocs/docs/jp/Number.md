@@ -66,6 +66,8 @@ SFGPLで，"I have five apples."を表すには次のようにする．
 {Japan_has_125416877_people}
 ```
 
+### 四則演算
+
 そして，次の表のようにNumberListでは四則演算を行う関数が存在する．
 
 ||SFGPL|
@@ -74,6 +76,17 @@ SFGPLで，"I have five apples."を表すには次のようにする．
 |Subtraction|{NumberList_calcSub}|
 |Multiplication|{NumberList_calcMul}|
 |Division|{NumberList_calcDiv}|
+
+### 実数の扱い方
+
+実数を扱うには除算を利用する．
+例えば3.14を表すには次のようにする．
+
+```SFGPL
+{real_number_3_14}
+```
+
+### BoolListとNumberListの相互変換
 
 加えて，次の表のように整数のBoolListとNumberListを相互に変換する関数が存在する．
 

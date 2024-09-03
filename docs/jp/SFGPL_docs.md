@@ -1,7 +1,7 @@
 ---
 title: SFGPL入門
 author: Eruhitsuji
-date: 2024-08-21
+date: 2024-09-03
 ---
 
 <div class="tex_part" text="SFGPLの概要と基礎的な文法"></div>
@@ -110,7 +110,7 @@ SFGPLの[単語](#10-単語)は主に，SFGPLの固有の単語と借用語に�
 ### SFGPLの品詞
 
 SFGPLの品詞は名詞(Noun)，動詞(Verb)，修飾詞(Modifier)の三種類がある．
-また，名詞のサブクラスとして句(Phrase)，代名詞（Pronoun），Bool配列型（BoolList），LangList，LangFuncとNumberListが存在する．
+また，名詞のサブクラスとして句(Phrase)，代名詞（Pronoun），Bool配列型（BoolList），LangList，LangFunc, LangVarとNumberListが存在する．
 
 BoolList，LangList，LangFuncは一般的な文以外に論理的な文を作る際に使用される．
 そして，真偽を表すBool型が存在する．
@@ -130,6 +130,8 @@ NumberListは主に数詞として使われる．
 修飾語は，他の語を修飾する語である．SFGPLでは形容詞と副詞の区別はつけない．
 
 PythonライブラリSFGPLでは品詞ごとにクラスが存在する．
+LangObjは単語の基本構造体であり，_BaseListはList用の基本構造が定義されている．
+また，DeterminerNとDeterminerVは，単語に意味を付加するためだけの単語であり，Python上では，ただの静的な関数として表されている．
 
 ![PartOfSpeach](../img/PartOfSpeach.jpg)
 
@@ -774,6 +776,13 @@ me mi ga so san fa 'table' so ke wan
 da mi ge so fa 'table'
 ```
 
+このような疑問文を返答する場合は次のように，Bool.B2N```pis```を使用して命題が正か偽かを示すことで表す．
+
+```SFGPL
+pis mi ga so pen gi pos
+pis mi ga so pen gi pas
+```
+
 ## 疑問詞疑問文
 
 また，疑問詞を含む疑問文の場合，不定のところを疑問詞に置き換えることで表す．
@@ -797,6 +806,8 @@ da mi ge so pen wa
 |:-:|:-:|
 |you|ge|
 |table|fa 'table'|
+|true|pos|
+|false|pas|
 |who|ben wa|
 |what|pen wa|
 
@@ -1248,6 +1259,16 @@ ta fa 'Earth' na sa 'revolve' li tun tin fa 'Sun'
 ta fa 'English' na ne sa 'speak' li fun dan fa 'world'
 ```
 
+## 存在を表すときの文法
+
+ただ単に存在することだけを表す文を作成するときには，```gen```を使用して表す．
+これは英語のThere is/areの構文と同じ意味となる．
+例えば"There is a book on this table."は次のように表せる．
+
+```SFGPL
+ta fa 'book' na gen li pun ma gu so fa 'table'
+```
+
 ## 主題優勢言語的な文法
 
 日本語や中国語，朝鮮語，インドネシア語などの主に東アジアの言語によく見られる，主題優勢言語のような文を作成することができる．
@@ -1295,6 +1316,8 @@ ma fa 'elephant' so me fa 'nose' so la 'long'
 |English|fa 'English'|
 |speak|sa 'speak'|
 |all over the world|li fun dan fa 'world'|
+|book|fa 'book'|
+|on this table|li pun ma gu so fa 'table'|
 |象|fa '象'|
 |鼻|fa '鼻'|
 |長い|fa '長い'|
@@ -1356,6 +1379,40 @@ SFGPLは基礎単語以外は借用語にて代用する．
 
 このように，様々な言語から借用することができる．
 また，この資料では基本的に借用語は英語から借用している．
+
+### 借用語の明示方法
+
+借用語がどこの言語から借用されたかを明示するために次のような単語が存在する．
+
+|Type|Word|
+|:-:|:-:|
+|Noun|foa|
+|Verb|soa|
+|Modifier|loa|
+
+#### 名詞
+
+英語の"language"という名詞の単語を借用するには次のようにする．
+
+```SFGPL
+foa 'language' 'English'
+```
+
+#### 動詞
+
+英語の"go"という動詞の単語を借用するには次のようにする．
+
+```SFGPL
+soa 'go' 'English'
+```
+
+#### 修飾語
+
+英語の"big"という修飾語の単語を借用するには次のようにする．
+
+```SFGPL
+loa 'big' 'English'
+```
 
 ## 固有単語について
 
@@ -1450,7 +1507,7 @@ SFGPLでは[代名詞](#14-代名詞)が存在する．
 
 ## 数値や論理的に使われる語
 
-SFGPLには，[数値的な単語](#21-数字の表現方法)や[真偽値に関する単語](#17-bool関連クラス)，[リストに関する単語](#18-langlist)，[関数に関する単語](#19-langfunc)が存在している．
+SFGPLには，[数値的な単語](#21-数字の表現方法)や[真偽値に関する単語](#17-bool関連クラス)，[リストに関する単語](#18-langlist)，[関数に関する単語](#19-langfunc), [変数に関する単語](#20-langvar)が存在している．
 これらの単語は，一般的な文ではあまり使われないが，論理的なことを示す際に使われる．
 
 # 11. 修飾語
@@ -1764,6 +1821,7 @@ Bool型のFalseとTrueは次のように表される．
 
 また，```pis```を使用して，Bool型と名詞を次のように接続することで，ある名詞に対する真偽を表すことができる．
 次の文は"It is true that I am a student."という例を表す．
+このような文では，全体がTrueとして継承される．
 
 ```SFGPL
 pis ma ga so fa 'student' pos
@@ -1771,6 +1829,20 @@ pis ma ga so fa 'student' pos
 
 そして，Bool型では，LangObjに備わっている，NOT ```pa```，OR ```be```，AND ```ba```，NOR ```bo```とNAND ```bu```を使用することもできる．
 そして，それら関数は論理演算をすることができる．
+
+たとえば，```True OR False```を表すには次のようになる．
+
+```SFGPL
+be pos pas
+```
+
+LangObjには通常のIFELSE```bi```の他に，logicIFELSE```ja```が存在する．
+この単語により，条件を満たすかどうかで内部的に実行する文章（単語）を変えることができる．
+"If true, I am a student."を表すには次のようにする．
+
+```SFGPL
+ja pos ma ga so fa 'student' pa ma ga so fa 'student'
+```
 
 ## BoolList型について
 
@@ -2009,6 +2081,8 @@ mi ga so ma fa 'apple' so mel pel bal
 mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil bil
 ```
 
+### 四則演算
+
 そして，次の表のようにNumberListでは四則演算を行う関数が存在する．
 
 ||SFGPL|
@@ -2017,6 +2091,17 @@ mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil b
 |Subtraction|tel|
 |Multiplication|til|
 |Division|tul|
+
+### 実数の扱い方
+
+実数を扱うには除算を利用する．
+例えば3.14を表すには次のようにする．
+
+```SFGPL
+tul mil pul pel pol mil pel pal pal
+```
+
+### BoolListとNumberListの相互変換
 
 加えて，次の表のように整数のBoolListとNumberListを相互に変換する関数が存在する．
 
@@ -2080,87 +2165,96 @@ me mi ga so san fa 'sak' so la 'ruĝ'
 
 |SFGPL|Python|Translation|
 |:-:|:-:|:-:|
-|ma ga so me fa 'worker' so li pun fa 'office'|Noun.eq( Pronoun.I(  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  ) |I am an office worker.|
-|ma ge so me fa 'worker' so li pun fa 'office'|Noun.eq( Pronoun.you(  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  ) |You are an office worker.|
-|ma lan gi so me fa 'worker' so li pun fa 'office'|Noun.eq( DeterminerN.male( Pronoun.he(  )  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  ) |He is an office worker.|
-|ma len gi so me fa 'worker' so li pun fa 'office'|Noun.eq( DeterminerN.female( Pronoun.he(  )  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  ) |She is an office worker.|
-|ma don ga so me fa 'worker' so li pun fa 'office'|Noun.eq( DeterminerN.plural( Pronoun.I(  )  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  ) |We are office workers.|
-|ma don ge so me fa 'worker' so li pun fa 'office'|Noun.eq( DeterminerN.plural( Pronoun.you(  )  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  ) |You are office workers.|
-|ma don gi so me fa 'worker' so li pun fa 'office'|Noun.eq( DeterminerN.plural( Pronoun.he(  )  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  ) |They are office workers.|
-|di ma ga so me fa 'worker' so li pun fa 'office'|Phrase.past( Noun.eq( Pronoun.I(  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  )  ) |I was an office worker.|
-|du ma ga so me fa 'worker' so li pun fa 'office'|Phrase.future( Noun.eq( Pronoun.I(  ) , Verb.none(  ) , Noun.haveP( Noun( "'worker'" ) , Verb.none(  ) , Modifier.N2M( DeterminerN.place( Noun( "'office'" )  )  )  )  )  ) |I will be an office worker.|
-|ta ga na sa 'go' li pun mu ga so san fa 'school'|Noun.do( Pronoun.I(  ) , Verb.add( Verb( "'go'" ) , Modifier.N2M( DeterminerN.place( Noun.belong( Pronoun.I(  ) , Verb.none(  ) , DeterminerN.stressed( Noun( "'school'" )  )  )  )  )  )  ) |I go to my school.|
-|di ta ga na sa 'go' li pun mu ga so san fa 'school'|Phrase.past( Noun.do( Pronoun.I(  ) , Verb.add( Verb( "'go'" ) , Modifier.N2M( DeterminerN.place( Noun.belong( Pronoun.I(  ) , Verb.none(  ) , DeterminerN.stressed( Noun( "'school'" )  )  )  )  )  )  )  ) |I went to my school.|
-|du ta ga na sa 'go' li pun mu ga so san fa 'school'|Phrase.future( Noun.do( Pronoun.I(  ) , Verb.add( Verb( "'go'" ) , Modifier.N2M( DeterminerN.place( Noun.belong( Pronoun.I(  ) , Verb.none(  ) , DeterminerN.stressed( Noun( "'school'" )  )  )  )  )  )  )  ) |I will go to my school.|
-|te ga sa 'read' fa 'book'|Noun.doT( Pronoun.I(  ) , Verb( "'read'" ) , Noun( "'book'" )  ) |I read a book.|
-|di ti ga na sa 'send' li pin fa 'yesterday' lan gi fa 'letter'|Phrase.past( Noun.give( Pronoun.I(  ) , Verb.add( Verb( "'send'" ) , Modifier.N2M( DeterminerN.time( Noun( "'yesterday'" )  )  )  ) , DeterminerN.male( Pronoun.he(  )  ) , Noun( "'letter'" )  )  ) |I sent him a letter yesterday.|
-|di tu ga so lan gi fa 'teacher'|Phrase.past( Noun.makeN( Pronoun.I(  ) , Verb.none(  ) , DeterminerN.male( Pronoun.he(  )  ) , Noun( "'teacher'" )  )  ) |I made him a teacher.|
-|di to ga so lan gi la 'happy'|Phrase.past( Noun.makeM( Pronoun.I(  ) , Verb.none(  ) , DeterminerN.male( Pronoun.he(  )  ) , Modifier( "'happy'" )  )  ) |I made her happy.|
-|mo lan gi so la 'tall' ga|Noun.gt( DeterminerN.male( Pronoun.he(  )  ) , Verb.none(  ) , Modifier( "'tall'" ) , Pronoun.I(  )  ) |He is taller than me.|
-|di te ga na sa 'put' li pun min fa 'table' ba fa 'apple' fa 'peach'|Phrase.past( Noun.doT( Pronoun.I(  ) , Verb.add( Verb( "'put'" ) , Modifier.N2M( DeterminerN.place( DeterminerN.on( Noun( "'table'" )  )  )  )  ) , LangObj.AND( Noun( "'apple'" ) , Noun( "'peach'" )  )  )  ) |I put an apple and a peach on the table.|
-|ta ga na sa 'go' li pun fa 'Osaka'|Noun.do( Pronoun.I(  ) , Verb.add( Verb( "'go'" ) , Modifier.N2M( DeterminerN.place( Noun( "'Osaka'" )  )  )  )  ) |I go to Osaka.|
-|di ta ga na sa 'go' li pun fa 'Osaka'|Phrase.past( Noun.do( Pronoun.I(  ) , Verb.add( Verb( "'go'" ) , Modifier.N2M( DeterminerN.place( Noun( "'Osaka'" )  )  )  )  )  ) |I went to Osaka.|
-|du ta ga na sa 'go' li pun fa 'Osaka'|Phrase.future( Noun.do( Pronoun.I(  ) , Verb.add( Verb( "'go'" ) , Modifier.N2M( DeterminerN.place( Noun( "'Osaka'" )  )  )  )  )  ) |I will go to Osaka.|
-|te ga sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , Verb( "'create'" ) , Noun( "'table'" )  ) |I create a table.|
-|te ga sa 'create' ma gu so san fa 'table'|Noun.doT( Pronoun.I(  ) , Verb( "'create'" ) , Noun.eq( Pronoun.proximal(  ) , Verb.none(  ) , DeterminerN.stressed( Noun( "'table'" )  )  )  ) |I create this table.|
-|pa te ga sa 'create' fa 'table'|LangObj.NOT( Noun.doT( Pronoun.I(  ) , Verb( "'create'" ) , Noun( "'table'" )  )  ) |I don't create a table.|
-|te ge sa 'create' fa 'table'|Noun.doT( Pronoun.you(  ) , Verb( "'create'" ) , Noun( "'table'" )  ) |You create a table.|
-|da te ge sa 'create' fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.you(  ) , Verb( "'create'" ) , Noun( "'table'" )  )  ) |Do you create a table?|
-|da di te ge sa 'create' fa 'table'|Phrase.interrogative( Phrase.past( Noun.doT( Pronoun.you(  ) , Verb( "'create'" ) , Noun( "'table'" )  )  )  ) |Did you create a table?|
-|da te ben wa sa 'create' fa 'table'|Phrase.interrogative( Noun.doT( DeterminerN.human( Pronoun.interrogative(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  )  ) |Who create the table?|
-|da te ge sa 'create' pen wa|Phrase.interrogative( Noun.doT( Pronoun.you(  ) , Verb( "'create'" ) , DeterminerN.thing( Pronoun.interrogative(  )  )  )  ) |What do you create?|
-|da te ge na sa 'create' li pin wa fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.you(  ) , Verb.add( Verb( "'create'" ) , Modifier.N2M( DeterminerN.time( Pronoun.interrogative(  )  )  )  ) , Noun( "'table'" )  )  ) |When do you create the table?|
-|da te ge na sa 'create' li pon wa fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.you(  ) , Verb.add( Verb( "'create'" ) , Modifier.N2M( DeterminerN.reason( Pronoun.interrogative(  )  )  )  ) , Noun( "'table'" )  )  ) |Why do you create the table?|
-|de te we sa 'create' fa 'table'|Phrase.imperative( Noun.doT( Pronoun.indefinite(  ) , Verb( "'create'" ) , Noun( "'table'" )  )  ) |Create a table!|
-|di te ga sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , Verb( "'create'" ) , Noun( "'table'" )  )  ) |I created a table.|
-|du te ga sa 'create' fa 'table'|Phrase.future( Noun.doT( Pronoun.I(  ) , Verb( "'create'" ) , Noun( "'table'" )  )  ) |I will create a table.|
-|ta fa 'table' na ne sa 'create' li tan tin ga|Noun.do( Noun( "'table'" ) , Verb.add( Verb.passive( Verb( "'create'" )  ) , Modifier.N2M( DeterminerN.affect( DeterminerN.near( Pronoun.I(  )  )  )  )  )  ) |The table is created by me.|
-|te ga ni sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , Verb.progressive( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I am creating a table.|
-|te ga nu sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , Verb.perfective( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I have created a table.|
-|du te ga pak sa 'create' fa 'table'|Phrase.future( Noun.doT( Pronoun.I(  ) , DeterminerV.Estimation100( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I 100% probability will create a table.|
-|du te ga pek sa 'create' fa 'table'|Phrase.future( Noun.doT( Pronoun.I(  ) , DeterminerV.Estimation75( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I 75% probability will create a table.|
-|du te ga pik sa 'create' fa 'table'|Phrase.future( Noun.doT( Pronoun.I(  ) , DeterminerV.Estimation50( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I 50% probability will create a table.|
-|du te ga puk sa 'create' fa 'table'|Phrase.future( Noun.doT( Pronoun.I(  ) , DeterminerV.Estimation25( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I 25% probability will create a table.|
-|du te ga pok sa 'create' fa 'table'|Phrase.future( Noun.doT( Pronoun.I(  ) , DeterminerV.Estimation0( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I 0% probability will create a table.|
-|te ga fak sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Frequency100( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I 100% frequently create a table.|
-|te ga fek sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Frequency75( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I 75% frequently create a table.|
-|te ga fik sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Frequency50( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I 50% frequently create a table.|
-|te ga fuk sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Frequency25( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I 25% frequently create a table.|
-|te ga fok sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Frequency0( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I 0% frequently create a table.|
-|te ga bik sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.present( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I create a table.|
-|te ga bak sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.past( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I created a table.|
-|te ga bok sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.future( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I will create a table.|
-|di te ga bak sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , DeterminerV.past( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I created a table.(Past in the past at a point in time)|
-|di te ga bik sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , DeterminerV.present( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I created a table.(Present in the past at a point in time)|
-|di te ga bok sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , DeterminerV.future( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I would create a table.(Future in the past at a point in time)|
-|di te ga bak sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , DeterminerV.past( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I will have created a table.(Past in the future at a point in time)|
-|di te ga bik sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , DeterminerV.present( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I will create a table.(Present in the future at a point in time)|
-|di te ga bok sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , DeterminerV.future( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |I will create a table.(Future in the future at a point in time)|
-|te ga nak sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Possible( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I can create a table.|
-|te ga nek sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Ability( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I can create a table.|
-|te ga nik sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Will( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I will create a table.|
-|te ga nuk sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Obligation( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I should create a table.|
-|te ga nok sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Necessary( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I need to create a table.|
-|te ga lak sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Duty( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I must create a table.|
-|te ga lek sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.forced( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I am forced to create a table.|
-|te ga lik sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.want( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I want to create a table.|
-|te ga luk sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.dare( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I dare create a table.|
-|te ga lok sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.allow( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I allow to create a table.|
-|te ga kak sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.easy( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I am easy to create a table.|
-|te ga kek sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.hard( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I am hard to create a table.|
-|te ga kik sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.habit( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I habitually create a table.|
-|te ga kuk sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.Polite( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I create a table.(polite expression)|
-|te lan gi kok sa 'create' fa 'table'|Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , DeterminerV.Respect( Verb( "'create'" )  ) , Noun( "'table'" )  ) |He creates a table.(respectful expression)|
-|te ga gak sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.volitional( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I consciously create a table.|
-|te ga gek sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , DeterminerV.nonVolitional( Verb( "'create'" )  ) , Noun( "'table'" )  ) |I unconsciously create a table.|
-|da te ge gik sa 'create' fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.you(  ) , DeterminerV.Requests( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |Can you create a table?|
-|da te ga guk sa 'create' fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.I(  ) , DeterminerV.Permission( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |May I create a table?|
-|da te ga gok sa 'create' fa 'table'|Phrase.interrogative( Noun.doT( Pronoun.I(  ) , DeterminerV.Suggestion( Verb( "'create'" )  ) , Noun( "'table'" )  )  ) |Shall I create a table?|
-|te ga sa 'get' ma fa 'information' so te lan gi nu sa 'create' fa 'table'|Noun.doT( Pronoun.I(  ) , Verb( "'get'" ) , Noun.eq( Noun( "'information'" ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb.perfective( Verb( "'create'" )  ) , Noun( "'table'" )  )  )  ) |I get the information that he has create a table.|
-|di te ga sa 'get' ma fa 'information' so te lan gi nu sa 'create' fa 'table'|Phrase.past( Noun.doT( Pronoun.I(  ) , Verb( "'get'" ) , Noun.eq( Noun( "'information'" ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb.perfective( Verb( "'create'" )  ) , Noun( "'table'" )  )  )  )  ) |I got the information that he has create a table.|
-|di te ga sa 'get' ma fa 'information' so te lan gi nu sa 'create' ma don fa 'table' so mal pul|Phrase.past( Noun.doT( Pronoun.I(  ) , Verb( "'get'" ) , Noun.eq( Noun( "'information'" ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb.perfective( Verb( "'create'" )  ) , Noun.eq( DeterminerN.plural( Noun( "'table'" )  ) , Verb.none(  ) , NumberList.digit1( Number.three(  )  )  )  )  )  )  ) |I got the information that he has create three tables.|
-|di moa ga so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.I(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, I heard that he create a table.|
-|di moa ge so te lan gi sa 'create' fa 'table' fa 'John'|Phrase.past( Noun.hearSay( Pronoun.you(  ) , Verb.none(  ) , Noun.doT( DeterminerN.male( Pronoun.he(  )  ) , Verb( "'create'" ) , Noun( "'table'" )  ) , Noun( "'John'" )  )  ) |According to John, you heard that he create a table.|
+|ma ga so me fa 'worker' so li pun fa 'office'|```Noun.eq(Pronoun.I(),Verb.none(),Noun.haveP(Noun("'worker'"),Verb.none(),Modifier.N2M(DeterminerN.place(Noun("'office'")))))```|I am an office worker.|
+|ma ge so me fa 'worker' so li pun fa 'office'|```Noun.eq(Pronoun.you(),Verb.none(),Noun.haveP(Noun("'worker'"),Verb.none(),Modifier.N2M(DeterminerN.place(Noun("'office'")))))```|You are an office worker.|
+|ma lan gi so me fa 'worker' so li pun fa 'office'|```Noun.eq(DeterminerN.male(Pronoun.he()),Verb.none(),Noun.haveP(Noun("'worker'"),Verb.none(),Modifier.N2M(DeterminerN.place(Noun("'office'")))))```|He is an office worker.|
+|ma len gi so me fa 'worker' so li pun fa 'office'|```Noun.eq(DeterminerN.female(Pronoun.he()),Verb.none(),Noun.haveP(Noun("'worker'"),Verb.none(),Modifier.N2M(DeterminerN.place(Noun("'office'")))))```|She is an office worker.|
+|ma don ga so me fa 'worker' so li pun fa 'office'|```Noun.eq(DeterminerN.plural(Pronoun.I()),Verb.none(),Noun.haveP(Noun("'worker'"),Verb.none(),Modifier.N2M(DeterminerN.place(Noun("'office'")))))```|We are office workers.|
+|ma don ge so me fa 'worker' so li pun fa 'office'|```Noun.eq(DeterminerN.plural(Pronoun.you()),Verb.none(),Noun.haveP(Noun("'worker'"),Verb.none(),Modifier.N2M(DeterminerN.place(Noun("'office'")))))```|You are office workers.|
+|ma don gi so me fa 'worker' so li pun fa 'office'|```Noun.eq(DeterminerN.plural(Pronoun.he()),Verb.none(),Noun.haveP(Noun("'worker'"),Verb.none(),Modifier.N2M(DeterminerN.place(Noun("'office'")))))```|They are office workers.|
+|di ma ga so me fa 'worker' so li pun fa 'office'|```Phrase.past(Noun.eq(Pronoun.I(),Verb.none(),Noun.haveP(Noun("'worker'"),Verb.none(),Modifier.N2M(DeterminerN.place(Noun("'office'"))))))```|I was an office worker.|
+|du ma ga so me fa 'worker' so li pun fa 'office'|```Phrase.future(Noun.eq(Pronoun.I(),Verb.none(),Noun.haveP(Noun("'worker'"),Verb.none(),Modifier.N2M(DeterminerN.place(Noun("'office'"))))))```|I will be an office worker.|
+|ta ga na sa 'go' li pun mu ga so san fa 'school'|```Noun.do(Pronoun.I(),Verb.add(Verb("'go'"),Modifier.N2M(DeterminerN.place(Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("'school'")))))))```|I go to my school.|
+|di ta ga na sa 'go' li pun mu ga so san fa 'school'|```Phrase.past(Noun.do(Pronoun.I(),Verb.add(Verb("'go'"),Modifier.N2M(DeterminerN.place(Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("'school'"))))))))```|I went to my school.|
+|du ta ga na sa 'go' li pun mu ga so san fa 'school'|```Phrase.future(Noun.do(Pronoun.I(),Verb.add(Verb("'go'"),Modifier.N2M(DeterminerN.place(Noun.belong(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("'school'"))))))))```|I will go to my school.|
+|te ga sa 'read' fa 'book'|```Noun.doT(Pronoun.I(),Verb("'read'"),Noun("'book'"))```|I read a book.|
+|di ti ga na sa 'send' li pin fa 'yesterday' lan gi fa 'letter'|```Phrase.past(Noun.give(Pronoun.I(),Verb.add(Verb("'send'"),Modifier.N2M(DeterminerN.time(Noun("'yesterday'")))),DeterminerN.male(Pronoun.he()),Noun("'letter'")))```|I sent him a letter yesterday.|
+|di tu ga so lan gi fa 'teacher'|```Phrase.past(Noun.makeN(Pronoun.I(),Verb.none(),DeterminerN.male(Pronoun.he()),Noun("'teacher'")))```|I made him a teacher.|
+|di to ga so lan gi la 'happy'|```Phrase.past(Noun.makeM(Pronoun.I(),Verb.none(),DeterminerN.male(Pronoun.he()),Modifier("'happy'")))```|I made her happy.|
+|mo lan gi so la 'tall' ga|```Noun.gt(DeterminerN.male(Pronoun.he()),Verb.none(),Modifier("'tall'"),Pronoun.I())```|He is taller than me.|
+|di te ga na sa 'put' li pun min fa 'table' ba fa 'apple' fa 'peach'|```Phrase.past(Noun.doT(Pronoun.I(),Verb.add(Verb("'put'"),Modifier.N2M(DeterminerN.place(DeterminerN.on(Noun("'table'"))))),LangObj.AND(Noun("'apple'"),Noun("'peach'"))))```|I put an apple and a peach on the table.|
+|ta ga na sa 'go' li pun fa 'Osaka'|```Noun.do(Pronoun.I(),Verb.add(Verb("'go'"),Modifier.N2M(DeterminerN.place(Noun("'Osaka'")))))```|I go to Osaka.|
+|di ta ga na sa 'go' li pun fa 'Osaka'|```Phrase.past(Noun.do(Pronoun.I(),Verb.add(Verb("'go'"),Modifier.N2M(DeterminerN.place(Noun("'Osaka'"))))))```|I went to Osaka.|
+|du ta ga na sa 'go' li pun fa 'Osaka'|```Phrase.future(Noun.do(Pronoun.I(),Verb.add(Verb("'go'"),Modifier.N2M(DeterminerN.place(Noun("'Osaka'"))))))```|I will go to Osaka.|
+|te ga sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),Verb("'create'"),Noun("'table'"))```|I create a table.|
+|te ga sa 'create' ma gu so san fa 'table'|```Noun.doT(Pronoun.I(),Verb("'create'"),Noun.eq(Pronoun.proximal(),Verb.none(),DeterminerN.stressed(Noun("'table'"))))```|I create this table.|
+|pa te ga sa 'create' fa 'table'|```LangObj.NOT(Noun.doT(Pronoun.I(),Verb("'create'"),Noun("'table'")))```|I don't create a table.|
+|te ge sa 'create' fa 'table'|```Noun.doT(Pronoun.you(),Verb("'create'"),Noun("'table'"))```|You create a table.|
+|da te ge sa 'create' fa 'table'|```Phrase.interrogative(Noun.doT(Pronoun.you(),Verb("'create'"),Noun("'table'")))```|Do you create a table?|
+|da di te ge sa 'create' fa 'table'|```Phrase.interrogative(Phrase.past(Noun.doT(Pronoun.you(),Verb("'create'"),Noun("'table'"))))```|Did you create a table?|
+|da te ben wa sa 'create' fa 'table'|```Phrase.interrogative(Noun.doT(DeterminerN.human(Pronoun.interrogative()),Verb("'create'"),Noun("'table'")))```|Who create the table?|
+|da te ge sa 'create' pen wa|```Phrase.interrogative(Noun.doT(Pronoun.you(),Verb("'create'"),DeterminerN.thing(Pronoun.interrogative())))```|What do you create?|
+|da te ge na sa 'create' li pin wa fa 'table'|```Phrase.interrogative(Noun.doT(Pronoun.you(),Verb.add(Verb("'create'"),Modifier.N2M(DeterminerN.time(Pronoun.interrogative()))),Noun("'table'")))```|When do you create the table?|
+|da te ge na sa 'create' li pon wa fa 'table'|```Phrase.interrogative(Noun.doT(Pronoun.you(),Verb.add(Verb("'create'"),Modifier.N2M(DeterminerN.reason(Pronoun.interrogative()))),Noun("'table'")))```|Why do you create the table?|
+|de te we sa 'create' fa 'table'|```Phrase.imperative(Noun.doT(Pronoun.indefinite(),Verb("'create'"),Noun("'table'")))```|Create a table!|
+|di te ga sa 'create' fa 'table'|```Phrase.past(Noun.doT(Pronoun.I(),Verb("'create'"),Noun("'table'")))```|I created a table.|
+|du te ga sa 'create' fa 'table'|```Phrase.future(Noun.doT(Pronoun.I(),Verb("'create'"),Noun("'table'")))```|I will create a table.|
+|ta fa 'table' na ne sa 'create' li tan tin ga|```Noun.do(Noun("'table'"),Verb.add(Verb.passive(Verb("'create'")),Modifier.N2M(DeterminerN.affect(DeterminerN.near(Pronoun.I())))))```|The table is created by me.|
+|te ga ni sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),Verb.progressive(Verb("'create'")),Noun("'table'"))```|I am creating a table.|
+|te ga nu sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),Verb.perfective(Verb("'create'")),Noun("'table'"))```|I have created a table.|
+|du te ga pak sa 'create' fa 'table'|```Phrase.future(Noun.doT(Pronoun.I(),DeterminerV.Estimation100(Verb("'create'")),Noun("'table'")))```|I 100% probability will create a table.|
+|du te ga pek sa 'create' fa 'table'|```Phrase.future(Noun.doT(Pronoun.I(),DeterminerV.Estimation75(Verb("'create'")),Noun("'table'")))```|I 75% probability will create a table.|
+|du te ga pik sa 'create' fa 'table'|```Phrase.future(Noun.doT(Pronoun.I(),DeterminerV.Estimation50(Verb("'create'")),Noun("'table'")))```|I 50% probability will create a table.|
+|du te ga puk sa 'create' fa 'table'|```Phrase.future(Noun.doT(Pronoun.I(),DeterminerV.Estimation25(Verb("'create'")),Noun("'table'")))```|I 25% probability will create a table.|
+|du te ga pok sa 'create' fa 'table'|```Phrase.future(Noun.doT(Pronoun.I(),DeterminerV.Estimation0(Verb("'create'")),Noun("'table'")))```|I 0% probability will create a table.|
+|te ga fak sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.Frequency100(Verb("'create'")),Noun("'table'"))```|I 100% frequently create a table.|
+|te ga fek sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.Frequency75(Verb("'create'")),Noun("'table'"))```|I 75% frequently create a table.|
+|te ga fik sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.Frequency50(Verb("'create'")),Noun("'table'"))```|I 50% frequently create a table.|
+|te ga fuk sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.Frequency25(Verb("'create'")),Noun("'table'"))```|I 25% frequently create a table.|
+|te ga fok sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.Frequency0(Verb("'create'")),Noun("'table'"))```|I 0% frequently create a table.|
+|te ga bik sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.present(Verb("'create'")),Noun("'table'"))```|I create a table.|
+|te ga bak sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.past(Verb("'create'")),Noun("'table'"))```|I created a table.|
+|te ga bok sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.future(Verb("'create'")),Noun("'table'"))```|I will create a table.|
+|di te ga bak sa 'create' fa 'table'|```Phrase.past(Noun.doT(Pronoun.I(),DeterminerV.past(Verb("'create'")),Noun("'table'")))```|I created a table.(Past in the past at a point in time)|
+|di te ga bik sa 'create' fa 'table'|```Phrase.past(Noun.doT(Pronoun.I(),DeterminerV.present(Verb("'create'")),Noun("'table'")))```|I created a table.(Present in the past at a point in time)|
+|di te ga bok sa 'create' fa 'table'|```Phrase.past(Noun.doT(Pronoun.I(),DeterminerV.future(Verb("'create'")),Noun("'table'")))```|I would create a table.(Future in the past at a point in time)|
+|di te ga bak sa 'create' fa 'table'|```Phrase.past(Noun.doT(Pronoun.I(),DeterminerV.past(Verb("'create'")),Noun("'table'")))```|I will have created a table.(Past in the future at a point in time)|
+|di te ga bik sa 'create' fa 'table'|```Phrase.past(Noun.doT(Pronoun.I(),DeterminerV.present(Verb("'create'")),Noun("'table'")))```|I will create a table.(Present in the future at a point in time)|
+|di te ga bok sa 'create' fa 'table'|```Phrase.past(Noun.doT(Pronoun.I(),DeterminerV.future(Verb("'create'")),Noun("'table'")))```|I will create a table.(Future in the future at a point in time)|
+|te ga nak sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.Possible(Verb("'create'")),Noun("'table'"))```|I can create a table.|
+|te ga nek sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.Ability(Verb("'create'")),Noun("'table'"))```|I can create a table.|
+|te ga nik sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.Will(Verb("'create'")),Noun("'table'"))```|I will create a table.|
+|te ga nuk sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.Obligation(Verb("'create'")),Noun("'table'"))```|I should create a table.|
+|te ga nok sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.Necessary(Verb("'create'")),Noun("'table'"))```|I need to create a table.|
+|te ga lak sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.Duty(Verb("'create'")),Noun("'table'"))```|I must create a table.|
+|te ga lek sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.forced(Verb("'create'")),Noun("'table'"))```|I am forced to create a table.|
+|te ga lik sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.want(Verb("'create'")),Noun("'table'"))```|I want to create a table.|
+|te ga luk sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.dare(Verb("'create'")),Noun("'table'"))```|I dare create a table.|
+|te ga lok sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.allow(Verb("'create'")),Noun("'table'"))```|I allow to create a table.|
+|te ga kak sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.easy(Verb("'create'")),Noun("'table'"))```|I am easy to create a table.|
+|te ga kek sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.hard(Verb("'create'")),Noun("'table'"))```|I am hard to create a table.|
+|te ga kik sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.habit(Verb("'create'")),Noun("'table'"))```|I habitually create a table.|
+|te ga kuk sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.Polite(Verb("'create'")),Noun("'table'"))```|I create a table.(polite expression)|
+|te lan gi kok sa 'create' fa 'table'|```Noun.doT(DeterminerN.male(Pronoun.he()),DeterminerV.Respect(Verb("'create'")),Noun("'table'"))```|He creates a table.(respectful expression)|
+|te ga gak sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.volitional(Verb("'create'")),Noun("'table'"))```|I consciously create a table.|
+|te ga gek sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),DeterminerV.nonVolitional(Verb("'create'")),Noun("'table'"))```|I unconsciously create a table.|
+|da te ge gik sa 'create' fa 'table'|```Phrase.interrogative(Noun.doT(Pronoun.you(),DeterminerV.Requests(Verb("'create'")),Noun("'table'")))```|Can you create a table?|
+|da te ga guk sa 'create' fa 'table'|```Phrase.interrogative(Noun.doT(Pronoun.I(),DeterminerV.Permission(Verb("'create'")),Noun("'table'")))```|May I create a table?|
+|da te ga gok sa 'create' fa 'table'|```Phrase.interrogative(Noun.doT(Pronoun.I(),DeterminerV.Suggestion(Verb("'create'")),Noun("'table'")))```|Shall I create a table?|
+|te ga sa 'get' ma fa 'information' so te lan gi nu sa 'create' fa 'table'|```Noun.doT(Pronoun.I(),Verb("'get'"),Noun.eq(Noun("'information'"),Verb.none(),Noun.doT(DeterminerN.male(Pronoun.he()),Verb.perfective(Verb("'create'")),Noun("'table'"))))```|I get the information that he has create a table.|
+|di te ga sa 'get' ma fa 'information' so te lan gi nu sa 'create' fa 'table'|```Phrase.past(Noun.doT(Pronoun.I(),Verb("'get'"),Noun.eq(Noun("'information'"),Verb.none(),Noun.doT(DeterminerN.male(Pronoun.he()),Verb.perfective(Verb("'create'")),Noun("'table'")))))```|I got the information that he has create a table.|
+|di te ga sa 'get' ma fa 'information' so te lan gi nu sa 'create' ma don fa 'table' so mal pul|```Phrase.past(Noun.doT(Pronoun.I(),Verb("'get'"),Noun.eq(Noun("'information'"),Verb.none(),Noun.doT(DeterminerN.male(Pronoun.he()),Verb.perfective(Verb("'create'")),Noun.eq(DeterminerN.plural(Noun("'table'")),Verb.none(),NumberList.digit1(Number.three()))))))```|I got the information that he has create three tables.|
+|di moa ga so te lan gi sa 'create' fa 'table' fa 'John'|```Phrase.past(Noun.hearSay(Pronoun.I(),Verb.none(),Noun.doT(DeterminerN.male(Pronoun.he()),Verb("'create'"),Noun("'table'")),Noun("'John'")))```|According to John, I heard that he create a table.|
+|di moa ge so te lan gi sa 'create' fa 'table' fa 'John'|```Phrase.past(Noun.hearSay(Pronoun.you(),Verb.none(),Noun.doT(DeterminerN.male(Pronoun.he()),Verb("'create'"),Noun("'table'")),Noun("'John'")))```|According to John, you heard that he create a table.|
+|di pa te ga sa 'know' di te ben we ni sa 'call' ga|```Phrase.past(LangObj.NOT(Noun.doT(Pronoun.I(),Verb("'know'"),Phrase.past(Noun.doT(DeterminerN.human(Pronoun.indefinite()),Verb.progressive(Verb("'call'")),Pronoun.I())))))```|I didn't know that someone was calling me.|
+|pe di pa ta ga na nak sa 'go' li pun ma go so san fa 'event' pa mi ga so fa 'car'|```LangObj.Because(Phrase.past(LangObj.NOT(Noun.do(Pronoun.I(),Verb.add(DeterminerV.Possible(Verb("'go'")),Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.distal(),Verb.none(),DeterminerN.stressed(Noun("'event'"))))))))),LangObj.NOT(Noun.have(Pronoun.I(),Verb.none(),Noun("'car'"))))```|I could not go to that event because I do not have a car.|
+|di to ge na so li pon di te ge soa 'eat' 'English' te ga soa 'make' 'English' san foa 'cake' 'English' fa 'Mary' loa 'sad' 'English'|```Phrase.past(Noun.makeM(Pronoun.you(),Verb.add(Verb.none(),Modifier.N2M(DeterminerN.reason(Phrase.past(Noun.doT(Pronoun.you(),Verb.borrowed("'eat'","'English'"),Noun.doT(Pronoun.I(),Verb.borrowed("'make'","'English'"),DeterminerN.stressed(Noun.borrowed("'cake'","'English'")))))))),Noun("'Mary'"),Modifier.borrowed("'sad'","'English'")))```|You made Mary sad, for you ate the cake I made.|
+|di te ga na soa 'meet' 'English' li pin di te ga soa 'go' 'English' fi soa 'shop' 'English' fa 'Mary'|```Phrase.past(Noun.doT(Pronoun.I(),Verb.add(Verb.borrowed("'meet'","'English'"),Modifier.N2M(DeterminerN.time(Phrase.past(Noun.doT(Pronoun.I(),Verb.borrowed("'go'","'English'"),Noun.V2N(Verb.borrowed("'shop'","'English'"))))))),Noun("'Mary'")))```|I met Mary when I went shopping.|
+|di te ga na soa 'meet' 'English' li pin di te ga soa 'go' 'English' fi soa 'shop' 'English' fa 'Mary'|```Phrase.past(Noun.doT(Pronoun.I(),Verb.add(Verb.borrowed("'meet'","'English'"),Modifier.N2M(DeterminerN.time(Phrase.past(Noun.doT(Pronoun.I(),Verb.borrowed("'go'","'English'"),Noun.V2N(Verb.borrowed("'shop'","'English'"))))))),Noun("'Mary'")))```|I met Mary when I went shopping.|
+|ta fa 'apple' na gen li pun ma gu so fa 'table'|```Noun.do(Noun("'apple'"),Verb.add(WordV.exist(),Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.proximal(),Verb.none(),Noun("'table'"))))))```|There is an apple on this table.|
+|ta don fa 'apple' na gen li pun ma gu so fa 'table'|```Noun.do(DeterminerN.plural(Noun("'apple'")),Verb.add(WordV.exist(),Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.proximal(),Verb.none(),Noun("'table'"))))))```|There are apples on this table.|
+|di ti ga so mi ga so don fa 'student' don fa 'apple'|```Phrase.past(Noun.give(Pronoun.I(),Verb.none(),Noun.have(Pronoun.I(),Verb.none(),DeterminerN.plural(Noun("'student'"))),DeterminerN.plural(Noun("'apple'"))))```|I gave my students apples.|
+|di te ben we sa 'eat' fa 'apple'|```Phrase.past(Noun.doT(DeterminerN.human(Pronoun.indefinite()),Verb("'eat'"),Noun("'apple'")))```|Someone ate an apple.|
 
 
 # 24. 辞書
@@ -2170,203 +2264,211 @@ me mi ga so san fa 'sak' so la 'ruĝ'
 
 |ID|word|func|How to use|Japanese|English|
 |:--:|:--:|:--:|:--:|:--:|:--:|
-|0|pa|LangObj. NOT|pa A|Aでない|not A|
-|1|pe|LangObj. Because|pe A B|AなぜならばB|A because B|
-|2|pi|LangObj. IF|pi A B|もしAならばBである|if A, B|
-|3|pu|LangObj. So|pu A B|AだからB|A so B|
-|4|po|LangObj. But|po A B|AしかしB|A but B|
-|5|ba|LangObj. AND|ba A B|AかつB|A and B|
-|6|be|LangObj. OR|be A B|AまたはB|A or B|
-|7|bi|LangObj. IFELSE|bi A B C|もしAならばBである，そうでなければCである|If A, B, otherwise C|
-|8|bu|LangObj. NAND|bu A B|AかつBでない|A nand B|
-|9|bo|LangObj. NOR|bo A B|AまたはBでない|A nor B|
-|10|ja|LangObj. logicIFELSE|ja A B C|もしAならばBを出力，そうでなければCを出力する|If A, output B, otherwise output C|
-|11|fa|Noun|fa A|Aは存在する|There be A /  A exist|
-|12|fi|Noun. V2N|fi A|動詞から名詞に変換する|Converting verbs to nouns.|
-|13|fu|Noun. M2N|fu A|修飾語から名詞に変換する|Converting modifiers to nouns.|
-|14|fo|Noun. none|fo|品詞が名詞の無意味の語を作る|The part of speech makes the noun nonsensical|
-|15|ma|Noun. eq|ma A F B|AはBで(F)ある|A F(Verbs such that A means equal to B) B|
-|16|me|Noun. haveP|me A F B|AがBという性質が(F)ある|A F(Verbs such that A means equal to B) B|
-|17|mi|Noun. have|mi A F B|AはBを所有している/AはBを含んでいる|A have B/ A include B|
-|18|mu|Noun. belong|mu A F B|AはBに所属している/AはBに含まれている|A belongs to B/ A is included in B|
-|19|mo|Noun. gt|mo A F B C|AはCより（Bという比較基準で）大きい|A is more B than C|
-|20|moa|Noun. hearSay|moa A F B C|Bという内容をCという情報源から，AはFする|A(Subject) F(Verb) that B(Content) according to C(Source)|
-|21|ta|Noun. do|ta A F|AはF（～する）|A F(do)|
-|22|te|Noun. doT|te A F B|AはBをF（～する）|A F(do) B|
-|23|ti|Noun. give|ti A F B C|AはBにCをF（～与える）|A F(give) B C|
-|24|tu|Noun. makeN|tu A F B C|AはBをCの状態にF（～する）|A F(make) B C[Noun]|
-|25|to|Noun. makeM|to A F B C|AはBをCの状態にF（～する）|A F(make) B C[Modifier]|
-|26|da|Phrase. interrogative|da A|A（～ですか）[疑問]|A(interrogative form)|
-|27|de|Phrase. imperative|de A|A（～しろ）[命令]|A(imperative form)|
-|28|di|Phrase. past|di A|A（～した）[過去]|A(did)|
-|29|du|Phrase. future|du A|A（～するだろう/する予定である）[未来]|A(will do /  be going to do)|
-|30|sa|Verb|sa A|A（～する）行為が存在する|There is an act of A|
-|31|si|Verb. M2V|si A|修飾語から動詞に変換する|Converting from modifiers to verbs.|
-|32|su|Verb. N2V|su A|名詞から動詞に変換する|Converting from nouns to verbs.|
-|33|so|Verb. none|so|品詞が動詞の無意味の語を作る|The part of speech makes the verb nonsensical|
-|34|na|Verb. add|na A B|A（～する）にB（～く/～に）[副詞]という意味を付加する|Adding the meaning of B to A [verb]|
-|35|ne|Verb. passive|ne A|A（～される）[受動]|A(be done)|
-|36|ni|Verb. progressive|ni A|A（～している）[継続]|A(be doing)|
-|37|nu|Verb. perfective|nu A|A（～したことのある）[経験/完了/結果/継続]|A(have done)|
-|38|la|Modifier|la A|A（～な/～の/～に/～く）[形容詞/副詞]という修飾語が存在する|There is a modifier [adjective/ adverb] called A|
-|39|li|Modifier. N2M|li A|A（～の/～に/～で）|(of/ in/ at/ on/ by/ with etc.) A|
-|40|lu|Modifier. V2M|lu A|動詞から修飾語に変換する|Converting verbs to modifiers.|
-|41|lo|Modifier. none|lo|品詞が修飾語の無意味の語を作る|The part of speech makes the modifier nonsensical|
-|42|ka|Modifier. add|ka A B|AにB[副詞]という意味を付加する|Adding the meaning of B to A [modifier]|
-|43|ke|Modifier. Neg|ke A|Aでなく|not A|
-|44|ki|Modifier. Very|ki A|とてもAである|very A|
-|45|pan|DeterminerN. biology|pan A|名詞を「Aが何らかの人や生物」と限定する|Limit nouns to 'A is some kind of person or creature'|
-|46|pen|DeterminerN. thing|pen A|名詞を「Aが何らかの物や概念」と限定する|Limit nouns to 'A is some object or concept'|
-|47|pin|DeterminerN. time|pin A|名詞を「Aが何らかの時間」と限定する|Limit a noun to 'A is some time'|
-|48|pun|DeterminerN. place|pun A|名詞を「Aが何らかの場所」と限定する|Limit a noun to 'A is some place'|
-|49|pon|DeterminerN. reason|pon A|名詞を「Aが何らかの理由」と限定する|Limit a noun to 'A is some reason'|
-|50|ban|DeterminerN. method|ban A|名詞を「Aが何らかの方法や道具や手段」と限定する|Limit nouns to 'A is some way or tool or means'|
-|51|ben|DeterminerN. human|ben A|名詞を「Aが何らかの人間」と限定する|Limit nouns to 'A is some kind of human being'|
-|52|bin|DeterminerN. animal|bin A|名詞を「Aが何らかの動物」と限定する|Limit nouns to 'A is some kind of animal'|
-|53|bun|DeterminerN. plant|bun A|名詞を「Aが何らかの植物」と限定する|Limit the noun to 'A is some kind of plant'|
-|54|bon|DeterminerN. material|bon A|名詞を「Aが何らかの材料」と限定する|Limit the noun to 'A is some kind of material'|
-|55|fan|DeterminerN. start|fan A|名詞を「Aが何らかの始点」と限定する|Limit a noun to 'A is some starting point'|
-|56|fen|DeterminerN. end|fen A|名詞を「Aが何らかの終点」と限定する|Limit a noun to 'A is some end point'|
-|57|fin|DeterminerN. section|fin A|名詞を「Aが何らかの区間」と限定する|Limit a noun to 'A is some interval'|
-|58|fun|DeterminerN. In|fun A|名詞を「Aが何らかの中」と限定する|Limit nouns to 'A is in some'|
-|59|fon|DeterminerN. Out|fon A|名詞を「Aが何らかの外」と限定する|Limit nouns to 'A is out some'|
-|60|man|DeterminerN. above|man A|名詞を「Aが何らかの上」と限定する|Limit nouns to 'A above some'|
-|61|men|DeterminerN. below|men A|名詞を「Aが何らかの下」と限定する|Limit nouns to 'A is below some'|
-|62|min|DeterminerN. on|min A|名詞を「Aが何らかに接地している」と限定する|Limit nouns to 'A is grounded to something'|
-|63|mun|DeterminerN. right|mun A|名詞を「Aが何らかの右」と限定する|Limit nouns to 'A is some right'|
-|64|mon|DeterminerN. left|mon A|名詞を「Aが何らかの左」と限定する|Limit nouns to 'A is some left'|
-|65|tan|DeterminerN. affect|tan A|名詞を「Aが何らかの影響を与えるものや関連していること」と限定する|Limit the noun to 'something that A affects or is related to in some way'|
-|66|ten|DeterminerN. affected|ten A|名詞を「Aが何らかの影響が与えられるもの」と限定する|Limit noun to 'something that A is affected by in some way'|
-|67|tin|DeterminerN. near|tin A|名詞を「Aが近くにあるものや関連しているもの」と限定する|Limit the noun to 'something that A is near or related to'.|
-|68|tun|DeterminerN. move|tun A|名詞を「Aが横切る」や「Aが通る」「Aが向かう」と動きのあるものに限定する|Limit nouns to those with motion, such as 'A crosses', 'A passes' or 'A heads'.|
-|69|ton|DeterminerN. stop|ton A|名詞を静止のあるものに限定する|Limit nouns to those with static|
-|70|dan|DeterminerN. all|dan A|名詞を「すべてのA」と限定する|Limit the noun to 'all A'|
-|71|den|DeterminerN. many|den A|名詞を「多くのA」と限定する|Limit the noun to 'many A', 'much A' or 'a lot of A'|
-|72|din|DeterminerN. some|din A|名詞を「いくつかのA」と限定する|Limit the noun to 'some A', 'a few A' or 'several A'|
-|73|dun|DeterminerN. one|dun A|名詞を「ある（一つの）A」と限定する|Limit the noun to 'a certain A', 'one certain A'.|
-|74|don|DeterminerN. plural|don A|名詞を複数形にする|Making nouns plural|
-|75|san|DeterminerN. stressed|san A|名詞を強調形する|Stressed form of nouns.|
-|76|sen|DeterminerN. possessive|sen A|所有代名詞を作成する|Creating possessive pronouns|
-|77|sin|DeterminerN. reflexive|sin A|再帰代名詞を作成する|Creating recursive pronouns|
-|78|sun|DeterminerN. etc|sun A|名詞を「Aなど」と限定する|Limit nouns to 'A etc.'|
-|79|son|DeterminerN. abstract|son A|～的/～のようなもの/名詞を抽象化する|something like A/ Abstracting nouns|
-|80|nan|DeterminerN. front|nan A|名詞を「Aが何らかの空間的に前」と限定する|Limit nouns to 'A is in front of some space'|
-|81|nen|DeterminerN. behind|nen A|名詞を「Aが何らかの空間的に後ろ」と限定する|Limit nouns to 'A is behind in some space'|
-|82|nun|DeterminerN. future|nun A|名詞を「Aが何らかの時間的に未来」と限定する|Limit nouns to 'A is some time in the future'|
-|83|non|DeterminerN. past|non A|名詞を「Aが何らかの時間的に過去」と限定する|Limit nouns to 'A is some time in the past'|
-|84|lan|DeterminerN. male|lan A|名詞を「Aが何らかの男性や雄」と限定する|Limit noun to 'A is some male'|
-|85|len|DeterminerN. female|len A|名詞を「Aが何らかの女性や雌」と限定する|Limit the noun to 'A is some female'|
-|86|pak|DeterminerV. Estimation100|pak A|100%の確率でAする|100% probability A|
-|87|pek|DeterminerV. Estimation75|pek A|75%の確率でAする|75% probability A|
-|88|pik|DeterminerV. Estimation50|pik A|50%の確率でAする|50% probability A|
-|89|puk|DeterminerV. Estimation25|puk A|25%の確率でAする|25% probability A|
-|90|pok|DeterminerV. Estimation0|pok A|0%の確率でAする|0% probability A|
-|91|fak|DeterminerV. Frequency100|fak A|100%ぐらいの頻度でAする|100% frequently A|
-|92|fek|DeterminerV. Frequency75|fek A|75%ぐらいの頻度でAする|75% frequently A|
-|93|fik|DeterminerV. Frequency50|fik A|50%ぐらいの頻度でAする|50% frequently A|
-|94|fuk|DeterminerV. Frequency25|fuk A|25%ぐらいの頻度でAする|25% frequently A|
-|95|fok|DeterminerV. Frequency0|fok A|0%ぐらいの頻度でAする|0% frequently A|
-|96|tak|DeterminerV. Start|tak A|Aし始める|Someone starts doing something|
-|97|tek|DeterminerV. Condition|tek A|Aしている途中である|Someone is in the middle of doing something|
-|98|tik|DeterminerV. Complete|tik A|Aしている途中だったが完了した|Someone was in the middle of doing something but has completed|
-|99|tuk|DeterminerV. Continue|tuk A|Aしている状態が続いている|Someone is still doing something|
-|100|tok|DeterminerV. End|tok A|Aし終える|Someone finishes doing something|
-|101|bak|DeterminerV. past|bak A|過去にはAであった|In the past it was A|
-|102|bik|DeterminerV. present|bik A|現在Aである|In the present it is A|
-|103|bok|DeterminerV. future|bok A|未来にはAだろう|In the future it will be A|
-|104|nak|DeterminerV. Possible|nak A|Aできる/Aすることが可能である|can|
-|105|nek|DeterminerV. Ability|nek A|Aする能力がある|can|
-|106|nik|DeterminerV. Will|nik A|Aしよう|will/ shall|
-|107|nuk|DeterminerV. Obligation|nuk A|Aすべきだ|should/ ought to|
-|108|nok|DeterminerV. Necessary|nok A|Aする必要がある|need to|
-|109|lak|DeterminerV. Duty|lak A|Aしなければならない|must/ have to|
-|110|lek|DeterminerV. forced|lek A|外部からの強い力で強制的にAさせられる|be forced to A by a strong external force|
-|111|lik|DeterminerV. want|lik A|Aしたい/Aすることを願望する|want to A|
-|112|luk|DeterminerV. dare|luk A|あえてAする/思い切ってAする/Aする勇気がある|dare A|
-|113|lok|DeterminerV. allow|lok A|Aすることを許す|allow to A|
-|114|kak|DeterminerV. easy|kak A|Aしやすい|be easy to A|
-|115|kek|DeterminerV. hard|kek A|Aしにくい|be hard to A|
-|116|kik|DeterminerV. habit|kik A|習慣的にAする|Habitually A|
-|117|kuk|DeterminerV. Polite|kuk A|Aします（丁寧表現）|Make the verb a polite expression|
-|118|kok|DeterminerV. Respect|kok A|Aされる（尊敬表現）|Make the verb a respectful expression|
-|119|gak|DeterminerV. volitional|gak A|意識的にAする|Consciously A|
-|120|gek|DeterminerV. nonVolitional|gek A|無意識的にAする|Unconsciously A|
-|121|gik|DeterminerV. Requests|gik A|Aしてください|will/ would/ can/ could|
-|122|guk|DeterminerV. Permission|guk A|Aしてもよいですか|can/ may|
-|123|gok|DeterminerV. Suggestion|gok A|Aしましょうか|shall|
-|124|ga|Pronoun. I|ga|私|I|
-|125|ge|Pronoun. you|ge|あなた|you|
-|126|gi|Pronoun. he|gi|彼/彼女/それ|he/ she/ it|
-|127|gu|Pronoun. proximal|gu|これ|this|
-|128|go|Pronoun. distal|go|それ/あれ|that|
-|129|wa|Pronoun. interrogative|wa|どれ|what|
-|130|we|Pronoun. indefinite|we|どれか|something|
-|131|kan|WordV. create|kan|生み出す/作る/産む|create/ make/ bear|
-|132|ken|WordV. destroy|ken|破壊する/壊す/死ぬ|destroy/ break/ die|
-|133|kin|WordV. act|kin|行動する/動く/実行する/歩く/働く|act/ move/ do/ walk/ work|
-|134|kun|WordV. turn|kun|回る/回転する/急ぐ/走る|turn/ rotate/ hurry/ run|
-|135|kon|WordV. receive|kon|感じ取る/受信する/受け取る/入れる/摂取する/取得する/得る/習う/聞く/見る/食べる/飲む|receive/ accept/ acquire/ get/ learn/ hear/ see/ listen/ look at/ watch/ eat/ drink|
-|136|gan|WordV. stimulate|gan|発する/発信する/発射する/出す/送信する/送る/教える/刺激する/言う/話す/攻撃する|emit/ transmit/ put out/ send/ give/ teach/ stimulate/ say/ speak/ attack|
-|137|gen|WordV. exist|gen|ある/いる/存在する/生きている/住んでいる/留まる/止まっている/休む|be/ exist/ live/ stay/ be stopping/ get rest|
-|138|gin|WordV. use|gin|使う/使用する|use|
-|139|gun|WordV. change|gun|変わる/なる/成長する/移行する/移動する|change/ become/ grow/ transfer|
-|140|wan|WordM. big|wan|大きい/長い/広い/高い/多い/重い|big/ long/ wide/ tall/ many/ heavy/ large|
-|141|wen|WordM. near|wen|近い/親しい/似ている/好きである|near/ familiar/ close to/ similar/ like|
-|142|win|WordM. good|win|良い/新しい/若い/美しい|good/ new/ young/ beautiful|
-|143|won|WordM. bright|won|明るい/白い/色鮮やかな|bright/ white/ colourful|
-|144|pas|Bool. false|pas|偽|False (Boolean)|
-|145|pos|Bool. true|pos|真|True (Boolean)|
-|146|pis|Bool. B2N|pis A B|AはBである（Bは真偽）|A is B (B is true or false)|
-|147|fas|BoolList|fas|真偽のリスト（BoolList）を作成する|Create a list of true/ false (BoolList)|
-|148|fes|BoolList. get|fes A B|BoolList(A)のB番目の値を取得する|Gets the B-th value of BoolList(A)|
-|149|fis|BoolList. append|fis A B|BoolListに1つのBoolを末尾に加える|Add one Bool to the end of the BoolList|
-|150|fus|BoolList. slice|fus A B C|AというBoolListに対して，B番目からC番目までのリストを取得する|Get the B-th through C-th lists for a BoolList (A).|
-|151|fos|BoolList. add|fos A B|2つのBoolListを結合する|Combine two BoolLists|
-|152|mas|BoolList. twoBit|mas A B|2つBoolの値からなるBoolListを作成する|Create a BoolList consisting of 2 Bool values|
-|153|mis|BoolList. fourBit|mis A B C D|4つBoolの値からなるBoolListを作成する|Create a BoolList consisting of 4 Bool values|
-|154|mos|BoolList. byte|mos X1 X2 X3 X4 X5 X6 X7 X8|8つBoolの値からなるBoolListを作成する|Create a BoolList consisting of 8 Bool values|
-|155|tas|BoolList. NaturalNum|tas A|BoolListを2進数の自然数とみなす|BoolList is considered a binary natural number|
-|156|tes|BoolList. Int|tes A|BoolListを2進数の整数とみなす|BoolList is considered a binary integer|
-|157|tis|BoolList. Float|tis A|BoolListを2進数の浮動小数とみなす|BoolList is considered a binary floating number|
-|158|tus|BoolList. ASCII|tus A|BoolListをASCII文字とみなす|BoolList is considered an ASCII character|
-|159|tos|BoolList. IntBL2NL|tos A|整数のBoolListをNumberListに変換する|Convert an integer BoolList to a NumberList|
-|160|pat|LangFunc. setFunc|pat A B|あるLangListを引数とするAという名前のBを返す関数を設定する|Set up a function that returns B named A with a certain LangList as an argument.|
-|161|pit|LangFunc. arg|pit|LangFunc.setFunc()の引数用に使用する|Used for LangFunc.setFunc() arguments|
-|162|pot|LangFunc. runFunc|pot A B|設定したAという名前のLangFuncを引数Bとして実行する|Execute the configured LangFunc named A with argument B|
-|163|bat|LangVar. set|bat A B|グローバル変数としてAという名前の変数を定義し，LangList Bを代入する|Define a variable named A as a global variable and assign LangList B to it.|
-|164|bot|LangVar. get|bot A|定義されたAという名前のグローバル変数を取得する|Obtain the defined global variable named A|
-|165|fat|LangList|fat|LangObjのリストLangListを作成する|Create a list of LangObj (LangList)|
-|166|fet|LangList. get|fet A B|LangList(A)のB番目の値を取得する|Gets the B-th value of LangList(A)|
-|167|fit|LangList. append|fit A B|LangListに1つのLangObjを末尾に加える|Add one LangObj to the end of the LangList|
-|168|fut|LangList. slice|fut A B C|AというLangListに対して，B番目からC番目までのリストを取得する|Get the B-th through C-th lists for a LangList (A).|
-|169|fot|LangList. add|fot A B|2つのLangListを結合する|Combine two LangLists|
-|170|tat|LangList. While|tat A B C|繰り返し処理を行う|Repeat processing|
-|171|pal|Number. zero|pal|0|0|
-|172|pel|Number. one|pel|1|1|
-|173|pil|Number. two|pil|2|2|
-|174|pul|Number. three|pul|3|3|
-|175|pol|Number. four|pol|4|4|
-|176|bal|Number. five|bal|5|5|
-|177|bel|Number. six|bel|6|6|
-|178|bil|Number. seven|bil|7|7|
-|179|bul|Number. eight|bul|8|8|
-|180|bol|Number. nine|bol|9|9|
-|181|fal|NumberList|fal|NumberのリストNumberListを作成する|Create a list of Number(NumberList)|
-|182|fel|NumberList. get|fel A B|NumberList(A)のB番目の値を取得する|Gets the B-th value of NumberList(A)|
-|183|fil|NumberList. append|fil A B|NumberListに1つのNumberを末尾に加える|Add one Number to the end of the NumberList|
-|184|ful|NumberList. slice|ful A B C|AというNumberListに対して，B番目からC番目までのリストを取得する|Get the B-th through C-th lists for a NumberList (A).|
-|185|fol|NumberList. add|fol A B|2つのNumberListを結合する|Combine two NumberLists|
-|186|mal|NumberList. digit1|mal A|10進数1桁からなるNumberListを作成する|Create a NumberList consisting of one decimal digit|
-|187|mel|NumberList. digit2|mel A B|10進数2桁からなるNumberListを作成する|Create a NumberList consisting of two decimal digit|
-|188|mil|NumberList. digit3|mil A B C|10進数3桁からなるNumberListを作成する|Create a NumberList consisting of three decimal digit|
-|189|mul|NumberList. digit4|mul A B C D|10進数4桁からなるNumberListを作成する|Create a NumberList consisting of four decimal digit|
-|190|mol|NumberList. digit5|mol A B C D E|10進数5桁からなるNumberListを作成する|Create a NumberList consisting of five decimal digit|
-|191|tal|NumberList. calcAdd|tal A B|2つのNumberListに対して加算をする|Perform addition on two NumberLists|
-|192|tel|NumberList. calcSub|tel A B|2つのNumberListに対して減算をする|Perform subtraction on two NumberLists|
-|193|til|NumberList. calcMul|til A B|2つのNumberListに対して乗算をする|Perform multiplication on two NumberLists|
-|194|tul|NumberList. calcDiv|tul A B|2つのNumberListに対して除算をする|Perform division on two NumberLists|
-|195|tol|NumberList. IntNL2BL|tol A|整数のNumberListをBoolListに変換する|Convert an integer NumberList to a BoolList|
-|196|sal|NumberList. isPN|sal A|正の数かを判定する|Determine if it is a positive number|
+|0|pa|```LangObj.NOT```|pa A|Aでない|not A|
+|1|pe|```LangObj.Because```|pe A B|AなぜならばB|A because B|
+|2|pi|```LangObj.IF```|pi A B|もしAならばBである|if A, B|
+|3|pu|```LangObj.So```|pu A B|AだからB|A so B|
+|4|po|```LangObj.But```|po A B|AしかしB|A but B|
+|5|ba|```LangObj.AND```|ba A B|AかつB|A and B|
+|6|be|```LangObj.OR```|be A B|AまたはB|A or B|
+|7|bi|```LangObj.IFELSE```|bi A B C|もしAならばBである，そうでなければCである|If A, B, otherwise C|
+|8|bu|```LangObj.NAND```|bu A B|AかつBでない|A nand B|
+|9|bo|```LangObj.NOR```|bo A B|AまたはBでない|A nor B|
+|10|ja|```LangObj.logicIFELSE```|ja A B C|もしAならばBを出力，そうでなければCを出力する|If A, output B, otherwise output C|
+|11|fa|```Noun```|fa A|Aは存在する|There be A /  A exist|
+|12|foa|```Noun.borrowed```|foa A B|Aという名詞の単語をBという言語から借用する|Borrowing noun words called A from the language B|
+|13|fi|```Noun.V2N```|fi A|動詞から名詞に変換する|Converting verbs to nouns.|
+|14|fu|```Noun.M2N```|fu A|修飾語から名詞に変換する|Converting modifiers to nouns.|
+|15|fo|```Noun.none```|fo|品詞が名詞の無意味の語を作る|The part of speech makes the noun nonsensical|
+|16|ma|```Noun.eq```|ma A F B|AはBで(F)ある|A F(Verbs such that A means equal to B) B|
+|17|me|```Noun.haveP```|me A F B|AがBという性質が(F)ある|A F(Verbs such that A means equal to B) B|
+|18|mi|```Noun.have```|mi A F B|AはBを所有している/AはBを含んでいる|A have B/ A include B|
+|19|mu|```Noun.belong```|mu A F B|AはBに所属している/AはBに含まれている|A belongs to B/ A is included in B|
+|20|mo|```Noun.gt```|mo A F B C|AはCより（Bという比較基準で）大きい|A is more B than C|
+|21|moa|```Noun.hearSay```|moa A F B C|Bという内容をCという情報源から，AはFする|A(Subject) F(Verb) that B(Content) according to C(Source)|
+|22|ta|```Noun.do```|ta A F|AはF（～する）|A F(do)|
+|23|te|```Noun.doT```|te A F B|AはBをF（～する）|A F(do) B|
+|24|ti|```Noun.give```|ti A F B C|AはBにCをF（～与える）|A F(give) B C|
+|25|tu|```Noun.makeN```|tu A F B C|AはBをCの状態にF（～する）|A F(make) B C[Noun]|
+|26|to|```Noun.makeM```|to A F B C|AはBをCの状態にF（～する）|A F(make) B C[Modifier]|
+|27|da|```Phrase.interrogative```|da A|A（～ですか）[疑問]|A(interrogative form)|
+|28|de|```Phrase.imperative```|de A|A（～しろ）[命令]|A(imperative form)|
+|29|di|```Phrase.past```|di A|A（～した）[過去]|A(did)|
+|30|du|```Phrase.future```|du A|A（～するだろう/する予定である）[未来]|A(will do /  be going to do)|
+|31|sa|```Verb```|sa A|A（～する）行為が存在する|There is an act of A|
+|32|soa|```Verb.borrowed```|soa A B|Aという動詞の単語をBという言語から借用する|Borrowing verb words called A from the language B|
+|33|si|```Verb.M2V```|si A|修飾語から動詞に変換する|Converting from modifiers to verbs.|
+|34|su|```Verb.N2V```|su A|名詞から動詞に変換する|Converting from nouns to verbs.|
+|35|so|```Verb.none```|so|品詞が動詞の無意味の語を作る|The part of speech makes the verb nonsensical|
+|36|na|```Verb.add```|na A B|A（～する）にB（～く/～に）[副詞]という意味を付加する|Adding the meaning of B to A [verb]|
+|37|ne|```Verb.passive```|ne A|A（～される）[受動]|A(be done)|
+|38|ni|```Verb.progressive```|ni A|A（～している）[継続]|A(be doing)|
+|39|nu|```Verb.perfective```|nu A|A（～したことのある）[経験/完了/結果/継続]|A(have done)|
+|40|la|```Modifier```|la A|A（～な/～の/～に/～く）[形容詞/副詞]という修飾語が存在する|There is a modifier [adjective/ adverb] called A|
+|41|loa|```Modifier.borrowed```|loa A B|Aという修飾詞の単語をBという言語から借用する|Borrowing modifier words called A from the language B|
+|42|li|```Modifier.N2M```|li A|A（～の/～に/～で）|(of/ in/ at/ on/ by/ with etc.) A|
+|43|lu|```Modifier.V2M```|lu A|動詞から修飾語に変換する|Converting verbs to modifiers.|
+|44|lo|```Modifier.none```|lo|品詞が修飾語の無意味の語を作る|The part of speech makes the modifier nonsensical|
+|45|ka|```Modifier.add```|ka A B|AにB[副詞]という意味を付加する|Adding the meaning of B to A [modifier]|
+|46|ke|```Modifier.Neg```|ke A|Aでなく|not A|
+|47|ki|```Modifier.Very```|ki A|とてもAである|very A|
+|48|pan|```DeterminerN.biology```|pan A|名詞を「Aが何らかの人や生物」と限定する|Limit nouns to 'A is some kind of person or creature'|
+|49|pen|```DeterminerN.thing```|pen A|名詞を「Aが何らかの物や概念」と限定する|Limit nouns to 'A is some object or concept'|
+|50|pin|```DeterminerN.time```|pin A|名詞を「Aが何らかの時間」と限定する|Limit a noun to 'A is some time'|
+|51|pun|```DeterminerN.place```|pun A|名詞を「Aが何らかの場所」と限定する|Limit a noun to 'A is some place'|
+|52|pon|```DeterminerN.reason```|pon A|名詞を「Aが何らかの理由」と限定する|Limit a noun to 'A is some reason'|
+|53|ban|```DeterminerN.method```|ban A|名詞を「Aが何らかの方法や道具や手段」と限定する|Limit nouns to 'A is some way or tool or means'|
+|54|ben|```DeterminerN.human```|ben A|名詞を「Aが何らかの人間」と限定する|Limit nouns to 'A is some kind of human being'|
+|55|bin|```DeterminerN.animal```|bin A|名詞を「Aが何らかの動物」と限定する|Limit nouns to 'A is some kind of animal'|
+|56|bun|```DeterminerN.plant```|bun A|名詞を「Aが何らかの植物」と限定する|Limit the noun to 'A is some kind of plant'|
+|57|bon|```DeterminerN.material```|bon A|名詞を「Aが何らかの材料」と限定する|Limit the noun to 'A is some kind of material'|
+|58|fan|```DeterminerN.start```|fan A|名詞を「Aが何らかの始点」と限定する|Limit a noun to 'A is some starting point'|
+|59|fen|```DeterminerN.end```|fen A|名詞を「Aが何らかの終点」と限定する|Limit a noun to 'A is some end point'|
+|60|fin|```DeterminerN.section```|fin A|名詞を「Aが何らかの区間」と限定する|Limit a noun to 'A is some interval'|
+|61|fun|```DeterminerN.In```|fun A|名詞を「Aが何らかの中」と限定する|Limit nouns to 'A is in some'|
+|62|fon|```DeterminerN.Out```|fon A|名詞を「Aが何らかの外」と限定する|Limit nouns to 'A is out some'|
+|63|man|```DeterminerN.above```|man A|名詞を「Aが何らかの上」と限定する|Limit nouns to 'A above some'|
+|64|men|```DeterminerN.below```|men A|名詞を「Aが何らかの下」と限定する|Limit nouns to 'A is below some'|
+|65|min|```DeterminerN.on```|min A|名詞を「Aが何らかに接地している」と限定する|Limit nouns to 'A is grounded to something'|
+|66|mun|```DeterminerN.right```|mun A|名詞を「Aが何らかの右」と限定する|Limit nouns to 'A is some right'|
+|67|mon|```DeterminerN.left```|mon A|名詞を「Aが何らかの左」と限定する|Limit nouns to 'A is some left'|
+|68|tan|```DeterminerN.affect```|tan A|名詞を「Aが何らかの影響を与えるものや関連していること」と限定する|Limit the noun to 'something that A affects or is related to in some way'|
+|69|ten|```DeterminerN.affected```|ten A|名詞を「Aが何らかの影響が与えられるもの」と限定する|Limit noun to 'something that A is affected by in some way'|
+|70|tin|```DeterminerN.near```|tin A|名詞を「Aが近くにあるものや関連しているもの」と限定する|Limit the noun to 'something that A is near or related to'.|
+|71|tun|```DeterminerN.move```|tun A|名詞を「Aが横切る」や「Aが通る」「Aが向かう」と動きのあるものに限定する|Limit nouns to those with motion, such as 'A crosses', 'A passes' or 'A heads'.|
+|72|ton|```DeterminerN.stop```|ton A|名詞を静止のあるものに限定する|Limit nouns to those with static|
+|73|dan|```DeterminerN.all```|dan A|名詞を「すべてのA」と限定する|Limit the noun to 'all A'|
+|74|den|```DeterminerN.many```|den A|名詞を「多くのA」と限定する|Limit the noun to 'many A', 'much A' or 'a lot of A'|
+|75|din|```DeterminerN.some```|din A|名詞を「いくつかのA」と限定する|Limit the noun to 'some A', 'a few A' or 'several A'|
+|76|dun|```DeterminerN.one```|dun A|名詞を「ある（一つの）A」と限定する|Limit the noun to 'a certain A', 'one certain A'.|
+|77|don|```DeterminerN.plural```|don A|名詞を複数形にする|Making nouns plural|
+|78|san|```DeterminerN.stressed```|san A|名詞を強調形する|Stressed form of nouns.|
+|79|sen|```DeterminerN.possessive```|sen A|所有代名詞を作成する|Creating possessive pronouns|
+|80|sin|```DeterminerN.reflexive```|sin A|再帰代名詞を作成する|Creating recursive pronouns|
+|81|sun|```DeterminerN.etc```|sun A|名詞を「Aなど」と限定する|Limit nouns to 'A etc.'|
+|82|son|```DeterminerN.abstract```|son A|～的/～のようなもの/大体の～/おおよそ～ぐらい/名詞を抽象化する|something like A/ Abstracting nouns|
+|83|nan|```DeterminerN.front```|nan A|名詞を「Aが何らかの空間的に前」と限定する|Limit nouns to 'A is in front of some space'|
+|84|nen|```DeterminerN.behind```|nen A|名詞を「Aが何らかの空間的に後ろ」と限定する|Limit nouns to 'A is behind in some space'|
+|85|nun|```DeterminerN.future```|nun A|名詞を「Aが何らかの時間的に未来」と限定する|Limit nouns to 'A is some time in the future'|
+|86|non|```DeterminerN.past```|non A|名詞を「Aが何らかの時間的に過去」と限定する|Limit nouns to 'A is some time in the past'|
+|87|lan|```DeterminerN.male```|lan A|名詞を「Aが何らかの男性や雄」と限定する|Limit noun to 'A is some male'|
+|88|len|```DeterminerN.female```|len A|名詞を「Aが何らかの女性や雌」と限定する|Limit the noun to 'A is some female'|
+|89|lin|```DeterminerN.every```|lin A|名詞を「Aがあらゆる何らかのもの」と限定する|Limit the noun to 'A is every something'|
+|90|lun|```DeterminerN.each```|lun A|名詞を「Aがそれぞれの何らかのもの」と限定する|Limit the noun to 'A is each something'|
+|91|lon|```DeterminerN.other```|lon A|名詞を「Aが他の何らかのもの」と限定する|Limit the noun to 'A is other something'|
+|92|pak|```DeterminerV.Estimation100```|pak A|100%の確率でAする|100% probability A|
+|93|pek|```DeterminerV.Estimation75```|pek A|75%の確率でAする|75% probability A|
+|94|pik|```DeterminerV.Estimation50```|pik A|50%の確率でAする|50% probability A|
+|95|puk|```DeterminerV.Estimation25```|puk A|25%の確率でAする|25% probability A|
+|96|pok|```DeterminerV.Estimation0```|pok A|0%の確率でAする|0% probability A|
+|97|fak|```DeterminerV.Frequency100```|fak A|100%ぐらいの頻度でAする|100% frequently A|
+|98|fek|```DeterminerV.Frequency75```|fek A|75%ぐらいの頻度でAする|75% frequently A|
+|99|fik|```DeterminerV.Frequency50```|fik A|50%ぐらいの頻度でAする|50% frequently A|
+|100|fuk|```DeterminerV.Frequency25```|fuk A|25%ぐらいの頻度でAする|25% frequently A|
+|101|fok|```DeterminerV.Frequency0```|fok A|0%ぐらいの頻度でAする|0% frequently A|
+|102|tak|```DeterminerV.Start```|tak A|Aし始める|Someone starts doing something|
+|103|tek|```DeterminerV.Condition```|tek A|Aしている途中である|Someone is in the middle of doing something|
+|104|tik|```DeterminerV.Complete```|tik A|Aしている途中だったが完了した|Someone was in the middle of doing something but has completed|
+|105|tuk|```DeterminerV.Continue```|tuk A|Aしている状態が続いている|Someone is still doing something|
+|106|tok|```DeterminerV.End```|tok A|Aし終える|Someone finishes doing something|
+|107|bak|```DeterminerV.past```|bak A|過去にはAであった|In the past it was A|
+|108|bik|```DeterminerV.present```|bik A|現在Aである|In the present it is A|
+|109|bok|```DeterminerV.future```|bok A|未来にはAだろう|In the future it will be A|
+|110|nak|```DeterminerV.Possible```|nak A|Aできる/Aすることが可能である|can|
+|111|nek|```DeterminerV.Ability```|nek A|Aする能力がある|can|
+|112|nik|```DeterminerV.Will```|nik A|Aしよう|will/ shall|
+|113|nuk|```DeterminerV.Obligation```|nuk A|Aすべきだ|should/ ought to|
+|114|nok|```DeterminerV.Necessary```|nok A|Aする必要がある|need to|
+|115|lak|```DeterminerV.Duty```|lak A|Aしなければならない|must/ have to|
+|116|lek|```DeterminerV.forced```|lek A|外部からの強い力で強制的にAさせられる|be forced to A by a strong external force|
+|117|lik|```DeterminerV.want```|lik A|Aしたい/Aすることを願望する|want to A|
+|118|luk|```DeterminerV.dare```|luk A|あえてAする/思い切ってAする/Aする勇気がある|dare A|
+|119|lok|```DeterminerV.allow```|lok A|Aすることを許す|allow to A|
+|120|kak|```DeterminerV.easy```|kak A|Aしやすい|be easy to A|
+|121|kek|```DeterminerV.hard```|kek A|Aしにくい|be hard to A|
+|122|kik|```DeterminerV.habit```|kik A|習慣的にAする|Habitually A|
+|123|kuk|```DeterminerV.Polite```|kuk A|Aします（丁寧表現）|Make the verb a polite expression|
+|124|kok|```DeterminerV.Respect```|kok A|Aされる（尊敬表現）|Make the verb a respectful expression|
+|125|gak|```DeterminerV.volitional```|gak A|意識的にAする|Consciously A|
+|126|gek|```DeterminerV.nonVolitional```|gek A|無意識的にAする|Unconsciously A|
+|127|gik|```DeterminerV.Requests```|gik A|Aしてください|will/ would/ can/ could|
+|128|guk|```DeterminerV.Permission```|guk A|Aしてもよいですか|can/ may|
+|129|gok|```DeterminerV.Suggestion```|gok A|Aしましょうか|shall|
+|130|ga|```Pronoun.I```|ga|私|I|
+|131|ge|```Pronoun.you```|ge|あなた|you|
+|132|gi|```Pronoun.he```|gi|彼/彼女/それ|he/ she/ it|
+|133|gu|```Pronoun.proximal```|gu|これ|this|
+|134|go|```Pronoun.distal```|go|それ/あれ|that|
+|135|wa|```Pronoun.interrogative```|wa|どれ|what|
+|136|we|```Pronoun.indefinite```|we|どれか|something|
+|137|kan|```WordV.create```|kan|生み出す/作る/産む|create/ make/ bear|
+|138|ken|```WordV.destroy```|ken|破壊する/壊す/死ぬ|destroy/ break/ die|
+|139|kin|```WordV.act```|kin|行動する/動く/実行する/歩く/働く|act/ move/ do/ walk/ work|
+|140|kun|```WordV.turn```|kun|回る/回転する/急ぐ/走る|turn/ rotate/ hurry/ run|
+|141|kon|```WordV.receive```|kon|感じ取る/受信する/受け取る/入れる/摂取する/取得する/得る/習う/聞く/見る/食べる/飲む|receive/ accept/ acquire/ get/ learn/ hear/ see/ listen/ look at/ watch/ eat/ drink|
+|142|gan|```WordV.stimulate```|gan|発する/発信する/発射する/出す/送信する/送る/教える/刺激する/言う/話す/攻撃する|emit/ transmit/ put out/ send/ give/ teach/ stimulate/ say/ speak/ attack|
+|143|gen|```WordV.exist```|gen|ある/いる/存在する/生きている/住んでいる/留まる/止まっている/休む|be/ exist/ live/ stay/ be stopping/ get rest|
+|144|gin|```WordV.use```|gin|使う/使用する|use|
+|145|gun|```WordV.change```|gun|変わる/なる/成長する/移行する/移動する|change/ become/ grow/ transfer|
+|146|wan|```WordM.big```|wan|大きい/長い/広い/高い/多い/重い|big/ long/ wide/ tall/ many/ heavy/ large|
+|147|wen|```WordM.near```|wen|近い/親しい/似ている/好きである|near/ familiar/ close to/ similar/ like|
+|148|win|```WordM.good```|win|良い/新しい/若い/美しい|good/ new/ young/ beautiful|
+|149|won|```WordM.bright```|won|明るい/白い/色鮮やかな|bright/ white/ colourful|
+|150|pas|```Bool.false```|pas|偽|False (Boolean)|
+|151|pos|```Bool.true```|pos|真|True (Boolean)|
+|152|pis|```Bool.B2N```|pis A B|AはBである（Bは真偽）|A is B (B is true or false)|
+|153|fas|```BoolList```|fas|真偽のリスト（BoolList）を作成する|Create a list of true/ false (BoolList)|
+|154|fes|```BoolList.get```|fes A B|```BoolList(A)```のB番目の値を取得する|Gets the B-th value of ```BoolList(A)```|
+|155|fis|```BoolList.append```|fis A B|BoolListに1つのBoolを末尾に加える|Add one Bool to the end of the BoolList|
+|156|fus|```BoolList.slice```|fus A B C|AというBoolListに対して，B番目からC番目までのリストを取得する|Get the B-th through C-th lists for a BoolList (A).|
+|157|fos|```BoolList.add```|fos A B|2つのBoolListを結合する|Combine two BoolLists|
+|158|mas|```BoolList.twoBit```|mas A B|2つBoolの値からなるBoolListを作成する|Create a BoolList consisting of 2 Bool values|
+|159|mis|```BoolList.fourBit```|mis A B C D|4つBoolの値からなるBoolListを作成する|Create a BoolList consisting of 4 Bool values|
+|160|mos|```BoolList.byte```|mos X1 X2 X3 X4 X5 X6 X7 X8|8つBoolの値からなるBoolListを作成する|Create a BoolList consisting of 8 Bool values|
+|161|tas|```BoolList.NaturalNum```|tas A|BoolListを2進数の自然数とみなす|BoolList is considered a binary natural number|
+|162|tes|```BoolList.Int```|tes A|BoolListを2進数の整数とみなす|BoolList is considered a binary integer|
+|163|tis|```BoolList.Float```|tis A|BoolListを2進数の浮動小数とみなす|BoolList is considered a binary floating number|
+|164|tus|```BoolList.ASCII```|tus A|BoolListをASCII文字とみなす|BoolList is considered an ASCII character|
+|165|tos|```BoolList.IntBL2NL```|tos A|整数のBoolListをNumberListに変換する|Convert an integer BoolList to a NumberList|
+|166|pat|```LangFunc.setFunc```|pat A B|あるLangListを引数とするAという名前のBを返す関数を設定する|Set up a function that returns B named A with a certain LangList as an argument.|
+|167|pit|```LangFunc.arg```|pit|```LangFunc.setFunc()```の引数用に使用する|Used for ```LangFunc.setFunc()``` arguments|
+|168|pot|```LangFunc.runFunc```|pot A B|設定したAという名前のLangFuncを引数Bとして実行する|Execute the configured LangFunc named A with argument B|
+|169|bat|```LangVar.set```|bat A B|グローバル変数としてAという名前の変数を定義し，LangList Bを代入する|Define a variable named A as a global variable and assign LangList B to it.|
+|170|bot|```LangVar.get```|bot A|定義されたAという名前のグローバル変数を取得する|Obtain the defined global variable named A|
+|171|fat|```LangList```|fat|LangObjのリストLangListを作成する|Create a list of LangObj (LangList)|
+|172|fet|```LangList.get```|fet A B|```LangList(A)```のB番目の値を取得する|Gets the B-th value of ```LangList(A)```|
+|173|fit|```LangList.append```|fit A B|LangListに1つのLangObjを末尾に加える|Add one LangObj to the end of the LangList|
+|174|fut|```LangList.slice```|fut A B C|AというLangListに対して，B番目からC番目までのリストを取得する|Get the B-th through C-th lists for a LangList (A).|
+|175|fot|```LangList.add```|fot A B|2つのLangListを結合する|Combine two LangLists|
+|176|tat|```LangList.While```|tat A B C|繰り返し処理を行う|Repeat processing|
+|177|pal|```Number.zero```|pal|0|0|
+|178|pel|```Number.one```|pel|1|1|
+|179|pil|```Number.two```|pil|2|2|
+|180|pul|```Number.three```|pul|3|3|
+|181|pol|```Number.four```|pol|4|4|
+|182|bal|```Number.five```|bal|5|5|
+|183|bel|```Number.six```|bel|6|6|
+|184|bil|```Number.seven```|bil|7|7|
+|185|bul|```Number.eight```|bul|8|8|
+|186|bol|```Number.nine```|bol|9|9|
+|187|fal|```NumberList```|fal|NumberのリストNumberListを作成する|Create a list of Number (NumberList)|
+|188|fel|```NumberList.get```|fel A B|```NumberList(A)```のB番目の値を取得する|Gets the B-th value of ```NumberList(A)```|
+|189|fil|```NumberList.append```|fil A B|NumberListに1つのNumberを末尾に加える|Add one Number to the end of the NumberList|
+|190|ful|```NumberList.slice```|ful A B C|AというNumberListに対して，B番目からC番目までのリストを取得する|Get the B-th through C-th lists for a NumberList (A).|
+|191|fol|```NumberList.add```|fol A B|2つのNumberListを結合する|Combine two NumberLists|
+|192|mal|```NumberList.digit1```|mal A|10進数1桁からなるNumberListを作成する|Create a NumberList consisting of one decimal digit|
+|193|mel|```NumberList.digit2```|mel A B|10進数2桁からなるNumberListを作成する|Create a NumberList consisting of two decimal digit|
+|194|mil|```NumberList.digit3```|mil A B C|10進数3桁からなるNumberListを作成する|Create a NumberList consisting of three decimal digit|
+|195|mul|```NumberList.digit4```|mul A B C D|10進数4桁からなるNumberListを作成する|Create a NumberList consisting of four decimal digit|
+|196|mol|```NumberList.digit5```|mol A B C D E|10進数5桁からなるNumberListを作成する|Create a NumberList consisting of five decimal digit|
+|197|tal|```NumberList.calcAdd```|tal A B|2つのNumberListに対して加算をする|Perform addition on two NumberLists|
+|198|tel|```NumberList.calcSub```|tel A B|2つのNumberListに対して減算をする|Perform subtraction on two NumberLists|
+|199|til|```NumberList.calcMul```|til A B|2つのNumberListに対して乗算をする|Perform multiplication on two NumberLists|
+|200|tul|```NumberList.calcDiv```|tul A B|2つのNumberListに対して除算をする|Perform division on two NumberLists|
+|201|tol|```NumberList.IntNL2BL```|tol A|整数のNumberListをBoolListに変換する|Convert an integer NumberList to a BoolList|
+|202|sal|```NumberList.isPN```|sal A|正の数かを判定する|Determine if it is a positive number|
+|203|sel|```NumberList.minus```|sel A|符号を反転させる|Reversing the sign|
+|204|sil|```NumberList.abs```|sil A|整数の絶対値を取得する|Obtaining the absolute value of an integer|
 
 
 # 25. バージョンについて
@@ -2463,5 +2565,6 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |5.3.1|ドキュメントの追加・修正|
 |6.0.0|LangVarの追加|
 |6.1.0|SFGPLの構造化に関連する関数の追加|
-|6.1.1|ドキュメントとSFGPL.pyの追加・修正|
+|6.1.1|ドキュメントと[SFGPL.py](SFGPL.py)の追加・修正|
+|7.0.0|単語と関連ライブラリの追加|
 

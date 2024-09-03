@@ -105,7 +105,7 @@ SFGPLの[単語](Word.md)は主に，SFGPLの固有の単語と借用語に分�
 ### SFGPLの品詞
 
 SFGPLの品詞は名詞(Noun)，動詞(Verb)，修飾詞(Modifier)の三種類がある．
-また，名詞のサブクラスとして句(Phrase)，代名詞（Pronoun），Bool配列型（BoolList），LangList，LangFuncとNumberListが存在する．
+また，名詞のサブクラスとして句(Phrase)，代名詞（Pronoun），Bool配列型（BoolList），LangList，LangFunc, LangVarとNumberListが存在する．
 
 BoolList，LangList，LangFuncは一般的な文以外に論理的な文を作る際に使用される．
 そして，真偽を表すBool型が存在する．
@@ -125,6 +125,8 @@ NumberListは主に数詞として使われる．
 修飾語は，他の語を修飾する語である．SFGPLでは形容詞と副詞の区別はつけない．
 
 PythonライブラリSFGPLでは品詞ごとにクラスが存在する．
+LangObjは単語の基本構造体であり，_BaseListはList用の基本構造が定義されている．
+また，DeterminerNとDeterminerVは，単語に意味を付加するためだけの単語であり，Python上では，ただの静的な関数として表されている．
 
 ![PartOfSpeach](../img/PartOfSpeach.jpg)
 

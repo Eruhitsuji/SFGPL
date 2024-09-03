@@ -28,6 +28,14 @@ format_str_list={
     "language_de":Noun("Sprache"),
     "language_eo":Noun("lingvo"),
 
+    "Noun_borrowed":LangObj._getKeyOfDict("Noun.borrowed"),
+    "Verb_borrowed":LangObj._getKeyOfDict("Verb.borrowed"),
+    "Modifier_borrowed":LangObj._getKeyOfDict("Modifier.borrowed"),
+
+    "language_English_borrowed":Noun.borrowed("language","English"),
+    "go_English_borrowed":Verb.borrowed("go","English"),
+    "big_English_borrowed":Modifier.borrowed("big","English"),
+
     "I_create_a_door":Noun.doT(Pronoun.I(),WordV.create(),Noun("door")),
     "the_apple_is_big":Noun.haveP(Noun("apple"),Verb.none(),WordM.big()),
     "noun_none":LangObj._getKeyOfDict("Noun.none"),

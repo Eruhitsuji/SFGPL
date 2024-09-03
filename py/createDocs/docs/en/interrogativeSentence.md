@@ -11,6 +11,13 @@ To make it mean "Do you have a table?", it can be expressed as follows in the SF
 {do_you_have_a_table}
 ```
 
+Such a question reply is expressed by using Bool.B2N```{Bool_B2N}``` to indicate whether the proposition is true or false, as follows.
+
+```SFGPL
+{yes_I_have_it}
+{no_I_dont_have_it}
+```
+
 ## wh-questions
 
 In the case of interrogative sentences containing interrogatives, the indefinite is expressed by replacing the indefinite with an interrogative.

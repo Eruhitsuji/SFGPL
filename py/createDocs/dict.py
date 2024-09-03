@@ -11,11 +11,21 @@ EXTRACT_KEYS=[
     "Japanese",
     "English",
 ]
-
+"""
 DEF_WBR_DICT={
     "func":["."],
     "English":["/"]
 }
+"""
+
+DEF_WBR_DICT={
+    "English":["/"]
+}
+
+DEF_CODE_LIST=[
+    "func"
+]
+
 def readDictCSV(dict_path=DICT_PATH,extract_keys=EXTRACT_KEYS):
 
     def addWbrStr(s:str,key:str,wbr_dict=DEF_WBR_DICT):
@@ -24,7 +34,17 @@ def readDictCSV(dict_path=DICT_PATH,extract_keys=EXTRACT_KEYS):
             for k in wbr_dict[key]:
                 s=s.replace(k,k+WBR_STR)
         return s
-
+    
+    def addCodeStr(s:str,key:str,code_list=DEF_CODE_LIST):
+        CORD_MARK_STR="```"
+        if(key in code_list):
+                s=CORD_MARK_STR+s+CORD_MARK_STR
+        return s
+    
+    def convString(s:str,key:str,wbr_dict=DEF_WBR_DICT,code_list=DEF_CODE_LIST):
+        s=addWbrStr(s=s,key=key,wbr_dict=wbr_dict)
+        s=addCodeStr(s=s,key=key,code_list=code_list)
+        return s
 
     with open(dict_path,mode="r",encoding="utf8",newline="") as f:
         csvreader=csv.reader(f)
@@ -47,7 +67,7 @@ def readDictCSV(dict_path=DICT_PATH,extract_keys=EXTRACT_KEYS):
         line_str="|"
         for i,key in enumerate(header):
             if(key in extract_keys):
-                line_str+=addWbrStr(ci[i],key)+"|"
+                line_str+=convString(ci[i],key)+"|"
         dictionary_str+=line_str+"\n"
 
     return dictionary_str

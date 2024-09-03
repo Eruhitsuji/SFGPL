@@ -120,6 +120,16 @@ SFGPLで"I cook every day."を表すには次のようにする．
 {English_is_spoken_all_over_the_world}
 ```
 
+## 存在を表すときの文法
+
+ただ単に存在することだけを表す文を作成するときには，```{WordV_exist}```を使用して表す．
+これは英語のThere is/areの構文と同じ意味となる．
+例えば"There is a book on this table."は次のように表せる．
+
+```SFGPL
+{there_is_a_book_on_this_table}
+```
+
 ## 主題優勢言語的な文法
 
 日本語や中国語，朝鮮語，インドネシア語などの主に東アジアの言語によく見られる，主題優勢言語のような文を作成することができる．
@@ -167,6 +177,8 @@ SFGPLでは，東アジア諸言語のような明確な方法ではないが，
 |English|{English}|
 |speak|{speak}|
 |all over the world|{all_over_the_world}|
+|book|{book}|
+|on this table|{on_this_table}|
 |象|{象}|
 |鼻|{鼻}|
 |長い|{長い}|

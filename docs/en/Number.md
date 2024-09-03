@@ -70,6 +70,8 @@ The following sentence represents "Japan has 125416877 people." in the SFGPL.
 mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil bil
 ```
 
+### Four arithmetic operations
+
 Then, as shown in the following table, there are functions in NumberList that perform the four arithmetic operations.
 
 ||SFGPL|
@@ -78,6 +80,17 @@ Then, as shown in the following table, there are functions in NumberList that pe
 |Subtraction|tel|
 |Multiplication|til|
 |Division|tul|
+
+### How to handle real numbers
+
+When you want to deal with real numbers, use division.
+For example, 3.14 can be expressed as follows.
+
+```SFGPL
+tul mil pul pel pol mil pel pal pal
+```
+
+### Interconversion between BoolList and NumberList
 
 In addition, there are functions that convert integer BoolList and NumberList into each other, as shown in the table below.
 

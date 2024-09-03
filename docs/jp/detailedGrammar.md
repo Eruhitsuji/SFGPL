@@ -124,6 +124,16 @@ ta fa 'Earth' na sa 'revolve' li tun tin fa 'Sun'
 ta fa 'English' na ne sa 'speak' li fun dan fa 'world'
 ```
 
+## 存在を表すときの文法
+
+ただ単に存在することだけを表す文を作成するときには，```gen```を使用して表す．
+これは英語のThere is/areの構文と同じ意味となる．
+例えば"There is a book on this table."は次のように表せる．
+
+```SFGPL
+ta fa 'book' na gen li pun ma gu so fa 'table'
+```
+
 ## 主題優勢言語的な文法
 
 日本語や中国語，朝鮮語，インドネシア語などの主に東アジアの言語によく見られる，主題優勢言語のような文を作成することができる．
@@ -171,6 +181,8 @@ ma fa 'elephant' so me fa 'nose' so la 'long'
 |English|fa 'English'|
 |speak|sa 'speak'|
 |all over the world|li fun dan fa 'world'|
+|book|fa 'book'|
+|on this table|li pun ma gu so fa 'table'|
 |象|fa '象'|
 |鼻|fa '鼻'|
 |長い|fa '長い'|

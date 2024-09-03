@@ -124,6 +124,16 @@ And to express "English is spoken all over the world." in the SFGPL as follows.
 ta fa 'English' na ne sa 'speak' li fun dan fa 'world'
 ```
 
+## Syntax for expressing existence
+
+When creating a sentence that simply states that something exists, use ```gen```.
+This has the same meaning as the English There is/are construction.
+For example, "There is a book on this table.".
+
+```SFGPL
+ta fa 'book' na gen li pun ma gu so fa 'table'
+```
+
 ## Topic-prominent linguistic grammar
 
 It is possible to produce sentences like those in topic-prominent languages, which are common in East Asian languages such as Japanese, Chinese, Korean, and Indonesian.
@@ -171,6 +181,8 @@ ma fa 'elephant' so me fa 'nose' so la 'long'
 |English|fa 'English'|
 |speak|sa 'speak'|
 |all over the world|li fun dan fa 'world'|
+|book|fa 'book'|
+|on this table|li pun ma gu so fa 'table'|
 |象(elephant)|fa '象'|
 |鼻(nose)|fa '鼻'|
 |長い(long)|fa '長い'|

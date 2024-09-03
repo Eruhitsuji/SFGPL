@@ -66,6 +66,8 @@ The following sentence represents "Japan has 125416877 people." in the SFGPL.
 {Japan_has_125416877_people}
 ```
 
+### Four arithmetic operations
+
 Then, as shown in the following table, there are functions in NumberList that perform the four arithmetic operations.
 
 ||SFGPL|
@@ -74,6 +76,17 @@ Then, as shown in the following table, there are functions in NumberList that pe
 |Subtraction|{NumberList_calcSub}|
 |Multiplication|{NumberList_calcMul}|
 |Division|{NumberList_calcDiv}|
+
+### How to handle real numbers
+
+When you want to deal with real numbers, use division.
+For example, 3.14 can be expressed as follows.
+
+```SFGPL
+{real_number_3_14}
+```
+
+### Interconversion between BoolList and NumberList
 
 In addition, there are functions that convert integer BoolList and NumberList into each other, as shown in the table below.
 

@@ -8,6 +8,7 @@ import math
 import sys
 import os
 import collections
+import copy
 
 #SFGPL version
 SFGPL_VERSION=SFGPL.__version__.__version__
@@ -70,14 +71,20 @@ class LangObj():
             func_mode=self._func_mode
         return (type(self))(arg=arg,bool_value=bool_value,func_mode=func_mode)
 
+    @staticmethod
+    def _setWordString(s:str):
+        if(LangObj.AUTOCOMPLETION_FLAG):
+            if(not(s[0]=="'" and s[-1]=="'")):
+                return "'"+s+"'"
+        return s
+        
+
     #Set and Objectification words
     def _setWords(self,new_obj_str,arg):
         if(isinstance(arg,list)):
             self.words=arg
         elif(isinstance(arg,str)):
-            if(LangObj.AUTOCOMPLETION_FLAG):
-                if(not(arg[0]=="'" and arg[-1]=="'")):
-                    arg="'"+arg+"'"
+            arg=LangObj._setWordString(arg)
             self.words=[new_obj_str,arg]
         else:
             self.words=None
@@ -293,6 +300,21 @@ class Noun(LangObj):
         self._bool_value=bool_value
         self._func_mode=func_mode
         
+    @staticmethod
+    def borrowed(a,b):
+        func_str="Noun.borrowed"
+        key=LangObj._getKeyOfDict(func_str)
+        a=LangObj._setWordString(a)
+        b=LangObj._setWordString(b)
+        arg=[key,a,b]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,str) and isinstance(b,str)):
+            return Noun(arg)
+        else:
+            LangObj.printTypeError(arg)
+
     @staticmethod
     def V2N(a):
         func_str="Noun.V2N"
@@ -548,6 +570,21 @@ class Verb(LangObj):
         self._func_mode=func_mode
         
     @staticmethod
+    def borrowed(a,b):
+        func_str="Verb.borrowed"
+        key=LangObj._getKeyOfDict(func_str)
+        a=LangObj._setWordString(a)
+        b=LangObj._setWordString(b)
+        arg=[key,a,b]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Verb(arg,func_mode=True)
+        elif(isinstance(a,str) and isinstance(b,str)):
+            return Verb(arg)
+        else:
+            LangObj.printTypeError(arg)
+        
+    @staticmethod
     def M2V(a):
         func_str="Verb.M2V"
         key=LangObj._getKeyOfDict(func_str)
@@ -646,6 +683,21 @@ class Modifier(LangObj):
         self._setWords(key,arg)
         self._bool_value=bool_value
         self._func_mode=func_mode
+        
+    @staticmethod
+    def borrowed(a,b):
+        func_str="Modifier.borrowed"
+        key=LangObj._getKeyOfDict(func_str)
+        a=LangObj._setWordString(a)
+        b=LangObj._setWordString(b)
+        arg=[key,a,b]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Modifier(arg,func_mode=True)
+        elif(isinstance(a,str) and isinstance(b,str)):
+            return Modifier(arg)
+        else:
+            LangObj.printTypeError(arg)
         
     @staticmethod
     def N2M(a):
@@ -1250,6 +1302,45 @@ class DeterminerN():
     @staticmethod
     def female(a):
         func_str="DeterminerN.female"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
+            return Noun(arg)
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
+    def every(a):
+        func_str="DeterminerN.every"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
+            return Noun(arg)
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
+    def each(a):
+        func_str="DeterminerN.each"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return Noun(arg,func_mode=True)
+        elif(isinstance(a,Noun)):
+            return Noun(arg)
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
+    def other(a):
+        func_str="DeterminerN.other"
         key=LangObj._getKeyOfDict(func_str)
         arg=[key,a]
         
@@ -2727,9 +2818,9 @@ class NumberList(_BaseList):
 
     def copy(self,arg=None,lang_list=None,number=None,bool_value=None,func_mode=None):
         if(arg==None):
-            arg=self.words
+            arg=copy.deepcopy(self.words)
         if(lang_list==None):
-            lang_list=self._lang_list
+            lang_list=copy.deepcopy(self._lang_list)
         if(number==None):
             number=self._number
         if(bool_value==None):
@@ -2997,6 +3088,34 @@ class NumberList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
+    def minus(a):
+        func_str="NumberList.minus"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return NumberList(arg,func_mode=True)
+        elif(isinstance(a,NumberList)):
+            number=a.getNumber()*-1
+            return NumberList(arg=arg,number=number)
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
+    def abs(a):
+        func_str="NumberList.abs"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return NumberList(arg,func_mode=True)
+        elif(isinstance(a,NumberList)):
+            number=abs(a.getNumber())
+            return NumberList(arg=arg,number=number)
+        else:
+            LangObj.printTypeError(arg)
+
 
 class appendixGrammar():
     @staticmethod
@@ -3138,24 +3257,58 @@ class SFGPLLib():
             return True,arg
         else:
             return None,None
-    
+
+    class LangListLib:
+
+        #Convert Python List to LangList Object
+        @staticmethod
+        def pyList2LangList(l:list,func=BoolList.NaturalNum):
+            s_bl=[func(BoolList.hex2BoolList(li)) for li in l]
+            so=LangList()
+            for s_bli in s_bl:
+                so=LangList.append(so,s_bli)
+            return so
+
+        #Convert LangList Object to Python List
+        @staticmethod
+        def LangList2PyList(ll:LangList):
+            tmp_ll=[]
+            for x in ll.getLangList():
+                if(isinstance(x,BoolList)):
+                    tmp_ll.append(x.getData())
+                else:
+                    return None
+            return tmp_ll
+
+        #Convert Python String to LangList Object
+        @staticmethod
+        def str2LangList(s:str):
+            return SFGPLLib.LangListLib.pyList2LangList([ord(si) for si in s],func=BoolList.ASCII)
+
+        #Convert LangList Object to Python String
+        @staticmethod
+        def LangList2str(ll:LangList):
+            return "".join(SFGPLLib.LangListLib.LangList2PyList(ll))
+
 
 #Class for SFGPL Corpus
 class SFGPLCorpus():
+
+    DEFAULT_ENSURE_ASCII=False
     
     def __init__(self,sfgpl_obj_list:list=[],translation_str_list:list=[]):
-        self.sfgpl_obj_list=[]
-        self.translation_str_list=[]
+        self.__sfgpl_obj_list=[]
+        self.__translation_str_list=[]
         if(isinstance(sfgpl_obj_list,list) and isinstance(translation_str_list,list)):
             if(len(sfgpl_obj_list)==len(translation_str_list)):
-                self.sfgpl_obj_list=sfgpl_obj_list
-                self.translation_str_list=translation_str_list
+                self.__sfgpl_obj_list=sfgpl_obj_list
+                self.__translation_str_list=translation_str_list
 
     def __str__(self):
         return self.toStringSFGPL()
     
     def __len__(self):
-        return len(self.sfgpl_obj_list)
+        return len(self.__sfgpl_obj_list)
     
     def __sub_add(self,obj):
         if(isinstance(obj,SFGPLCorpus)):
@@ -3169,6 +3322,17 @@ class SFGPLCorpus():
         d=self.__sub_add(obj)
         return SFGPLCorpus(sfgpl_obj_list=d["sfgpl_obj_list"],translation_str_list=d["translation_str_list"])
 
+    #Copy SFGPL corpus object
+    def copy(self):
+        sol=copy.deepcopy(self.__sfgpl_obj_list)
+        tsl=copy.deepcopy(self.__translation_str_list)
+        return SFGPLCorpus(sfgpl_obj_list=sol,translation_str_list=tsl)
+
+    #Clear SFGPL corpus information
+    def clearCorpus(self):
+        self.__sfgpl_obj_list=[]
+        self.__translation_str_list=[]
+
     #Get all data
     def getAll(self,mode="ostv"):
         rlist={}
@@ -3179,61 +3343,65 @@ class SFGPLCorpus():
 
         #object mode
         if("o" in mode):
-            rlist["sfgpl_obj_list"]=self.sfgpl_obj_list
+            rlist["sfgpl_obj_list"]=self.__sfgpl_obj_list
 
         #structured dictionary mode
         if("d" in mode):
-            dict_func=lambda x:SFGPLLib.structuredDict(x,mode="o")
-            rlist["sfgpl_structured_dict_list"]=list(map(dict_func,self.sfgpl_obj_list))
+            rlist["sfgpl_structured_dict_list"]=self.getStructuredDict()
         
         #string mode
         if("s" in mode):
-            rlist["sfgpl_str_list"]=list(map(str,self.sfgpl_obj_list))
+            rlist["sfgpl_str_list"]=list(map(str,self.__sfgpl_obj_list))
         
         #translation mode
         if("t" in mode):
-            rlist["translation_str_list"]=self.translation_str_list
+            rlist["translation_str_list"]=self.__translation_str_list
         
         return rlist 
-
+    
     #Get data of index
     def getIndex(self,index):
         if(index<0):
             self.__len__()+index
-        return {"sfgpl_obj":self.sfgpl_obj_list[index],"translation_str":self.translation_str_list[index]}
+        return {"sfgpl_obj":self.__sfgpl_obj_list[index],"translation_str":self.__translation_str_list[index]}
 
     #Get Parallel translation (SFGPL String / Translation String)
     def getParaTranslationString(self,index):
-        return (str(self.sfgpl_obj_list[index]),self.translation_str_list[index])
+        return (str(self.__sfgpl_obj_list[index]),self.__translation_str_list[index])
     
+    #Get a structured dictionary of SFGPL statements
+    def getStructuredDict(self):
+        dict_func=lambda x:SFGPLLib.structuredDict(x,mode="o")
+        return list(map(dict_func,self.__sfgpl_obj_list))
+
     #Append a sentence
     def append(self,sfgpl_obj:LangObj,translation_str:str):
-        self.sfgpl_obj_list.append(sfgpl_obj)
-        self.translation_str_list.append(translation_str)
+        self.__sfgpl_obj_list.append(sfgpl_obj)
+        self.__translation_str_list.append(translation_str)
 
     #Insert a sentence
     def insert(self,index:int,sfgpl_obj:LangObj,translation_str:str):
-        self.sfgpl_obj_list.insert(index,sfgpl_obj)
-        self.translation_str_list.insert(index,translation_str)
+        self.__sfgpl_obj_list.insert(index,sfgpl_obj)
+        self.__translation_str_list.insert(index,translation_str)
 
     #Extend a sentence
     def extend(self,obj):
         d=self.__sub_add(obj)
-        self.sfgpl_obj_list=d["sfgpl_obj_list"]
-        self.translation_str_list=d["translation_str_list"]
+        self.__sfgpl_obj_list=d["sfgpl_obj_list"]
+        self.__translation_str_list=d["translation_str_list"]
 
     #Convert SFGPL object list to SFGPL string
     def toStringSFGPL(self,opt_str=""):
-        return SFGPLLib.toMultiLineString(*self.sfgpl_obj_list,opt_str=opt_str)
+        return SFGPLLib.toMultiLineString(*self.__sfgpl_obj_list,opt_str=opt_str)
 
     #Convert translation string  list to string
     def toStringTranslation(self,opt_str=""):
-        return opt_str.join(self.translation_str_list)
+        return opt_str.join(self.__translation_str_list)
     
     #Save json file of SFGPL
     def saveJson(self,path:str,indent:int=4):
         with open(path,mode="w",encoding="utf-8") as f:
-            json.dump(self.getAll(mode="stv"),f,indent=indent)
+            json.dump(self.getAll(mode="stv"),f,indent=indent,ensure_ascii=SFGPLCorpus.DEFAULT_ENSURE_ASCII)
 
     #Read json file of SFGPL
     @staticmethod
@@ -3248,13 +3416,13 @@ class SFGPLCorpus():
     #Save JSON file of structured SFGPL statements for confirmation.
     def saveStructureJSON(self,path:str,indent:int=4):
         with open(path,mode="w",encoding="utf-8") as f:
-            json.dump(self.getAll(mode="d")["sfgpl_structured_dict_list"],f,indent=indent)
+            json.dump(self.getStructuredDict(),f,indent=indent,ensure_ascii=SFGPLCorpus.DEFAULT_ENSURE_ASCII)
     
     #Save csv file of SFGPL
     def saveCSV(self,path:str,split_str=",",newline_str="\n"):
         with open(path,mode="w",encoding="utf-8") as f:
             for i in range(self.__len__()):
-                tmp_str="\""+str(self.sfgpl_obj_list[i])+"\""+split_str+"\""+self.translation_str_list[i]+"\""+newline_str
+                tmp_str="\""+str(self.__sfgpl_obj_list[i])+"\""+split_str+"\""+self.__translation_str_list[i]+"\""+newline_str
                 f.write(tmp_str)
 
     #Save text file of SFGPL
@@ -3263,16 +3431,16 @@ class SFGPLCorpus():
             f.write(self.toStringSFGPL(opt_str=opt_str))
 
     #add a sentence of Corpus 
-    def setCorpus(corpus,sfgpl_obj:LangObj,translation_str:str,print_flag:bool=False,md_out_path:str=None):
-        corpus.append(sfgpl_obj=sfgpl_obj,translation_str=translation_str)
+    def setCorpus(self,sfgpl_obj:LangObj,translation_str:str,print_flag:bool=False,md_out_path:str=None):
+        self.append(sfgpl_obj=sfgpl_obj,translation_str=translation_str)
         if(print_flag):
             print(sfgpl_obj)
         if(md_out_path!=None):
             SFGPLLib.SaveMDListFile(md_out_path,sfgpl_obj)
             
     #The function to count the number of words in a corpus
-    def corpusWordCount(corpus,SPLIT_WORD=" ",BEFORE_REPLACE_WORD=[";"],include_word_func=lambda x: x!=""):
-        sc_str=corpus.toStringSFGPL()
+    def corpusWordCount(self,SPLIT_WORD=" ",BEFORE_REPLACE_WORD=[";"],include_word_func=lambda x: x!=""):
+        sc_str=self.toStringSFGPL()
         for brw_i in BEFORE_REPLACE_WORD:
             sc_str=sc_str.replace(brw_i,SPLIT_WORD)
         sc_str=sc_str.split(SPLIT_WORD)
@@ -3297,12 +3465,12 @@ class SFGPLCorpus():
         return tmp_str
 
     #Converts the information in the corpus to a string in a Markdown table
-    def corpus2MDtableStr(corpus,header:list=[("s","sfgpl_str_list","SFGPL"),("o","sfgpl_obj_list","Python"),("t","translation_str_list","Translation")],SPLIT_STR="|",TABLE_HEAD_STR=":-:",NEW_LINE_STR="\n",py_code_space_flag=True):
+    def corpus2MDtableStr(self,header:list=[("s","sfgpl_str_list","SFGPL"),("o","sfgpl_obj_list","Python"),("t","translation_str_list","Translation")],SPLIT_STR="|",TABLE_HEAD_STR=":-:",NEW_LINE_STR="\n",py_code_space_flag=False,py_code_md_code_flag=True):
         mode=""
         for key in header:
             mode+=key[0]
         
-        corpus_gets=corpus.getAll(mode=mode)
+        corpus_gets=self.getAll(mode=mode)
         r_str=""
 
         #header
@@ -3317,7 +3485,7 @@ class SFGPLCorpus():
         r_str+=NEW_LINE_STR
 
         #contents
-        for i in range(len(corpus)):
+        for i in range(len(self)):
             r_str+=SPLIT_STR
             for key in header:
                 tmp_str=str(corpus_gets[key[1]][i])
@@ -3325,6 +3493,8 @@ class SFGPLCorpus():
                     tmp_str=SFGPLLib.str2CMD(tmp_str,toObj=False)
                     if(py_code_space_flag):
                         tmp_str=SFGPLCorpus.__pyCodeSpaceReplace(tmp_str)
+                    if(py_code_md_code_flag):
+                        tmp_str=f"```{tmp_str}```"
                 
                 r_str+=tmp_str+SPLIT_STR
             r_str+=NEW_LINE_STR
