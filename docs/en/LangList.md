@@ -14,6 +14,7 @@ The following functions exist in LangList.
 |fit A B|Add one LangObj (B) to the end of the LangList (A)|
 |fut A B C|Get the B-th through C-th lists for a LangList (A)|
 |fot A B|Combine two LangLists|
+|foat A|Get the length of the LangList (A)|
 |tat A B C|Function for iteration using LangList|
 
 LangList can store all classes that inherit from LangObj.

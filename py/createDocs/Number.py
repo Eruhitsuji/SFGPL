@@ -19,6 +19,7 @@ format_str_list={
     "NumberList_append":LangObj._getKeyOfDict("NumberList.append"), 
     "NumberList_slice":LangObj._getKeyOfDict("NumberList.slice"), 
     "NumberList_add":LangObj._getKeyOfDict("NumberList.add"),
+    "NumberList_len":LangObj._getKeyOfDict("NumberList.len"),
 
     "NumberList_digit1":LangObj._getKeyOfDict("NumberList.digit1"),
     "NumberList_digit2":LangObj._getKeyOfDict("NumberList.digit2"), 

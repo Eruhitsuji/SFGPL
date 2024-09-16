@@ -50,6 +50,7 @@ The following functions exist in BoolList.
 |{BoolList_append} A B|Add one Bool (B) to the end of the BoolList (A)|
 |{BoolList_slice} A B C|Get the B-th through C-th lists for a BoolList (A)|
 |{BoolList_add} A B|Combine two BoolLists (A,B)|
+|{BoolList_len} A|Get the length of the BoolList (A)|
 |{BoolList_twoBit} A B|Create a BoolList consisting of 2 Bool values (A,B)|
 |{BoolList_fourBit} X1~X4|Create a BoolList consisting of 4 Bool values (x1~x4)|
 |{BoolList_byte} X1~X8|Create a BoolList consisting of 8 Bool values (x1~x8)|

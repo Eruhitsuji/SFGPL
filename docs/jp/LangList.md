@@ -14,6 +14,7 @@ LangListには，以下の関数が存在している．
 |fit A B|LangList(A)に1つのLangObj(B)を末尾に加える|
 |fut A B C|AというLangListに対して，B番目からC番目までのリストを取得する|
 |fot A B|2つのLangListを結合する|
+|foat A|LangList(A)の長さを取得する|
 |tat A B C|LangListを使用した繰り返し用の関数|
 
 LangListは，LangObjを継承しているすべてのクラスを格納することができる．

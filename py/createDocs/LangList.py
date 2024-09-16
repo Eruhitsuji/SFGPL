@@ -6,7 +6,7 @@ I_am_a_student=Noun.eq(Pronoun.I(),Verb.none(),Noun("student"))
 
 lang_list_01=LangList.append(LangList.append(LangList.append(LangList.append(LangList.append(LangList(),Pronoun.I()),Noun("pen")),Verb("go")),Modifier("happy")),I_am_a_student)
 
-number_0=BoolList.hex2BoolList(0)
+number_0=BoolList.dec2BoolList(0)
 
 num_0=NumberList.digit1(Number.zero())
 num_1=NumberList.digit1(Number.one())
@@ -31,6 +31,7 @@ format_str_list={
     "LangList_append":LangObj._getKeyOfDict("LangList.append"), 
     "LangList_slice":LangObj._getKeyOfDict("LangList.slice"), 
     "LangList_add":LangObj._getKeyOfDict("LangList.add"), 
+    "LangList_len":LangObj._getKeyOfDict("LangList.len"), 
     "LangList_While":LangObj._getKeyOfDict("LangList.While"),
     
     "lang_list_01":lang_list_01,

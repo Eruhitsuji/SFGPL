@@ -40,6 +40,7 @@ NumberListクラスにはリスト型の関数として次の表のようなも�
 |fil A B|NumberListに1つのNumberを末尾に加える|
 |ful A B C|AというNumberListに対して，B番目からC番目までのリストを取得する|
 |fol A B|2つのNumberListを結合する|
+|foal A|NumberList(A)の長さを取得する|
 
 また，1~5桁の整数を作るためには，以下の表のような専用の関数が用意されている．
 

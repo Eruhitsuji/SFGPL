@@ -107,7 +107,7 @@ And in the sentence structure of the SFGPL, the position of the part of speech i
 There are three parts of speech in the SFGPL: Noun, Verb and Modifier.
 Phrase, Pronoun, BoolList, LangList, LangFunc, LangVar and NumberList exist as subclasses of Noun.
 
-BoolList, LangList, and LangFunc are used to create logical statements in addition to general statements.
+BoolList, LangList, LangFunc, and LangVar are used to create logical statements in addition to general statements.
 Then, there is a Bool type that represents true/false.
 
 NumberList is mainly used as a numeral.

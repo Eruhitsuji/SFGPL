@@ -40,6 +40,7 @@ However, these functions cannot be applied to NumberList after numerical calcula
 |fil A B|Add one Number to the end of the NumberList|
 |ful A B C|Get the B-th through C-th lists for a NumberList (A)|
 |fol A B|Combine two NumberLists|
+|foal A|Get the length of the NumberList (A)|
 
 In addition, dedicated functions are available to create 1~5-digit integers, as shown in the table below.
 

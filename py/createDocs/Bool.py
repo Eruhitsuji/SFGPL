@@ -36,6 +36,7 @@ format_str_list={
     "BoolList_append":LangObj._getKeyOfDict("BoolList.append"), 
     "BoolList_slice":LangObj._getKeyOfDict("BoolList.slice"), 
     "BoolList_add":LangObj._getKeyOfDict("BoolList.add"), 
+    "BoolList_len":LangObj._getKeyOfDict("BoolList.len"), 
     "BoolList_twoBit":LangObj._getKeyOfDict("BoolList.twoBit"), 
     "BoolList_fourBit":LangObj._getKeyOfDict("BoolList.fourBit"), 
     "BoolList_byte":LangObj._getKeyOfDict("BoolList.byte"), 

@@ -2647,6 +2647,42 @@ sc.setCorpus(
     "I am good at running."
 )
 
+lang_list_14=LangList.append(LangList.append(LangList(),Noun("apple")),Noun("banana"))
+sc.setCorpus(
+    LangList.len(lang_list_14),
+    "Length of [apple,banana] is 2."
+)
+
+lang_list_15=LangList.append(lang_list_14,Noun("peach"))
+sc.setCorpus(
+    LangList.len(lang_list_15),
+    "Length of [apple,banana,peach] is 2."
+)
+
+bool_list_01=BoolList.dec2BoolList(23,True)
+sc.setCorpus(
+    BoolList.len(bool_list_01),
+    "Length of binary of 23 is 5."
+)
+
+bool_list_02=BoolList.dec2BoolList(1023,True)
+sc.setCorpus(
+    BoolList.len(bool_list_02),
+    "Length of binary of 1023 is 10."
+)
+
+number_list_01=NumberList.digit3(Number.one(),Number.two(),Number.three())
+sc.setCorpus(
+    NumberList.len(number_list_01),
+    "Length of 123 is 3."
+)
+
+number_list_02=NumberList.digit5(Number.one(),Number.two(),Number.three(),Number.four(),Number.five())
+sc.setCorpus(
+    NumberList.len(number_list_02),
+    "Length of 12345 is 5."
+)
+
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)
 

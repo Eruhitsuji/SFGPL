@@ -50,6 +50,7 @@ BoolListには以下のような関数が存在している．
 |{BoolList_append} A B|BoolList(A)に1つのBool(B)を末尾に加える|
 |{BoolList_slice} A B C|AというBoolListに対して，B番目からC番目までのリストを取得する|
 |{BoolList_add} A B|2つのBoolList(A,B)を結合する|
+|{BoolList_len} A|BoolList(A)の長さを取得する|
 |{BoolList_twoBit} A B|2つBoolの値(A,B)からなるBoolListを作成する|
 |{BoolList_fourBit} X1~X4|4つBoolの値(x1~x4)からなるBoolListを作成する|
 |{BoolList_byte} X1~X8|8つBoolの値(x1~x8)からなるBoolListを作成する|

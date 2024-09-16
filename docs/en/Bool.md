@@ -54,6 +54,7 @@ The following functions exist in BoolList.
 |fis A B|Add one Bool (B) to the end of the BoolList (A)|
 |fus A B C|Get the B-th through C-th lists for a BoolList (A)|
 |fos A B|Combine two BoolLists (A,B)|
+|foas A|Get the length of the BoolList (A)|
 |mas A B|Create a BoolList consisting of 2 Bool values (A,B)|
 |mis X1~X4|Create a BoolList consisting of 4 Bool values (x1~x4)|
 |mos X1~X8|Create a BoolList consisting of 8 Bool values (x1~x8)|

@@ -98,14 +98,14 @@ print(if_04)
 print(if_04.getBool())
 
 
-test_bool_list_01=BoolList.hex2BoolList(21)
+test_bool_list_01=BoolList.dec2BoolList(21)
 print(test_bool_list_01)
 print(test_bool_list_01.getNaturalNumber())
 
-test_bool_list_02=BoolList.hex2BoolList(0)
+test_bool_list_02=BoolList.dec2BoolList(0)
 print(test_bool_list_02)
 print(test_bool_list_02.getNaturalNumber())
 
-test_bool_list_03=BoolList.hex2BoolList(12345678900987654321)
+test_bool_list_03=BoolList.dec2BoolList(12345678900987654321)
 print(test_bool_list_03)
 print(test_bool_list_03.getNaturalNumber())

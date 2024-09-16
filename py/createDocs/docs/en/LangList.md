@@ -10,6 +10,7 @@ The following functions exist in LangList.
 |{LangList_append} A B|Add one LangObj (B) to the end of the LangList (A)|
 |{LangList_slice} A B C|Get the B-th through C-th lists for a LangList (A)|
 |{LangList_add} A B|Combine two LangLists|
+|{LangList_len} A|Get the length of the LangList (A)|
 |{LangList_While} A B C|Function for iteration using LangList|
 
 LangList can store all classes that inherit from LangObj.

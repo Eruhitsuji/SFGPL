@@ -2246,7 +2246,7 @@ class BoolList(_BaseList):
             return None
     
     @staticmethod
-    def __hex2bin(num:int):
+    def __dec2bin(num:int):
         r=[]
         while num>0:
             a=num%2
@@ -2255,10 +2255,13 @@ class BoolList(_BaseList):
         r.reverse()
         return r
 
-    def hex2BoolList(num:int):
+    @staticmethod
+    def dec2BoolList(num:int,msb_false_flag:bool=False):
         if(num>0):
             bl=BoolList()
-            bin_l=BoolList.__hex2bin(num)
+            if(msb_false_flag):
+                bl=BoolList.append(bl,Bool.false())
+            bin_l=BoolList.__dec2bin(num)
             
             for li in bin_l:
                 if(li):
@@ -2336,6 +2339,20 @@ class BoolList(_BaseList):
         elif(isinstance(a,BoolList) and isinstance(b,BoolList)):
             lang_list=a.getBoolList()+b.getBoolList()
             return BoolList(arg=arg,lang_list=lang_list)
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
+    def len(a):
+        func_str="BoolList.len"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,BoolList)):
+            tmp_bl=BoolList.dec2BoolList(a._ListLen())
+            return BoolList(arg=arg,lang_list=tmp_bl.getBoolList())
         else:
             LangObj.printTypeError(arg)
 
@@ -2668,6 +2685,20 @@ class LangList(_BaseList):
             LangObj.printTypeError(arg)
 
     @staticmethod
+    def len(a):
+        func_str="LangList.len"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,LangList)):
+            tmp_bl=BoolList.dec2BoolList(a._ListLen())
+            return BoolList(arg=arg,lang_list=tmp_bl.getBoolList())
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
     def While(a,b,c):
         func_str="LangList.While"
         key=LangObj._getKeyOfDict(func_str)
@@ -2926,6 +2957,20 @@ class NumberList(_BaseList):
                 return NumberList(arg=arg,lang_list=lang_list)
             else:
                 print(SFGPLError.NUMBERLIST_CONTROL_LIST_ERROR(arg))
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
+    def len(a):
+        func_str="NumberList.len"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,NumberList)):
+            tmp_bl=BoolList.dec2BoolList(a._ListLen())
+            return BoolList(arg=arg,lang_list=tmp_bl.getBoolList())
         else:
             LangObj.printTypeError(arg)
 
@@ -3263,7 +3308,7 @@ class SFGPLLib():
         #Convert Python List to LangList Object
         @staticmethod
         def pyList2LangList(l:list,func=BoolList.NaturalNum):
-            s_bl=[func(BoolList.hex2BoolList(li)) for li in l]
+            s_bl=[func(BoolList.dec2BoolList(li)) for li in l]
             so=LangList()
             for s_bli in s_bl:
                 so=LangList.append(so,s_bli)

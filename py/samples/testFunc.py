@@ -22,13 +22,15 @@ print(f1_run_x2)
 print(type(f1_run_x2))
 print(f1_run_x2.LangListLen())
 
-index_0=BoolList.twoBit(Bool.false(),Bool.false())
-index_1=BoolList.twoBit(Bool.false(),Bool.true())
+index_00=BoolList.twoBit(Bool.false(),Bool.false())
+index_01=BoolList.twoBit(Bool.false(),Bool.true())
+index_10=BoolList.twoBit(Bool.true(),Bool.false())
+index_11=BoolList.twoBit(Bool.true(),Bool.true())
 
 
-print(LangList.get(LangFunc.arg(),index_0))
-print(LangList.get(x2,index_0))
-f2=LangList.append(LangList(),Bool.AND(LangList.get(LangFunc.arg(),index_0),LangList.get(LangFunc.arg(),index_1)))
+print(LangList.get(LangFunc.arg(),index_00))
+print(LangList.get(x2,index_00))
+f2=LangList.append(LangList(),Bool.AND(LangList.get(LangFunc.arg(),index_00),LangList.get(LangFunc.arg(),index_01)))
 print(f2)
 
 print(LangFunc.setFunc(Noun("f2"),f2))
@@ -37,11 +39,11 @@ print(f2_run_x2)
 print(type(f2_run_x2))
 print(f2_run_x2.LangListLen())
 
-print(LangList.get(f2_run_x2,index_0).getBool())
+print(LangList.get(f2_run_x2,index_00).getBool())
 print(f2.getWordsAll())
 print(Noun.eq(DeterminerN.plural(Pronoun.I()),Verb.none(),Noun("student")).getWordsAll())
 
-f3=LangList.append(LangList(),BoolList.get(LangList.get(LangFunc.arg(),index_0),index_0))
+f3=LangList.append(LangList(),BoolList.get(LangList.get(LangFunc.arg(),index_00),index_00))
 print(f3)
 print(LangFunc.setFunc(Noun("f3"),f3))
 
@@ -50,7 +52,7 @@ f3_run_x3=LangFunc.runFunc(Noun("f3"),x3)
 print(f3_run_x3)
 
 
-f4=LangList.append(LangList(),DeterminerN.male(LangList.get(LangFunc.arg(),index_0)))
+f4=LangList.append(LangList(),DeterminerN.male(LangList.get(LangFunc.arg(),index_00)))
 x4=LangList.append(LangList(),Noun("student"))
 print(LangFunc.setFunc(Noun("f4"),f4))
 
@@ -64,8 +66,8 @@ x_2bit_10=LangList.append(LangList.append(LangList(),Bool.false()),Bool.true())
 x_2bit_11=LangList.append(LangList.append(LangList(),Bool.true()),Bool.true())
 
 #xor
-a=LangList.get(LangFunc.arg(),index_0)
-b=LangList.get(LangFunc.arg(),index_1)
+a=LangList.get(LangFunc.arg(),index_00)
+b=LangList.get(LangFunc.arg(),index_01)
 a_nand_b=Bool.NAND(a,b)
 
 xor=LangList.append(LangList(),Bool.NAND(Bool.NAND(a,a_nand_b),Bool.NAND(a_nand_b,b)))
@@ -79,7 +81,7 @@ print(LangFunc.runFunc(Noun("xor"),x_2bit_10).getLangList()[0].getBool())
 print(LangFunc.runFunc(Noun("xor"),x_2bit_11).getLangList()[0].getBool())
 
 
-xnor=LangList.append(LangList(),Bool.NOT(LangList.get(LangFunc.runFunc(Noun("xor"),LangFunc.arg()),index_0)))
+xnor=LangList.append(LangList(),Bool.NOT(LangList.get(LangFunc.runFunc(Noun("xor"),LangFunc.arg()),index_00)))
 print(LangFunc.setFunc(Noun("xnor"),xnor))
 
 print(LangFunc.runFunc(Noun("xnor"),x_2bit_00))

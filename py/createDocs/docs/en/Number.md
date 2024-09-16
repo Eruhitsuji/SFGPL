@@ -36,6 +36,7 @@ However, these functions cannot be applied to NumberList after numerical calcula
 |{NumberList_append} A B|Add one Number to the end of the NumberList|
 |{NumberList_slice} A B C|Get the B-th through C-th lists for a NumberList (A)|
 |{NumberList_add} A B|Combine two NumberLists|
+|{NumberList_len} A|Get the length of the NumberList (A)|
 
 In addition, dedicated functions are available to create 1~5-digit integers, as shown in the table below.
 

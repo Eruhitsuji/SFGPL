@@ -54,6 +54,7 @@ BoolListには以下のような関数が存在している．
 |fis A B|BoolList(A)に1つのBool(B)を末尾に加える|
 |fus A B C|AというBoolListに対して，B番目からC番目までのリストを取得する|
 |fos A B|2つのBoolList(A,B)を結合する|
+|foas A|BoolList(A)の長さを取得する|
 |mas A B|2つBoolの値(A,B)からなるBoolListを作成する|
 |mis X1~X4|4つBoolの値(x1~x4)からなるBoolListを作成する|
 |mos X1~X8|8つBoolの値(x1~x8)からなるBoolListを作成する|
