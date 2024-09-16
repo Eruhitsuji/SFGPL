@@ -461,3 +461,53 @@ sc.setCorpus(
     Phrase.past(Noun.doT(DeterminerN.human(Pronoun.indefinite()),Verb("eat"),Noun("apple"))),
     "Someone ate an apple."
 )
+
+sc.setCorpus(
+    Noun.do(DeterminerN.female(Pronoun.he()),Verb.add(Verb("sing"),Modifier("beautifully"))),
+    "She sings beautifully."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.do(DeterminerN.plural(Pronoun.he()),Verb.add(Verb("arrive"),Modifier("late")))),
+    "They arrived late."
+)
+
+sc.setCorpus(
+    Noun.do(DeterminerN.male(Pronoun.he()),Verb.add(Verb("work"),Modifier("hard"))),
+    "He works hard."
+)
+
+sc.setCorpus(
+    Noun.do(Noun.eq(DeterminerN.animal(Pronoun.he()),Verb.none(),DeterminerN.stressed(Noun("cat"))),Verb.progressive(Verb("sleep"))),
+    "The cat is sleeping."
+)
+
+sc.setCorpus(
+    Noun.doT(Pronoun.I(),Verb("like"),Noun("coffee")),
+    "I like coffee."
+)
+
+sc.setCorpus(
+    Noun.do(DeterminerN.female(Pronoun.he()),Verb.add(Verb("run"),Modifier("fast"))),
+    "She runs fast."
+)
+
+sc.setCorpus(
+    Noun.have(DeterminerN.plural(Pronoun.I()),Verb.none(),Noun("plan")),
+    "We have a plan."
+)
+
+sc.setCorpus(
+    Noun.doT(DeterminerN.male(Pronoun.he()),Verb("play"),Noun("guitar")),
+    "He plays the guitar."
+)
+
+sc.setCorpus(
+    Noun.do(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("phone"))),Verb.progressive(Verb("ring"))),
+    "The phone is ringing."
+)
+
+sc.setCorpus(
+    Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.progressive(Verb("watch")),Noun("movie")),
+    "They are watching a movie."
+)

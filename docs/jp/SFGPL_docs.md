@@ -1,7 +1,7 @@
 ---
 title: SFGPL入門
 author: Eruhitsuji
-date: 2024-09-16
+date: 2024-09-17
 ---
 
 <div class="tex_part" text="SFGPLの概要と基礎的な文法"></div>
@@ -2280,6 +2280,16 @@ me mi ga so san fa 'sak' so la 'ruĝ'
 |ta don fa 'apple' na gen li pun ma gu so fa 'table'|```Noun.do(DeterminerN.plural(Noun("'apple'")),Verb.add(WordV.exist(),Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.proximal(),Verb.none(),Noun("'table'"))))))```|There are apples on this table.|
 |di ti ga so mi ga so don fa 'student' don fa 'apple'|```Phrase.past(Noun.give(Pronoun.I(),Verb.none(),Noun.have(Pronoun.I(),Verb.none(),DeterminerN.plural(Noun("'student'"))),DeterminerN.plural(Noun("'apple'"))))```|I gave my students apples.|
 |di te ben we sa 'eat' fa 'apple'|```Phrase.past(Noun.doT(DeterminerN.human(Pronoun.indefinite()),Verb("'eat'"),Noun("'apple'")))```|Someone ate an apple.|
+|ta len gi na sa 'sing' la 'beautifully'|```Noun.do(DeterminerN.female(Pronoun.he()),Verb.add(Verb("'sing'"),Modifier("'beautifully'")))```|She sings beautifully.|
+|di ta don gi na sa 'arrive' la 'late'|```Phrase.past(Noun.do(DeterminerN.plural(Pronoun.he()),Verb.add(Verb("'arrive'"),Modifier("'late'"))))```|They arrived late.|
+|ta lan gi na sa 'work' la 'hard'|```Noun.do(DeterminerN.male(Pronoun.he()),Verb.add(Verb("'work'"),Modifier("'hard'")))```|He works hard.|
+|ta ma bin gi so san fa 'cat' ni sa 'sleep'|```Noun.do(Noun.eq(DeterminerN.animal(Pronoun.he()),Verb.none(),DeterminerN.stressed(Noun("'cat'"))),Verb.progressive(Verb("'sleep'")))```|The cat is sleeping.|
+|te ga sa 'like' fa 'coffee'|```Noun.doT(Pronoun.I(),Verb("'like'"),Noun("'coffee'"))```|I like coffee.|
+|ta len gi na sa 'run' la 'fast'|```Noun.do(DeterminerN.female(Pronoun.he()),Verb.add(Verb("'run'"),Modifier("'fast'")))```|She runs fast.|
+|mi don ga so fa 'plan'|```Noun.have(DeterminerN.plural(Pronoun.I()),Verb.none(),Noun("'plan'"))```|We have a plan.|
+|te lan gi sa 'play' fa 'guitar'|```Noun.doT(DeterminerN.male(Pronoun.he()),Verb("'play'"),Noun("'guitar'"))```|He plays the guitar.|
+|ta ma gi so san fa 'phone' ni sa 'ring'|```Noun.do(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("'phone'"))),Verb.progressive(Verb("'ring'")))```|The phone is ringing.|
+|te don gi ni sa 'watch' fa 'movie'|```Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.progressive(Verb("'watch'")),Noun("'movie'"))```|They are watching a movie.|
 
 
 # 24. 辞書
@@ -2598,4 +2608,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |7.0.0|単語と関連ライブラリの追加|
 |7.1.0|リスト関連クラスにおけるリスト長さの関数を追加|
 |7.2.0|```LangList.map```追加|
+|7.2.1|ドキュメントの追加・修正|
 
