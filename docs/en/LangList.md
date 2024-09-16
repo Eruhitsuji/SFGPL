@@ -16,6 +16,7 @@ The following functions exist in LangList.
 |fot A B|Combine two LangLists|
 |foat A|Get the length of the LangList (A)|
 |tat A B C|Function for iteration using LangList|
+|tet A B|Function to perform certain processing on all elements of LangList|
 
 LangList can store all classes that inherit from LangObj.
 The following is an example of creating a LangList using append.
@@ -66,6 +67,27 @@ The contents to be updated are set to ```[x[0]+1,x[1]+10,x[2]*2]```.
 
 The third line actually executes the iteration.
 In this case, ```[0,0,1]``` is given as the initial value.
+
+## LangList map functions
+
+There is a function ```tet``` that performs certain operations on all elements of a LangList.
+In this case, the first argument is the LangList A to be adapted and the second argument is the function name B for certain processing.
+
+In this case, the function B is passed ```[the data of each element, the index (NumberList) of that element, LangList A]``` of type LangList as arguments.
+The value of LangList[0] resulting from the execution of the function in B is used as the value of the new element.
+
+Then, to add 1 to all elements using ```tet```, do the following.
+
+```SFGPL
+pat fa 'map_func' fit fat tal fet pit tol mal pal mal pel
+tet fit fit fit fat mel pel pal mel pel pel mel pel pil fa 'map_func'
+```
+
+The first line sets up the function for processing.
+This process adds 1 to the data of each element.
+
+In the second line, the process of actually assigning ```[10,11,12]``` and adding 1 to all elements is executed.
+In this case, ```[10,11,12]``` can be represented by ```fit fit fit fat mel pel pal mel pel pel mel pel pil```.
 
 ## Wordbook
 

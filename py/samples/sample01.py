@@ -2683,6 +2683,46 @@ sc.setCorpus(
     "Length of 12345 is 5."
 )
 
+index_00=BoolList.twoBit(Bool.false(),Bool.false())
+index_01=BoolList.twoBit(Bool.false(),Bool.true())
+index_10=BoolList.fourBit(Bool.false(),Bool.false(),Bool.true(),Bool.false())
+index_11=BoolList.fourBit(Bool.false(),Bool.false(),Bool.true(),Bool.true())
+
+nl_05=NumberList.digit1(Number.five())
+nl_10=NumberList.digit2(Number.one(),Number.zero())
+nl_11=NumberList.digit2(Number.one(),Number.one())
+nl_12=NumberList.digit2(Number.one(),Number.two())
+nl_13=NumberList.digit2(Number.one(),Number.three())
+nl_14=NumberList.digit2(Number.one(),Number.four())
+
+map_func_01_item=LangList.get(LangFunc.arg(),index_00)
+map_func_01_index=LangList.get(LangFunc.arg(),index_01)
+map_func_01_all_list=LangList.get(LangFunc.arg(),index_10)
+
+sc.setCorpus(
+    LangFunc.setFunc(Noun("map_func_01"),LangList.append(LangList(),NumberList.calcMul(map_func_01_item,nl_05))),
+    "map_func_01 function to multiply all elements of LangList by 5."
+)
+
+lang_list_16=LangList.append(LangList.append(LangList.append(LangList(),nl_10),nl_11),nl_12)
+sc.setCorpus(
+    LangList.map(lang_list_16,Noun("map_func_01")),
+    "Apply the map_func_01 function to all elements in [10,11,12]."
+)
+
+lang_list_17=LangList.append(lang_list_16,nl_13)
+sc.setCorpus(
+    LangList.map(lang_list_17,Noun("map_func_01")),
+    "Apply the map_func_01 function to all elements in [10,11,12,13]."
+)
+
+lang_list_18=LangList.append(lang_list_17,nl_14)
+sc.setCorpus(
+    LangList.map(lang_list_18,Noun("map_func_01")),
+    "Apply the map_func_01 function to all elements in [10,11,12,13,14]."
+)
+
+
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)
 

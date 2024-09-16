@@ -16,6 +16,7 @@ LangListには，以下の関数が存在している．
 |fot A B|2つのLangListを結合する|
 |foat A|LangList(A)の長さを取得する|
 |tat A B C|LangListを使用した繰り返し用の関数|
+|tet A B|LangListの全要素に対して一定の処理を行う関数|
 
 LangListは，LangObjを継承しているすべてのクラスを格納することができる．
 次はLangListをappendを使用して作成する一例である．
@@ -66,6 +67,27 @@ tat fit fit fit fat mal pal mal pal mal pel fa 'condition_func' fa 'process_func
 
 3行目で，実際に繰り返しを実行している．
 このとき初期値として，```[0,0,1]```を与えている．
+
+## LangListのmap関数
+
+LangListのすべての要素に対して，一定の処理を行う関数```tet```が存在する．
+このとき，第一引数に適応するLangList A，第二引数に一定の処理を行うための関数名Bを指定する．
+
+このとき，Bの関数には，LangList型で```[それぞれの要素のデータ，その要素のindex（NumberList），LangList A]```が引数として渡されます．
+また，Bの関数を実行した結果のLangList[0]の値が，新たな要素の値として使われる．
+
+次に，```tet```を使用して，全要素に1を足すためには次のようにする．
+
+```SFGPL
+pat fa 'map_func' fit fat tal fet pit tol mal pal mal pel
+tet fit fit fit fat mel pel pal mel pel pel mel pel pil fa 'map_func'
+```
+
+1行目で，処理用の関数を設定している．
+この処理内容は，それぞれの要素のデータに対して，1を足す処理を行っている．
+
+2行目で，実際に```[10,11,12]```を代入し，すべての要素に対して1を足す処理を実行している．
+このとき，```[10,11,12]```を表すためには，```fit fit fit fat mel pel pal mel pel pel mel pel pil```とすることで表現できる．
 
 ## 単語集
 

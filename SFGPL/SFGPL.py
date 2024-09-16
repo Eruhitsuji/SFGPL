@@ -2720,6 +2720,32 @@ class LangList(_BaseList):
         else:
             LangObj.printTypeError(arg)
 
+    @staticmethod
+    def map(a,b):
+        func_str="LangList.map"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return LangList(arg,func_mode=True)
+        elif(isinstance(a,LangList) and isinstance(b,Noun)):
+            a_list=a.getLangList()
+            tmp_list=[]
+
+            for i in range(len(a_list)):
+                item=a_list[i]
+                index_obj=NumberList.NaturalNumber2NumberList(i)
+                tmp_arg=LangList.append(LangList.append(LangList.append(LangList(),item),index_obj),a.copy())
+                
+
+                tmp_list.append(LangFunc.runFunc(b,tmp_arg).getLangList()[0])
+
+            return LangList(arg,lang_list=tmp_list)
+        else:
+            LangObj.printTypeError(arg)
+
+                
+
 #Class for Number in SFGPL
 class Number(LangObj):
 
@@ -2886,6 +2912,14 @@ class NumberList(_BaseList):
         number_obj_list=Number._getNumberObjList()
         return [number_obj_list[int(n)] for n in str(i_num)]
         
+    @staticmethod
+    def NaturalNumber2NumberList(i_num:int):
+        obj_list=NumberList._intNumber2NumberObjList(i_num)
+        result_obj=NumberList()
+        for item in obj_list:
+            result_obj=NumberList.append(result_obj,item)
+        return result_obj
+
     @staticmethod
     def get(a,b):
         func_str="NumberList.get"

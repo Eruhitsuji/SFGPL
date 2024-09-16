@@ -14,6 +14,8 @@ num_2=NumberList.digit1(Number.two())
 num_4=NumberList.digit1(Number.four())
 num_9=NumberList.digit1(Number.nine())
 num_10=NumberList.digit2(Number.one(),Number.zero())
+num_11=NumberList.digit2(Number.one(),Number.one())
+num_12=NumberList.digit2(Number.one(),Number.two())
 
 arg_get_0=LangList.get(LangFunc.arg(),NumberList.IntNL2BL(num_0))
 arg_get_1=LangList.get(LangFunc.arg(),NumberList.IntNL2BL(num_1))
@@ -24,6 +26,9 @@ condition_func=LangFunc.setFunc(Noun("condition_func"),LangList.append(LangList(
 process_func=LangFunc.setFunc(Noun("process_func"),LangList.append(LangList.append(LangList.append(LangList(),NumberList.calcAdd(arg_get_0,num_1)),NumberList.calcAdd(arg_get_1,num_10)),NumberList.calcMul(arg_get_2,num_2)))
 while_test=LangList.While(arg_init,Noun("condition_func"),Noun("process_func"))
 
+map_func=LangFunc.setFunc(Noun("map_func"),LangList.append(LangList(),NumberList.calcAdd(arg_get_0,num_1)))
+map_test_ll=LangList.append(LangList.append(LangList.append(LangList(),num_10),num_11),num_12)
+map_test=LangList.map(map_test_ll,Noun("map_func"))
 
 format_str_list={
     "LangList":LangObj._getKeyOfDict("LangList"), 
@@ -33,6 +38,7 @@ format_str_list={
     "LangList_add":LangObj._getKeyOfDict("LangList.add"), 
     "LangList_len":LangObj._getKeyOfDict("LangList.len"), 
     "LangList_While":LangObj._getKeyOfDict("LangList.While"),
+    "LangList_map":LangObj._getKeyOfDict("LangList.map"),
     
     "lang_list_01":lang_list_01,
     "lang_list_01_get_0":LangList.get(lang_list_01,number_0),
@@ -48,6 +54,10 @@ format_str_list={
     "langlist_while_example_1":condition_func,
     "langlist_while_example_2":process_func,
     "langlist_while_example_3":while_test,
+    
+    "langlist_map_example_1":map_func,
+    "langlist_map_example_2":map_test,
+    "langlist_map_test_ll":map_test_ll,
     
 }
 

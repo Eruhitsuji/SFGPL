@@ -95,3 +95,4 @@ The content of updates due to changes in version names is based on the following
 |6.1.1|Adds and modifies documentation and [SFGPL.py](SFGPL.py)|
 |7.0.0|Adding words and associated libraries|
 |7.1.0|List length functions in list-related classes added|
+|7.2.0|Addition of ```LangList.map```|
