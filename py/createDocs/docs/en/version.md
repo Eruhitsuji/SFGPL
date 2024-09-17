@@ -98,3 +98,4 @@ The content of updates due to changes in version names is based on the following
 |7.2.0|Addition of ```LangList.map```|
 |7.2.1|Add and modify to documents|
 |7.2.2|Add and modify to documents|
+|7.2.3|Add and modify to documents|

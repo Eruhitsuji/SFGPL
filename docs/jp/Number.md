@@ -100,6 +100,11 @@ tul mil pul pel pol mil pel pal pal
 |tol|NumberList|BoolList|
 |tos|BoolList|NumberList|
 
+これらの変換で扱われる数値は，BoolListを整数型(```tes```)として見做される．
+つまり，このときのBoolListの値は，2進数の2の補数表現方法と同等である．
+これらの値は，NumberListによって，四則演算等の数値計算が行われた場合も適応できる．
+ただし，NumberListが除算結果などにより実数となっている場合は，変換ができずエラーとなる．
+
 ## 単語集
 
 |English|SFGPL|

@@ -2130,6 +2130,11 @@ In addition, there are functions that convert integer BoolList and NumberList in
 |tol|NumberList|BoolList|
 |tos|BoolList|NumberList|
 
+The numeric values handled by these conversions consider the BoolList as an integer type (```tes```).
+In other words, the value of the BoolList is equivalent to the two's complement representation of a binary number.
+These values can also be adapted if numerical calculations, such as four arithmetic operations, are performed by NumberList.
+However, if NumberList is a real number due to the result of division, etc., the conversion cannot be performed and an error occurs.
+
 ## Wordbook
 
 |English|SFGPL|
@@ -2608,4 +2613,5 @@ The content of updates due to changes in version names is based on the following
 |7.2.0|Addition of ```LangList.map```|
 |7.2.1|Add and modify to documents|
 |7.2.2|Add and modify to documents|
+|7.2.3|Add and modify to documents|
 

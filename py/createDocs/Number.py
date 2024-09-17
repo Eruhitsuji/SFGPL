@@ -46,6 +46,8 @@ format_str_list={
     "NumberList_IntNL2BL":LangObj._getKeyOfDict("NumberList.IntNL2BL"),
     "BoolList_IntBL2NL":LangObj._getKeyOfDict("BoolList.IntBL2NL"),
 
+    "BoolList_Int":LangObj._getKeyOfDict("BoolList.Int"),
+
 }
 
 createDocs(name=NAME,format_str_list=format_str_list,lang_mode="JP",md_mode=True,out_flag=True,all_docs_flag=True)
