@@ -2283,7 +2283,9 @@ The following table shows example sentences from the SFGPL.
 |ta len gi na sa 'run' la 'fast'|```Noun.do(DeterminerN.female(Pronoun.he()),Verb.add(Verb("'run'"),Modifier("'fast'")))```|She runs fast.|
 |mi don ga so fa 'plan'|```Noun.have(DeterminerN.plural(Pronoun.I()),Verb.none(),Noun("'plan'"))```|We have a plan.|
 |te lan gi sa 'play' fa 'guitar'|```Noun.doT(DeterminerN.male(Pronoun.he()),Verb("'play'"),Noun("'guitar'"))```|He plays the guitar.|
+|te len gi sa 'play' fa 'guitar'|```Noun.doT(DeterminerN.female(Pronoun.he()),Verb("'play'"),Noun("'guitar'"))```|She plays the guitar.|
 |ta ma gi so san fa 'phone' ni sa 'ring'|```Noun.do(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("'phone'"))),Verb.progressive(Verb("'ring'")))```|The phone is ringing.|
+|ta mi ga so san fa 'phone' ni sa 'ring'|```Noun.do(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("'phone'"))),Verb.progressive(Verb("'ring'")))```|My phone is ringing.|
 |te don gi ni sa 'watch' fa 'movie'|```Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.progressive(Verb("'watch'")),Noun("'movie'"))```|They are watching a movie.|
 
 
@@ -2605,4 +2607,5 @@ The content of updates due to changes in version names is based on the following
 |7.1.0|List length functions in list-related classes added|
 |7.2.0|Addition of ```LangList.map```|
 |7.2.1|Add and modify to documents|
+|7.2.2|Add and modify to documents|
 

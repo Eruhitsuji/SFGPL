@@ -1958,7 +1958,7 @@ tat fit fit fit fat mal pal mal pal mal pel fa 'condition_func' fa 'process_func
 LangListのすべての要素に対して，一定の処理を行う関数```tet```が存在する．
 このとき，第一引数に適応するLangList A，第二引数に一定の処理を行うための関数名Bを指定する．
 
-このとき，Bの関数には，LangList型で```[それぞれの要素のデータ，その要素のindex（NumberList），LangList A]```が引数として渡されます．
+このとき，Bの関数には，LangList型で```[それぞれの要素のデータ，その要素のindex（NumberList），LangList A]```が引数として渡される．
 また，Bの関数を実行した結果のLangList[0]の値が，新たな要素の値として使われる．
 
 次に，```tet```を使用して，全要素に1を足すためには次のようにする．
@@ -2288,7 +2288,9 @@ me mi ga so san fa 'sak' so la 'ruĝ'
 |ta len gi na sa 'run' la 'fast'|```Noun.do(DeterminerN.female(Pronoun.he()),Verb.add(Verb("'run'"),Modifier("'fast'")))```|She runs fast.|
 |mi don ga so fa 'plan'|```Noun.have(DeterminerN.plural(Pronoun.I()),Verb.none(),Noun("'plan'"))```|We have a plan.|
 |te lan gi sa 'play' fa 'guitar'|```Noun.doT(DeterminerN.male(Pronoun.he()),Verb("'play'"),Noun("'guitar'"))```|He plays the guitar.|
+|te len gi sa 'play' fa 'guitar'|```Noun.doT(DeterminerN.female(Pronoun.he()),Verb("'play'"),Noun("'guitar'"))```|She plays the guitar.|
 |ta ma gi so san fa 'phone' ni sa 'ring'|```Noun.do(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("'phone'"))),Verb.progressive(Verb("'ring'")))```|The phone is ringing.|
+|ta mi ga so san fa 'phone' ni sa 'ring'|```Noun.do(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("'phone'"))),Verb.progressive(Verb("'ring'")))```|My phone is ringing.|
 |te don gi ni sa 'watch' fa 'movie'|```Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.progressive(Verb("'watch'")),Noun("'movie'"))```|They are watching a movie.|
 
 
@@ -2609,4 +2611,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |7.1.0|リスト関連クラスにおけるリスト長さの関数を追加|
 |7.2.0|```LangList.map```追加|
 |7.2.1|ドキュメントの追加・修正|
+|7.2.2|ドキュメントの追加・修正|
 

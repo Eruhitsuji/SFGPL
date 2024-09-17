@@ -503,8 +503,18 @@ sc.setCorpus(
 )
 
 sc.setCorpus(
+    Noun.doT(DeterminerN.female(Pronoun.he()),Verb("play"),Noun("guitar")),
+    "She plays the guitar."
+)
+
+sc.setCorpus(
     Noun.do(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("phone"))),Verb.progressive(Verb("ring"))),
     "The phone is ringing."
+)
+
+sc.setCorpus(
+    Noun.do(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("phone"))),Verb.progressive(Verb("ring"))),
+    "My phone is ringing."
 )
 
 sc.setCorpus(

@@ -69,7 +69,7 @@ LangListを繰り返し処理するための```{LangList_While}```を使用す�
 LangListのすべての要素に対して，一定の処理を行う関数```{LangList_map}```が存在する．
 このとき，第一引数に適応するLangList A，第二引数に一定の処理を行うための関数名Bを指定する．
 
-このとき，Bの関数には，LangList型で```[それぞれの要素のデータ，その要素のindex（NumberList），LangList A]```が引数として渡されます．
+このとき，Bの関数には，LangList型で```[それぞれの要素のデータ，その要素のindex（NumberList），LangList A]```が引数として渡される．
 また，Bの関数を実行した結果のLangList[0]の値が，新たな要素の値として使われる．
 
 次に，```{LangList_map}```を使用して，全要素に1を足すためには次のようにする．
