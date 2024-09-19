@@ -74,6 +74,37 @@ BoolListには以下のような関数が存在している．
 |整数|{INT_b1}|{INT_b1_get}|
 |浮動小数点|{Float_b1}|{Float_b1_get}|
 
+## BoolListの日時表現
+
+BoolListを利用して，Unix時間に基づく日時表現をすることができる．
+日時表現はその精度によって以下の3種類存在する．
+
+|SFGPL|Type|Unit|
+|:-:|:-:|:-:|
+|{BoolList_UnixTimeD}|yyyy-mm-dd|Day|
+|{BoolList_UnixTimeDT}|yyyy-mm-dd HH:MM:SS|Second|
+|{BoolList_UnixTimeDTN}|yyyy-mm-dd HH:MM:SS.nnnnnnnnn|Nano Second|
+
+これらの表現は```1970-01-01 00:00:00.000000000```が基準で，それぞれ日単位，秒単位，ナノ秒単位での差分によって日時を表す．
+
+例えば，```2024-09-19 18:27:27```を```{BoolList_UnixTimeDT}```で表すには次のようにする．
+
+まず，この時間のUnix時間は```1726738047```である．
+これを2進数に変換すると，```0110 0110 1110 1011 1110 1110 0111 1111```となる．
+そのためBoolListに変換すると次のようになる．
+
+```SFGPL
+{bin_0110_0110_1110_1011_1110_1110_0111_1111}
+```
+
+さらに，```{BoolList_UnixTimeDT}```を使用して日時に変換すると次のようになる．
+
+```SFGPL
+{dt_bin_0110_0110_1110_1011_1110_1110_0111_1111}
+```
+
+これによって，```{dt_bin_0110_0110_1110_1011_1110_1110_0111_1111_str}```をSFGPLで表すことができる．
+
 ## 単語集
 
 |English|SFGPL|

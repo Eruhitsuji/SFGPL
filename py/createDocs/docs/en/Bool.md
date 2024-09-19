@@ -74,6 +74,37 @@ It can also be used as a number by doing the following.
 |Integer Number|{INT_b1}|{INT_b1_get}|
 |Floating Point Number|{Float_b1}|{Float_b1_get}|
 
+## BoolList date/time representation
+
+BoolList can be used to represent dates and times based on Unix time.
+There are three types of date/time expressions, depending on their accuracy.
+
+|SFGPL|Type|Unit|
+|:-:|:-:|:-:|
+|{BoolList_UnixTimeD}|yyyy-mm-dd|Day|
+|{BoolList_UnixTimeDT}|yyyy-mm-dd HH:MM:SS|Second|
+|{BoolList_UnixTimeDTN}|yyyy-mm-dd HH:MM:SS.nnnnnnnnn|Nano Second|
+
+These expressions are based on ```1970-01-01 00:00:00.00000000000``` and represent the date and time by the difference in days, seconds and nanoseconds respectively.
+
+For example, to represent ```2024-09-19 18:27:27``` by ```{BoolList_UnixTimeDT}``` as follows.
+
+First, the Unix time for this hour is ```1726738047```.
+Converting this to a binary number gives ```0110 0110 1110 1011 1110 1110 0111 1111```.
+Therefore, converting it to a BoolList gives the following.
+
+```SFGPL
+{bin_0110_0110_1110_1011_1110_1110_0111_1111}
+```
+
+Furthermore, the conversion to date and time using ```{BoolList_UnixTimeDT}``` gives the following.
+
+```SFGPL
+{dt_bin_0110_0110_1110_1011_1110_1110_0111_1111}
+```
+
+This allows ```{dt_bin_0110_0110_1110_1011_1110_1110_0111_1111_str}``` to be represented by the SFGPL.
+
 ## Wordbook
 
 |English|SFGPL|

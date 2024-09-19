@@ -3,6 +3,7 @@ sys.path.append("")
 
 from SFGPL import *
 import os
+from datetime import datetime,timezone
 
 OUT_DIR="out/"
 
@@ -2745,6 +2746,39 @@ sc.setCorpus(
     "Apply the map_func_02 function to all elements in [10,11,12,13,14]."
 )
 
+def unixTime2SFGPLObj(unix_time_raw:int,N:int=64):
+    dtn_ut=int(unix_time_raw*10**9)
+    dt_ut=int(unix_time_raw)
+    d_ut=int(unix_time_raw/86400)
+
+    dtn_obj=BoolList.UnixTimeDTN(BoolList.hexstr2BoolList(hex(dtn_ut),N))
+    dt_obj=BoolList.UnixTimeDT(BoolList.hexstr2BoolList(hex(dt_ut),N))
+    d_obj=BoolList.UnixTimeD(BoolList.hexstr2BoolList(hex(d_ut),N))
+    
+    sc.setCorpus(
+        d_obj,
+        f"Unix time in day {d_ut} is {d_obj.getData(True)}."
+    )
+
+    sc.setCorpus(
+        dt_obj,
+        f"Unix time in second {dt_ut} is {dt_obj.getData(True)}."
+    )
+
+    sc.setCorpus(
+        dtn_obj,
+        f"Unix time in nano second {dtn_ut} is {dtn_obj.getData(True)}."
+    )
+    
+    return [d_obj,dt_obj,dtn_obj]
+
+unixTime2SFGPLObj(datetime.now().timestamp())
+
+unixTime2SFGPLObj(datetime(2024,9,19,8,38,18,123456,tzinfo=timezone.utc).timestamp())
+
+unixTime2SFGPLObj(datetime(2001,10,7,13,19,0,0,tzinfo=timezone.utc).timestamp())
+
+unixTime2SFGPLObj(-1429029393)
 
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)

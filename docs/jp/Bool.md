@@ -78,6 +78,37 @@ fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos 
 |整数|tes fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|1078530011|
 |浮動小数点|tis fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|3.1415927410125732|
 
+## BoolListの日時表現
+
+BoolListを利用して，Unix時間に基づく日時表現をすることができる．
+日時表現はその精度によって以下の3種類存在する．
+
+|SFGPL|Type|Unit|
+|:-:|:-:|:-:|
+|das|yyyy-mm-dd|Day|
+|des|yyyy-mm-dd HH:MM:SS|Second|
+|dis|yyyy-mm-dd HH:MM:SS.nnnnnnnnn|Nano Second|
+
+これらの表現は```1970-01-01 00:00:00.000000000```が基準で，それぞれ日単位，秒単位，ナノ秒単位での差分によって日時を表す．
+
+例えば，```2024-09-19 18:27:27```を```des```で表すには次のようにする．
+
+まず，この時間のUnix時間は```1726738047```である．
+これを2進数に変換すると，```0110 0110 1110 1011 1110 1110 0111 1111```となる．
+そのためBoolListに変換すると次のようになる．
+
+```SFGPL
+fos fos mos pas pos pos pas pas pos pos pas mos pos pos pos pas pos pas pos pos fos mos pos pos pos pas pos pos pos pas mos pas pos pos pos pos pos pos pos
+```
+
+さらに，```des```を使用して日時に変換すると次のようになる．
+
+```SFGPL
+des fos fos mos pas pos pos pas pas pos pos pas mos pos pos pos pas pos pas pos pos fos mos pos pos pos pas pos pos pos pas mos pas pos pos pos pos pos pos pos
+```
+
+これによって，```2024-09-19 09:27:27```をSFGPLで表すことができる．
+
 ## 単語集
 
 |English|SFGPL|

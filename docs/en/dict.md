@@ -175,46 +175,49 @@ See [dict.csv](https://github.com/Eruhitsuji/SFGPL/blob/main/dict.csv) for detai
 |163|tis|```BoolList.Float```|tis A|BoolListを2進数の浮動小数とみなす|BoolList is considered a binary floating number|
 |164|tus|```BoolList.ASCII```|tus A|BoolListをASCII文字とみなす|BoolList is considered an ASCII character|
 |165|tos|```BoolList.IntBL2NL```|tos A|整数のBoolListをNumberListに変換する|Convert an integer BoolList to a NumberList|
-|166|pat|```LangFunc.setFunc```|pat A B|あるLangListを引数とするAという名前のBを返す関数を設定する|Set up a function that returns B named A with a certain LangList as an argument.|
-|167|pit|```LangFunc.arg```|pit|```LangFunc.setFunc()```の引数用に使用する|Used for ```LangFunc.setFunc()``` arguments|
-|168|pot|```LangFunc.runFunc```|pot A B|設定したAという名前のLangFuncを引数Bとして実行する|Execute the configured LangFunc named A with argument B|
-|169|bat|```LangVar.set```|bat A B|グローバル変数としてAという名前の変数を定義し，LangList Bを代入する|Define a variable named A as a global variable and assign LangList B to it.|
-|170|bot|```LangVar.get```|bot A|定義されたAという名前のグローバル変数を取得する|Obtain the defined global variable named A|
-|171|fat|```LangList```|fat|LangObjのリストLangListを作成する|Create a list of LangObj (LangList)|
-|172|fet|```LangList.get```|fet A B|```LangList(A)```のB番目の値を取得する|Gets the B-th value of ```LangList(A)```|
-|173|fit|```LangList.append```|fit A B|LangListに1つのLangObjを末尾に加える|Add one LangObj to the end of the LangList|
-|174|fut|```LangList.slice```|fut A B C|AというLangListに対して，B番目からC番目までのリストを取得する|Get the B-th through C-th lists for a LangList (A).|
-|175|fot|```LangList.add```|fot A B|2つのLangListを結合する|Combine two LangLists|
-|176|foat|```LangList.len```|foat A|LangListの長さを取得する|Get the length of the LangList|
-|177|tat|```LangList.While```|tat A B C|繰り返し処理を行う|Repeat processing|
-|178|tet|```LangList.map```|tet A B|LangList Aのすべての要素に対して，Bという名前のLangFuncを適用する|Apply a LangFunc named B to all elements of LangList A|
-|179|pal|```Number.zero```|pal|0|0|
-|180|pel|```Number.one```|pel|1|1|
-|181|pil|```Number.two```|pil|2|2|
-|182|pul|```Number.three```|pul|3|3|
-|183|pol|```Number.four```|pol|4|4|
-|184|bal|```Number.five```|bal|5|5|
-|185|bel|```Number.six```|bel|6|6|
-|186|bil|```Number.seven```|bil|7|7|
-|187|bul|```Number.eight```|bul|8|8|
-|188|bol|```Number.nine```|bol|9|9|
-|189|fal|```NumberList```|fal|NumberのリストNumberListを作成する|Create a list of Number (NumberList)|
-|190|fel|```NumberList.get```|fel A B|```NumberList(A)```のB番目の値を取得する|Gets the B-th value of ```NumberList(A)```|
-|191|fil|```NumberList.append```|fil A B|NumberListに1つのNumberを末尾に加える|Add one Number to the end of the NumberList|
-|192|ful|```NumberList.slice```|ful A B C|AというNumberListに対して，B番目からC番目までのリストを取得する|Get the B-th through C-th lists for a NumberList (A).|
-|193|fol|```NumberList.add```|fol A B|2つのNumberListを結合する|Combine two NumberLists|
-|194|foal|```NumberList.len```|foal A|NumberListの長さを取得する|Get the length of the NumberList|
-|195|mal|```NumberList.digit1```|mal A|10進数1桁からなるNumberListを作成する|Create a NumberList consisting of one decimal digit|
-|196|mel|```NumberList.digit2```|mel A B|10進数2桁からなるNumberListを作成する|Create a NumberList consisting of two decimal digit|
-|197|mil|```NumberList.digit3```|mil A B C|10進数3桁からなるNumberListを作成する|Create a NumberList consisting of three decimal digit|
-|198|mul|```NumberList.digit4```|mul A B C D|10進数4桁からなるNumberListを作成する|Create a NumberList consisting of four decimal digit|
-|199|mol|```NumberList.digit5```|mol A B C D E|10進数5桁からなるNumberListを作成する|Create a NumberList consisting of five decimal digit|
-|200|tal|```NumberList.calcAdd```|tal A B|2つのNumberListに対して加算をする|Perform addition on two NumberLists|
-|201|tel|```NumberList.calcSub```|tel A B|2つのNumberListに対して減算をする|Perform subtraction on two NumberLists|
-|202|til|```NumberList.calcMul```|til A B|2つのNumberListに対して乗算をする|Perform multiplication on two NumberLists|
-|203|tul|```NumberList.calcDiv```|tul A B|2つのNumberListに対して除算をする|Perform division on two NumberLists|
-|204|tol|```NumberList.IntNL2BL```|tol A|整数のNumberListをBoolListに変換する|Convert an integer NumberList to a BoolList|
-|205|sal|```NumberList.isPN```|sal A|正の数かを判定する|Determine if it is a positive number|
-|206|sel|```NumberList.minus```|sel A|符号を反転させる|Reversing the sign|
-|207|sil|```NumberList.abs```|sil A|整数の絶対値を取得する|Obtaining the absolute value of an integer|
+|166|das|```BoolList.UnixTimeD```|das A|BoolListを日単位のUnixTimeとする|BoolList as UnixTime in days|
+|167|des|```BoolList.UnixTimeDT```|des A|BoolListを秒単位のUnixTimeとする|BoolList as UnixTime in seconds|
+|168|dis|```BoolList.UnixTimeDTN```|dis A|BoolListをナノ秒単位のUnixTimeとする|BoolList as UnixTime in nanoseconds|
+|169|pat|```LangFunc.setFunc```|pat A B|あるLangListを引数とするAという名前のBを返す関数を設定する|Set up a function that returns B named A with a certain LangList as an argument.|
+|170|pit|```LangFunc.arg```|pit|```LangFunc.setFunc()```の引数用に使用する|Used for ```LangFunc.setFunc()``` arguments|
+|171|pot|```LangFunc.runFunc```|pot A B|設定したAという名前のLangFuncを引数Bとして実行する|Execute the configured LangFunc named A with argument B|
+|172|bat|```LangVar.set```|bat A B|グローバル変数としてAという名前の変数を定義し，LangList Bを代入する|Define a variable named A as a global variable and assign LangList B to it.|
+|173|bot|```LangVar.get```|bot A|定義されたAという名前のグローバル変数を取得する|Obtain the defined global variable named A|
+|174|fat|```LangList```|fat|LangObjのリストLangListを作成する|Create a list of LangObj (LangList)|
+|175|fet|```LangList.get```|fet A B|```LangList(A)```のB番目の値を取得する|Gets the B-th value of ```LangList(A)```|
+|176|fit|```LangList.append```|fit A B|LangListに1つのLangObjを末尾に加える|Add one LangObj to the end of the LangList|
+|177|fut|```LangList.slice```|fut A B C|AというLangListに対して，B番目からC番目までのリストを取得する|Get the B-th through C-th lists for a LangList (A).|
+|178|fot|```LangList.add```|fot A B|2つのLangListを結合する|Combine two LangLists|
+|179|foat|```LangList.len```|foat A|LangListの長さを取得する|Get the length of the LangList|
+|180|tat|```LangList.While```|tat A B C|繰り返し処理を行う|Repeat processing|
+|181|tet|```LangList.map```|tet A B|LangList Aのすべての要素に対して，Bという名前のLangFuncを適用する|Apply a LangFunc named B to all elements of LangList A|
+|182|pal|```Number.zero```|pal|0|0|
+|183|pel|```Number.one```|pel|1|1|
+|184|pil|```Number.two```|pil|2|2|
+|185|pul|```Number.three```|pul|3|3|
+|186|pol|```Number.four```|pol|4|4|
+|187|bal|```Number.five```|bal|5|5|
+|188|bel|```Number.six```|bel|6|6|
+|189|bil|```Number.seven```|bil|7|7|
+|190|bul|```Number.eight```|bul|8|8|
+|191|bol|```Number.nine```|bol|9|9|
+|192|fal|```NumberList```|fal|NumberのリストNumberListを作成する|Create a list of Number (NumberList)|
+|193|fel|```NumberList.get```|fel A B|```NumberList(A)```のB番目の値を取得する|Gets the B-th value of ```NumberList(A)```|
+|194|fil|```NumberList.append```|fil A B|NumberListに1つのNumberを末尾に加える|Add one Number to the end of the NumberList|
+|195|ful|```NumberList.slice```|ful A B C|AというNumberListに対して，B番目からC番目までのリストを取得する|Get the B-th through C-th lists for a NumberList (A).|
+|196|fol|```NumberList.add```|fol A B|2つのNumberListを結合する|Combine two NumberLists|
+|197|foal|```NumberList.len```|foal A|NumberListの長さを取得する|Get the length of the NumberList|
+|198|mal|```NumberList.digit1```|mal A|10進数1桁からなるNumberListを作成する|Create a NumberList consisting of one decimal digit|
+|199|mel|```NumberList.digit2```|mel A B|10進数2桁からなるNumberListを作成する|Create a NumberList consisting of two decimal digit|
+|200|mil|```NumberList.digit3```|mil A B C|10進数3桁からなるNumberListを作成する|Create a NumberList consisting of three decimal digit|
+|201|mul|```NumberList.digit4```|mul A B C D|10進数4桁からなるNumberListを作成する|Create a NumberList consisting of four decimal digit|
+|202|mol|```NumberList.digit5```|mol A B C D E|10進数5桁からなるNumberListを作成する|Create a NumberList consisting of five decimal digit|
+|203|tal|```NumberList.calcAdd```|tal A B|2つのNumberListに対して加算をする|Perform addition on two NumberLists|
+|204|tel|```NumberList.calcSub```|tel A B|2つのNumberListに対して減算をする|Perform subtraction on two NumberLists|
+|205|til|```NumberList.calcMul```|til A B|2つのNumberListに対して乗算をする|Perform multiplication on two NumberLists|
+|206|tul|```NumberList.calcDiv```|tul A B|2つのNumberListに対して除算をする|Perform division on two NumberLists|
+|207|tol|```NumberList.IntNL2BL```|tol A|整数のNumberListをBoolListに変換する|Convert an integer NumberList to a BoolList|
+|208|sal|```NumberList.isPN```|sal A|正の数かを判定する|Determine if it is a positive number|
+|209|sel|```NumberList.minus```|sel A|符号を反転させる|Reversing the sign|
+|210|sil|```NumberList.abs```|sil A|整数の絶対値を取得する|Obtaining the absolute value of an integer|
 

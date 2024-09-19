@@ -1,4 +1,5 @@
 import SFGPL.stackcmd as stackcmd
+import SFGPL.unixTimeLib as unixTimeLib
 import SFGPL.dict
 import SFGPL.__version__
 import re
@@ -2133,6 +2134,9 @@ class BoolList(_BaseList):
     CLASS_TYPE_INT="Int"
     CLASS_TYPE_FLOAT="Float"
     CLASS_TYPE_ASCII="ASCII"
+    CLASS_TYPE_UNIX_TIME_D="UnixTimeD"
+    CLASS_TYPE_UNIX_TIME_DT="UnixTimeDT"
+    CLASS_TYPE_UNIX_TIME_DTN="UnixTimeDTN"
 
 
     @staticmethod
@@ -2189,11 +2193,30 @@ class BoolList(_BaseList):
             new_tmp_bl=[not(b) for b in tmp_bl]
             return -1*(BoolList.__boolList2NaturalInt(new_tmp_bl)+1)
     
-    def __getFloat32(self):
+    def __getFloat(self):
         bl=self._lang_list
-        sign=bl[0]
-        exponent=bl[1:9]
-        fraction=bl[9:]
+        bl_len=len(bl)
+
+        if(bl_len==16):
+            exponent_bit_num=5
+        elif(bl_len==32):
+            exponent_bit_num=8
+        elif(bl_len==64):
+            exponent_bit_num=11
+        elif(bl_len==128):
+            exponent_bit_num=15
+        else:
+            return None
+
+        sign_index=0
+        exponent_start_index=1
+        exponent_end_index=exponent_start_index+exponent_bit_num
+        fraction_start_index=exponent_end_index
+        offset=int(2**(exponent_bit_num-1)-1)
+
+        sign=bl[sign_index]
+        exponent=bl[exponent_start_index:exponent_end_index]
+        fraction=bl[fraction_start_index:]
 
         e_num=BoolList.__boolList2NaturalInt(exponent)
         
@@ -2202,7 +2225,7 @@ class BoolList(_BaseList):
         for i in range(len_fraction):
             bn_sum+=(2**(-1*(i+1)))*fraction[i]
 
-        return (-1 if sign else 1)*(1+bn_sum)*(2**(e_num-127))
+        return (-1 if sign else 1)*(1+bn_sum)*(2**(e_num-offset))
     
     @staticmethod
     def _binStr2BLList(bin_str:str):
@@ -2246,6 +2269,24 @@ class BoolList(_BaseList):
             return None
     
     @staticmethod
+    def hexstr2BoolList(hex_str:str,bin_order_num:int=16,del_space:bool=True):
+        def toBinStr(i:int,order:int):
+            return (bin(i&(2**order-1))[2:])
+        
+        if(del_space):
+            hex_str=hex_str.replace(" ","")
+        bin_str=toBinStr(int(hex_str,16),bin_order_num)
+
+        tmp_bin_str_sub=bin_order_num-len(bin_str)
+        if(tmp_bin_str_sub>0):
+            bin_str="0"*tmp_bin_str_sub+bin_str
+
+        r_obj=BoolList()
+        for c in bin_str:
+            r_obj=BoolList.append(r_obj,Bool.true() if c=="1" else Bool.false())
+        return r_obj
+
+    @staticmethod
     def __dec2bin(num:int):
         r=[]
         while num>0:
@@ -2274,7 +2315,7 @@ class BoolList(_BaseList):
         else:
             return None
 
-    def getData(self):
+    def getData(self,flag_conv_unix_time_str:bool=False):
         if(self.__class_type==None):
             return self.getBoolList()
         elif(self.__class_type==BoolList.CLASS_TYPE_NATURAL_NUM):
@@ -2282,9 +2323,27 @@ class BoolList(_BaseList):
         elif(self.__class_type==BoolList.CLASS_TYPE_INT):
             return self.__getInt()
         elif(self.__class_type==BoolList.CLASS_TYPE_FLOAT):
-            return self.__getFloat32()
+            return self.__getFloat()
         elif(self.__class_type==BoolList.CLASS_TYPE_ASCII):
             return chr(self.getNaturalNumber())
+        elif(self.__class_type==BoolList.CLASS_TYPE_UNIX_TIME_D):
+            tmp_list=unixTimeLib.unixTime.convUnixTime(self.__getInt(),mode="d")
+            if(flag_conv_unix_time_str):
+                return unixTimeLib.unixTime.convDateTimeStr(tmp_list)
+            else:
+                return tmp_list
+        elif(self.__class_type==BoolList.CLASS_TYPE_UNIX_TIME_DT):
+            tmp_list=unixTimeLib.unixTime.convUnixTime(self.__getInt(),mode="dt")
+            if(flag_conv_unix_time_str):
+                return unixTimeLib.unixTime.convDateTimeStr(tmp_list)
+            else:
+                return tmp_list
+        elif(self.__class_type==BoolList.CLASS_TYPE_UNIX_TIME_DTN):
+            tmp_list=unixTimeLib.unixTime.convUnixTime(self.__getInt(),mode="dtn")
+            if(flag_conv_unix_time_str):
+                return unixTimeLib.unixTime.convDateTimeStr(tmp_list)
+            else:
+                return tmp_list
 
     @staticmethod
     def get(a,b):
@@ -2437,7 +2496,7 @@ class BoolList(_BaseList):
         if(LangObj._isFuncModeOfArgs(arg)):
             return BoolList(arg,func_mode=True)
         elif(isinstance(a,BoolList)):
-            if(a.boolLen()==32):
+            if(a.boolLen() in [16,32,64,128]):
                 lang_list=a.getBoolList()
                 class_type=BoolList.CLASS_TYPE_FLOAT
                 return BoolList(arg=arg,lang_list=lang_list,class_type=class_type)
@@ -2472,6 +2531,51 @@ class BoolList(_BaseList):
         elif(isinstance(a,BoolList)):
             number=a.__getInt()
             return NumberList(arg=arg,number=number)
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
+    def UnixTimeD(a):
+        func_str="BoolList.UnixTimeD"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,BoolList)):
+            lang_list=a.getBoolList()
+            class_type=BoolList.CLASS_TYPE_UNIX_TIME_D
+            return BoolList(arg=arg,lang_list=lang_list,class_type=class_type)
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
+    def UnixTimeDT(a):
+        func_str="BoolList.UnixTimeDT"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,BoolList)):
+            lang_list=a.getBoolList()
+            class_type=BoolList.CLASS_TYPE_UNIX_TIME_DT
+            return BoolList(arg=arg,lang_list=lang_list,class_type=class_type)
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
+    def UnixTimeDTN(a):
+        func_str="BoolList.UnixTimeDTN"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,BoolList)):
+            lang_list=a.getBoolList()
+            class_type=BoolList.CLASS_TYPE_UNIX_TIME_DTN
+            return BoolList(arg=arg,lang_list=lang_list,class_type=class_type)
         else:
             LangObj.printTypeError(arg)
 

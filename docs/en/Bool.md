@@ -78,6 +78,37 @@ It can also be used as a number by doing the following.
 |Integer Number|tes fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|1078530011|
 |Floating Point Number|tis fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|3.1415927410125732|
 
+## BoolList date/time representation
+
+BoolList can be used to represent dates and times based on Unix time.
+There are three types of date/time expressions, depending on their accuracy.
+
+|SFGPL|Type|Unit|
+|:-:|:-:|:-:|
+|das|yyyy-mm-dd|Day|
+|des|yyyy-mm-dd HH:MM:SS|Second|
+|dis|yyyy-mm-dd HH:MM:SS.nnnnnnnnn|Nano Second|
+
+These expressions are based on ```1970-01-01 00:00:00.00000000000``` and represent the date and time by the difference in days, seconds and nanoseconds respectively.
+
+For example, to represent ```2024-09-19 18:27:27``` by ```des``` as follows.
+
+First, the Unix time for this hour is ```1726738047```.
+Converting this to a binary number gives ```0110 0110 1110 1011 1110 1110 0111 1111```.
+Therefore, converting it to a BoolList gives the following.
+
+```SFGPL
+fos fos mos pas pos pos pas pas pos pos pas mos pos pos pos pas pos pas pos pos fos mos pos pos pos pas pos pos pos pas mos pas pos pos pos pos pos pos pos
+```
+
+Furthermore, the conversion to date and time using ```des``` gives the following.
+
+```SFGPL
+des fos fos mos pas pos pos pas pas pos pos pas mos pos pos pos pas pos pas pos pos fos mos pos pos pos pas pos pos pos pas mos pas pos pos pos pos pos pos pos
+```
+
+This allows ```2024-09-19 09:27:27``` to be represented by the SFGPL.
+
 ## Wordbook
 
 |English|SFGPL|

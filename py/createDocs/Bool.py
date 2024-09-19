@@ -10,6 +10,8 @@ b1_1=BoolList.NaturalNum(b1)#1078530011
 b1_2=BoolList.Int(b1)#1078530011
 b1_3=BoolList.Float(b1)#3.1415927410125732
 
+b2_bin_str="01100110111010111110111001111111"
+b2=BoolList.binstr32ToBoolList(b2_bin_str)
 
 format_str_list={
     "Bool_false":LangObj._getKeyOfDict("Bool.false"),
@@ -52,6 +54,15 @@ format_str_list={
     "NN_b1_get":b1_1.getData(),
     "INT_b1_get":b1_2.getData(),
     "Float_b1_get":b1_3.getData(),
+
+    "BoolList_UnixTimeD":LangObj._getKeyOfDict("BoolList.UnixTimeD"), 
+    "BoolList_UnixTimeDT":LangObj._getKeyOfDict("BoolList.UnixTimeDT"), 
+    "BoolList_UnixTimeDTN":LangObj._getKeyOfDict("BoolList.UnixTimeDTN"),
+
+    "bin_0110_0110_1110_1011_1110_1110_0111_1111":b2,
+    "dt_bin_0110_0110_1110_1011_1110_1110_0111_1111":BoolList.UnixTimeDT(b2),
+    "dt_bin_0110_0110_1110_1011_1110_1110_0111_1111_str":BoolList.UnixTimeDT(b2).getData(True),
+
 }
 
 createDocs(name=NAME,format_str_list=format_str_list,lang_mode="JP",md_mode=True,out_flag=True,all_docs_flag=True)
