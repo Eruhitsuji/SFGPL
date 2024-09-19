@@ -67,6 +67,8 @@ The following functions exist in BoolList.
 
 This represents ```0100 0000 0100 1001 0000 1111 1101 1011``` in binary.
 It can also be used as a number by doing the following.
+Floating point corresponds to half, single, double and quadruple precision in IEEE 754.
+Therefore, they must be expressed in 16-bit, 32-bit, 64-bit and 128-bit respectively.
 
 |Type|SFGPL|Value|
 |:-:|:-:|:-:|
@@ -86,8 +88,9 @@ There are three types of date/time expressions, depending on their accuracy.
 |{BoolList_UnixTimeDTN}|yyyy-mm-dd HH:MM:SS.nnnnnnnnn|Nano Second|
 
 These expressions are based on ```1970-01-01 00:00:00.00000000000``` and represent the date and time by the difference in days, seconds and nanoseconds respectively.
+They are also based on UTC time.
 
-For example, to represent ```2024-09-19 18:27:27``` by ```{BoolList_UnixTimeDT}``` as follows.
+For example, to represent ```2024-09-19 09:27:27``` by ```{BoolList_UnixTimeDT}``` as follows.
 
 First, the Unix time for this hour is ```1726738047```.
 Converting this to a binary number gives ```0110 0110 1110 1011 1110 1110 0111 1111```.
