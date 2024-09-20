@@ -67,14 +67,34 @@ BoolListには以下のような関数が存在している．
 
 これは，2進数で```0100 0000 0100 1001 0000 1111 1101 1011```を表している．
 また，次のようにすることで，数値として使うことができる．
-浮動小数点は，IEEE 754の半精度，単精度，倍精度，四倍精度に対応している．
-そのため，それぞれ16bit，32bit，64bit，128bitで表す必要がある．
 
 |Type|SFGPL|Value|
 |:-:|:-:|:-:|
 |自然数|{NN_b1}|{NN_b1_get}|
 |整数|{INT_b1}|{INT_b1_get}|
 |浮動小数点|{Float_b1}|{Float_b1_get}|
+
+浮動小数点は，IEEE 754の半精度，単精度，倍精度，四倍精度に対応している．
+そのため，それぞれ16bit，32bit，64bit，128bitで表す必要がある．
+
+それぞれの精度で1/3を表すには次のようになる．
+まず，16進数で表すと次のようになる．
+
+|Type|HEX|
+|:-:|:-:|
+|Half|```{Float_H_HEX}```|
+|Single|```{Float_S_HEX}```|
+|Double|```{Float_D_HEX}```|
+|Quadruple|```{Float_Q_HEX}```|
+
+これをSFGPLに変換すると次のようになる．
+
+|Type|SFGPL|
+|:-:|:-:|
+|Half|```{Float_H_SFGPL}```|
+|Single|```{Float_S_SFGPL}```|
+|Double|```{Float_D_SFGPL}```|
+|Quadruple|```{Float_Q_SFGPL}```|
 
 ## BoolListの日時表現
 

@@ -67,14 +67,34 @@ The following functions exist in BoolList.
 
 This represents ```0100 0000 0100 1001 0000 1111 1101 1011``` in binary.
 It can also be used as a number by doing the following.
-Floating point corresponds to half, single, double and quadruple precision in IEEE 754.
-Therefore, they must be expressed in 16-bit, 32-bit, 64-bit and 128-bit respectively.
 
 |Type|SFGPL|Value|
 |:-:|:-:|:-:|
 |Natural Number|{NN_b1}|{NN_b1_get}|
 |Integer Number|{INT_b1}|{INT_b1_get}|
 |Floating Point Number|{Float_b1}|{Float_b1_get}|
+
+Floating point corresponds to half, single, double and quadruple precision in IEEE 754.
+Therefore, they must be expressed in 16-bit, 32-bit, 64-bit and 128-bit respectively.
+
+To express 1/3 in each precision is as follows.
+First, the hexadecimal representation is as follows.
+
+|Type|HEX|
+|:-:|:-:|
+|Half|```{Float_H_HEX}```|
+|Single|```{Float_S_HEX}```|
+|Double|```{Float_D_HEX}```|
+|Quadruple|```{Float_Q_HEX}```|
+
+This is converted into the SFGPL as follows.
+
+|Type|SFGPL|
+|:-:|:-:|
+|Half|```{Float_H_SFGPL}```|
+|Single|```{Float_S_SFGPL}```|
+|Double|```{Float_D_SFGPL}```|
+|Quadruple|```{Float_Q_SFGPL}```|
 
 ## BoolList date/time representation
 

@@ -1,7 +1,7 @@
 ---
 title: SFGPL入門
 author: Eruhitsuji
-date: 2024-09-19
+date: 2024-09-20
 ---
 
 <div class="tex_part" text="SFGPLの概要と基礎的な文法"></div>
@@ -1873,14 +1873,34 @@ fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos 
 
 これは，2進数で```0100 0000 0100 1001 0000 1111 1101 1011```を表している．
 また，次のようにすることで，数値として使うことができる．
-浮動小数点は，IEEE 754の半精度，単精度，倍精度，四倍精度に対応している．
-そのため，それぞれ16bit，32bit，64bit，128bitで表す必要がある．
 
 |Type|SFGPL|Value|
 |:-:|:-:|:-:|
 |自然数|tas fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|1078530011|
 |整数|tes fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|1078530011|
 |浮動小数点|tis fos fos mos pas pos pas pas pas pas pas pas mos pas pos pas pas pos pas pas pos fos mos pas pas pas pas pos pos pos pos mos pos pos pas pos pos pas pos pos|3.1415927410125732|
+
+浮動小数点は，IEEE 754の半精度，単精度，倍精度，四倍精度に対応している．
+そのため，それぞれ16bit，32bit，64bit，128bitで表す必要がある．
+
+それぞれの精度で1/3を表すには次のようになる．
+まず，16進数で表すと次のようになる．
+
+|Type|HEX|
+|:-:|:-:|
+|Half|```3555```|
+|Single|```3eaa aaab```|
+|Double|```3FD5 5555 5555 5555```|
+|Quadruple|```3ffd 5555 5555 5555 5555 5555 5555 5555```|
+
+これをSFGPLに変換すると次のようになる．
+
+|Type|SFGPL|
+|:-:|:-:|
+|Half|```tis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fas pas pas pos pos pas pos pas pos pas pos pas pos pas pos pas pos```|
+|Single|```tis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fas pas pas pos pos pos pos pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pos```|
+|Double|```tis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fas pas pas pos pos pos pos pos pos pos pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos```|
+|Quadruple|```tis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fis fas pas pas pos pos pos pos pos pos pos pos pos pos pos pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos pas pos```|
 
 ## BoolListの日時表現
 
@@ -2657,4 +2677,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |7.2.3|ドキュメントの追加・修正|
 |7.3.0|BoolListにおけるUnix時間と様々な浮動小数点数の対応|
 |7.3.1|ドキュメントの追加・修正|
+|7.3.2|ドキュメントの追加・修正|
 

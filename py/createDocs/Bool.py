@@ -2,6 +2,9 @@ from createDocs import *
 
 NAME="Bool"
 
+def FloatObj(hex_str:str,order_n:int):
+    return BoolList.Float(BoolList.hexstr2BoolList(hex_str,order_n))
+
 I_am_a_student=Noun.eq(Pronoun.I(),Verb.none(),Noun("student"))
 
 b1_bin_str="0"+"10000000"+"10010010000111111011011"
@@ -12,6 +15,11 @@ b1_3=BoolList.Float(b1)#3.1415927410125732
 
 b2_bin_str="01100110111010111110111001111111"
 b2=BoolList.binstr32ToBoolList(b2_bin_str)
+
+float_h_hex_str="3555"
+float_s_hex_str="3eaa aaab"
+float_d_hex_str="3FD5 5555 5555 5555"
+float_q_hex_str="3ffd 5555 5555 5555 5555 5555 5555 5555"
 
 format_str_list={
     "Bool_false":LangObj._getKeyOfDict("Bool.false"),
@@ -54,6 +62,15 @@ format_str_list={
     "NN_b1_get":b1_1.getData(),
     "INT_b1_get":b1_2.getData(),
     "Float_b1_get":b1_3.getData(),
+
+    "Float_H_HEX":float_h_hex_str,
+    "Float_S_HEX":float_s_hex_str,
+    "Float_D_HEX":float_d_hex_str,
+    "Float_Q_HEX":float_q_hex_str,
+    "Float_H_SFGPL":FloatObj(float_h_hex_str,16),
+    "Float_S_SFGPL":FloatObj(float_s_hex_str,32),
+    "Float_D_SFGPL":FloatObj(float_d_hex_str,64),
+    "Float_Q_SFGPL":FloatObj(float_q_hex_str,128),
 
     "BoolList_UnixTimeD":LangObj._getKeyOfDict("BoolList.UnixTimeD"), 
     "BoolList_UnixTimeDT":LangObj._getKeyOfDict("BoolList.UnixTimeDT"), 

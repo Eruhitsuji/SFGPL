@@ -101,3 +101,4 @@ The content of updates due to changes in version names is based on the following
 |7.2.3|Add and modify to documents|
 |7.3.0|Add a Unix time and various floating point numbers in BoolList|
 |7.3.1|Add and modify to documents|
+|7.3.2|Add and modify to documents|

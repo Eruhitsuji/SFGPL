@@ -2780,6 +2780,325 @@ unixTime2SFGPLObj(datetime(2001,10,7,13,19,0,0,tzinfo=timezone.utc).timestamp())
 
 unixTime2SFGPLObj(-1429029393)
 
+sc.setCorpus(
+    Noun.doT(DeterminerN.female(Pronoun.he()),Verb("enjoy"),Noun.V2N(Verb("paint"))),
+    "She enjoys painting."
+)
+
+sc.setCorpus(
+    Noun.haveP(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("bus"))),Verb.none(),Modifier.add(Modifier("late"),Modifier("again"))),
+    "The bus is late again."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(DeterminerN.male(Pronoun.he()),Verb("forget"),Noun.have(DeterminerN.male(Pronoun.he()),Verb.none(),DeterminerN.plural(Noun("key"))))),
+    "He forgot his keys."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(DeterminerN.male(Pronoun.he()),Verb("forget"),Noun.have(DeterminerN.male(Pronoun.he()),Verb.none(),DeterminerN.plural(Noun("bag"))))),
+    "He forgot his bags."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(DeterminerN.male(Pronoun.he()),Verb("forget"),Noun.have(DeterminerN.male(Pronoun.he()),Verb.none(),DeterminerN.plural(Noun("book"))))),
+    "He forgot his books."
+)
+
+sc.setCorpus(
+    Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.progressive(Verb("play")),Noun("basketball")),
+    "They are playing basketball."
+)
+
+sc.setCorpus(
+    Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.progressive(Verb("play")),Noun("baseball")),
+    "They are playing baseball."
+)
+
+sc.setCorpus(
+    Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.progressive(Verb("play")),Noun("football")),
+    "They are playing football."
+)
+
+sc.setCorpus(
+    Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.progressive(Verb("play")),Noun("tennis")),
+    "They are playing tennis."
+)
+
+sc.setCorpus(
+    Pronoun.doT(Pronoun.I(),DeterminerV.Necessary(Verb.none()),Noun.haveP(DeterminerN.time(Noun.none()),Verb.none(),Modifier("more"))),
+    "I need more time."
+)
+
+sc.setCorpus(
+    Noun.do(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("dog"))),Verb.add(Verb.progressive(Verb("bark")),Modifier("loudly"))),
+    "The dog is barking loudly."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.do(DeterminerN.plural(Pronoun.I()),Verb.add(Verb("go"),Modifier.AND(Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("beach"))))),Modifier.N2M(DeterminerN.time(Noun("yesterday"))))))),
+    "We went to the beach yesterday."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.do(DeterminerN.plural(Pronoun.I()),Verb.add(Verb("go"),Modifier.AND(Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("park"))))),Modifier.N2M(DeterminerN.time(Noun("yesterday"))))))),
+    "We went to the park yesterday."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.do(DeterminerN.plural(Pronoun.I()),Verb.add(Verb("go"),Modifier.AND(Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("school"))))),Modifier.N2M(DeterminerN.time(Noun("yesterday"))))))),
+    "We went to the school yesterday."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.do(DeterminerN.plural(Pronoun.I()),Verb.add(Verb("go"),Modifier.AND(Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("airport"))))),Modifier.N2M(DeterminerN.time(Noun("yesterday"))))))),
+    "We went to the airport yesterday."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.do(DeterminerN.plural(Pronoun.I()),Verb.add(Verb("go"),Modifier.AND(Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("station"))))),Modifier.N2M(DeterminerN.time(Noun("yesterday"))))))),
+    "We went to the station yesterday."
+)
+sc.setCorpus(
+    Phrase.past(Noun.do(DeterminerN.plural(Pronoun.I()),Verb.add(Verb("go"),Modifier.AND(Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("library"))))),Modifier.N2M(DeterminerN.time(Noun("yesterday"))))))),
+    "We went to the library yesterday."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.do(DeterminerN.plural(Pronoun.I()),Verb.add(Verb("go"),Modifier.AND(Modifier.N2M(DeterminerN.place(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun.eq(Noun("store"),Verb.none(),DeterminerN.affect(Noun("book"))))))),Modifier.N2M(DeterminerN.time(Noun("yesterday"))))))),
+    "We went to the book store yesterday."
+)
+
+sc.setCorpus(
+    Noun.doT(DeterminerN.female(Pronoun.he()),Verb("read"),DeterminerN.many(Noun("book"))),
+    "She reads a lot of books."
+)
+
+sc.setCorpus(
+    Noun.haveP(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("food"))),Verb("smell"),Modifier("delicious")),
+    "The food smells delicious."
+)
+
+sc.setCorpus(
+    Noun.doT(DeterminerN.male(Pronoun.he()),Verb.progressive(Verb("learn")),Noun("spanish")),
+    "He is learning Spanish."
+)
+
+sc.setCorpus(
+    Noun.doT(DeterminerN.female(Pronoun.he()),Verb.progressive(Verb("learn")),Noun("spanish")),
+    "She is learning Spanish."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.haveP(Phrase.past(Noun.doT(Pronoun.I(),Verb("borrow"),DeterminerN.stressed(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("book")))))),Verb.none(),Modifier.Very(Modifier("interesting")))),
+    "The book that I borrowed from the library was very interesting."
+)
+
+sc.setCorpus(
+    Noun.eq(DeterminerN.female(Pronoun.he()),Verb.none(),Phrase.past(Noun.doT(Noun("teacher"),Verb.add(Verb("help"),Modifier.N2M(DeterminerN.affected(DeterminerN.near(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("homework"))))))),Pronoun.I()))),
+    "She is the teacher who helped me with my homework."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(Pronoun.I(),Verb("buy"),Noun.AND(Pronoun("apple"),Noun("banana")))),
+    "I bought an apple and a banana."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(Pronoun.I(),Verb("buy"),Noun.AND(Noun.AND(Pronoun("apple"),Noun("banana")),Noun("peach")))),
+    "I bought an apple, a banana and a peach."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(Pronoun.I(),Verb("buy"),Noun.AND(Noun.AND(Pronoun("apple"),Noun("banana")),Noun.AND(Noun("peach"),Noun("grape"))))),
+    "I bought an apple, a banana, a peach and a grape."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(Pronoun.I(),Verb("buy"),Noun.AND(Noun.AND(Noun.AND(Pronoun("apple"),Noun("banana")),Noun.AND(Noun("peach"),Noun("grape"))),Noun.AND(Noun("orange"),Noun("melon"))))),
+    "I bought an apple, a banana, a peach, a grape, an orange and a melon."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.doT(Pronoun.I(),Verb("buy"),Noun.AND(Noun.AND(Noun.AND(Pronoun("apple"),Noun("banana")),Noun.AND(Noun("peach"),Noun("grape"))),Noun.AND(Noun.AND(Noun("orange"),Noun("melon")),Noun.AND(Noun("strawberry"),Noun("lemon")))))),
+    "I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon."
+)
+
+sub_sentence_12=Phrase.past(Noun.doT(Pronoun.I(),Verb.add(Verb("buy"),Modifier.N2M(Phrase.past(Noun.do(Pronoun.I(),Verb.add(Verb("go"),Modifier.N2M(Noun.AND(DeterminerN.place(Noun("Tokyo")),DeterminerN.time(Noun.haveP(Noun("year"),Verb.none(),Modifier("last")))))))))),Noun.AND(Noun.AND(Noun.AND(Pronoun("apple"),Noun("banana")),Noun.AND(Noun("peach"),Noun("grape"))),Noun.AND(Noun.AND(Noun("orange"),Noun("melon")),Noun.AND(Noun("strawberry"),Noun("lemon"))))))
+sc.setCorpus(
+    sub_sentence_12,
+    "I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year."
+)
+
+sc.setCorpus(
+    Noun.AND(sub_sentence_12,Phrase.past(Noun.doT(Pronoun.I(),Verb("eat"),DeterminerN.all(Pronoun.he())))),
+    "I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I ate them all."
+)
+
+sc.setCorpus(
+    Noun.AND(sub_sentence_12,Phrase.past(Noun.doT(Pronoun.I(),Verb("eat"),DeterminerN.all(Pronoun.he())))),
+    "I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I ate them all."
+)
+
+sub_sentence_13=Noun.AND(sub_sentence_12,Phrase.past(Noun.doT(Noun.AND(Pronoun.I(),Noun("Mary")),Verb("eat"),DeterminerN.all(Pronoun.he()))))
+sc.setCorpus(
+    sub_sentence_13,
+    "I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all."
+)
+
+sc.setCorpus(
+    Noun.AND(sub_sentence_13,Noun.haveP(DeterminerN.plural(Pronoun.I()),Verb.none(),Modifier("happy"))),
+    "I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we are happy."
+)
+
+sub_sentence_14=Noun.AND(sub_sentence_13,Phrase.past(Noun.haveP(DeterminerN.plural(Pronoun.I()),Verb.none(),Modifier("happy"))))
+sc.setCorpus(
+    sub_sentence_14,
+    "I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy."
+)
+
+sc.setCorpus(
+    Noun.But(sub_sentence_14,Noun.Because(Phrase.past(Noun.haveP(Noun("Eric"),Verb.none(),Modifier("sad"))),Phrase.past(Noun.doT(DeterminerN.male(Pronoun.he()),Verb.NOT(DeterminerV.Possible(Verb("eat"))),DeterminerN.plural(Pronoun.he()))))),
+    "I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric was sad because he could not eat them."
+)
+
+sc.setCorpus(
+    Noun.But(sub_sentence_14,Noun.Because(Phrase.past(Noun.haveP(Noun.AND(Noun("Eric"),Noun("Ken")),Verb.none(),Modifier("sad"))),Phrase.past(Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.NOT(DeterminerV.Possible(Verb("eat"))),DeterminerN.plural(Pronoun.he()))))),
+    "I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric and Ken were sad because they could not eat them."
+)
+
+sc.setCorpus(
+    Noun.But(sub_sentence_14,Noun.Because(Phrase.past(Noun.haveP(Noun.AND(Noun.AND(Noun("Eric"),Noun("Ken")),Noun("John")),Verb.none(),Modifier("sad"))),Phrase.past(Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.NOT(DeterminerV.Possible(Verb("eat"))),DeterminerN.plural(Pronoun.he()))))),
+    "I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken and John were sad because they could not eat them."
+)
+
+sub_sentence_15=Noun.But(sub_sentence_14,Noun.Because(Phrase.past(Noun.haveP(Noun.AND(Noun.AND(Noun("Eric"),Noun("Ken")),Noun.AND(Noun("John"),Noun("Emma"))),Verb.none(),Modifier("sad"))),Phrase.past(Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.NOT(DeterminerV.Possible(Verb("eat"))),DeterminerN.plural(Pronoun.he())))))
+sc.setCorpus(
+    sub_sentence_15,
+    "I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them."
+)
+
+sub_sentence_16=Phrase.past(Noun.doT(Noun.have(Noun("Tom"),Verb.none(),DeterminerN.stressed(Noun.eq(Noun("post"),Verb.none(),DeterminerN.affect(Noun("blog"))))),Verb("say"),sub_sentence_15))
+sc.setCorpus(
+    sub_sentence_16,
+    "Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'."
+)
+
+sc.setCorpus(
+    Noun.hearSay(Pronoun.I(),Verb.none(),sub_sentence_16,Noun("Alice")),
+    "According to Alice, I hear, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\"."
+)
+
+sc.setCorpus(
+    Noun.hearSay(Pronoun.you(),Verb.none(),sub_sentence_16,Noun("Alice")),
+    "According to Alice, you hear, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\"."
+)
+
+sc.setCorpus(
+    Noun.hearSay(Noun("Noah"),Verb.none(),sub_sentence_16,Noun("Alice")),
+    "According to Alice, Noah hear, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\"."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.hearSay(Pronoun.I(),Verb.none(),sub_sentence_16,Noun("Alice"))),
+    "According to Alice, I heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\"."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.hearSay(Pronoun.you(),Verb.none(),sub_sentence_16,Noun("Alice"))),
+    "According to Alice, you heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\"."
+)
+
+sub_sentence_17=Phrase.past(Noun.hearSay(Noun("Noah"),Verb.none(),sub_sentence_16,Noun("Alice")))
+sc.setCorpus(
+    sub_sentence_17,
+    "According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\"."
+)
+
+sc.setCorpus(
+    Noun.So(sub_sentence_17,Phrase.past(Noun.doT(DeterminerN.male(Pronoun.he()),Verb.NOT(Verb("know")),Pronoun.he()))),
+    "According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", so he didn't know it."
+)
+
+sc.setCorpus(
+    Noun.But(sub_sentence_17,Phrase.past(Noun.doT(DeterminerN.male(Pronoun.he()),Verb.perfective(Verb("know")),Pronoun.he()))),
+    "According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it."
+)
+
+sc.setCorpus(
+    Noun.But(sub_sentence_17,Phrase.past(Noun.doT(DeterminerN.male(Pronoun.he()),Verb.add(Verb.perfective(Verb("know")),Modifier.N2M(DeterminerN.time(Phrase.past(Noun.do(DeterminerN.male(Pronoun.he()),Verb.add(Verb("go"),Modifier.N2M(DeterminerN.place(Noun.belong(DeterminerN.male(Pronoun.he()),Verb.none(),DeterminerN.stressed(Noun("school"))))))))))),Pronoun.he()))),
+    "According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school."
+)
+
+sc.setCorpus(
+    Noun.But(sub_sentence_17,Phrase.past(Noun.doT(DeterminerN.male(Pronoun.he()),Verb.add(Verb.perfective(Verb("know")),Modifier.N2M(DeterminerN.time(Phrase.past(Noun.do(DeterminerN.male(Pronoun.he()),Verb.add(Verb("go"),Noun.AND(Modifier.N2M(DeterminerN.place(Noun.belong(DeterminerN.male(Pronoun.he()),Verb.none(),DeterminerN.stressed(Noun("school"))))),Modifier.N2M(DeterminerN.time(Noun.haveP(Noun("month"),Verb.none(),Modifier("last"))))))))))),DeterminerN.thing(Pronoun.he())))),
+    "According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school last month."
+)
+
+sub_sentence_18=Noun.But(sub_sentence_17,Phrase.past(Noun.doT(DeterminerN.male(Pronoun.he()),Verb.add(Verb.perfective(Verb("know")),Modifier.N2M(DeterminerN.time(Phrase.past(Noun.do(DeterminerN.male(Pronoun.he()),Verb.add(Verb("go"),Noun.AND(Modifier.N2M(DeterminerN.place(Noun.belong(DeterminerN.male(Pronoun.he()),Verb.add(Verb.none(),Modifier.N2M(DeterminerN.place(Noun("Osaka")))),DeterminerN.stressed(Noun("school"))))),Modifier.N2M(DeterminerN.time(Noun.haveP(Noun("month"),Verb.none(),Modifier("last"))))))))))),DeterminerN.thing(Pronoun.he()))))
+sc.setCorpus(
+    sub_sentence_18,
+    "According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school in Osaka last month."
+)
+
+sc.setCorpus(
+    Noun.AND(sub_sentence_18,Noun.have(Pronoun.I(),Verb.none(),Noun.eq(DeterminerN.thing(Pronoun.he()),Verb.none(),Noun("information")))),
+    "According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school in Osaka last month, I have the information."
+)
+
+sc.setCorpus(
+    Noun.AND(sub_sentence_18,Noun.have(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("company"))),Verb.none(),Noun.eq(DeterminerN.thing(Pronoun.he()),Verb.none(),Noun("information")))),
+    "According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school in Osaka last month, My company has the information."
+)
+
+sc.setCorpus(
+    Noun.AND(sub_sentence_18,Noun.have(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Phrase.past(Noun.do(Noun("company"),Verb.add(Verb("found"),Modifier.N2M(DeterminerN.time(Noun("2010")))))))),Verb.none(),Noun.eq(DeterminerN.thing(Pronoun.he()),Verb.none(),Noun("information")))),
+    "According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school in Osaka last month, My company, founded in 2010, has the information."
+)
+
+sub_sentence_19=Noun.AND(sub_sentence_18,Noun.have(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Phrase.past(Noun.do(Noun("company"),Verb.add(Verb("found"),Modifier.AND(Modifier.N2M(DeterminerN.time(Noun("2010"))),Modifier.N2M(DeterminerN.place(Noun("Yokohama"))))))))),Verb.none(),Noun.eq(DeterminerN.thing(Pronoun.he()),Verb.none(),Noun("information"))))
+sc.setCorpus(
+    sub_sentence_19,
+    "According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school in Osaka last month, My company, founded in 2010 in Yokohama, has the information."
+)
+
+sc.setCorpus(
+    Noun.give(Pronoun.I(),Verb("tell"),Pronoun.you(),sub_sentence_19),
+    "I tell you \'According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school in Osaka last month, My company, founded in 2010 in Yokohama, has the information.\'."
+)
+
+sc.setCorpus(
+    Noun.give(Pronoun.I(),Verb("tell"),Noun.AND(Pronoun.you(),Noun("Mike")),sub_sentence_19),
+    "I tell you and Mike \'According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school in Osaka last month, My company, founded in 2010 in Yokohama, has the information.\'."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.give(Pronoun.I(),Verb("tell"),Noun.AND(Pronoun.you(),Noun("Mike")),sub_sentence_19)),
+    "I told you and Mike \'According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school in Osaka last month, My company, founded in 2010 in Yokohama, has the information.\'."
+)
+
+sc.setCorpus(
+    Phrase.past(Noun.give(Pronoun.I(),Verb("tell"),Noun.AND(Noun.AND(Pronoun.you(),Noun("Mike")),Noun("Ariel")),sub_sentence_19)),
+    "I told you, Mike and Ariel \'According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school in Osaka last month, My company, founded in 2010 in Yokohama, has the information.\'."
+)
+
+sub_sentence_20=Phrase.past(Noun.give(Pronoun.I(),Verb("tell"),Noun.AND(Noun.AND(Pronoun.you(),Noun("Mike")),Noun.AND(Noun("Ariel"),Noun("Ellie"))),sub_sentence_19))
+sc.setCorpus(
+    sub_sentence_20,
+    "I told you, Mike, Ariel and Ellie \'According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school in Osaka last month, My company, founded in 2010 in Yokohama, has the information.\'."
+)
+
+sc.setCorpus(
+    Noun.AND(sub_sentence_20,Phrase.past(Noun.haveP(DeterminerN.plural(Pronoun.he()),Verb.none(),Modifier("surprised")))),
+    "I told you, Mike, Ariel and Ellie \'According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school in Osaka last month, My company, founded in 2010 in Yokohama, has the information.\', they were surprised."
+)
+
+sc.setCorpus(
+    Noun.AND(sub_sentence_20,Phrase.past(Noun.haveP(DeterminerN.plural(Pronoun.he()),Verb.none(),Modifier.V2M(Verb.passive(Verb("surprise")))))),
+    "I told you, Mike, Ariel and Ellie \'According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school in Osaka last month, My company, founded in 2010 in Yokohama, has the information.\', they were surprised."
+)
+
+
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)
 
