@@ -71,9 +71,9 @@ The following sentence represents "Japan has 125416877 people." in the SFGPL.
 mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil bil
 ```
 
-### Four arithmetic operations
+### Numeric calculation
 
-Then, as shown in the following table, there are functions in NumberList that perform the four arithmetic operations.
+As shown in the following table, NumberList has functions that perform numerical calculations such as four arithmetic operations.
 
 ||SFGPL|
 |:-:|:-:|
@@ -81,6 +81,9 @@ Then, as shown in the following table, there are functions in NumberList that pe
 |Subtraction|tel|
 |Multiplication|til|
 |Division|tul|
+|Power|dal|
+|Int Division|del|
+|Remainder|dil|
 
 ### How to handle real numbers
 
@@ -93,17 +96,29 @@ tul mil pul pel pol mil pel pal pal
 
 ### Interconversion between BoolList and NumberList
 
-In addition, there are functions that convert integer BoolList and NumberList into each other, as shown in the table below.
+As shown in the following table, there are functions that convert BoolList and NumberList into each other.
 
-|SFGPL|from|to|
-|:-:|:-:|:-:|
-|tol|NumberList|BoolList|
-|tos|BoolList|NumberList|
+|Type|SFGPL|from|to|
+|:-:|:-:|:-:|:-:|
+|Int|tol|NumberList|BoolList|
+|Int|tos|BoolList|NumberList|
+|Float|dol|NumberList|BoolList|
+|Float|dos|BoolList|NumberList|
 
+#### Mutual Conversion in Integer Types
+
+There are ```tol``` and ```tos``` functions that convert each other as integers.
 The numeric values handled by these conversions consider the BoolList as an integer type (```tes```).
 In other words, the value of the BoolList is equivalent to the two's complement representation of a binary number.
 These values can also be adapted if numerical calculations, such as four arithmetic operations, are performed by NumberList.
 However, if NumberList is a real number due to the result of division, etc., the conversion cannot be performed and an error occurs.
+
+#### Mutual Conversion in Floating-Point Type (Real Number)
+
+There are ```dol``` and ```dos``` that convert each other as floating-point (real) numbers.
+The numbers handled by these conversions consider BoolList as a floating-point type (```tis```).
+In other words, the BoolList values in this case use the half-precision, single-precision, double-precision, and quadruple-precision floating-point representation methods in IEEE754.
+When converting from NumberList to BoolList, it is converted as a 64-bit double-precision floating-point number and stored in BoolList.
 
 ## Wordbook
 

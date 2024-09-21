@@ -1,7 +1,7 @@
 ---
 title: Introduction to the SFGPL
 author: Eruhitsuji
-date: 2024-09-20
+date: 2024-09-21
 ---
 
 <div class="tex_part" text="Overview and basic grammar of the SFGPL"></div>
@@ -2155,9 +2155,9 @@ The following sentence represents "Japan has 125416877 people." in the SFGPL.
 mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil bil
 ```
 
-### Four arithmetic operations
+### Numeric calculation
 
-Then, as shown in the following table, there are functions in NumberList that perform the four arithmetic operations.
+As shown in the following table, NumberList has functions that perform numerical calculations such as four arithmetic operations.
 
 ||SFGPL|
 |:-:|:-:|
@@ -2165,6 +2165,9 @@ Then, as shown in the following table, there are functions in NumberList that pe
 |Subtraction|tel|
 |Multiplication|til|
 |Division|tul|
+|Power|dal|
+|Int Division|del|
+|Remainder|dil|
 
 ### How to handle real numbers
 
@@ -2177,17 +2180,29 @@ tul mil pul pel pol mil pel pal pal
 
 ### Interconversion between BoolList and NumberList
 
-In addition, there are functions that convert integer BoolList and NumberList into each other, as shown in the table below.
+As shown in the following table, there are functions that convert BoolList and NumberList into each other.
 
-|SFGPL|from|to|
-|:-:|:-:|:-:|
-|tol|NumberList|BoolList|
-|tos|BoolList|NumberList|
+|Type|SFGPL|from|to|
+|:-:|:-:|:-:|:-:|
+|Int|tol|NumberList|BoolList|
+|Int|tos|BoolList|NumberList|
+|Float|dol|NumberList|BoolList|
+|Float|dos|BoolList|NumberList|
 
+#### Mutual Conversion in Integer Types
+
+There are ```tol``` and ```tos``` functions that convert each other as integers.
 The numeric values handled by these conversions consider the BoolList as an integer type (```tes```).
 In other words, the value of the BoolList is equivalent to the two's complement representation of a binary number.
 These values can also be adapted if numerical calculations, such as four arithmetic operations, are performed by NumberList.
 However, if NumberList is a real number due to the result of division, etc., the conversion cannot be performed and an error occurs.
+
+#### Mutual Conversion in Floating-Point Type (Real Number)
+
+There are ```dol``` and ```dos``` that convert each other as floating-point (real) numbers.
+The numbers handled by these conversions consider BoolList as a floating-point type (```tis```).
+In other words, the BoolList values in this case use the half-precision, single-precision, double-precision, and quadruple-precision floating-point representation methods in IEEE754.
+When converting from NumberList to BoolList, it is converted as a 64-bit double-precision floating-point number and stored in BoolList.
 
 ## Wordbook
 
@@ -2525,6 +2540,7 @@ See [dict.csv](https://github.com/Eruhitsuji/SFGPL/blob/main/dict.csv) for detai
 |166|das|```BoolList.UnixTimeD```|das A|BoolListを日単位のUnixTimeとする|BoolList as UnixTime in days|
 |167|des|```BoolList.UnixTimeDT```|des A|BoolListを秒単位のUnixTimeとする|BoolList as UnixTime in seconds|
 |168|dis|```BoolList.UnixTimeDTN```|dis A|BoolListをナノ秒単位のUnixTimeとする|BoolList as UnixTime in nanoseconds|
+|169|dos|```BoolList.FloatBL2NL```|dos A|浮動小数点の実数のBoolListをNumberListに変換する|Convert an Floating-point real numbers BoolList to a NumberList|
 |169|pat|```LangFunc.setFunc```|pat A B|あるLangListを引数とするAという名前のBを返す関数を設定する|Set up a function that returns B named A with a certain LangList as an argument.|
 |170|pit|```LangFunc.arg```|pit|```LangFunc.setFunc()```の引数用に使用する|Used for ```LangFunc.setFunc()``` arguments|
 |171|pot|```LangFunc.runFunc```|pot A B|設定したAという名前のLangFuncを引数Bとして実行する|Execute the configured LangFunc named A with argument B|
@@ -2564,9 +2580,13 @@ See [dict.csv](https://github.com/Eruhitsuji/SFGPL/blob/main/dict.csv) for detai
 |205|til|```NumberList.calcMul```|til A B|2つのNumberListに対して乗算をする|Perform multiplication on two NumberLists|
 |206|tul|```NumberList.calcDiv```|tul A B|2つのNumberListに対して除算をする|Perform division on two NumberLists|
 |207|tol|```NumberList.IntNL2BL```|tol A|整数のNumberListをBoolListに変換する|Convert an integer NumberList to a BoolList|
-|208|sal|```NumberList.isPN```|sal A|正の数かを判定する|Determine if it is a positive number|
-|209|sel|```NumberList.minus```|sel A|符号を反転させる|Reversing the sign|
-|210|sil|```NumberList.abs```|sil A|整数の絶対値を取得する|Obtaining the absolute value of an integer|
+|208|dal|```NumberList.calcPow```|dal A B|2つのNumberListに対して累乗をする|Performs a power over two NumberLists|
+|209|del|```NumberList.calcIntDiv```|del A B|2つのNumberListに対して整数除算をする|Perform integer division on two NumberLists|
+|210|dil|```NumberList.calcMod```|dil A B|2つのNumberListに対して剰余をする|Performs remainder with respect to two NumberLists|
+|211|dol|```NumberList.FloatNL2BL```|dol A|浮動小数点の実数のNumberListをBoolListに変換する|Convert a Floating-point real numbers NumberList to a BoolList|
+|212|sal|```NumberList.isPN```|sal A|正の数かを判定する|Determine if it is a positive number|
+|213|sel|```NumberList.minus```|sel A|符号を反転させる|Reversing the sign|
+|214|sil|```NumberList.abs```|sil A|整数の絶対値を取得する|Obtaining the absolute value of an integer|
 
 
 # 25. About version
@@ -2674,4 +2694,5 @@ The content of updates due to changes in version names is based on the following
 |7.3.0|Add a Unix time and various floating point numbers in BoolList|
 |7.3.1|Add and modify to documents|
 |7.3.2|Add and modify to documents|
+|7.4.0|Additional floating point conversions between BoolList and NumberList, additional operation types for NumberList|
 

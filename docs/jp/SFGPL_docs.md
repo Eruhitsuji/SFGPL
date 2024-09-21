@@ -1,7 +1,7 @@
 ---
 title: SFGPL入門
 author: Eruhitsuji
-date: 2024-09-20
+date: 2024-09-21
 ---
 
 <div class="tex_part" text="SFGPLの概要と基礎的な文法"></div>
@@ -2160,9 +2160,9 @@ mi ga so ma fa 'apple' so mel pel bal
 mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil bil
 ```
 
-### 四則演算
+### 数値計算
 
-そして，次の表のようにNumberListでは四則演算を行う関数が存在する．
+そして，次の表のようにNumberListでは四則演算等の数値計算を行う関数が存在する．
 
 ||SFGPL|
 |:-:|:-:|
@@ -2170,6 +2170,9 @@ mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil b
 |Subtraction|tel|
 |Multiplication|til|
 |Division|tul|
+|Power|dal|
+|Int Division|del|
+|Remainder|dil|
 
 ### 実数の扱い方
 
@@ -2182,17 +2185,29 @@ tul mil pul pel pol mil pel pal pal
 
 ### BoolListとNumberListの相互変換
 
-加えて，次の表のように整数のBoolListとNumberListを相互に変換する関数が存在する．
+次の表のようにBoolListとNumberListを相互に変換する関数が存在する．
 
-|SFGPL|from|to|
-|:-:|:-:|:-:|
-|tol|NumberList|BoolList|
-|tos|BoolList|NumberList|
+|Type|SFGPL|from|to|
+|:-:|:-:|:-:|:-:|
+|Int|tol|NumberList|BoolList|
+|Int|tos|BoolList|NumberList|
+|Float|dol|NumberList|BoolList|
+|Float|dos|BoolList|NumberList|
 
+#### 整数型における相互変換
+
+整数として相互変換する関数```tol```と```tos```が存在する．
 これらの変換で扱われる数値は，BoolListを整数型(```tes```)として見做される．
 つまり，このときのBoolListの値は，2進数の2の補数表現方法と同等である．
 これらの値は，NumberListによって，四則演算等の数値計算が行われた場合も適応できる．
 ただし，NumberListが除算結果などにより実数となっている場合は，変換ができずエラーとなる．
+
+#### 浮動小数点型（実数）における相互変換
+
+浮動小数点（実数）として相互変換する関数```dol```と```dos```が存在する．
+これらの変換で扱われる数値は，BoolListを浮動小数点型(```tis```)として見做される．
+つまり，このときのBoolListの値は，IEEE754における半精度，単精度，倍精度，四倍精度の浮動小数点表現方法が用いられる．
+また，NumberListからBoolListに変換する際には，64bitの倍精度浮動小数点数として変換され，BoolListに格納される．
 
 ## 単語集
 
@@ -2530,6 +2545,7 @@ me mi ga so san fa 'sak' so la 'ruĝ'
 |166|das|```BoolList.UnixTimeD```|das A|BoolListを日単位のUnixTimeとする|BoolList as UnixTime in days|
 |167|des|```BoolList.UnixTimeDT```|des A|BoolListを秒単位のUnixTimeとする|BoolList as UnixTime in seconds|
 |168|dis|```BoolList.UnixTimeDTN```|dis A|BoolListをナノ秒単位のUnixTimeとする|BoolList as UnixTime in nanoseconds|
+|169|dos|```BoolList.FloatBL2NL```|dos A|浮動小数点の実数のBoolListをNumberListに変換する|Convert an Floating-point real numbers BoolList to a NumberList|
 |169|pat|```LangFunc.setFunc```|pat A B|あるLangListを引数とするAという名前のBを返す関数を設定する|Set up a function that returns B named A with a certain LangList as an argument.|
 |170|pit|```LangFunc.arg```|pit|```LangFunc.setFunc()```の引数用に使用する|Used for ```LangFunc.setFunc()``` arguments|
 |171|pot|```LangFunc.runFunc```|pot A B|設定したAという名前のLangFuncを引数Bとして実行する|Execute the configured LangFunc named A with argument B|
@@ -2569,9 +2585,13 @@ me mi ga so san fa 'sak' so la 'ruĝ'
 |205|til|```NumberList.calcMul```|til A B|2つのNumberListに対して乗算をする|Perform multiplication on two NumberLists|
 |206|tul|```NumberList.calcDiv```|tul A B|2つのNumberListに対して除算をする|Perform division on two NumberLists|
 |207|tol|```NumberList.IntNL2BL```|tol A|整数のNumberListをBoolListに変換する|Convert an integer NumberList to a BoolList|
-|208|sal|```NumberList.isPN```|sal A|正の数かを判定する|Determine if it is a positive number|
-|209|sel|```NumberList.minus```|sel A|符号を反転させる|Reversing the sign|
-|210|sil|```NumberList.abs```|sil A|整数の絶対値を取得する|Obtaining the absolute value of an integer|
+|208|dal|```NumberList.calcPow```|dal A B|2つのNumberListに対して累乗をする|Performs a power over two NumberLists|
+|209|del|```NumberList.calcIntDiv```|del A B|2つのNumberListに対して整数除算をする|Perform integer division on two NumberLists|
+|210|dil|```NumberList.calcMod```|dil A B|2つのNumberListに対して剰余をする|Performs remainder with respect to two NumberLists|
+|211|dol|```NumberList.FloatNL2BL```|dol A|浮動小数点の実数のNumberListをBoolListに変換する|Convert a Floating-point real numbers NumberList to a BoolList|
+|212|sal|```NumberList.isPN```|sal A|正の数かを判定する|Determine if it is a positive number|
+|213|sel|```NumberList.minus```|sel A|符号を反転させる|Reversing the sign|
+|214|sil|```NumberList.abs```|sil A|整数の絶対値を取得する|Obtaining the absolute value of an integer|
 
 
 # 25. バージョンについて
@@ -2678,4 +2698,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |7.3.0|BoolListにおけるUnix時間と様々な浮動小数点数の対応|
 |7.3.1|ドキュメントの追加・修正|
 |7.3.2|ドキュメントの追加・修正|
+|7.4.0|BoolListとNumberList間の浮動小数点の変換の追加，NumberListの演算種類の追加|
 

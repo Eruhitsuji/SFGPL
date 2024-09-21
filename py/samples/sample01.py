@@ -3098,6 +3098,74 @@ sc.setCorpus(
     "I told you, Mike, Ariel and Ellie \'According to Alice, Noah heard, that \"Tom's blog post said \'I bought an apple, a banana, a peach, a grape, an orange, a melon, a strawberry and lemon, when I went in Tokyo last year, I and Mary ate them all, we were happy, but Eric, Ken, John and Emma were sad because they could not eat them.\'\", but he has know it, when he went to his school in Osaka last month, My company, founded in 2010 in Yokohama, has the information.\', they were surprised."
 )
 
+num_1=NumberList.digit1(Number.one())
+num_2=NumberList.digit1(Number.two())
+num_3=NumberList.digit1(Number.three())
+num_5=NumberList.digit1(Number.five())
+num_7=NumberList.digit1(Number.seven())
+num_13=NumberList.digit2(Number.one(),Number.three())
+
+sc.setCorpus(
+    NumberList.calcPow(num_2,num_5),
+    "2**5=32"
+)
+
+sc.setCorpus(
+    NumberList.calcPow(num_5,num_2),
+    "5**2=25"
+)
+
+sc.setCorpus(
+    NumberList.calcIntDiv(num_5,num_2),
+    "5//2=2"
+)
+
+sc.setCorpus(
+    NumberList.calcMod(num_5,num_2),
+    "5%2=1"
+)
+
+sc.setCorpus(
+    NumberList.calcIntDiv(num_7,num_2),
+    "7//2=3"
+)
+
+sc.setCorpus(
+    NumberList.calcMod(num_7,num_2),
+    "7%2=1"
+)
+
+num_1_per_3=NumberList.calcDiv(num_1,num_3)
+sc.setCorpus(
+    num_1_per_3,
+    "1/3=0.3333..."
+)
+
+sc.setCorpus(
+    NumberList.FloatNL2BL(num_1_per_3),
+    "1/3 in BoolList."
+)
+
+sc.setCorpus(
+    BoolList.FloatBL2NL(NumberList.FloatNL2BL(num_1_per_3)),
+    "1/3 represented by BoolList back to NumberList."
+)
+
+num_1_per_7=NumberList.calcDiv(num_1,num_7)
+sc.setCorpus(
+    num_1_per_7,
+    "1/7=0.14285..."
+)
+
+sc.setCorpus(
+    NumberList.FloatNL2BL(num_1_per_3),
+    "1/7 in BoolList."
+)
+
+sc.setCorpus(
+    BoolList.FloatBL2NL(NumberList.FloatNL2BL(num_1_per_3)),
+    "1/7 represented by BoolList back to NumberList."
+)
 
 tmp_str=sc.toStringSFGPL(opt_str="\n")
 print(tmp_str)

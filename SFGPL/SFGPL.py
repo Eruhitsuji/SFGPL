@@ -10,6 +10,7 @@ import sys
 import os
 import collections
 import copy
+import struct
 
 #SFGPL version
 SFGPL_VERSION=SFGPL.__version__.__version__
@@ -2314,6 +2315,37 @@ class BoolList(_BaseList):
             return BoolList.append(BoolList(),Bool.false())
         else:
             return None
+        
+    @staticmethod
+    def convBytes2BL(py_bool_list:list):
+        def BLAdd(add_list:list):
+            add_list_len=len(add_list)
+            if(add_list_len<=0):
+                return None
+            elif(add_list_len==1):
+                return add_list
+            elif(add_list_len==2):
+                return BoolList.add(add_list[0],add_list[1])
+            else:
+                mid=add_list_len//2
+                return BoolList.add(BLAdd(add_list[:mid]),BLAdd(add_list[mid:]))
+        
+        if(len(py_bool_list)%8!=0):
+            return None
+        
+        tmp_list=[]
+        for i in range(0,len(py_bool_list),8):
+            tmp_list.append(BoolList.byte(*[Bool.true() if item else Bool.false() for item in py_bool_list[i:i+8]]))
+        return BLAdd(tmp_list)
+    
+    @staticmethod
+    def _float2BLList(value:float):
+        bits=struct.unpack('>Q',struct.pack('>d',value))[0]
+        return [(bits>>i)&1==1 for i in range(63,-1,-1)]
+    
+    @staticmethod
+    def float64Number2BoolListObj(value:float):
+        return BoolList.convBytes2BL(BoolList._float2BLList(value))
 
     def getData(self,flag_conv_unix_time_str:bool=False):
         if(self.__class_type==None):
@@ -2576,6 +2608,20 @@ class BoolList(_BaseList):
             lang_list=a.getBoolList()
             class_type=BoolList.CLASS_TYPE_UNIX_TIME_DTN
             return BoolList(arg=arg,lang_list=lang_list,class_type=class_type)
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
+    def FloatBL2NL(a):
+        func_str="BoolList.FloatBL2NL"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return NumberList(arg,func_mode=True)
+        elif(isinstance(a,BoolList)):
+            number=a.__getFloat()
+            return NumberList(arg=arg,number=number)
         else:
             LangObj.printTypeError(arg)
 
@@ -3253,6 +3299,63 @@ class NumberList(_BaseList):
                 return BoolList(arg=arg,lang_list=lang_list)
             else:
                 print(SFGPLError.NUMBERLIST_IntNL2BL_FLOAT_ERROR(arg))
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
+    def calcPow(a,b):
+        func_str="NumberList.calcPow"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return NumberList(arg,func_mode=True)
+        elif(isinstance(a,NumberList) and isinstance(b,NumberList)):
+            number=a.getNumber()**b.getNumber()
+            return NumberList(arg=arg,number=number)
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
+    def calcIntDiv(a,b):
+        func_str="NumberList.calcIntDiv"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return NumberList(arg,func_mode=True)
+        elif(isinstance(a,NumberList) and isinstance(b,NumberList)):
+            number=a.getNumber()//b.getNumber()
+            return NumberList(arg=arg,number=number)
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
+    def calcMod(a,b):
+        func_str="NumberList.calcMod"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a,b]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return NumberList(arg,func_mode=True)
+        elif(isinstance(a,NumberList) and isinstance(b,NumberList)):
+            number=a.getNumber()%b.getNumber()
+            return NumberList(arg=arg,number=number)
+        else:
+            LangObj.printTypeError(arg)
+
+    @staticmethod
+    def FloatNL2BL(a):
+        func_str="NumberList.FloatNL2BL"
+        key=LangObj._getKeyOfDict(func_str)
+        arg=[key,a]
+        
+        if(LangObj._isFuncModeOfArgs(arg)):
+            return BoolList(arg,func_mode=True)
+        elif(isinstance(a,NumberList)):
+            number=a.getNumber()
+            lang_list=BoolList._float2BLList(float(number))
+            return BoolList(arg=arg,lang_list=lang_list)
         else:
             LangObj.printTypeError(arg)
 

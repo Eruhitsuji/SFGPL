@@ -67,9 +67,9 @@ SFGPLで，"I have five apples."を表すには次のようにする．
 {Japan_has_125416877_people}
 ```
 
-### 四則演算
+### 数値計算
 
-そして，次の表のようにNumberListでは四則演算を行う関数が存在する．
+そして，次の表のようにNumberListでは四則演算等の数値計算を行う関数が存在する．
 
 ||SFGPL|
 |:-:|:-:|
@@ -77,6 +77,9 @@ SFGPLで，"I have five apples."を表すには次のようにする．
 |Subtraction|{NumberList_calcSub}|
 |Multiplication|{NumberList_calcMul}|
 |Division|{NumberList_calcDiv}|
+|Power|{NumberList_calcPow}|
+|Int Division|{NumberList_calcIntDiv}|
+|Remainder|{NumberList_calcMod}|
 
 ### 実数の扱い方
 
@@ -89,17 +92,29 @@ SFGPLで，"I have five apples."を表すには次のようにする．
 
 ### BoolListとNumberListの相互変換
 
-加えて，次の表のように整数のBoolListとNumberListを相互に変換する関数が存在する．
+次の表のようにBoolListとNumberListを相互に変換する関数が存在する．
 
-|SFGPL|from|to|
-|:-:|:-:|:-:|
-|{NumberList_IntNL2BL}|NumberList|BoolList|
-|{BoolList_IntBL2NL}|BoolList|NumberList|
+|Type|SFGPL|from|to|
+|:-:|:-:|:-:|:-:|
+|Int|{NumberList_IntNL2BL}|NumberList|BoolList|
+|Int|{BoolList_IntBL2NL}|BoolList|NumberList|
+|Float|{NumberList_FloatNL2BL}|NumberList|BoolList|
+|Float|{BoolList_FloatBL2NL}|BoolList|NumberList|
 
+#### 整数型における相互変換
+
+整数として相互変換する関数```{NumberList_IntNL2BL}```と```{BoolList_IntBL2NL}```が存在する．
 これらの変換で扱われる数値は，BoolListを整数型(```{BoolList_Int}```)として見做される．
 つまり，このときのBoolListの値は，2進数の2の補数表現方法と同等である．
 これらの値は，NumberListによって，四則演算等の数値計算が行われた場合も適応できる．
 ただし，NumberListが除算結果などにより実数となっている場合は，変換ができずエラーとなる．
+
+#### 浮動小数点型（実数）における相互変換
+
+浮動小数点（実数）として相互変換する関数```{NumberList_FloatNL2BL}```と```{BoolList_FloatBL2NL}```が存在する．
+これらの変換で扱われる数値は，BoolListを浮動小数点型(```{BoolList_Float}```)として見做される．
+つまり，このときのBoolListの値は，IEEE754における半精度，単精度，倍精度，四倍精度の浮動小数点表現方法が用いられる．
+また，NumberListからBoolListに変換する際には，64bitの倍精度浮動小数点数として変換され，BoolListに格納される．
 
 ## 単語集
 

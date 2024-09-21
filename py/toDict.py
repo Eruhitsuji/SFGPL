@@ -26,9 +26,10 @@ def readWordListCSV():
                     row[tik]=int(row[tik])
                 except ValueError:
                     row_include_flag=False
-            
             if(row_include_flag):
                 dl[row[KEYS_KEY]]=row
+            else:
+                print(f"error : {row['func']}")
     return dl
 
 dl=readWordListCSV()

@@ -67,9 +67,9 @@ The following sentence represents "Japan has 125416877 people." in the SFGPL.
 {Japan_has_125416877_people}
 ```
 
-### Four arithmetic operations
+### Numeric calculation
 
-Then, as shown in the following table, there are functions in NumberList that perform the four arithmetic operations.
+As shown in the following table, NumberList has functions that perform numerical calculations such as four arithmetic operations.
 
 ||SFGPL|
 |:-:|:-:|
@@ -77,6 +77,9 @@ Then, as shown in the following table, there are functions in NumberList that pe
 |Subtraction|{NumberList_calcSub}|
 |Multiplication|{NumberList_calcMul}|
 |Division|{NumberList_calcDiv}|
+|Power|{NumberList_calcPow}|
+|Int Division|{NumberList_calcIntDiv}|
+|Remainder|{NumberList_calcMod}|
 
 ### How to handle real numbers
 
@@ -89,17 +92,29 @@ For example, 3.14 can be expressed as follows.
 
 ### Interconversion between BoolList and NumberList
 
-In addition, there are functions that convert integer BoolList and NumberList into each other, as shown in the table below.
+As shown in the following table, there are functions that convert BoolList and NumberList into each other.
 
-|SFGPL|from|to|
-|:-:|:-:|:-:|
-|{NumberList_IntNL2BL}|NumberList|BoolList|
-|{BoolList_IntBL2NL}|BoolList|NumberList|
+|Type|SFGPL|from|to|
+|:-:|:-:|:-:|:-:|
+|Int|{NumberList_IntNL2BL}|NumberList|BoolList|
+|Int|{BoolList_IntBL2NL}|BoolList|NumberList|
+|Float|{NumberList_FloatNL2BL}|NumberList|BoolList|
+|Float|{BoolList_FloatBL2NL}|BoolList|NumberList|
 
+#### Mutual Conversion in Integer Types
+
+There are ```{NumberList_IntNL2BL}``` and ```{BoolList_IntBL2NL}``` functions that convert each other as integers.
 The numeric values handled by these conversions consider the BoolList as an integer type (```{BoolList_Int}```).
 In other words, the value of the BoolList is equivalent to the two's complement representation of a binary number.
 These values can also be adapted if numerical calculations, such as four arithmetic operations, are performed by NumberList.
 However, if NumberList is a real number due to the result of division, etc., the conversion cannot be performed and an error occurs.
+
+#### Mutual Conversion in Floating-Point Type (Real Number)
+
+There are ```{NumberList_FloatNL2BL}``` and ```{BoolList_FloatBL2NL}``` that convert each other as floating-point (real) numbers.
+The numbers handled by these conversions consider BoolList as a floating-point type (```{BoolList_Float}```).
+In other words, the BoolList values in this case use the half-precision, single-precision, double-precision, and quadruple-precision floating-point representation methods in IEEE754.
+When converting from NumberList to BoolList, it is converted as a 64-bit double-precision floating-point number and stored in BoolList.
 
 ## Wordbook
 

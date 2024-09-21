@@ -40,13 +40,19 @@ format_str_list={
     "NumberList_calcSub":LangObj._getKeyOfDict("NumberList.calcSub"),
     "NumberList_calcMul":LangObj._getKeyOfDict("NumberList.calcMul"),
     "NumberList_calcDiv":LangObj._getKeyOfDict("NumberList.calcDiv"),
+    "NumberList_calcPow":LangObj._getKeyOfDict("NumberList.calcPow"),
+    "NumberList_calcIntDiv":LangObj._getKeyOfDict("NumberList.calcIntDiv"),
+    "NumberList_calcMod":LangObj._getKeyOfDict("NumberList.calcMod"),
 
     "real_number_3_14":NumberList.calcDiv(NumberList.digit3(Number.three(),Number.one(),Number.four()),NumberList.digit3(Number.one(),Number.zero(),Number.zero())),
 
     "NumberList_IntNL2BL":LangObj._getKeyOfDict("NumberList.IntNL2BL"),
     "BoolList_IntBL2NL":LangObj._getKeyOfDict("BoolList.IntBL2NL"),
+    "NumberList_FloatNL2BL":LangObj._getKeyOfDict("NumberList.FloatNL2BL"),
+    "BoolList_FloatBL2NL":LangObj._getKeyOfDict("BoolList.FloatBL2NL"),
 
     "BoolList_Int":LangObj._getKeyOfDict("BoolList.Int"),
+    "BoolList_Float":LangObj._getKeyOfDict("BoolList.Float"),
 
 }
 

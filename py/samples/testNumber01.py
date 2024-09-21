@@ -123,3 +123,10 @@ print(a_minus_02_abs.getNumber())
 a_minus_02_minus_abs=NumberList.abs(a_minus_02_minus)
 print(a_minus_02_minus_abs)
 print(a_minus_02_minus_abs.getNumber())
+
+b_01=NumberList.digit1(Number.seven())
+b_02=NumberList.digit1(Number.two())
+
+print(NumberList.calcPow(b_01,b_02).getNumber())#7**2=49
+print(NumberList.calcIntDiv(b_01,b_02).getNumber())#7//2=3
+print(NumberList.calcMod(b_01,b_02).getNumber())#7%2=1

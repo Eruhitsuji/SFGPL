@@ -71,9 +71,9 @@ mi ga so ma fa 'apple' so mel pel bal
 mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil bil
 ```
 
-### 四則演算
+### 数値計算
 
-そして，次の表のようにNumberListでは四則演算を行う関数が存在する．
+そして，次の表のようにNumberListでは四則演算等の数値計算を行う関数が存在する．
 
 ||SFGPL|
 |:-:|:-:|
@@ -81,6 +81,9 @@ mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil b
 |Subtraction|tel|
 |Multiplication|til|
 |Division|tul|
+|Power|dal|
+|Int Division|del|
+|Remainder|dil|
 
 ### 実数の扱い方
 
@@ -93,17 +96,29 @@ tul mil pul pel pol mil pel pal pal
 
 ### BoolListとNumberListの相互変換
 
-加えて，次の表のように整数のBoolListとNumberListを相互に変換する関数が存在する．
+次の表のようにBoolListとNumberListを相互に変換する関数が存在する．
 
-|SFGPL|from|to|
-|:-:|:-:|:-:|
-|tol|NumberList|BoolList|
-|tos|BoolList|NumberList|
+|Type|SFGPL|from|to|
+|:-:|:-:|:-:|:-:|
+|Int|tol|NumberList|BoolList|
+|Int|tos|BoolList|NumberList|
+|Float|dol|NumberList|BoolList|
+|Float|dos|BoolList|NumberList|
 
+#### 整数型における相互変換
+
+整数として相互変換する関数```tol```と```tos```が存在する．
 これらの変換で扱われる数値は，BoolListを整数型(```tes```)として見做される．
 つまり，このときのBoolListの値は，2進数の2の補数表現方法と同等である．
 これらの値は，NumberListによって，四則演算等の数値計算が行われた場合も適応できる．
 ただし，NumberListが除算結果などにより実数となっている場合は，変換ができずエラーとなる．
+
+#### 浮動小数点型（実数）における相互変換
+
+浮動小数点（実数）として相互変換する関数```dol```と```dos```が存在する．
+これらの変換で扱われる数値は，BoolListを浮動小数点型(```tis```)として見做される．
+つまり，このときのBoolListの値は，IEEE754における半精度，単精度，倍精度，四倍精度の浮動小数点表現方法が用いられる．
+また，NumberListからBoolListに変換する際には，64bitの倍精度浮動小数点数として変換され，BoolListに格納される．
 
 ## 単語集
 

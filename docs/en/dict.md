@@ -178,6 +178,7 @@ See [dict.csv](https://github.com/Eruhitsuji/SFGPL/blob/main/dict.csv) for detai
 |166|das|```BoolList.UnixTimeD```|das A|BoolListを日単位のUnixTimeとする|BoolList as UnixTime in days|
 |167|des|```BoolList.UnixTimeDT```|des A|BoolListを秒単位のUnixTimeとする|BoolList as UnixTime in seconds|
 |168|dis|```BoolList.UnixTimeDTN```|dis A|BoolListをナノ秒単位のUnixTimeとする|BoolList as UnixTime in nanoseconds|
+|169|dos|```BoolList.FloatBL2NL```|dos A|浮動小数点の実数のBoolListをNumberListに変換する|Convert an Floating-point real numbers BoolList to a NumberList|
 |169|pat|```LangFunc.setFunc```|pat A B|あるLangListを引数とするAという名前のBを返す関数を設定する|Set up a function that returns B named A with a certain LangList as an argument.|
 |170|pit|```LangFunc.arg```|pit|```LangFunc.setFunc()```の引数用に使用する|Used for ```LangFunc.setFunc()``` arguments|
 |171|pot|```LangFunc.runFunc```|pot A B|設定したAという名前のLangFuncを引数Bとして実行する|Execute the configured LangFunc named A with argument B|
@@ -217,7 +218,11 @@ See [dict.csv](https://github.com/Eruhitsuji/SFGPL/blob/main/dict.csv) for detai
 |205|til|```NumberList.calcMul```|til A B|2つのNumberListに対して乗算をする|Perform multiplication on two NumberLists|
 |206|tul|```NumberList.calcDiv```|tul A B|2つのNumberListに対して除算をする|Perform division on two NumberLists|
 |207|tol|```NumberList.IntNL2BL```|tol A|整数のNumberListをBoolListに変換する|Convert an integer NumberList to a BoolList|
-|208|sal|```NumberList.isPN```|sal A|正の数かを判定する|Determine if it is a positive number|
-|209|sel|```NumberList.minus```|sel A|符号を反転させる|Reversing the sign|
-|210|sil|```NumberList.abs```|sil A|整数の絶対値を取得する|Obtaining the absolute value of an integer|
+|208|dal|```NumberList.calcPow```|dal A B|2つのNumberListに対して累乗をする|Performs a power over two NumberLists|
+|209|del|```NumberList.calcIntDiv```|del A B|2つのNumberListに対して整数除算をする|Perform integer division on two NumberLists|
+|210|dil|```NumberList.calcMod```|dil A B|2つのNumberListに対して剰余をする|Performs remainder with respect to two NumberLists|
+|211|dol|```NumberList.FloatNL2BL```|dol A|浮動小数点の実数のNumberListをBoolListに変換する|Convert a Floating-point real numbers NumberList to a BoolList|
+|212|sal|```NumberList.isPN```|sal A|正の数かを判定する|Determine if it is a positive number|
+|213|sel|```NumberList.minus```|sel A|符号を反転させる|Reversing the sign|
+|214|sil|```NumberList.abs```|sil A|整数の絶対値を取得する|Obtaining the absolute value of an integer|
 
