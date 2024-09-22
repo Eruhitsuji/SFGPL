@@ -43,8 +43,8 @@ format_str_list={
     "NumberList_calcPow":LangObj._getKeyOfDict("NumberList.calcPow"),
     "NumberList_calcIntDiv":LangObj._getKeyOfDict("NumberList.calcIntDiv"),
     "NumberList_calcMod":LangObj._getKeyOfDict("NumberList.calcMod"),
-
-    "real_number_3_14":NumberList.calcDiv(NumberList.digit3(Number.three(),Number.one(),Number.four()),NumberList.digit3(Number.one(),Number.zero(),Number.zero())),
+    "NumberList_minus":LangObj._getKeyOfDict("NumberList.minus"),
+    "NumberList_abs":LangObj._getKeyOfDict("NumberList.abs"),
 
     "NumberList_IntNL2BL":LangObj._getKeyOfDict("NumberList.IntNL2BL"),
     "BoolList_IntBL2NL":LangObj._getKeyOfDict("BoolList.IntBL2NL"),
@@ -53,6 +53,15 @@ format_str_list={
 
     "BoolList_Int":LangObj._getKeyOfDict("BoolList.Int"),
     "BoolList_Float":LangObj._getKeyOfDict("BoolList.Float"),
+
+    "real_number_3_14_div":NumberList.calcDiv(NumberList.digit3(Number.three(),Number.one(),Number.four()),NumberList.digit3(Number.one(),Number.zero(),Number.zero())),
+    "real_number_3_14_bl":BoolList.FloatBL2NL(BoolList.float64Number2BoolListObj(3.14)),
+
+    "NumberList_isPN":LangObj._getKeyOfDict("NumberList.isPN"),
+    "Bool_true":LangObj._getKeyOfDict("Bool.true"),
+    
+    "isPN_4":NumberList.isPN(NumberList.digit1(Number.four())),
+    "isPN_-4":NumberList.isPN(NumberList.minus(NumberList.digit1(Number.four()))),
 
 }
 

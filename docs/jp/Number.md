@@ -75,24 +75,17 @@ mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil b
 
 そして，次の表のようにNumberListでは四則演算等の数値計算を行う関数が存在する．
 
-||SFGPL|
-|:-:|:-:|
-|Addition|tal|
-|Subtraction|tel|
-|Multiplication|til|
-|Division|tul|
-|Power|dal|
-|Int Division|del|
-|Remainder|dil|
-
-### 実数の扱い方
-
-実数を扱うには除算を利用する．
-例えば3.14を表すには次のようにする．
-
-```SFGPL
-tul mil pul pel pol mil pel pal pal
-```
+||Python|SFGPL|
+|:-:|:-:|:-:|
+|Addition|```A+B```|tal A B|
+|Subtraction|```A-B```|tel A B|
+|Multiplication|```A*B```|til A B|
+|Division|```A/B```|tul A B|
+|Power|```A**B```|dal A B|
+|Int Division|```A//B```|del A B|
+|Remainder|```A%B```|dil A B|
+|Minus|```-A```|sel A|
+|Absolute value|```abs(A)```|sil A|
 
 ### BoolListとNumberListの相互変換
 
@@ -119,6 +112,33 @@ tul mil pul pel pol mil pel pal pal
 これらの変換で扱われる数値は，BoolListを浮動小数点型(```tis```)として見做される．
 つまり，このときのBoolListの値は，IEEE754における半精度，単精度，倍精度，四倍精度の浮動小数点表現方法が用いられる．
 また，NumberListからBoolListに変換する際には，64bitの倍精度浮動小数点数として変換され，BoolListに格納される．
+
+### 実数の扱い方
+
+実数を扱うためには，NumberListの除算(```tul```)を使用する方法と，BoolListで浮動小数点数を表しそれをNumberListに変換する方法がある．
+
+例えば3.14を除算によって表すには次のようにする．
+
+```SFGPL
+tul mil pul pel pol mil pel pal pal
+```
+
+同様に，3.14を倍精度浮動小数点で表す場合は次のようにする．
+
+```SFGPL
+dos fos fos fos mos pas pos pas pas pas pas pas pas mos pas pas pas pas pos pas pas pos fos mos pas pas pas pos pos pos pos pas mos pos pas pos pos pos pas pas pas fos fos mos pas pos pas pos pas pas pas pos mos pos pos pos pas pos pas pos pos fos mos pos pas pas pas pas pos pas pos mos pas pas pas pos pos pos pos pos
+```
+
+### 正の数の判定
+
+NumberListで正の数かを判定するには，```sal```を使用する．
+これによって，SFGPLのBool型が出力され，0以上の数の場合が```pos```と同値になる．
+例えば，4と-4の2つの場合において正の整数か判定するには次のようにする．
+
+```SFGPL
+sal mal pol
+sal sel mal pol
+```
 
 ## 単語集
 

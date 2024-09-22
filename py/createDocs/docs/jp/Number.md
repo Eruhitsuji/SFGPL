@@ -71,24 +71,17 @@ SFGPLで，"I have five apples."を表すには次のようにする．
 
 そして，次の表のようにNumberListでは四則演算等の数値計算を行う関数が存在する．
 
-||SFGPL|
-|:-:|:-:|
-|Addition|{NumberList_calcAdd}|
-|Subtraction|{NumberList_calcSub}|
-|Multiplication|{NumberList_calcMul}|
-|Division|{NumberList_calcDiv}|
-|Power|{NumberList_calcPow}|
-|Int Division|{NumberList_calcIntDiv}|
-|Remainder|{NumberList_calcMod}|
-
-### 実数の扱い方
-
-実数を扱うには除算を利用する．
-例えば3.14を表すには次のようにする．
-
-```SFGPL
-{real_number_3_14}
-```
+||Python|SFGPL|
+|:-:|:-:|:-:|
+|Addition|```A+B```|{NumberList_calcAdd} A B|
+|Subtraction|```A-B```|{NumberList_calcSub} A B|
+|Multiplication|```A*B```|{NumberList_calcMul} A B|
+|Division|```A/B```|{NumberList_calcDiv} A B|
+|Power|```A**B```|{NumberList_calcPow} A B|
+|Int Division|```A//B```|{NumberList_calcIntDiv} A B|
+|Remainder|```A%B```|{NumberList_calcMod} A B|
+|Minus|```-A```|{NumberList_minus} A|
+|Absolute value|```abs(A)```|{NumberList_abs} A|
 
 ### BoolListとNumberListの相互変換
 
@@ -115,6 +108,33 @@ SFGPLで，"I have five apples."を表すには次のようにする．
 これらの変換で扱われる数値は，BoolListを浮動小数点型(```{BoolList_Float}```)として見做される．
 つまり，このときのBoolListの値は，IEEE754における半精度，単精度，倍精度，四倍精度の浮動小数点表現方法が用いられる．
 また，NumberListからBoolListに変換する際には，64bitの倍精度浮動小数点数として変換され，BoolListに格納される．
+
+### 実数の扱い方
+
+実数を扱うためには，NumberListの除算(```{NumberList_calcDiv}```)を使用する方法と，BoolListで浮動小数点数を表しそれをNumberListに変換する方法がある．
+
+例えば3.14を除算によって表すには次のようにする．
+
+```SFGPL
+{real_number_3_14_div}
+```
+
+同様に，3.14を倍精度浮動小数点で表す場合は次のようにする．
+
+```SFGPL
+{real_number_3_14_bl}
+```
+
+### 正の数の判定
+
+NumberListで正の数かを判定するには，```{NumberList_isPN}```を使用する．
+これによって，SFGPLのBool型が出力され，0以上の数の場合が```{Bool_true}```と同値になる．
+例えば，4と-4の2つの場合において正の整数か判定するには次のようにする．
+
+```SFGPL
+{isPN_4}
+{isPN_-4}
+```
 
 ## 単語集
 

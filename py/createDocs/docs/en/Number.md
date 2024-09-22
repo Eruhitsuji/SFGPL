@@ -71,24 +71,17 @@ The following sentence represents "Japan has 125416877 people." in the SFGPL.
 
 As shown in the following table, NumberList has functions that perform numerical calculations such as four arithmetic operations.
 
-||SFGPL|
-|:-:|:-:|
-|Addition|{NumberList_calcAdd}|
-|Subtraction|{NumberList_calcSub}|
-|Multiplication|{NumberList_calcMul}|
-|Division|{NumberList_calcDiv}|
-|Power|{NumberList_calcPow}|
-|Int Division|{NumberList_calcIntDiv}|
-|Remainder|{NumberList_calcMod}|
-
-### How to handle real numbers
-
-When you want to deal with real numbers, use division.
-For example, 3.14 can be expressed as follows.
-
-```SFGPL
-{real_number_3_14}
-```
+||Python|SFGPL|
+|:-:|:-:|:-:|
+|Addition|```A+B```|{NumberList_calcAdd} A B|
+|Subtraction|```A-B```|{NumberList_calcSub} A B|
+|Multiplication|```A*B```|{NumberList_calcMul} A B|
+|Division|```A/B```|{NumberList_calcDiv} A B|
+|Power|```A**B```|{NumberList_calcPow} A B|
+|Int Division|```A//B```|{NumberList_calcIntDiv} A B|
+|Remainder|```A%B```|{NumberList_calcMod} A B|
+|Minus|```-A```|{NumberList_minus} A|
+|Absolute value|```abs(A)```|{NumberList_abs} A|
 
 ### Interconversion between BoolList and NumberList
 
@@ -115,6 +108,33 @@ There are ```{NumberList_FloatNL2BL}``` and ```{BoolList_FloatBL2NL}``` that con
 The numbers handled by these conversions consider BoolList as a floating-point type (```{BoolList_Float}```).
 In other words, the BoolList values in this case use the half-precision, single-precision, double-precision, and quadruple-precision floating-point representation methods in IEEE754.
 When converting from NumberList to BoolList, it is converted as a 64-bit double-precision floating-point number and stored in BoolList.
+
+### How to handle real numbers
+
+To handle real numbers, you can use NumberList division (```{NumberList_calcDiv}```), or you can represent floating-point numbers in a BoolList and convert it to a NumberList.
+
+For example, 3.14 can be expressed by division as follows.
+
+```SFGPL
+{real_number_3_14_div}
+```
+
+Similarly, to express 3.14 in double-precision floating point, do the following.
+
+```SFGPL
+{real_number_3_14_bl}
+```
+
+### Determination of positive numbers
+
+To determine whether a NumberList is a positive number, use ```{NumberList_isPN}```.
+This will output the SFGPL Bool type, which is equivalent to ```{Bool_true}``` if the number is greater than or equal to zero.
+For example, to determine whether an integer is positive in the two cases of 4 and -4, do the following.
+
+```SFGPL
+{isPN_4}
+{isPN_-4}
+```
 
 ## Wordbook
 

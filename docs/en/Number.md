@@ -75,24 +75,17 @@ mi fa 'Japan' so ma fa 'people' so fol mul pel pil bal pol mol pel bel bul bil b
 
 As shown in the following table, NumberList has functions that perform numerical calculations such as four arithmetic operations.
 
-||SFGPL|
-|:-:|:-:|
-|Addition|tal|
-|Subtraction|tel|
-|Multiplication|til|
-|Division|tul|
-|Power|dal|
-|Int Division|del|
-|Remainder|dil|
-
-### How to handle real numbers
-
-When you want to deal with real numbers, use division.
-For example, 3.14 can be expressed as follows.
-
-```SFGPL
-tul mil pul pel pol mil pel pal pal
-```
+||Python|SFGPL|
+|:-:|:-:|:-:|
+|Addition|```A+B```|tal A B|
+|Subtraction|```A-B```|tel A B|
+|Multiplication|```A*B```|til A B|
+|Division|```A/B```|tul A B|
+|Power|```A**B```|dal A B|
+|Int Division|```A//B```|del A B|
+|Remainder|```A%B```|dil A B|
+|Minus|```-A```|sel A|
+|Absolute value|```abs(A)```|sil A|
 
 ### Interconversion between BoolList and NumberList
 
@@ -119,6 +112,33 @@ There are ```dol``` and ```dos``` that convert each other as floating-point (rea
 The numbers handled by these conversions consider BoolList as a floating-point type (```tis```).
 In other words, the BoolList values in this case use the half-precision, single-precision, double-precision, and quadruple-precision floating-point representation methods in IEEE754.
 When converting from NumberList to BoolList, it is converted as a 64-bit double-precision floating-point number and stored in BoolList.
+
+### How to handle real numbers
+
+To handle real numbers, you can use NumberList division (```tul```), or you can represent floating-point numbers in a BoolList and convert it to a NumberList.
+
+For example, 3.14 can be expressed by division as follows.
+
+```SFGPL
+tul mil pul pel pol mil pel pal pal
+```
+
+Similarly, to express 3.14 in double-precision floating point, do the following.
+
+```SFGPL
+dos fos fos fos mos pas pos pas pas pas pas pas pas mos pas pas pas pas pos pas pas pos fos mos pas pas pas pos pos pos pos pas mos pos pas pos pos pos pas pas pas fos fos mos pas pos pas pos pas pas pas pos mos pos pos pos pas pos pas pos pos fos mos pos pas pas pas pas pos pas pos mos pas pas pas pos pos pos pos pos
+```
+
+### Determination of positive numbers
+
+To determine whether a NumberList is a positive number, use ```sal```.
+This will output the SFGPL Bool type, which is equivalent to ```pos``` if the number is greater than or equal to zero.
+For example, to determine whether an integer is positive in the two cases of 4 and -4, do the following.
+
+```SFGPL
+sal mal pol
+sal sel mal pol
+```
 
 ## Wordbook
 
