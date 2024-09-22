@@ -2336,7 +2336,14 @@ class BoolList(_BaseList):
         tmp_list=[]
         for i in range(0,len(py_bool_list),8):
             tmp_list.append(BoolList.byte(*[Bool.true() if item else Bool.false() for item in py_bool_list[i:i+8]]))
-        return BLAdd(tmp_list)
+        
+        r_tmp=BLAdd(tmp_list)
+        if((not isinstance(r_tmp,list) and isinstance(r_tmp,BoolList))):
+              return r_tmp
+        elif(isinstance(r_tmp,list)):
+            if(len(r_tmp)==1):
+                return r_tmp[0]
+        return None
     
     @staticmethod
     def _float2BLList(value:float):
