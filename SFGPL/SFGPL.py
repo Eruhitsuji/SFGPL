@@ -2250,6 +2250,7 @@ class BoolList(_BaseList):
         bin_str=BoolList._int2binStr(n)
         return BoolList._binStr2BLList(bin_str)
 
+    #Function to convert a 32-bit binary string to SFGPL's BoolList
     @staticmethod
     def binstr32ToBoolList(bin_str:str):
         if(len(bin_str)==32):
@@ -2269,6 +2270,7 @@ class BoolList(_BaseList):
         else:
             return None
     
+    #Function to convert a hexadecimal string to SFGPL's BoolList
     @staticmethod
     def hexstr2BoolList(hex_str:str,bin_order_num:int=16,del_space:bool=True):
         def toBinStr(i:int,order:int):
@@ -2297,6 +2299,7 @@ class BoolList(_BaseList):
         r.reverse()
         return r
 
+    #Function to convert a decimal natural number to SFGPL's BoolList
     @staticmethod
     def dec2BoolList(num:int,msb_false_flag:bool=False):
         if(num>0):
@@ -2316,6 +2319,8 @@ class BoolList(_BaseList):
         else:
             return None
         
+    #Function to convert a list with elements of type bool in Python to SFGPL's BoolList
+    #However, the length of the list must be a multiple of 8
     @staticmethod
     def convBytes2BL(py_bool_list:list):
         def BLAdd(add_list:list):
@@ -2323,7 +2328,7 @@ class BoolList(_BaseList):
             if(add_list_len<=0):
                 return None
             elif(add_list_len==1):
-                return add_list
+                return add_list[0]
             elif(add_list_len==2):
                 return BoolList.add(add_list[0],add_list[1])
             else:
@@ -2345,11 +2350,24 @@ class BoolList(_BaseList):
                 return r_tmp[0]
         return None
     
+    #Function to convert a file on your computer to SFGPL's BoolList
+    @staticmethod
+    def convFile2BoolList(path:str):
+        with open(path,"rb") as f:
+            binary_data=f.read()
+
+        binary_string="".join(format(byte,"08b") for byte in binary_data)
+        py_bool_list=[b=="1" for b in binary_string]
+
+        print(len(py_bool_list))
+        return BoolList.convBytes2BL(py_bool_list)
+
     @staticmethod
     def _float2BLList(value:float):
         bits=struct.unpack('>Q',struct.pack('>d',value))[0]
         return [(bits>>i)&1==1 for i in range(63,-1,-1)]
     
+    #Function to convert a 64-bit floating-point number based on IEEE754 to SFGPL's BoolList
     @staticmethod
     def float64Number2BoolListObj(value:float):
         return BoolList.convBytes2BL(BoolList._float2BLList(value))
@@ -3069,6 +3087,7 @@ class NumberList(_BaseList):
         number_obj_list=Number._getNumberObjList()
         return [number_obj_list[int(n)] for n in str(i_num)]
         
+    #Function to convert a natural number to SFGPL's NumberList
     @staticmethod
     def NaturalNumber2NumberList(i_num:int):
         obj_list=NumberList._intNumber2NumberObjList(i_num)
