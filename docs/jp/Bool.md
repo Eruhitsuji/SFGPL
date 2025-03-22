@@ -34,6 +34,13 @@ pis ma ga so fa 'student' pos
 be pos pas
 ```
 
+同様に，Bool型が継承された名詞に対しても使用可能である．
+次では"It is true that I am a student."に対しての否定を表している．
+
+```SFGPL
+pa pis ma ga so fa 'student' pos
+```
+
 LangObjには通常のIFELSE```bi```の他に，logicIFELSE```ja```が存在する．
 この単語により，条件を満たすかどうかで内部的に実行する文章（単語）を変えることができる．
 "If true, I am a student."を表すには次のようにする．

@@ -27,6 +27,7 @@ format_str_list={
     "Bool_B2N":LangObj._getKeyOfDict("Bool.B2N"),
 
     "It_is_true_that_I_am_a_student":Bool.B2N(I_am_a_student,Bool.true()),
+    "NOT_It_is_true_that_I_am_a_student":Noun.NOT(Bool.B2N(I_am_a_student,Bool.true())),
     "I_am_a_student":I_am_a_student,
 
     "LangObj_NOT":LangObj._getKeyOfDict("LangObj.NOT"),

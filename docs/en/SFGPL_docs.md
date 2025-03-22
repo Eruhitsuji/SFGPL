@@ -1,7 +1,7 @@
 ---
 title: Introduction to the SFGPL
 author: Eruhitsuji
-date: 2024-10-02
+date: 2025-03-22
 ---
 
 <div class="tex_part" text="Overview and basic grammar of the SFGPL"></div>
@@ -1831,6 +1831,13 @@ For example, to represent ```True OR False```, the following is used.
 be pos pas
 ```
 
+Similarly, the Bool type can be used for inherited nouns.
+The following shows the negation of “It is true that I am a student.
+
+```SFGPL
+pa pis ma ga so fa 'student' pos
+```
+
 Besides the usual IFELSE ```bi```, LangObj has a logicIFELSE ```ja```.
 This word allows you to change the sentence (word) to be executed internally depending on whether or not the condition is met.
 "If true, I am a student." can be expressed as follows.
@@ -2380,6 +2387,8 @@ The following table shows example sentences from the SFGPL.
 |te len gi sa 'play' fa 'guitar'|```Noun.doT(DeterminerN.female(Pronoun.he()),Verb("'play'"),Noun("'guitar'"))```|She plays the guitar.|
 |ta ma gi so san fa 'phone' ni sa 'ring'|```Noun.do(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("'phone'"))),Verb.progressive(Verb("'ring'")))```|The phone is ringing.|
 |ta mi ga so san fa 'phone' ni sa 'ring'|```Noun.do(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("'phone'"))),Verb.progressive(Verb("'ring'")))```|My phone is ringing.|
+|ta ma lan gi so san fa 'phone' ni sa 'ring'|```Noun.do(Noun.eq(DeterminerN.male(Pronoun.he()),Verb.none(),DeterminerN.stressed(Noun("'phone'"))),Verb.progressive(Verb("'ring'")))```|His phone is ringing.|
+|ta ma len gi so san fa 'phone' ni sa 'ring'|```Noun.do(Noun.eq(DeterminerN.female(Pronoun.he()),Verb.none(),DeterminerN.stressed(Noun("'phone'"))),Verb.progressive(Verb("'ring'")))```|Her phone is ringing.|
 |te don gi ni sa 'watch' fa 'movie'|```Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.progressive(Verb("'watch'")),Noun("'movie'"))```|They are watching a movie.|
 
 
@@ -2717,5 +2726,6 @@ The content of updates due to changes in version names is based on the following
 |7.4.0|Additional floating point conversions between BoolList and NumberList, additional operation types for NumberList|
 |7.4.1|Add and modify to documents|
 |7.4.2|Adds and modifies documentation and [SFGPL.py](SFGPL.py)|
-|7.1.3|Adds and modifies documentation and [SFGPL.py](SFGPL.py)|
+|7.4.3|Adds and modifies documentation and [SFGPL.py](SFGPL.py)|
+|7.4.4|Add and modify to documents|
 

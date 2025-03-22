@@ -1,7 +1,7 @@
 ---
 title: SFGPL入門
 author: Eruhitsuji
-date: 2024-10-02
+date: 2025-03-22
 ---
 
 <div class="tex_part" text="SFGPLの概要と基礎的な文法"></div>
@@ -1836,6 +1836,13 @@ pis ma ga so fa 'student' pos
 be pos pas
 ```
 
+同様に，Bool型が継承された名詞に対しても使用可能である．
+次では"It is true that I am a student."に対しての否定を表している．
+
+```SFGPL
+pa pis ma ga so fa 'student' pos
+```
+
 LangObjには通常のIFELSE```bi```の他に，logicIFELSE```ja```が存在する．
 この単語により，条件を満たすかどうかで内部的に実行する文章（単語）を変えることができる．
 "If true, I am a student."を表すには次のようにする．
@@ -2385,6 +2392,8 @@ me mi ga so san fa 'sak' so la 'ruĝ'
 |te len gi sa 'play' fa 'guitar'|```Noun.doT(DeterminerN.female(Pronoun.he()),Verb("'play'"),Noun("'guitar'"))```|She plays the guitar.|
 |ta ma gi so san fa 'phone' ni sa 'ring'|```Noun.do(Noun.eq(Pronoun.he(),Verb.none(),DeterminerN.stressed(Noun("'phone'"))),Verb.progressive(Verb("'ring'")))```|The phone is ringing.|
 |ta mi ga so san fa 'phone' ni sa 'ring'|```Noun.do(Noun.have(Pronoun.I(),Verb.none(),DeterminerN.stressed(Noun("'phone'"))),Verb.progressive(Verb("'ring'")))```|My phone is ringing.|
+|ta ma lan gi so san fa 'phone' ni sa 'ring'|```Noun.do(Noun.eq(DeterminerN.male(Pronoun.he()),Verb.none(),DeterminerN.stressed(Noun("'phone'"))),Verb.progressive(Verb("'ring'")))```|His phone is ringing.|
+|ta ma len gi so san fa 'phone' ni sa 'ring'|```Noun.do(Noun.eq(DeterminerN.female(Pronoun.he()),Verb.none(),DeterminerN.stressed(Noun("'phone'"))),Verb.progressive(Verb("'ring'")))```|Her phone is ringing.|
 |te don gi ni sa 'watch' fa 'movie'|```Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.progressive(Verb("'watch'")),Noun("'movie'"))```|They are watching a movie.|
 
 
@@ -2722,4 +2731,5 @@ SFGPLでは，```A.B.C```のようなバージョンを使用し，管理して�
 |7.4.1|ドキュメントの追加・修正|
 |7.4.2|ドキュメントと[SFGPL.py](SFGPL.py)の追加・修正|
 |7.4.3|ドキュメントと[SFGPL.py](SFGPL.py)の追加・修正|
+|7.4.4|ドキュメントの追加・修正|
 

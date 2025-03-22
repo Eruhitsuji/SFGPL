@@ -34,6 +34,13 @@ For example, to represent ```True OR False```, the following is used.
 be pos pas
 ```
 
+Similarly, the Bool type can be used for inherited nouns.
+The following shows the negation of “It is true that I am a student.
+
+```SFGPL
+pa pis ma ga so fa 'student' pos
+```
+
 Besides the usual IFELSE ```bi```, LangObj has a logicIFELSE ```ja```.
 This word allows you to change the sentence (word) to be executed internally depending on whether or not the condition is met.
 "If true, I am a student." can be expressed as follows.

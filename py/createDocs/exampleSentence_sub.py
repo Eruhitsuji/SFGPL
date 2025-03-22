@@ -518,6 +518,16 @@ sc.setCorpus(
 )
 
 sc.setCorpus(
+    Noun.do(Noun.eq(DeterminerN.male(Pronoun.he()),Verb.none(),DeterminerN.stressed(Noun("phone"))),Verb.progressive(Verb("ring"))),
+    "His phone is ringing."
+)
+
+sc.setCorpus(
+    Noun.do(Noun.eq(DeterminerN.female(Pronoun.he()),Verb.none(),DeterminerN.stressed(Noun("phone"))),Verb.progressive(Verb("ring"))),
+    "Her phone is ringing."
+)
+
+sc.setCorpus(
     Noun.doT(DeterminerN.plural(Pronoun.he()),Verb.progressive(Verb("watch")),Noun("movie")),
     "They are watching a movie."
 )

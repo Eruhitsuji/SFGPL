@@ -105,4 +105,5 @@ The content of updates due to changes in version names is based on the following
 |7.4.0|Additional floating point conversions between BoolList and NumberList, additional operation types for NumberList|
 |7.4.1|Add and modify to documents|
 |7.4.2|Adds and modifies documentation and [SFGPL.py](SFGPL.py)|
-|7.1.3|Adds and modifies documentation and [SFGPL.py](SFGPL.py)|
+|7.4.3|Adds and modifies documentation and [SFGPL.py](SFGPL.py)|
+|7.4.4|Add and modify to documents|

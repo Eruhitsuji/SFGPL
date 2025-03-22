@@ -30,6 +30,13 @@ Bool型のFalseとTrueは次のように表される．
 {true_or_false}
 ```
 
+同様に，Bool型が継承された名詞に対しても使用可能である．
+次では"It is true that I am a student."に対しての否定を表している．
+
+```SFGPL
+{NOT_It_is_true_that_I_am_a_student}
+```
+
 LangObjには通常のIFELSE```{LangObj_IFELSE}```の他に，logicIFELSE```{LangObj_logicIFELSE}```が存在する．
 この単語により，条件を満たすかどうかで内部的に実行する文章（単語）を変えることができる．
 "If true, I am a student."を表すには次のようにする．

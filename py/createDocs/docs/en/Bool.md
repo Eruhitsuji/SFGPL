@@ -30,6 +30,13 @@ For example, to represent ```True OR False```, the following is used.
 {true_or_false}
 ```
 
+Similarly, the Bool type can be used for inherited nouns.
+The following shows the negation of “It is true that I am a student.
+
+```SFGPL
+{NOT_It_is_true_that_I_am_a_student}
+```
+
 Besides the usual IFELSE ```{LangObj_IFELSE}```, LangObj has a logicIFELSE ```{LangObj_logicIFELSE}```.
 This word allows you to change the sentence (word) to be executed internally depending on whether or not the condition is met.
 "If true, I am a student." can be expressed as follows.
