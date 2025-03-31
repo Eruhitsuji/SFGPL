@@ -3,6 +3,7 @@
 import os
 import sys
 import re
+import html
 
 GITHUB_REPOSITORY="https://github.com/Eruhitsuji/SFGPL/blob/main/"
 
@@ -85,6 +86,33 @@ def tdNewLineReplace(td_str):
             td_str=re.sub(config["key"],config[R_MODE],td_str)
     return td_str
 
+RESERVED_WORDS={
+    "do",
+    "if",
+    "else",
+    "for",
+    "while",
+    "return",
+    "def",
+    "class",
+    "try",
+    "except"
+}
+
+def fixInlineCodeReservedAfterDot(line):
+    pattern=r"`([A-Za-z_][\w]*)\.([a-zA-Z_][\w]*)`"
+ 
+    def repl(match):
+        before=match.group(1)
+        after=match.group(2)
+        if(after in RESERVED_WORDS):
+            full_word=before+"."+after
+            return "\\texttt{{{}}}".format(full_word)
+        else:
+            return match.group(0)
+
+    return re.sub(pattern,repl,line)   
+
 if __name__ == "__main__":
     path=sys.argv[1]
 
@@ -100,5 +128,6 @@ if __name__ == "__main__":
             line=texSectionLabelReplace(line)
             line=sectionNameReplace(line)
             line=tdNewLineReplace(line)
+            line=fixInlineCodeReservedAfterDot(line)
             f.write(line)
 

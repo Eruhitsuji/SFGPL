@@ -3806,7 +3806,7 @@ class SFGPLCorpus():
                     if(py_code_space_flag):
                         tmp_str=SFGPLCorpus.__pyCodeSpaceReplace(tmp_str)
                     if(py_code_md_code_flag):
-                        tmp_str=f"```{tmp_str}```"
+                        tmp_str=f"`{tmp_str}`"
                 
                 r_str+=tmp_str+SPLIT_STR
             r_str+=NEW_LINE_STR

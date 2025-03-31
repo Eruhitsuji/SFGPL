@@ -9,6 +9,7 @@ out_dir=${3:-"./"}
 tmp_dir=${4:-".tmp"}
 script_dir=${5:-"./"}
 filter_py_path_name=${6:-"pandoc_prefilter.py"}
+listing_setup_tex_path_name=${7:-"listings-setup.tex"}
 
 c_dir=$(pwd)
 
@@ -18,6 +19,7 @@ mkdir -p $tmp_dir
 cp $md_path_name.md $tmp_dir
 cp -r $img_dir/. $tmp_dir
 cp $script_dir/$filter_py_path_name $tmp_dir
+cp $script_dir/$listing_setup_tex_path_name $tmp_dir
 cd $tmp_dir
 
 python3 $filter_py_path_name $base_path_name.md
@@ -27,6 +29,7 @@ docker run --rm -v $(pwd):/data frozenbonito/pandoc-eisvogel-ja:plantuml \
     -N \
     --toc \
     --toc-depth=4 \
+    -H $listing_setup_tex_path_name \
     -V linkcolor=blue \
     -V table-use-row-colors=true \
     -V titlepage=true \
